@@ -1,0 +1,173 @@
+<style>
+     .links-section {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1300px;
+        padding: 10px;
+        justify-content: flex-start;
+        column-gap: 0;
+        margin-top: 20px;
+        margin:0 auto;
+        border-bottom: 2px solid #ccc;
+    }
+
+    .link-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      flex: 1 1 250px;
+      min-width: 200px;
+    }
+
+    .link-box img {
+      width: 120px;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    .link-content .link-heading {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 0 8px 0;
+      color: black;
+      font-family: 'BlinkerRegular', Assistant, sans-serif !important;
+      text-align: left;
+      text-transform: capitalize;
+    }
+
+    .link-content a {
+      display: block;
+      color: #5a8693;
+      margin: 4px 0;
+      font-size: 20px;
+      text-decoration:underline;
+      transition: color 0.3s ease;
+    }
+
+    .link-content a:hover {
+      text-decoration: underline;
+      color: #3a5c6f;             /* optional: darker on hover */
+    }
+
+    @media(min-width:561px) and (max-width:1024px){
+        .link-content a {
+      font-size: 17px;
+    }
+      #link-Shop .menu-drawer__inner-submenu .links-section .link-box{
+        flex-flow:column;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      #link-Shop .menu-drawer__inner-submenu .links-section .link-box .link-content h3,
+      #link-Shop .menu-drawer__inner-submenu .links-section .link-box .link-content a{
+        text-align:center;
+      }
+    }
+    @media (max-width: 989px) {
+       .link-box {
+  justify-content: center;
+  align-items: center !important;
+  flex-direction: column;
+
+  }
+  .link-content a{
+    text-align: center;
+  }
+  }
+  @media (max-width: 560px) {
+    .link-box {
+      flex-direction: row;
+      justify-content: flex-start;
+
+
+    }
+    .link-content a {
+          font-size: 13px;
+      }
+  .link-content a {
+      margin: 5px 0;
+  }
+
+      .links-section {
+        flex-direction: row;
+        gap:0px;
+      }
+
+       .links-section {
+      display: unset;
+      flex-wrap: unset;
+      gap: 40px;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0px;
+      font-family: KronaRegular;
+    }
+
+      .link-box{
+        flex:unset;
+      }
+
+      .link-box {
+           width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 21px 20px;
+            border-top: 1px solid gray;
+      }
+
+      .link-box:nth-child(1){
+        border-top: none;
+      }
+
+      .link-box img {
+        width: 100px;
+      }
+
+      .link-content .link-heading {
+        font-size: 18px;
+            display: block;
+            line-height: 1;
+            text-align:left;
+      }
+
+      .link-content a {
+        font-size: 16px;
+            text-align: left;
+            line-height:1;
+            letter-spacing: 0px;
+            font-family: 'BlinkerRegular', Assistant, sans-serif;
+        }
+        .discover-links .mega-menu__list li{
+          margin: 20px 0;
+        }
+      }
+    }
+</style>
+
+<div class="links-section ">
+  {% assign custom_blocks = section.blocks | where: 'type', 'custom_links' %}
+  {% for block in custom_blocks %}
+    <div class="link-box">
+      {% if block.settings.icon %}
+        <img
+          src="{{ block.settings.icon | image_url: width:200 }}"
+          loading="lazy"
+          alt="{{ block.settings.title }}"
+          width=""
+          height=""
+        >
+      {% endif %}
+      <div class="link-content">
+        {% if block.settings.title %}
+          <span class="link-heading">{{ block.settings.title }}</span>
+        {% endif %}
+        {% if block.settings.link_1_text and block.settings.link_1_url %}
+          <a href="{{ block.settings.link_1_url }}">{{ block.settings.link_1_text }}</a>
+        {% endif %}
+        {% if block.settings.link_2_text and block.settings.link_2_url %}
+          <a href="{{ block.settings.link_2_url }}">{{ block.settings.link_2_text }}</a>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>

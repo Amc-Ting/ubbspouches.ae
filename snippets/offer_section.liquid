@@ -1,0 +1,46 @@
+<div class="offer_section">
+  <div class="offer_card">
+    <p>Add 3 or more cans<br>
+20% Off | £4.79 per can</p>
+  </div>
+  
+    <div class="offer_card">
+      <p>Add 6 or more cans<br>
+30% Off | £4.19 per can</p>
+  </div>
+
+    <div class="offer_card">
+      <p>Add 12 or more cans<br>
+40% Off | £3.59 per can</p>
+  </div>
+
+    <div class="offer_card">
+      <p>Add 24 or more cans<br>
+45% Off | £3.29 per can</p>
+  </div>
+
+</div>
+
+<style>
+  .offer_section{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 15px;
+    row-gap: 15px;
+  }
+  .offer_card{
+        padding: 5px 15px;
+    border: 2px solid var(--color_spearmint);
+    border-radius: 12px;
+  }
+  .offer_card p{
+    font-size:16px;
+    line-height:1.2;
+  }
+  @media(max-width:767px){
+    .offer_card p{
+    font-size:12px;
+    
+  }
+  }
+</style>

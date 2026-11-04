@@ -1,0 +1,32 @@
+<section class="the_seo_section">
+  <div class="container">
+    {% if section.settings.title %}<h2 class="text_xxl font_heading text_400 fadeInUp">{{ section.settings.title }}</h2>{% endif %}
+    {{ section.settings.subtitle }}
+  </div>
+</section>
+<style>
+  .the_seo_section{text-align: center;}
+  .the_seo_section *{padding-bottom:15px;}
+</style>
+{% schema %}
+{
+  "name": "SEO Section",
+  "settings": [
+    {
+       "type":"text",
+       "id":"title",
+       "label":"Title"
+    },
+   {
+       "type":"richtext",
+       "id":"subtitle",
+       "label":"Subheading"
+    }
+  ],
+  "presets": [
+    {
+    "name": "SEO Section"
+    }
+  ]
+}
+{% endschema %}

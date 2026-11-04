@@ -1,0 +1,484 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_liquid_cWVhTL": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render 'wholesale_section' %}",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "l_slideshow_Nw3gPm": {
+      "type": "L-slideshow",
+      "blocks": {
+        "slide_ndGR7U": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/wholesale_cherry_banner.jpg",
+            "mob_banner": "shopify://shop_images/wholesale_cherry_mob_banner.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "https://ubbspouches.com/pages/wholesale#wholesale_product",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_hJbpGY": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/wholesale_banner_desk.jpg",
+            "mob_banner": "shopify://shop_images/wholesale_banner_mob.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "https://ubbspouches.com/pages/wholesale#wholesale_product",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "accent-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_83a9eB": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Homepage_Page_PRE-FILLED_DISPLAY_banner.jpg",
+            "mob_banner": "shopify://shop_images/Homepage_Page_Bundle_Mobile.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "https://ubbspouches.com/pages/wholesale#display_unit_section",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_ndGR7U",
+        "slide_hJbpGY",
+        "slide_83a9eB"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "show_text_below": false,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "l_collection_GHGhqf": {
+      "type": "L-collection",
+      "settings": {
+        "title": "THE ÜBBS RANGE",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "wholesale",
+        "products_to_show": 12,
+        "columns_desktop": 3,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
+    "display_unit_section_D6ppYV": {
+      "type": "display_unit_section",
+      "settings": {
+        "desktop_border_img": "shopify://shop_images/PRE-FILLED_DISPLAY_UNITS_500X500_4b2faf73-8000-4060-b6e1-24ce24611d60.png",
+        "mob_border_img": "shopify://shop_images/PRE-FILLED_DISPLAY_UNITS_500X500_4b2faf73-8000-4060-b6e1-24ce24611d60.png",
+        "title": "PRE-FILLED ÜBBS DISPLAY UNIT",
+        "description": "Pre-filled with 18 x übbs cans & shipped ready to sell. A variety of pre-filled options available.",
+        "collection": "pre-filled-cdu",
+        "enable_quick_add": true
+      }
+    },
+    "l_collaterals_BQaG8g": {
+      "type": "L-collaterals",
+      "blocks": {
+        "digital_emwVmU": {
+          "type": "digital",
+          "settings": {
+            "collection": "digital-collaterals",
+            "products_to_show": 6,
+            "columns_desktop": 3,
+            "enable_desktop_slider": true,
+            "columns_mobile": "1",
+            "swipe_on_mobile": true
+          }
+        },
+        "physical_y8gViq": {
+          "type": "physical",
+          "settings": {
+            "collection": "marketing-collateral",
+            "products_to_show": 10,
+            "columns_desktop": 3,
+            "enable_desktop_slider": true,
+            "columns_mobile": "1",
+            "swipe_on_mobile": true
+          }
+        }
+      },
+      "block_order": [
+        "digital_emwVmU",
+        "physical_y8gViq"
+      ],
+      "settings": {
+        "title": "Marketing Materials",
+        "description": "<p>Our suite of both digital & physical marketing collaterals is available to help you elevate übbs in-store & online.<br/></p>",
+        "color_scheme": "accent-1",
+        "padding_top": 60,
+        "padding_bottom": 36
+      }
+    },
+    "faq_with_tabs_87EbXA": {
+      "type": "faq_with_tabs",
+      "blocks": {
+        "tab1_faq_Nxz47y": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "Why stock Übbs?",
+            "answer": "<p>Nicotine pouch sales are rapidly growing and now is the time to start stocking this product. But why  Übbs and not another pouch brand? We bring consumers a quality nicotine pouch experience, with pouches that are manufactured to pharmaceutical grade standards under an approved license. We source only the very best ingredients and materials for our pouches - from the pouches non-woven fabric, to our carefully curated flavours, to our packaging. We’ve done the research and passed all the tests so you can be confident that a high quality product reaches your shelves. We are already backed by major supermarkets & retailers in Morrisons & Morrisons Daily, WHSmith & Haypp Group PLC and we would love to have your support as well.</p>"
+          }
+        },
+        "tab2_faq_r7xDnC": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "What are nicotine pouches?",
+            "answer": "<p>Nicotine pouches are 100% tobacco, smoke and vape-free flavourful pouches of nicotine. They sit between your lip and gums to give you a fresh nicotine experience for up to 30 minutes.</p>"
+          }
+        },
+        "tab1_faq_zPRAkK": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "How can I contact you?",
+            "answer": "<p>You can get in touch via our <a href=\"/pages/contact-us-wholesale\" title=\"Contact Us Wholesale\"><span style=\"text-decoration:underline\">Contact Us page</span></a> or email us at <a href=\"mailto:customerservices@ubbspouches.com\"><span style=\"text-decoration:underline\">customerservices@ubbspouches.com</span></a>.</p>"
+          }
+        },
+        "tab2_faq_NiKMDY": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "How many nicotine pouches should consumers use a day?",
+            "answer": "<p>There is no magic number, the amount varies from person to person depending on your average nicotine consumption levels and nicotine pouch strength.</p>"
+          }
+        },
+        "tab1_faq_R3ffJA": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "How will I know when my order is processed?",
+            "answer": "<p>As soon as we receive your order, we will send you a confirmation email. This email will contain your order summary and order number. If you do not receive this email or if the email does not match your order, please write to us on <a href=\"mailto:customerservices@ubbspouches.com\"><span style=\"text-decoration:underline\">customerservices@ubbspouches.com</span></a>.</p>"
+          }
+        },
+        "tab2_faq_HFktU4": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "How do nicotine pouches work?",
+            "answer": "<p>Nicotine pouches are extremely easy to use. Follow our 3 step guide below:<br/><br/>Step 1 – POP<br/>Pop the soft, white nicotine pouch under your lip and position it to the side for a more comfortable fit.<br/><br/>Step 2 – TINGLE<br/>You will feel a tingling sensation on your gums and a release of flavour, this is normal and means the pouch is working. We recommend leaving the pouch in for up to 30 minutes.<br/><br/>Step 3 - DISCARD<br/>When you’re done, dispose of it in the general waste or store in the top of the can.<br/><br/>Übbs Tobacco Free-Nicotine Pouches are designed to be absorbed through the gums and should not be swallowed. If you swallow a pouch and feel unwell, seek medical advice with the can or label at hand.</p>"
+          }
+        },
+        "tab1_faq_Xkq3je": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "What are the delivery charges?",
+            "answer": "<p>All our delivery services are free. For customers in Great Britain we use DPD Next Day delivery. For customers in Northern Ireland we use Royal Mail 48.</p>"
+          }
+        },
+        "tab2_faq_KqLxEG": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "How long should consumers keep nicotine pouches in for?",
+            "answer": "<p>We recommend you keep a nicotine pouch in for up to 30 minutes.</p>"
+          }
+        },
+        "tab1_faq_CmqH44": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "What delivery options does Übbs offer?",
+            "answer": "<p>We offer next working day delivery via DPD for customers in Great Britain and Royal Mail 48 for customers in Northern Ireland.</p>"
+          }
+        },
+        "tab2_faq_9FpLmH": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "What are the alternatives to smoking cigarettes?",
+            "answer": "<p>Nicotine pouches are the perfect smoke-free and tobacco-free alternative to smoking.</p>"
+          }
+        },
+        "tab1_faq_3dNzzz": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "How do I know when my order has been shipped?",
+            "answer": "<p>You will receive an email from us to let you know when your order has been shipped. For orders placed before 3pm (Monday – Friday), we will dispatch your order the same day. For orders placed after this time, on the weekend or on a bank holiday, we will dispatch on the next available working day.</p>"
+          }
+        },
+        "tab2_faq_W8LzXC": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "What is Übbs?",
+            "answer": "<p>Übbs Nicotine Pouches are a reduced-risk nicotine & tobacco alternative, in the form of a pouch. They sit discreetly between your lip and gums and you can use them whenever, wherever.</p>"
+          }
+        },
+        "tab1_faq_HjtGnQ": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "What days can you deliver on?",
+            "answer": "<p>We use DPD and they deliver Monday to Saturday, excluding bank holidays.</p>"
+          }
+        },
+        "tab2_faq_XpmHwR": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "How many Übbs nicotine pouches are in a can?",
+            "answer": "<p>There are 20 pouches in a can.</p>"
+          }
+        },
+        "tab1_faq_p6yb69": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "Is there a Minimum Order Quantity (MOQ)?",
+            "answer": "<p>No, we do not have a minimum order quantity.</p>"
+          }
+        },
+        "tab2_faq_EqTrNN": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "Can I chew nicotine pouches?",
+            "answer": "<p>No, do not chew Übbs nicotine pouches. They are designed to sit in between your lip and gums.</p>"
+          }
+        },
+        "tab1_faq_LBDfxF": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "Are prices inclusive or exclusive of VAT?",
+            "answer": "<p>Unless otherwise stated, our prices are displayed inclusive of VAT, the amount payable in VAT is shown at checkout.</p>"
+          }
+        },
+        "tab2_faq_R34cjG": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "What flavours and nicotine strengths is Übbs available in?",
+            "answer": "<p>Übbs comes in 8 different flavours and 4 nicotine strengths – 4mg, 6mg, 11mg & 14mg. The flavours you can choose from are - Peppermint, Spearmint, Menthol, Watermelon, Berry, Cola Ice, Salted Caramel & Peach Passion.</p>"
+          }
+        },
+        "tab1_faq_UhPcWt": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "How can I get a VAT invoice?",
+            "answer": "<p>Your order confirmation email will contain a PDF copy of your VAT invoice. You can also view any previous invoices within the My Account page.</p>"
+          }
+        },
+        "tab2_faq_M7AfAd": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "What do Übbs nicotine pouches contain?",
+            "answer": "<p>Übbs contains water, plant-based materials, flavourings, sweeteners, and nicotine. Übbs does not contain smoke, tobacco or vapour.</p>"
+          }
+        },
+        "tab1_faq_E7QekK": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "What happens if my order is wrong?",
+            "answer": "<p>We’re sorry that you’ve received the incorrect order. We’ll fix that right away. Write to us on <a href=\"mailto:customerservices@ubbspouches.com\"><span style=\"text-decoration:underline\">customerservices@ubbspouches.com</span></a> or get in touch via the <a href=\"/pages/contact-us-wholesale\" title=\"Contact Us Wholesale\"><span style=\"text-decoration:underline\">Contact Us page</span></a> and we’ll get back to you as soon as possible.</p>"
+          }
+        },
+        "tab2_faq_bQxWYw": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "Is Übbs the same as snus?",
+            "answer": "<p>No, Übbs Nicotine Pouches are not the same as snus. While they’re used in a similar way to snus, nicotine pouches are 100% tobacco-free unlike snus which contains tobacco.</p>"
+          }
+        },
+        "tab1_faq_zcXcta": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "What happens if my order is missing/hasn't arrived?",
+            "answer": "<p>If your Übbs Nicotine Pouches haven’t arrived please contact us via our <a href=\"/pages/contact-us-wholesale\" title=\"Contact Us Wholesale\"><span style=\"text-decoration:underline\">Contact Us page</span></a> or write to us on <a href=\"mailto:customerservices@ubbspouches.com\"><span style=\"text-decoration:underline\">customerservices@ubbspouches.com</span></a> and we will resolve the issue as soon as possible.</p>"
+          }
+        },
+        "tab2_faq_66mCwK": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "Can consumers reuse nicotine pouches?",
+            "answer": "<p>No, we recommend using a new pouch every time.</p>"
+          }
+        },
+        "tab1_faq_hawi7p": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "Do you offer international shipping?",
+            "answer": "<p>Unfortunately, we do not currently deliver outside of the UK.</p>"
+          }
+        },
+        "tab2_faq_6PPhez": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "Who can use Übbs?",
+            "answer": "<p>Übbs contains nicotine and are to be used by existing smokers, vapers and nicotine consumers who are aged 18 or over.</p><p>Übbs is not to be used if you are under the age of 18, not an existing tobacco and nicotine consumer, allergic to nicotine and any other ingredients, pregnant/breast-feeding or are suffering from an unstable heart condition, severe hypertension or diabetes.</p>"
+          }
+        },
+        "tab1_faq_xVEdpH": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "How can I return my order?",
+            "answer": "<p>You may return your order within 14 calendar days after receiving your Übbs nicotine pouches. Your Übbs Nicotine Pouch can(s) must be unopened, intact and returned to us in good condition. Please let us know you wish to return your Übbs order by filling the <a href=\"/pages/contact-us-wholesale\" title=\"Contact Us Wholesale\"><span style=\"text-decoration:underline\">Contact Us</span></a> form on our website or by writing to us on <a href=\"mailto:customerservices@ubbspouches.com\"><span style=\"text-decoration:underline\">customerservices@ubbspouches.com</span></a>. You will need to post your Übbs nicotine pouch can to the following address with your order number attached:</p><p>Übbs Pouches<br/>Burnside House<br/>Cambridge Road<br/>Middlesbrough<br/>TS3 8AG</p><p><em>Please note: we do not cover the postage cost for returns</em></p><p>Once we have received your return and finished a couple of checks, we will issue a full refund for your order.</p>"
+          }
+        },
+        "tab2_faq_8JpntX": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "What happens if a consumer swallows a nicotine pouch?",
+            "answer": "<p>Übbs is designed to be absorbed through the gums and should not be swallowed. If you swallow a pouch and feel unwell, seek medical advice immediately.</p>"
+          }
+        },
+        "tab1_faq_xgDF8W": {
+          "type": "tab1_faq",
+          "settings": {
+            "question": "Can I change or cancel an order?",
+            "answer": "<p>In our efforts to provide the most efficient service to our customers, once an order has been placed and processed, we won’t be able to alter, change, or cancel the order.</p>"
+          }
+        },
+        "tab2_faq_tFQWVJ": {
+          "type": "tab2_faq",
+          "settings": {
+            "question": "Are Übbs containers recyclable?",
+            "answer": "<p>Übbs cans are made from polypropylene (PP), which can be recycled. However, we advise you to check with your local authorities whether they accept polypropylene in your household recycling. Please dispose of any used nicotine pouches in the general waste before recycling.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab1_faq_Nxz47y",
+        "tab2_faq_r7xDnC",
+        "tab1_faq_zPRAkK",
+        "tab2_faq_NiKMDY",
+        "tab1_faq_R3ffJA",
+        "tab2_faq_HFktU4",
+        "tab1_faq_Xkq3je",
+        "tab2_faq_KqLxEG",
+        "tab1_faq_CmqH44",
+        "tab2_faq_9FpLmH",
+        "tab1_faq_3dNzzz",
+        "tab2_faq_W8LzXC",
+        "tab1_faq_HjtGnQ",
+        "tab2_faq_XpmHwR",
+        "tab1_faq_p6yb69",
+        "tab2_faq_EqTrNN",
+        "tab1_faq_LBDfxF",
+        "tab2_faq_R34cjG",
+        "tab1_faq_UhPcWt",
+        "tab2_faq_M7AfAd",
+        "tab1_faq_E7QekK",
+        "tab2_faq_bQxWYw",
+        "tab1_faq_zcXcta",
+        "tab2_faq_66mCwK",
+        "tab1_faq_hawi7p",
+        "tab2_faq_6PPhez",
+        "tab1_faq_xVEdpH",
+        "tab2_faq_8JpntX",
+        "tab1_faq_xgDF8W",
+        "tab2_faq_tFQWVJ"
+      ],
+      "settings": {
+        "tab1_title": "General FAQS",
+        "tab2_title": "Product FAQs"
+      }
+    },
+    "l_newsletter_BW6aTj": {
+      "type": "L-newsletter",
+      "blocks": {
+        "paragraph_ANQjmy": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>FOR THE LATEST NEWS AND UPDATES</p>"
+          }
+        },
+        "heading_UcgYq6": {
+          "type": "heading",
+          "settings": {
+            "heading": "SUBSCRIBE TO ÜBBS WHOLESALE",
+            "heading_size": "h1"
+          }
+        },
+        "email_form_7fJC33": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "info_hmn8yT": {
+          "type": "info",
+          "settings": {
+            "btn_label": "Privacy Policy",
+            "btn_url": "shopify://policies/privacy-policy"
+          }
+        }
+      },
+      "block_order": [
+        "paragraph_ANQjmy",
+        "heading_UcgYq6",
+        "email_form_7fJC33",
+        "info_hmn8yT"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_liquid_cWVhTL",
+    "l_slideshow_Nw3gPm",
+    "l_collection_GHGhqf",
+    "display_unit_section_D6ppYV",
+    "l_collaterals_BQaG8g",
+    "faq_with_tabs_87EbXA",
+    "l_newsletter_BW6aTj"
+  ]
+}

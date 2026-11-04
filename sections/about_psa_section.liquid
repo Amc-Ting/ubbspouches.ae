@@ -1,0 +1,78 @@
+<section id="psa_section" class="psa_section1">
+  <div class="container">
+    <div class="psa_inner">
+      <div class="psa_img">
+        <div class="hand_image">
+          <p class="calm text_sm">{{ section.settings.calmtext1 }}</p>
+          <img
+            src="{{ section.settings.hand_image | image_url }}"
+            width=""
+            height=""
+            loading="lazy"
+            alt=""
+            class="img-responsive"
+          >
+          <p class="calm_1 text_sm">{{ section.settings.calmtext2 }}</p>
+        </div>
+      </div>
+
+      <div class="psa_content">
+        <h2 class="text_xxl font_heading text_400 fadeInUp">{{ section.settings.title }}</h2>
+        <div class="desc">{{ section.settings.subtitle }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+    @media (max-width: 991px) {
+
+    .psa_section1 .desc p{
+      font-size: 16px !important;
+    }
+    .psa_section1 .text_xxl{
+    font-size: 22px !important;
+    }
+  </style>
+{% schema %}
+{
+  "name": "About PSA Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hand_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "calmtext1",
+      "label": "Animate left text"
+    },
+    {
+      "type": "text",
+      "id": "calmtext2",
+      "label": "Animate right text"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subheading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About PSA Section"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

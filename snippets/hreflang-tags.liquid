@@ -1,0 +1,74 @@
+{%- comment -%}
+  Multi-regional hreflang setup for ubbspouches
+  Covers: homepage, products, pages, collections, blogs, articles, search
+  Current locales: en-gb (UK), en-ae (UAE English), ar-ae (UAE Arabic), x-default
+  Future: en-au, en-us (can be uncommented when ready)
+{%- endcomment -%}
+
+{%- if template == 'index' -%}
+  <link rel="alternate" href="https://ubbspouches.com" hreflang="en-gb">
+  <link rel="alternate" href="https://ubbspouches.ae" hreflang="en-ae">
+  <link rel="alternate" href="https://ubbspouches.ae/ar" hreflang="ar-ae">
+  <link rel="alternate" href="https://ubbspouches.com" hreflang="x-default">
+{%- endif -%}
+
+{%- if template contains 'product' -%}
+  <link rel="alternate" href="https://ubbspouches.com{{ product.url }}" hreflang="en-gb">
+  {% unless product.url contains 'zest-ice' %}
+    <link rel="alternate" href="https://ubbspouches.ae{{ product.url }}" hreflang="en-ae">
+  {% endunless %}
+
+  <link rel="alternate" href="https://ubbspouches.ae/ar{{ product.url }}" hreflang="ar-ae">
+  <link rel="alternate" href="https://ubbspouches.com{{ product.url }}" hreflang="x-default">
+{%- endif -%}
+
+{%- if template contains 'page' -%}
+  <link rel="alternate" href="https://ubbspouches.com/pages/{{ page.handle }}" hreflang="en-gb">
+  <link rel="alternate" href="https://ubbspouches.ae/pages/{{ page.handle }}" hreflang="en-ae">
+  <link rel="alternate" href="https://ubbspouches.ae/ar/pages/{{ page.handle }}" hreflang="ar-ae">
+  <link rel="alternate" href="https://ubbspouches.com/pages/{{ page.handle }}" hreflang="x-default">
+{%- endif -%}
+
+{%- if template contains 'collection' -%}
+  <link rel="alternate" href="https://ubbspouches.com/collections/{{ collection.handle }}" hreflang="en-gb">
+  <link rel="alternate" href="https://ubbspouches.ae/collections/{{ collection.handle }}" hreflang="en-ae">
+  <link rel="alternate" href="https://ubbspouches.ae/ar/collections/{{ collection.handle }}" hreflang="ar-ae">
+  <link rel="alternate" href="https://ubbspouches.com/collections/{{ collection.handle }}" hreflang="x-default">
+{%- endif -%}
+
+{%- if template contains 'blog' -%}
+  <link rel="alternate" href="https://ubbspouches.com/blogs/{{ blog.handle }}" hreflang="en-gb">
+  <link rel="alternate" href="https://ubbspouches.ae/blogs/{{ blog.handle }}" hreflang="en-ae">
+  <link rel="alternate" href="https://ubbspouches.ae/ar/blogs/{{ blog.handle }}" hreflang="ar-ae">
+  <link rel="alternate" href="https://ubbspouches.com/blogs/{{ blog.handle }}" hreflang="x-default">
+{%- endif -%}
+
+{%- if template contains 'article' -%}
+  <link
+    rel="alternate"
+    href="https://ubbspouches.com/blogs/{{ article.blog.handle }}{{ article.handle }}"
+    hreflang="en-gb"
+  >
+  <link
+    rel="alternate"
+    href="https://ubbspouches.ae/blogs/{{ article.blog.handle }}{{ article.handle }}"
+    hreflang="en-ae"
+  >
+  <link
+    rel="alternate"
+    href="https://ubbspouches.ae/ar/blogs/{{ article.blog.handle }}{{ article.handle }}"
+    hreflang="ar-ae"
+  >
+  <link
+    rel="alternate"
+    href="https://ubbspouches.com/blogs/{{ article.blog.handle }}{{ article.handle }}"
+    hreflang="x-default"
+  >
+{%- endif -%}
+
+{%- if template contains 'search' -%}
+  <link rel="alternate" href="https://ubbspouches.com/search?q={{ search.terms | url_encode }}" hreflang="en-gb">
+  <link rel="alternate" href="https://ubbspouches.ae/search?q={{ search.terms | url_encode }}" hreflang="en-ae">
+  <link rel="alternate" href="https://ubbspouches.ae/ar/search?q={{ search.terms | url_encode }}" hreflang="ar-ae">
+  <link rel="alternate" href="https://ubbspouches.com/search?q={{ search.terms | url_encode }}" hreflang="x-default">
+{%- endif -%}

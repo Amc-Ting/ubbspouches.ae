@@ -1,0 +1,97 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "d2362d06-a8d5-4571-8ba8-e72c0c508517": {
+      "type": "about_banner-section",
+      "settings": {
+        "title": "Store Locator",
+        "subtitle": "Find your favourite Übbs Pouches offline.",
+        "banner_img": "shopify://shop_images/Blogs-Listing.png",
+        "big_circle": "shopify://shop_images/Ellipse_3_347abbd8-2fcf-4245-bc19-140951ee8a4b.png",
+        "small_circle": "shopify://shop_images/Ellipse_3_347abbd8-2fcf-4245-bc19-140951ee8a4b.png"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "seo_content_b3AYmb": {
+      "type": "seo_content",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "subtitle": "<p>Looking for a reliable nicotine pouch shop to pick up your favourite Übbs Pouches in person? You've come to the right place! Use our store locator to find the nearest retailer carrying our nicotine pouches. Whether you're based in London or exploring new cities, discovering nicotine pouches in London and the UK has never been easier.</p><p>Simply enter your location to find a nicotine pouch shop near you and stock up on the best nicotine pouches Übbs has to offer. Explore our range of flavours and strengths, and start your smoke-free journey today!</p><p>Use the store locator now and find the closest shop to experience Übbs Pouches offline.</p>"
+      }
+    },
+    "241719f7-c884-454d-af2f-24e271e36d41": {
+      "type": "custom-liquid",
+      "custom_css": [],
+      "settings": {
+        "custom_liquid": "<!-- Start Stockist.co widget -->\n<stockist-store-locator data-stockist-widget-tag=\"map_pqkjv6y3\">\n  Loading store locator from <a href=\"https://stockist.co\">Stockist store locator</a>...\n</stockist-store-locator>\n<script async src=\"https://stockist.co/embed/v1/widget.min.js\"></script>\n<!-- End Stockist.co widget -->",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "99ee93bc-cdc4-4a11-b831-6cc7ac17d138": {
+      "type": "newsletter",
+      "blocks": {
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>FOR THE LATEST NEWS AND UPDATES</p>"
+          }
+        },
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN OUR NEWSLETTER",
+            "heading_size": "h0"
+          }
+        },
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-2": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "info_rctYaF": {
+          "type": "info",
+          "settings": {
+            "btn_label": "Privacy Policy",
+            "btn_url": "shopify://policies/privacy-policy"
+          }
+        }
+      },
+      "block_order": [
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-1",
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-0",
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-2",
+        "info_rctYaF"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "d2362d06-a8d5-4571-8ba8-e72c0c508517",
+    "main",
+    "seo_content_b3AYmb",
+    "241719f7-c884-454d-af2f-24e271e36d41",
+    "99ee93bc-cdc4-4a11-b831-6cc7ac17d138"
+  ]
+}

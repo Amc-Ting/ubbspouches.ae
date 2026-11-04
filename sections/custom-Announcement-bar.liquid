@@ -1,0 +1,1389 @@
+<style>
+        .custom-announcement-bar{
+        padding: 0;
+        overflow: hidden;
+        background: #000;
+        letter-spacing: 0;
+        }
+
+    {% comment %} .bullet-truspilot-wrap svg{
+      min-width: 44px;
+    } {% endcomment %}
+    .bullet-truspilot-wrap {
+        display: flex;
+        align-items: center;
+        gap: 45px;
+    }
+    .jm-cluster[data-v-04f37a24]>*{
+      flex-wrap:nowrap;
+      border: none !important;
+    }
+    .jm-cluster[data-v-04f37a24]{
+      flex-wrap:nowrap !important;
+    }
+    .jdgm-trust-badge__ratings[data-v-04f37a24]{
+      flex-direction: row;
+    }
+        .custom-announcement-bar .non-slider .text-wrapper:first-child .icon-box {
+            display: none;
+        }
+        .custom-announcement-bar .page-width{
+        max-width: 100%;
+        padding: 0 20px;
+        }
+        .custom-announcement-bar .inner-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        animation: slider 35s linear infinite;
+        }
+        .custom-announcement-bar .rotate-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        }
+        .custom-announcement-bar .main-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 50px;
+        }
+        .custom-announcement-bar .text-wrapper {
+        width: max-content;
+        }
+      .custom-announcement-bar .inner-text {
+          color: #FFEFF0;
+          text-align: center;
+          font-size: 16px;
+          font-style: normal;
+          {% comment %} font-weight: 600; {% endcomment %}
+          line-height: 70%;
+          text-transform: uppercase;
+          font-family: 'BlinkerRegular';
+      }
+      .icon-box {
+          display: flex;
+      }
+        .custom-announcement-bar .text-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        }
+        .custom-announcement-bar .icon-box i{
+        color: {
+        {
+        section.settings.icon-color
+        }
+        }
+        ;
+        }
+        .custom-announcement-bar .icon-box i:before {
+        font-size: 1.6rem;
+        }
+        .custom-announcement-bar .icon-box img {
+        display: flex;
+        height: 29px;
+        width: 29px;
+        object-fit: contain;
+        }
+        .custom-announcement-bar .main-container.non-slider {
+        justify-content: center;
+        }
+        {% comment %} {% endcomment %} @keyframes slider {
+        0% {
+        transform: translateX(0);
+        }
+        100% {
+        transform: translateX(-50%);
+        }
+        }
+        @media(min-width: 990px) {
+
+        .custom-announcement-bar.mobile {
+          display: none;
+        }
+      }
+        @media(max-width: 989px) {
+      .trustpilot-widget {
+        width: 100%;
+      }
+  .custom-announcement-bar.mobile .trustpilot-widget{
+    width: 280px;
+  }
+        .custom-announcement-bar.desktop {
+          display: none;
+        }
+        .bullet-truspilot-wrap {
+          gap: unset;
+        }
+      }
+        @media(max-width: 550px){
+        .custom-announcement-bar .inner-text {
+        font-size: 16px;
+        }
+        .custom-announcement-bar .icon-box i:before {
+        font-size: 1.5rem;
+        }
+        .custom-announcement-bar .inner-container {
+        gap: 0.5rem;
+        animation: slider 45s linear infinite;
+        }
+        .custom-announcement-bar .icon-box img {
+        height: 22px;
+        width: 22px;
+        }
+        .custom-announcement-bar .main-container {
+        gap: 5rem;
+        }
+        .custom-announcement-bar .rotate-box {
+        gap: 1rem;
+        }
+        .custom-announcement-bar .main-container.non-slider .rotate-box {
+        flex-direction: column;
+        gap: 7px;
+        }
+        .custom-announcement-bar .text-wrapper {
+        gap: 6px;
+        }
+        }
+
+      .bullet-truspilot-wrap .trustpilot-widget{
+        margin-top: 4px;
+      }
+      .custom_announcement_sec{
+        position: fixed;
+        top: 71px;
+        z-index: 6 !important;
+        width: 100%;
+      }
+      @media (min-width: 1024px) and (max-width: 1279px) {
+        .custom_announcement_sec{
+          top:65px;
+        }
+      }
+
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .custom_announcement_sec{
+          top:50px;
+        }
+      }
+
+      @media(max-width:767px){
+        .custom_announcement_sec{
+          top:64px;
+          position: unset;
+        }
+      }
+</style>
+<section class="custom-announcement-bar desktop" style="background-color: {{ section.settings.bar-color }}">
+  <div class="page-width">
+    {% if section.settings['enable-carousel'] %}
+      <div class="main-container">
+        <div class="inner-container">
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="inner-container">
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="inner-container">
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="main-container non-slider">
+        <div class="inner-container1">
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          {% comment %}
+            <div class="rotate-box">
+              {% for block in section.blocks %}
+                <div class="text-wrapper">
+                  <div class="icon-box">{{ block.settings.icon }}</div>
+                  <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                    {{ block.settings.text }}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endcomment %}
+        </div>
+    {% endif %}
+    <div class="bullet-truspilot-wrap center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewbox="0 0 24 24" fill="none">
+        <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="#fff"></path>
+      </svg>
+
+      <!-- Start of Judge.me Trust Badge -->
+      {% if shop.metafields.judgeme['trust_badge.enabled']
+        and shop.metafields.judgeme['trust_badge.verified_reviews_count'] != 0
+      %}
+        <div data-structure="outline" data-color="white" data-star="brand" data-alignment="center">
+          <div
+            class="jdgm-widget jdgm-trust-badge-widget"
+            data-widget="trust-badge"
+            data-entry-point="trust_badge.js"
+            data-entry-key="trust-badge/main.js"
+            style="width:230px;"
+            {% if shop.metafields.judgeme['trust_badge.modal_data'] != blank %}
+              data-modal-json="{{ shop.metafields.judgeme["trust_badge.modal_data"] | escape }}"
+            {% endif %}
+          >
+            <script type="application/json" data-badge-data>
+              {"verified_reviews_count": {{ shop.metafields.judgeme["trust_badge.verified_reviews_count"] | json }},"verified_average_rating": {{ shop.metafields.judgeme["trust_badge.verified_average_rating"] | default: 0 | json }},"is_certified": {{ shop.metafields.judgeme["trust_badge.is_certified"] | default: false | json }}}
+            </script>
+          </div>
+        </div>
+      {% endif %}
+      <!-- End of Judge.me Trust Badge -->
+      {% comment %}
+        <div
+          class="trustpilot-widget"
+          data-locale="en-GB"
+          data-template-id="5419b732fbfb950b10de65e5"
+          data-businessunit-id="635414ed2d0f99d637c4b0f1"
+          data-style-height="24px"
+          data-style-width="100%"
+          data-theme="dark"
+          data-token="b15f1f8a-213e-42ed-9ac6-91a138e199df"
+        >
+          <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+        </div>
+      {% endcomment %}
+    </div>
+  </div>
+</section>
+<section class="custom-announcement-bar mobile" style="background-color: {{ section.settings.bar-color }}">
+  <div class="page-width">
+    {% if section.settings['mobile-enable-carousel'] %}
+      <div class="main-container">
+        <div class="inner-container">
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="bullet-truspilot-wrap xxx">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewbox="0 0 24 24" fill="none">
+              <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="#fff"></path>
+            </svg>
+
+            <!-- Start of Judge.me Trust Badge -->
+            {% if shop.metafields.judgeme['trust_badge.enabled']
+              and shop.metafields.judgeme['trust_badge.verified_reviews_count'] != 0
+            %}
+              <div data-structure="outline" data-color="white" data-star="brand" data-alignment="left">
+                <div
+                  class="jdgm-widget jdgm-trust-badge-widget"
+                  data-widget="trust-badge"
+                  data-entry-point="trust_badge.js"
+                  data-entry-key="trust-badge/main.js"
+                  style="width:230px;"
+                  {% if shop.metafields.judgeme['trust_badge.modal_data'] != blank %}
+                    data-modal-json="{{ shop.metafields.judgeme["trust_badge.modal_data"] | escape }}"
+                  {% endif %}
+                >
+                  <script type="application/json" data-badge-data>
+                    {"verified_reviews_count": {{ shop.metafields.judgeme["trust_badge.verified_reviews_count"] | json }},"verified_average_rating": {{ shop.metafields.judgeme["trust_badge.verified_average_rating"] | default: 0 | json }},"is_certified": {{ shop.metafields.judgeme["trust_badge.is_certified"] | default: false | json }}}
+                  </script>
+                </div>
+              </div>
+            {% endif %}
+            <!-- End of Judge.me Trust Badge -->
+            {% comment %}
+              <div
+                class="trustpilot-widget"
+                data-locale="en-GB"
+                data-template-id="5419b732fbfb950b10de65e5"
+                data-businessunit-id="635414ed2d0f99d637c4b0f1"
+                data-style-height="24px"
+                data-style-width="100%"
+                data-theme="dark"
+                data-token="b15f1f8a-213e-42ed-9ac6-91a138e199df"
+              >
+                <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+            {% endcomment %}
+          </div>
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="bullet-truspilot-wrap xxx">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewbox="0 0 24 24" fill="none">
+              <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="#fff"></path>
+            </svg>
+
+            <!-- Start of Judge.me Trust Badge -->
+            {% if shop.metafields.judgeme['trust_badge.enabled']
+              and shop.metafields.judgeme['trust_badge.verified_reviews_count'] != 0
+            %}
+              <div data-structure="outline" data-color="white" data-star="brand" data-alignment="left">
+                <div
+                  class="jdgm-widget jdgm-trust-badge-widget"
+                  data-widget="trust-badge"
+                  data-entry-point="trust_badge.js"
+                  data-entry-key="trust-badge/main.js"
+                  style="width:230px;"
+                  {% if shop.metafields.judgeme['trust_badge.modal_data'] != blank %}
+                    data-modal-json="{{ shop.metafields.judgeme["trust_badge.modal_data"] | escape }}"
+                  {% endif %}
+                >
+                  <script type="application/json" data-badge-data>
+                    {"verified_reviews_count": {{ shop.metafields.judgeme["trust_badge.verified_reviews_count"] | json }},"verified_average_rating": {{ shop.metafields.judgeme["trust_badge.verified_average_rating"] | default: 0 | json }},"is_certified": {{ shop.metafields.judgeme["trust_badge.is_certified"] | default: false | json }}}
+                  </script>
+                </div>
+              </div>
+            {% endif %}
+            <!-- End of Judge.me Trust Badge -->
+            {% comment %}
+              <div
+                class="trustpilot-widget"
+                data-locale="en-GB"
+                data-template-id="5419b732fbfb950b10de65e5"
+                data-businessunit-id="635414ed2d0f99d637c4b0f1"
+                data-style-height="24px"
+                data-style-width="100%"
+                data-theme="dark"
+                data-token="b15f1f8a-213e-42ed-9ac6-91a138e199df"
+              >
+                <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+            {% endcomment %}
+          </div>
+
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="bullet-truspilot-wrap xxx">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewbox="0 0 24 24" fill="none">
+              <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="#fff"></path>
+            </svg>
+
+            <!-- Start of Judge.me Trust Badge -->
+            {% if shop.metafields.judgeme['trust_badge.enabled']
+              and shop.metafields.judgeme['trust_badge.verified_reviews_count'] != 0
+            %}
+              <div data-structure="outline" data-color="white" data-star="brand" data-alignment="left">
+                <div
+                  class="jdgm-widget jdgm-trust-badge-widget"
+                  data-widget="trust-badge"
+                  data-entry-point="trust_badge.js"
+                  data-entry-key="trust-badge/main.js"
+                  style="width:230px;"
+                  {% if shop.metafields.judgeme['trust_badge.modal_data'] != blank %}
+                    data-modal-json="{{ shop.metafields.judgeme["trust_badge.modal_data"] | escape }}"
+                  {% endif %}
+                >
+                  <script type="application/json" data-badge-data>
+                    {"verified_reviews_count": {{ shop.metafields.judgeme["trust_badge.verified_reviews_count"] | json }},"verified_average_rating": {{ shop.metafields.judgeme["trust_badge.verified_average_rating"] | default: 0 | json }},"is_certified": {{ shop.metafields.judgeme["trust_badge.is_certified"] | default: false | json }}}
+                  </script>
+                </div>
+              </div>
+            {% endif %}
+            <!-- End of Judge.me Trust Badge -->
+            {% comment %}
+              <div
+                class="trustpilot-widget"
+                data-locale="en-GB"
+                data-template-id="5419b732fbfb950b10de65e5"
+                data-businessunit-id="635414ed2d0f99d637c4b0f1"
+                data-style-height="24px"
+                data-style-width="100%"
+                data-theme="dark"
+                data-token="b15f1f8a-213e-42ed-9ac6-91a138e199df"
+              >
+                <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+            {% endcomment %}
+          </div>
+
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="bullet-truspilot-wrap xxx">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewbox="0 0 24 24" fill="none">
+              <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="#fff"></path>
+            </svg>
+
+            <!-- Start of Judge.me Trust Badge -->
+            {% if shop.metafields.judgeme['trust_badge.enabled']
+              and shop.metafields.judgeme['trust_badge.verified_reviews_count'] != 0
+            %}
+              <div data-structure="outline" data-color="white" data-star="brand" data-alignment="left">
+                <div
+                  class="jdgm-widget jdgm-trust-badge-widget"
+                  data-widget="trust-badge"
+                  data-entry-point="trust_badge.js"
+                  data-entry-key="trust-badge/main.js"
+                  style="width:230px;"
+                  {% if shop.metafields.judgeme['trust_badge.modal_data'] != blank %}
+                    data-modal-json="{{ shop.metafields.judgeme["trust_badge.modal_data"] | escape }}"
+                  {% endif %}
+                >
+                  <script type="application/json" data-badge-data>
+                    {"verified_reviews_count": {{ shop.metafields.judgeme["trust_badge.verified_reviews_count"] | json }},"verified_average_rating": {{ shop.metafields.judgeme["trust_badge.verified_average_rating"] | default: 0 | json }},"is_certified": {{ shop.metafields.judgeme["trust_badge.is_certified"] | default: false | json }}}
+                  </script>
+                </div>
+              </div>
+            {% endif %}
+            <!-- End of Judge.me Trust Badge -->
+            {% comment %}
+              <div
+                class="trustpilot-widget"
+                data-locale="en-GB"
+                data-template-id="5419b732fbfb950b10de65e5"
+                data-businessunit-id="635414ed2d0f99d637c4b0f1"
+                data-style-height="24px"
+                data-style-width="100%"
+                data-theme="dark"
+                data-token="b15f1f8a-213e-42ed-9ac6-91a138e199df"
+              >
+                <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+            {% endcomment %}
+          </div>
+
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="bullet-truspilot-wrap xxx">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewbox="0 0 24 24" fill="none">
+              <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="#fff"></path>
+            </svg>
+
+            <!-- Start of Judge.me Trust Badge -->
+            {% if shop.metafields.judgeme['trust_badge.enabled']
+              and shop.metafields.judgeme['trust_badge.verified_reviews_count'] != 0
+            %}
+              <div data-structure="outline" data-color="white" data-star="brand" data-alignment="left">
+                <div
+                  class="jdgm-widget jdgm-trust-badge-widget"
+                  data-widget="trust-badge"
+                  data-entry-point="trust_badge.js"
+                  data-entry-key="trust-badge/main.js"
+                  style="width:230px;"
+                  {% if shop.metafields.judgeme['trust_badge.modal_data'] != blank %}
+                    data-modal-json="{{ shop.metafields.judgeme["trust_badge.modal_data"] | escape }}"
+                  {% endif %}
+                >
+                  <script type="application/json" data-badge-data>
+                    {"verified_reviews_count": {{ shop.metafields.judgeme["trust_badge.verified_reviews_count"] | json }},"verified_average_rating": {{ shop.metafields.judgeme["trust_badge.verified_average_rating"] | default: 0 | json }},"is_certified": {{ shop.metafields.judgeme["trust_badge.is_certified"] | default: false | json }}}
+                  </script>
+                </div>
+              </div>
+            {% endif %}
+            <!-- End of Judge.me Trust Badge -->
+            {% comment %}
+              <div
+                class="trustpilot-widget"
+                data-locale="en-GB"
+                data-template-id="5419b732fbfb950b10de65e5"
+                data-businessunit-id="635414ed2d0f99d637c4b0f1"
+                data-style-height="24px"
+                data-style-width="100%"
+                data-theme="dark"
+                data-token="b15f1f8a-213e-42ed-9ac6-91a138e199df"
+              >
+                <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+            {% endcomment %}
+          </div>
+
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="bullet-truspilot-wrap xxx">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewbox="0 0 24 24" fill="none">
+              <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="#fff"></path>
+            </svg>
+
+            <!-- Start of Judge.me Trust Badge -->
+            {% if shop.metafields.judgeme['trust_badge.enabled']
+              and shop.metafields.judgeme['trust_badge.verified_reviews_count'] != 0
+            %}
+              <div data-structure="outline" data-color="white" data-star="brand" data-alignment="left">
+                <div
+                  class="jdgm-widget jdgm-trust-badge-widget"
+                  data-widget="trust-badge"
+                  data-entry-point="trust_badge.js"
+                  data-entry-key="trust-badge/main.js"
+                  style="width:230px;"
+                  {% if shop.metafields.judgeme['trust_badge.modal_data'] != blank %}
+                    data-modal-json="{{ shop.metafields.judgeme["trust_badge.modal_data"] | escape }}"
+                  {% endif %}
+                >
+                  <script type="application/json" data-badge-data>
+                    {"verified_reviews_count": {{ shop.metafields.judgeme["trust_badge.verified_reviews_count"] | json }},"verified_average_rating": {{ shop.metafields.judgeme["trust_badge.verified_average_rating"] | default: 0 | json }},"is_certified": {{ shop.metafields.judgeme["trust_badge.is_certified"] | default: false | json }}}
+                  </script>
+                </div>
+              </div>
+            {% endif %}
+            <!-- End of Judge.me Trust Badge -->
+            {% comment %}
+              <div
+                class="trustpilot-widget"
+                data-locale="en-GB"
+                data-template-id="5419b732fbfb950b10de65e5"
+                data-businessunit-id="635414ed2d0f99d637c4b0f1"
+                data-style-height="24px"
+                data-style-width="100%"
+                data-theme="dark"
+                data-token="b15f1f8a-213e-42ed-9ac6-91a138e199df"
+              >
+                <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+            {% endcomment %}
+          </div>
+        </div>
+        <div class="inner-container">
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="bullet-truspilot-wrap xxx">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewbox="0 0 24 24" fill="none">
+              <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="#fff"></path>
+            </svg>
+
+            <!-- Start of Judge.me Trust Badge -->
+            {% if shop.metafields.judgeme['trust_badge.enabled']
+              and shop.metafields.judgeme['trust_badge.verified_reviews_count'] != 0
+            %}
+              <div data-structure="outline" data-color="white" data-star="brand" data-alignment="left">
+                <div
+                  class="jdgm-widget jdgm-trust-badge-widget"
+                  data-widget="trust-badge"
+                  data-entry-point="trust_badge.js"
+                  data-entry-key="trust-badge/main.js"
+                  style="width:230px;"
+                  {% if shop.metafields.judgeme['trust_badge.modal_data'] != blank %}
+                    data-modal-json="{{ shop.metafields.judgeme["trust_badge.modal_data"] | escape }}"
+                  {% endif %}
+                >
+                  <script type="application/json" data-badge-data>
+                    {"verified_reviews_count": {{ shop.metafields.judgeme["trust_badge.verified_reviews_count"] | json }},"verified_average_rating": {{ shop.metafields.judgeme["trust_badge.verified_average_rating"] | default: 0 | json }},"is_certified": {{ shop.metafields.judgeme["trust_badge.is_certified"] | default: false | json }}}
+                  </script>
+                </div>
+              </div>
+            {% endif %}
+            <!-- End of Judge.me Trust Badge -->
+            {% comment %}
+              <div
+                class="trustpilot-widget"
+                data-locale="en-GB"
+                data-template-id="5419b732fbfb950b10de65e5"
+                data-businessunit-id="635414ed2d0f99d637c4b0f1"
+                data-style-height="24px"
+                data-style-width="100%"
+                data-theme="dark"
+                data-token="b15f1f8a-213e-42ed-9ac6-91a138e199df"
+              >
+                <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+            {% endcomment %}
+          </div>
+
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="bullet-truspilot-wrap xxx">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewbox="0 0 24 24" fill="none">
+              <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="#fff"></path>
+            </svg>
+
+            <!-- Start of Judge.me Trust Badge -->
+            {% if shop.metafields.judgeme['trust_badge.enabled']
+              and shop.metafields.judgeme['trust_badge.verified_reviews_count'] != 0
+            %}
+              <div data-structure="outline" data-color="white" data-star="brand" data-alignment="left">
+                <div
+                  class="jdgm-widget jdgm-trust-badge-widget"
+                  data-widget="trust-badge"
+                  data-entry-point="trust_badge.js"
+                  data-entry-key="trust-badge/main.js"
+                  style="width:316px;"
+                  {% if shop.metafields.judgeme['trust_badge.modal_data'] != blank %}
+                    data-modal-json="{{ shop.metafields.judgeme["trust_badge.modal_data"] | escape }}"
+                  {% endif %}
+                >
+                  <script type="application/json" data-badge-data>
+                    {"verified_reviews_count": {{ shop.metafields.judgeme["trust_badge.verified_reviews_count"] | json }},"verified_average_rating": {{ shop.metafields.judgeme["trust_badge.verified_average_rating"] | default: 0 | json }},"is_certified": {{ shop.metafields.judgeme["trust_badge.is_certified"] | default: false | json }}}
+                  </script>
+                </div>
+              </div>
+            {% endif %}
+            <!-- End of Judge.me Trust Badge -->
+            {% comment %}
+              <div
+                class="trustpilot-widget"
+                data-locale="en-GB"
+                data-template-id="5419b732fbfb950b10de65e5"
+                data-businessunit-id="635414ed2d0f99d637c4b0f1"
+                data-style-height="24px"
+                data-style-width="100%"
+                data-theme="dark"
+                data-token="b15f1f8a-213e-42ed-9ac6-91a138e199df"
+              >
+                <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+            {% endcomment %}
+          </div>
+        </div>
+        <div class="inner-container">
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="bullet-truspilot-wrap xxx">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewbox="0 0 24 24" fill="none">
+              <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="#fff"></path>
+            </svg>
+
+            <!-- Start of Judge.me Trust Badge -->
+            {% if shop.metafields.judgeme['trust_badge.enabled']
+              and shop.metafields.judgeme['trust_badge.verified_reviews_count'] != 0
+            %}
+              <div data-structure="outline" data-color="white" data-star="brand" data-alignment="left">
+                <div
+                  class="jdgm-widget jdgm-trust-badge-widget"
+                  data-widget="trust-badge"
+                  data-entry-point="trust_badge.js"
+                  data-entry-key="trust-badge/main.js"
+                  style="width:230px;"
+                  {% if shop.metafields.judgeme['trust_badge.modal_data'] != blank %}
+                    data-modal-json="{{ shop.metafields.judgeme["trust_badge.modal_data"] | escape }}"
+                  {% endif %}
+                >
+                  <script type="application/json" data-badge-data>
+                    {"verified_reviews_count": {{ shop.metafields.judgeme["trust_badge.verified_reviews_count"] | json }},"verified_average_rating": {{ shop.metafields.judgeme["trust_badge.verified_average_rating"] | default: 0 | json }},"is_certified": {{ shop.metafields.judgeme["trust_badge.is_certified"] | default: false | json }}}
+                  </script>
+                </div>
+              </div>
+            {% endif %}
+            <!-- End of Judge.me Trust Badge -->
+            {% comment %}
+              <div
+                class="trustpilot-widget"
+                data-locale="en-GB"
+                data-template-id="5419b732fbfb950b10de65e5"
+                data-businessunit-id="635414ed2d0f99d637c4b0f1"
+                data-style-height="24px"
+                data-style-width="100%"
+                data-theme="dark"
+                data-token="b15f1f8a-213e-42ed-9ac6-91a138e199df"
+              >
+                <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+            {% endcomment %}
+          </div>
+
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="bullet-truspilot-wrap xxx">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewbox="0 0 24 24" fill="none">
+              <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="#fff"></path>
+            </svg>
+
+            <!-- Start of Judge.me Trust Badge -->
+            {% if shop.metafields.judgeme['trust_badge.enabled']
+              and shop.metafields.judgeme['trust_badge.verified_reviews_count'] != 0
+            %}
+              <div data-structure="outline" data-color="white" data-star="brand" data-alignment="left">
+                <div
+                  class="jdgm-widget jdgm-trust-badge-widget"
+                  data-widget="trust-badge"
+                  data-entry-point="trust_badge.js"
+                  data-entry-key="trust-badge/main.js"
+                  style="width:230px;"
+                  {% if shop.metafields.judgeme['trust_badge.modal_data'] != blank %}
+                    data-modal-json="{{ shop.metafields.judgeme["trust_badge.modal_data"] | escape }}"
+                  {% endif %}
+                >
+                  <script type="application/json" data-badge-data>
+                    {"verified_reviews_count": {{ shop.metafields.judgeme["trust_badge.verified_reviews_count"] | json }},"verified_average_rating": {{ shop.metafields.judgeme["trust_badge.verified_average_rating"] | default: 0 | json }},"is_certified": {{ shop.metafields.judgeme["trust_badge.is_certified"] | default: false | json }}}
+                  </script>
+                </div>
+              </div>
+            {% endif %}
+            <!-- End of Judge.me Trust Badge -->
+            {% comment %}
+              <div
+                class="trustpilot-widget"
+                data-locale="en-GB"
+                data-template-id="5419b732fbfb950b10de65e5"
+                data-businessunit-id="635414ed2d0f99d637c4b0f1"
+                data-style-height="24px"
+                data-style-width="100%"
+                data-theme="dark"
+                data-token="b15f1f8a-213e-42ed-9ac6-91a138e199df"
+              >
+                <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+            {% endcomment %}
+          </div>
+
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="bullet-truspilot-wrap xxx">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewbox="0 0 24 24" fill="none">
+              <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="#fff"></path>
+            </svg>
+
+            <!-- Start of Judge.me Trust Badge -->
+            {% if shop.metafields.judgeme['trust_badge.enabled']
+              and shop.metafields.judgeme['trust_badge.verified_reviews_count'] != 0
+            %}
+              <div data-structure="outline" data-color="white" data-star="brand" data-alignment="left">
+                <div
+                  class="jdgm-widget jdgm-trust-badge-widget"
+                  data-widget="trust-badge"
+                  data-entry-point="trust_badge.js"
+                  data-entry-key="trust-badge/main.js"
+                  style="width:230px;"
+                  {% if shop.metafields.judgeme['trust_badge.modal_data'] != blank %}
+                    data-modal-json="{{ shop.metafields.judgeme["trust_badge.modal_data"] | escape }}"
+                  {% endif %}
+                >
+                  <script type="application/json" data-badge-data>
+                    {"verified_reviews_count": {{ shop.metafields.judgeme["trust_badge.verified_reviews_count"] | json }},"verified_average_rating": {{ shop.metafields.judgeme["trust_badge.verified_average_rating"] | default: 0 | json }},"is_certified": {{ shop.metafields.judgeme["trust_badge.is_certified"] | default: false | json }}}
+                  </script>
+                </div>
+              </div>
+            {% endif %}
+            <!-- End of Judge.me Trust Badge -->
+            {% comment %}
+              <div
+                class="trustpilot-widget"
+                data-locale="en-GB"
+                data-template-id="5419b732fbfb950b10de65e5"
+                data-businessunit-id="635414ed2d0f99d637c4b0f1"
+                data-style-height="24px"
+                data-style-width="100%"
+                data-theme="dark"
+                data-token="b15f1f8a-213e-42ed-9ac6-91a138e199df"
+              >
+                <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+            {% endcomment %}
+          </div>
+
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="bullet-truspilot-wrap xxx">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewbox="0 0 24 24" fill="none">
+              <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="#fff"></path>
+            </svg>
+
+            <!-- Start of Judge.me Trust Badge -->
+            {% if shop.metafields.judgeme['trust_badge.enabled']
+              and shop.metafields.judgeme['trust_badge.verified_reviews_count'] != 0
+            %}
+              <div data-structure="outline" data-color="white" data-star="brand" data-alignment="left">
+                <div
+                  class="jdgm-widget jdgm-trust-badge-widget"
+                  data-widget="trust-badge"
+                  data-entry-point="trust_badge.js"
+                  data-entry-key="trust-badge/main.js"
+                  style="width:230px;"
+                  {% if shop.metafields.judgeme['trust_badge.modal_data'] != blank %}
+                    data-modal-json="{{ shop.metafields.judgeme["trust_badge.modal_data"] | escape }}"
+                  {% endif %}
+                >
+                  <script type="application/json" data-badge-data>
+                    {"verified_reviews_count": {{ shop.metafields.judgeme["trust_badge.verified_reviews_count"] | json }},"verified_average_rating": {{ shop.metafields.judgeme["trust_badge.verified_average_rating"] | default: 0 | json }},"is_certified": {{ shop.metafields.judgeme["trust_badge.is_certified"] | default: false | json }}}
+                  </script>
+                </div>
+              </div>
+            {% endif %}
+            <!-- End of Judge.me Trust Badge -->
+            {% comment %}
+              <div
+                class="trustpilot-widget"
+                data-locale="en-GB"
+                data-template-id="5419b732fbfb950b10de65e5"
+                data-businessunit-id="635414ed2d0f99d637c4b0f1"
+                data-style-height="24px"
+                data-style-width="100%"
+                data-theme="dark"
+                data-token="b15f1f8a-213e-42ed-9ac6-91a138e199df"
+              >
+                <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+            {% endcomment %}
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="main-container non-slider">
+        <div class="inner-container1">
+          <div class="rotate-box">
+            {% for block in section.blocks %}
+              <div class="text-wrapper">
+                <div class="icon-box">
+                  {% if block.settings.icon != blank %}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 40 }}"
+                      alt="icon"
+                      class="announcement-icon"
+                      loading="eager"
+                    >
+                  {% elsif block.settings.svg_html != blank %}
+                    {{ block.settings.svg_html }}
+                  {% endif %}
+                </div>
+                <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          {% comment %}
+            <div class="rotate-box">
+              {% for block in section.blocks %}
+                <div class="text-wrapper">
+                  <div class="icon-box">{{ block.settings.icon }}</div>
+                  <div class="inner-text" style="color: {{ section.settings.text-color }}">
+                    {{ block.settings.text }}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endcomment %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+  {% comment %} <div class="trustpilot-widget" data-locale="en-GB" data-template-id="5419b732fbfb950b10de65e5" data-businessunit-id="635414ed2d0f99d637c4b0f1" data-style-height="24px" data-style-width="100%" data-theme="dark" data-token="b15f1f8a-213e-42ed-9ac6-91a138e199df"></div> {% endcomment %}
+
+  {% comment %} <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a> {% endcomment %}
+</section>
+{% schema %}
+{
+  "name": "Custom Announcement Bar",
+  "class": "custom_announcement_sec",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable-carousel",
+      "label": "Enable Carousel Desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile-enable-carousel",
+      "label": "Enable Carousel Mobile"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "html",
+          "id": "svg_html",
+          "label": "SVG / HTML Fallback"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Announcement Bar"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,100 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "88b0eb59-9a34-4f38-8771-9494b0ca06bf": {
+      "type": "pages-banner-section",
+      "settings": {
+        "title": "Übbs Survey Competition",
+        "subtitle": "Answer our survey for the chance to win a £250 Amazon Voucher.",
+        "banner_img": "shopify://shop_images/Blogs-Listing.png",
+        "big_circle": "shopify://shop_images/Ellipse_1_f4b9fad7-d4a0-485b-a689-e230ad03773b.png",
+        "small_circle": "shopify://shop_images/Ellipse_2_38497fd7-1448-44a4-b3f7-e50e6d9416f7.png"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "a44ad71e-5008-400f-aea5-b4a542872b89": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div style=\"margin: 0 auto;\" class=\"pxFormGenerator\" id=\"AB8S-yL0stvDR5npjazvTg\"></div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 8
+      }
+    },
+    "308c2b83-9451-44df-a26b-5b0796b084ea": {
+      "type": "rich-text",
+      "blocks": {
+        "template--14613002518625__308c2b83-9451-44df-a26b-5b0796b084ea-1674731196ac92ddd7-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>*T&Cs apply, for more detail <a href=\"/pages/ubbs-pouches-feedback-prize-draw-terms-conditions\" target=\"_blank\" title=\"Feedback Prize Draw Terms & Conditions\">click here.</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--14613002518625__308c2b83-9451-44df-a26b-5b0796b084ea-1674731196ac92ddd7-1"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "99ee93bc-cdc4-4a11-b831-6cc7ac17d138": {
+      "type": "newsletter",
+      "blocks": {
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>GET THE LATEST NEWS, OFFERS, UPDATES AND MORE</p>"
+          }
+        },
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN OUR NEWSLETTER",
+            "heading_size": "h0"
+          }
+        },
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-2": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-1",
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-0",
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-2"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "88b0eb59-9a34-4f38-8771-9494b0ca06bf",
+    "main",
+    "a44ad71e-5008-400f-aea5-b4a542872b89",
+    "308c2b83-9451-44df-a26b-5b0796b084ea",
+    "99ee93bc-cdc4-4a11-b831-6cc7ac17d138"
+  ]
+}

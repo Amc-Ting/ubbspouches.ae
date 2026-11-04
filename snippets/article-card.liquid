@@ -1,0 +1,228 @@
+{% comment %}
+  Renders an article card for a given blog with settings to either show the image or not.
+
+  Accepts:
+  - blog: {Object} Blog object
+  - article: {Object} Article object
+  - media_aspect_ratio: {String} The setting changes the aspect ratio of the article image, if shown
+  - media_height: {String} The setting changes the height of the article image. Overrides media_aspect_ratio.
+  - show_image: {String} The setting either show the article image or not. If it's not included it will show the image by default
+  - show_date: {String} The setting either show the article date or not. If it's not included it will not show the image by default
+  - show_author: {String} The setting either show the article author or not. If it's not included it will not show the author by default
+  - show_badge: {String} The setting either show the blog badge or not.
+  - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+
+  Usage:
+  {% render 'article-card' blog: blog, article: article, show_image: section.settings.show_image %}
+{% endcomment %}
+
+{%- if article and article != empty -%}
+  {%- liquid
+    assign ratio = 1
+    if media_aspect_ratio != null
+      assign ratio = media_aspect_ratio
+    endif
+  -%}
+  <div class="card-wrapper">
+    {% comment %} <article aria-labelledby="Article-{{ article.id }}"> {% endcomment %}
+    <div
+      class="
+        card article-card
+        card--{{ settings.card_style }}
+        {% if media_height and media_height != 'adapt' %} article-card__image--{{ media_height }}{% endif %}
+        {% if article.image and show_image %} card--media{% else %} card--text{% endif %}
+        {% if settings.card_style == 'card' %} color-{{ settings.card_color_scheme }} gradient{% endif %}
+        {% if settings.card_style == 'card' and media_height == nil and article.image == empty or show_image == false %} ratio{% endif %}
+      "
+      style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+    >
+      <div
+        class="card__inner {% if settings.card_style == 'standard' %} color-{{ settings.card_color_scheme }} gradient{% endif %}{% if article.image and show_image or settings.card_style == 'standard' %} ratio{% endif %}"
+        style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+      >
+        {%- if show_image == true and article.image -%}
+          <div class="article-card__image-wrapper card__media">
+            <div
+              class="article-card__image media media--hover-effect"
+              {% if section.settings.media_height == 'adapt' %}
+                style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"
+              {% endif %}
+            >
+              {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+              <img
+                srcset="
+                  {%- if article.image.src.width >= 165 -%}{{ article.image.src | img_url: '165x' }} 165w,{%- endif -%}
+                  {%- if article.image.src.width >= 360 -%}{{ article.image.src | img_url: '360x' }} 360w,{%- endif -%}
+                  {%- if article.image.src.width >= 533 -%}{{ article.image.src | img_url: '533x' }} 533w,{%- endif -%}
+                  {%- if article.image.src.width >= 720 -%}{{ article.image.src | img_url: '720x' }} 720w,{%- endif -%}
+                  {%- if article.image.src.width >= 1000 -%}{{ article.image.src | img_url: '1000x' }} 1000w,{%- endif -%}
+                  {%- if article.image.src.width >= 1500 -%}{{ article.image.src | img_url: '1500x' }} 1500w,{%- endif -%}
+                  {{ article.image.src | img_url: 'master' }} {{ article.image.src.width }}w
+                "
+                src="{{ article.image.src | image_url: width: 430 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                alt="{{ article.image.src.alt | escape }}"
+                class="motion-reduce"
+                loading="lazy"
+                width="{{ article.image.width }}"
+                height="{{ article.image.height }}"
+              >
+              {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+            </div>
+            {% for tag in article.tags %}
+              <span class="articleTags articleCardTags">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        {%- endif -%}
+        <div class="card__content">
+          <div class="card__information">
+            <span class="card__heading text_lg text_400 blog_title{% if show_excerpt %} h2{% endif %}">
+              <a href="{{ article.url }}" class="full-unstyled-link">
+                {{ article.title | truncate: 50 | escape }}
+              </a>
+            </span>
+
+            <p class="text_center">{{ article.content | strip_html | truncatewords: 10 }}</p>
+
+            <div class="article-card__info caption-with-letter-spacing h5">
+              {%- if show_date -%}
+                <span class="line-divider">{{ article.published_at | time_tag: format: 'date' }}</span>
+              {%- endif -%}
+              {%- if show_author -%}
+                <span>{{ article.author }}</span>
+              {%- endif -%}
+
+              <div class="read_more_sec">
+                <a href="{{ article.url }}" class="cmn_btn full-unstyled-link"> Read More </a>
+              </div>
+            </div>
+            {%- if show_excerpt -%}
+              {% comment %}
+                {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                  <p class="article-card__excerpt rte-width">
+                    {%- if article.excerpt.size > 0 -%}
+                      {{ article.excerpt | strip_html | truncatewords: 30 }}
+                    {%- else -%}
+                      {{ article.content | strip_html | truncatewords: 30 }}
+                    {%- endif -%}
+                  </p>
+                {%- endif -%}
+              {% endcomment %}
+              <div class="article-card__footer">
+                {%- if article.comments_count > 0 and blog.comments_enabled? -%}
+                  <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+          {%- if show_badge -%}
+            <div class="card__badge {{ settings.badge_position }}">
+              <span class="badge color-background-1">{{ 'blogs.article.blog' | t }}</span>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="card__content">
+        <div class="card__information">
+          <span class="card__heading{% if show_excerpt %} h2{% endif %}">
+            <a class="text_reg text_700 blog_title" href="{{ article.url }}" class="full-unstyled-link">
+              {{ article.title }}
+            </a>
+          </span>
+
+          <p class="article_des">{{ article.content | strip_html | truncatewords: 10 }}</p>
+
+          <div class="article-card__info caption-with-letter-spacing h5">
+            {%- if show_date -%}
+              <span class="line-divider">{{ article.published_at | time_tag: format: 'date' }}</span>
+            {%- endif -%}
+            {%- if show_author -%}
+              <span class="line-divider">{{ article.metafields.custom.timetoread }}</span>
+              {% comment %}
+                <span>{{ article.author }}</span>
+              {% endcomment %}
+            {%- endif -%}
+
+            <div class="read_more_sec">
+              <a href="{{ article.url }}" class="cmn_btn full-unstyled-link"> Read More </a>
+            </div>
+          </div>
+          {%- if show_excerpt -%}
+            {% comment %}
+              {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                <p class="article-card__excerpt rte-width">
+                  {%- if article.excerpt.size > 0 -%}
+                    {{ article.excerpt | strip_html | truncatewords: 30 }}
+                  {%- else -%}
+                    {{ article.content | strip_html | truncatewords: 30 }}
+                  {%- endif -%}
+                </p>
+              {%- endif -%}
+            {% endcomment %}
+            <div class="article-card__footer">
+              {%- if article.comments_count > 0 and blog.comments_enabled? -%}
+                <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+        {%- if show_badge -%}
+          <div class="card__badge {{ settings.badge_position }}">
+            <span class="badge color-background-1">{{ 'blogs.article.blog' | t }}</span>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+<style>
+
+    #blog_section .card__heading{
+    	text-align:center;
+    }
+
+    #blog_section .blog_title{
+    	text-decoration: none;
+  color: #000;
+  font-family: 'BlinkerRegular';
+      line-height:1.2 !important;
+      text-transform: capitalize;
+      letter-spacing: 0;
+    }
+    #blog_section .card__information{
+      position:unset;
+    }
+
+    #blog_section .article-card__info{
+    	text-align:left;
+    }
+
+    #blog_section .article-card__info .circle-divider{
+  line-height: 1.5;
+          color: #000;
+  font-family: 'BlinkerRegular';
+  font-size: 16px;
+  letter-spacing: 0;
+    }
+
+    .read_more_sec{
+    	margin-top: 0px;
+      position:relative;
+    }
+
+    .read_more_sec a{
+    	text-transform: none;
+  	letter-spacing: 0;
+      position:relative;
+      z-index:1;
+      /*left:29%;
+      top:30px;*/
+      margin-top:5px;
+    }
+    .articleTags{background: #000; color: #fff; padding: 5px 10px; font-size: 12px; letter-spacing: 2.2px; text-transform: uppercase; line-height: normal; display: inline-block; margin-bottom: 5px;}
+    .articleCardTags{position: absolute; bottom: 5px;left:10px;}
+    .article-card__image-wrapper.card__media {
+    width: 100%;
+}
+</style>

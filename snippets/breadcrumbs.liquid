@@ -1,0 +1,135 @@
+
+{%- unless template == 'index' -%}
+<div class="tt-breadcrumb">
+<div class="page-width">
+ 
+    <ul>
+      <li><a href="{% if customer and customer.tags contains "Approved" %}/pages/wholesale{% else %}/{% endif %}">Home</a></li>
+      {%- if template contains 'product' -%}
+      {%- if collection -%}            
+      {%- if collection.handle -%}
+      {%- capture url -%}/collections/{{ collection.handle }}{%- endcapture -%}
+      <li>{{ collection.title | link_to: url }}</li>
+      {%- endif -%}
+      {%- endif -%}
+
+      <li><span>{{ product.title }}</span></li>
+
+      {%- elsif template contains 'collection' and collection.handle -%}
+      {%- if current_tags -%}
+      {%- capture url -%}/collections/{{ collection.handle }}{%- endcapture -%}
+      <li>{{ collection.title | link_to: url }}</li>
+      {%- else -%}
+      <li>{{ collection.title | capitalize }}</li>
+      {%- endif -%}
+
+      {%- elsif template == 'article' -%}
+      <li><a href="{{ blog.url }}">{{ blog.title }}</a></li>
+      <li class="article_b">{{ article.title }}</li>
+      {%- elsif template contains 'customers' and template != "customers/account" -%}
+      {%- assign account = 'customer.account.title_main' | t -%}
+<!--       <li>{{ account | capitalize | link_to: "/account" }}</li> -->
+      <li>{{ page_title }}</li>
+
+      {%- elsif template contains 'page' -%}
+      <li>{{ page.title }}</li>
+
+      {%- else -%}
+      <li>{{ page_title }}</li>
+      {%- endif -%}
+    </ul>
+  </div>
+</div>
+{%- endunless -%}
+
+
+<style>
+  .tt-breadcrumb {
+    background: 0 0;
+    color: #363e43;
+    margin: 16px 0px 0 0;
+    
+}
+
+
+  .tt-breadcrumb ul {   
+    display: flex;   
+    flex-direction: row;    
+    flex-wrap: wrap;
+    justify-content: flex-start;    
+    padding:0;
+    margin:0;
+    /*for mobile issue*/
+   
+    
+}
+  .tt-breadcrumb ul li:first-child a{
+    margin-left: -10px;
+    text-decoration:none;
+    color:rgba(0,0,0,0.5);
+}
+  
+  .tt-breadcrumb ul li {
+        font-size: 18px;
+    padding: 4px 6px 4px 11px;
+    position: relative;
+    font-family: 'BlinkerRegular';
+    text-transform: initial;
+    color: rgba(0,0,0,0.5);
+    margin:0;
+    /*for mobile issue*/
+    line-height:normal;
+}
+  .tt-breadcrumb ul li a{color: rgba(0,0,0,.5);text-decoration:none;}
+  
+  .tt-breadcrumb ul li:not(:first-child){
+  	color: #000;
+    font-family: 'BlinkerRegular';
+    /*font-weight: 600;*/
+  }
+  
+.tt-breadcrumb ul li:not(:first-child):before {
+    content: '/';
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 4px;
+}
+
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .tt-breadcrumb {
+      margin: 16px 0px 0;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tt-breadcrumb {
+    margin: 16px 0px 0;
+  }
+}
+  
+  
+    @media (max-width: 767px) {
+    .template-product .tt-breadcrumb {
+    height:30px;  
+} 
+	.tt-breadcrumb {
+    /*height:45px;  */
+      margin: 10px 0px 0;
+}
+      .tt-breadcrumb ul li span{
+  	    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    width: 200px;
+  }
+      .article_b{
+        text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    width: 220px;
+      }
+}
+</style>

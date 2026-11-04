@@ -1,0 +1,139 @@
+<div id="description_page" class="scroll-section">
+  {%- assign producticons = product.metafields.custom.product_icons.value -%}
+
+  {% assign producticonsitems = producticons.items %}
+  <div class="features_section">
+    <div class="container">
+      <div class="features-wrap">
+        {% for producticonsitem in producticonsitems %}
+          <div class="features-items">
+            <img src="{{ producticonsitem.image }}" alt="" class="img" loading="lazy">
+            <p class="text_reg font_text font_black">{{ producticonsitem.caption }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {%- assign tabs = product.metafields.custom.tabs_name.value -%}
+  <section id="tab_section" class="tab_section">
+    <div class="container">
+      <div class="tab_inner_section">
+        <div class="tabs">
+          <ul class="tab_list">
+            <li data-list=".tab_1" class="active">
+              <p>Reviews</p>
+            </li>
+            <li data-list=".tab_2" class="">
+              <p>Description</p>
+            </li>
+            <li data-list=".tab_3" class="">
+              <p>{{ tabs.title_3 }}</p>
+            </li>
+          </ul>
+        </div>
+        {%- assign tabs_first = product.metafields.custom.tab_first_content.value -%}
+        <div class="contain">
+          <div class="tab-contain tab_1" id="review_section">
+            {% render 'judgeme_widgets',
+              widget_type: 'judgeme_review_widget',
+              concierge_install: false,
+              product: product
+            %}
+
+            {% comment %}
+              {% for variant in product.variants %}
+                 {% if variant.sku != blank %}
+                 {% assign all_skus = all_skus | append: variant.sku | append: ',' %}
+                 {% endif %}
+              {% endfor %}
+
+              {% assign all_skus = all_skus | remove_last: ',' %}
+
+              <!-- TrustBox widget - Product Reviews MultiSource -->
+
+              <div class="trustpilot-widget" data-locale="en-US" data-template-id="57177697fdb1180308e3815f" data-businessunit-id="635414ed2d0f99d637c4b0f1" data-style-height="700px" data-style-width="100%" data-token="7fc71367-85ce-457a-a37e-2e24b521e0c9" data-sku="{{ all_skus }}" data-review-languages="en" data-no-reviews="show" data-fullwidth="true">
+              <a href="https://www.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+
+              <!-- End TrustBox widget -->
+            {% endcomment %}
+          </div>
+          <div class="tab-contain tab_2" id="description_section">
+            <div class="nicotine">
+              <h3 class="text_xl text_400 font_text font_black">{{ tabs_first.title }}</h3>
+              <p class="text_reg get font_text font_black">
+                {{ tabs_first.desc_1 }}
+              </p>
+
+              <p class="text_reg get font_text font_black">
+                {{ tabs_first.desc_2 }}
+              </p>
+
+              <div class="what">
+                <h4 class="text_med text_500  font_black">{{ tabs_first.ques_1 }}</h4>
+                <p class="text_reg get font_text font_black">
+                  {{ tabs_first.desc_3 }}
+                </p>
+                <h4 class="text_med text_500  font_black">{{ tabs_first.ques_2 }}</h4>
+                <p class="text_reg get font_text font_black">
+                  {{ tabs_first.desc_4 }}
+                </p>
+              </div>
+
+              {% assign tabsfirsticons = tabs_first.icons %}
+              <div class="vector_section get">
+                {% for tabsfirsticon in tabsfirsticons %}
+                  <div class="vec_img">
+                    <img src="{{ tabsfirsticon.img }}" class="img-responsive" alt="" loading="lazy">
+                    <p class="text_reg font_text font_black">{{ tabsfirsticon.caption }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          {%- assign tabs_third = product.metafields.custom.tab_third_content.value -%}
+          <div class="tab-contain tab_3">
+            <section class="faq_section">
+              <div class="title_text_sec">
+                <div class="title text_xl font_text font_black">
+                  {{ tabs_third.title }}
+                </div>
+              </div>
+
+              <div class="questions_answer">
+                {% assign tabsthirdfaqs = tabs_third.faqs %}
+                <!-- Accordion -->
+                {% for tabsthirdfaq in tabsthirdfaqs %}
+                  <div class="parent-tab">
+                    <input
+                      type="radio"
+                      name="tab"
+                      id="tab-{{ forloop.index }}"
+                      {% if forloop.first == true %}
+                        checked
+                      {% endif %}
+                    >
+                    <label for="tab-{{ forloop.index }}">
+                      <span class="text_lg text_600 font_text font_black">{{ tabsthirdfaq.ques }}</span>
+                      <div class="icon"></div>
+                    </label>
+                    <div class="content">
+                      {% if tabsthirdfaq.ans contains '<p' %}
+                        {{ tabsthirdfaq.ans }}
+                      {% else %}
+                        <p class="text_reg font_text font_black">
+                          {{ tabsthirdfaq.ans }}
+                        </p>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

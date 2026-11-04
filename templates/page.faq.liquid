@@ -1,0 +1,203 @@
+<style>
+  {% comment %} #faq_page a{
+    font-size:20px;
+    color: rgba(var(--color-foreground));
+    text-decoration: underline;
+  } {% endcomment %}
+    .tab_section {
+    padding-bottom: 0vmin; }
+    @media (max-width: 991px) {
+      .tab_section {
+        padding-bottom: 30px; } }
+    .tab_section .section_title {
+      text-align: center; }
+    .tab_section .para_text {
+      text-align: center; }
+    .tab_section .tab_inner_section {
+      padding: 40px 0 0px 0; }
+      @media (max-width: 991px) {
+        .tab_section .tab_inner_section {
+          padding: 0px 0 30px 0; } }
+      .tab_section .tab_inner_section .tabs .tab_list {
+        justify-content: space-between;
+        padding: 0;
+      display:flex;
+      align-items:center;
+      width: 80%;
+      margin: 0 auto;}
+        @media (max-width: 991px) {
+          .tab_section .tab_inner_section .tabs .tab_list {
+            margin: 0;
+          width:100%;}
+            .tab_section .tab_inner_section .tabs .tab_list::-webkit-scrollbar {
+              height: 3px;
+              margin-top: 5px; } }
+        .tab_section .tab_inner_section .tabs .tab_list li {
+          cursor: pointer;
+          text-align: center;
+          width: 100%;
+          border: 1px solid #000;
+          padding: 15px 0;
+          margin: 0; }
+          .tab_section .tab_inner_section .tabs .tab_list li:nth-child(1) {
+            border-right: 0; }
+          .tab_section .tab_inner_section .tabs .tab_list li:nth-child(2) {
+            border-right: 0; }
+          .tab_section .tab_inner_section .tabs .tab_list li::before {
+            content: unset; }
+          .tab_section .tab_inner_section .tabs .tab_list li.active {
+            background-color: var(--color_primary); }
+            .tab_section .tab_inner_section .tabs .tab_list li.active p {
+              color: #000; }
+          .tab_section .tab_inner_section .tabs .tab_list li p {
+            font-family: var(--font_text); }
+      .tab_section .tab_inner_section .contain .tab-contain .nicotine {
+        padding-top: 30px; }
+        .tab_section .tab_inner_section .contain .tab-contain .nicotine .get {
+          padding: 10px 0;
+          width: 60%; }
+          @media (max-width: 991px) {
+            .tab_section .tab_inner_section .contain .tab-contain .nicotine .get {
+              width: 100%; } }
+        .tab_section .tab_inner_section .contain .tab-contain .nicotine .vector_section .vec_img {
+          text-align: center;
+          padding: 20px 0;
+          padding-right: 50px; }
+          @media (max-width: 991px) {
+            .tab_section .tab_inner_section .contain .tab-contain .nicotine .vector_section .vec_img {
+              padding-right: 30px; } }
+          @media (max-width: 767px) {
+            .tab_section .tab_inner_section .contain .tab-contain .nicotine .vector_section .vec_img {
+              padding: 20px 20px 0 0;
+              text-align: left; } }
+          .tab_section .tab_inner_section .contain .tab-contain .nicotine .vector_section .vec_img p {
+            padding-top: 10px; }
+      .tab_section .tab_inner_section .contain .tab-contain .faq_section {
+        overflow: hidden;
+        padding: 5% 0; }
+        @media (min-width: 0) and (max-width: 768px) {
+          .tab_section .tab_inner_section .contain .tab-contain .faq_section {
+            padding: 35px 0; } }
+        .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer {
+          padding: 40px 0;
+          margin: 0 auto; }
+          @media screen and (max-width: 767px) {
+            .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer {
+              padding: 35px 0; } }
+          @media screen and (max-width: 1199px) {
+            .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer {
+              width: 100%; } }
+          .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab {
+            border-bottom: 0.5px solid #000000; }
+            .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab .content {
+              max-height: 0px;
+              overflow: hidden;
+              border-radius: 0 0 3px 3px;
+              transition: all 0.4s ease; }
+              .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab .content p {
+                padding: 15px 20px 25px 0px;
+                margin: 0; }
+                .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab .content p a {
+                  text-decoration: underline;
+                  color: #636363; }
+            .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab label {
+              padding: 15px 20px 15px 0;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              cursor: pointer;
+              border-radius: 3px;
+              position: relative;
+              z-index: 99;
+              transition: all 0.3s ease; }
+              .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab label::after {
+                font-family: "fontawesome";
+                content: "\002B";
+                display: block;
+                margin-right: 10px;
+                font-size: 25px;
+                font-weight: 800;
+                color: #000; }
+              .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab label:hover {
+                background: #ffffff; }
+              .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab label span {
+                color: #000;
+                letter-spacing: 0.9px; }
+                @media screen and (max-width: 767px) {
+                  .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab label span {
+                    font-size: 14px; } }
+                @media screen and (min-width: 768px) and (max-width: 991px) {
+                  .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab label span {
+                    font-size: 18px; } }
+            .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab input:checked ~ label {
+              border-radius: 3px 3px 0 0;
+              background: #ffffff; }
+              .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab input:checked ~ label::after {
+                content: "\2212"; }
+            .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab input:checked ~ .content {
+              max-height: 100vh; }
+            .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab input[type="radio"],
+            .tab_section .tab_inner_section .contain .tab-contain .faq_section .questions_answer .parent-tab input[type="checkbox"] {
+              display: none; }
+        .tab_section .tab_inner_section .contain .tab-contain .faq_section .know_more {
+          text-align: center; }
+          .tab_section .tab_inner_section .contain .tab-contain .faq_section .know_more .more {
+            background: #000;
+            color: #ffffff;
+            border-radius: 50px;
+            display: inline-block;
+            padding: 10px 20px;
+            letter-spacing: 0.02em; }
+
+    #faq_page #the_best_feeling .blur_circle {
+      background-color: var(--color_menthol);
+  }
+    .desktop_faq .tab_inner_section .tabs .tab_list li.active {
+      background-color: var(--color_menthol);
+  }
+    .desktop_faq .tab_inner_section .tabs .tab_list li {
+      border: 1px solid #000 !important;
+      background-color: #fff;
+  }
+
+    .desktop_faq .contain .tab-contain .faq_section .questions_answer .accordion .header4{
+      font-family: 'BlinkerRegular';
+      color:#000;
+    }
+      .desktop_faq .contain .tab-contain .faq_section .questions_answer .accordion .content p,
+    .desktop_faq .contain .tab-contain .faq_section .questions_answer .accordion .content p a{
+        font-family: 'BlinkerRegular';
+      color:#000;
+      }
+</style>
+<div id="faq_page">
+  {% section 'pages-banner-section' %}
+
+  <section id="tab_section" class="tab_section desktop_faq">
+    <div class="container">
+      <div class="tab_inner_section">
+        <div class="tabs">
+          <ul class="tab_list">
+            <li data-list=".tab_1" class="bg_menthol active">
+              <p>General FAQs</p>
+            </li>
+            <li data-list=".tab_2" class="bg_menthol">
+              <p>Product FAQs</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contain">
+          <div class="tab-contain tab_1">
+            {% section 'faq_tab_accordion' %}
+          </div>
+          <div class="tab-contain tab_2">
+            {% section 'faq_tab_accordion_1' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% section 'newsletter' %}
+</div>

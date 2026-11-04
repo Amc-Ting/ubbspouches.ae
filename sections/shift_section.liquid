@@ -1,0 +1,280 @@
+<style>
+  #shift_section {
+    overflow: hidden;
+    padding: 10vmin 0px; }
+    #shift_section .container_left_space {
+      padding-right: 20px; }
+      @media (max-width: 991px) {
+        #shift_section .container_left_space {
+          padding-right: 0;
+          padding-left: 0; } }
+      @media (max-width: 991px) {
+        #shift_section .container_left_space .shift_section_inner {
+          flex-direction: column-reverse;
+          align-items: center; } }
+    #shift_section .shift_text {
+      flex: 1;
+    	display:flex;
+    	flex-direction:column;
+    	align-items:center;}
+      #shift_section .shift_text .shift_title {
+        font-size: 2em;
+        color: #eb5861;
+        white-space: nowrap; }
+        #shift_section .shift_text .shift_title span {
+          font-style: italic;
+          display: inline-block;
+          margin-right: 15px; }
+      #shift_section .shift_text .shift_desc {
+        margin: 20px 0px 40px;
+        text-align: center;
+        font-family: BlinkerRegular !important;
+        color: #000;
+        max-width:830px;
+        text-transform: lowercase;
+      }
+      #shift_section .shift_text .shift_features {
+        display: flex; }
+        @media (max-width: 767px) {
+          #shift_section .shift_text .shift_features {
+            padding: 0 10px; } }
+        #shift_section .shift_text .shift_features .sf_item {
+          padding: 15px;
+          border-right: 1px solid #c6c6c6;
+          align-items: flex-start;
+          display:flex;
+        	justify-content:center;}
+          @media (max-width: 767px) {
+            #shift_section .shift_text .shift_features .sf_item {
+              flex-direction: column;
+              justify-content: flex-start; align-items:center;
+              padding:20px;
+            }
+          }
+          #shift_section .shift_text .shift_features .sf_item .sf_img {
+            margin-right: 15px;
+            max-width: 40px;
+            margin-top: 5px; }
+            @media (max-width: 767px) {
+              #shift_section .shift_text .shift_features .sf_item .sf_img {
+                margin-right: 0px;
+                margin-bottom: 10px;
+                margin-top: 0;
+                max-width: 30px;
+                max-height: 30px; } }
+          @media (max-width: 767px) {
+            #shift_section .shift_text .shift_features .sf_item .text_med {
+              font-size: 16px; } }
+          #shift_section .shift_text .shift_features .sf_item:nth-last-child(1) {
+            border-right: 0px; }
+      #shift_section .shift_text .cmn_btn {
+        margin-top: 30px; }
+    #shift_section .shift_img {
+      padding-left: 30px; }
+      @media (max-width: 991px) {
+        #shift_section .shift_img {
+          padding-left: 0px;
+          padding: 0 15px; } }
+      #shift_section .shift_img .shift_img_inner {
+        max-width: 40vw;
+      	    position: relative;
+      min-height: 1px;
+      }
+        @media (max-width: 991px) {
+          #shift_section .shift_img .shift_img_inner {
+            padding-bottom: 30px; } }
+        @media (max-width: 767px) {
+          #shift_section .shift_img .shift_img_inner {
+            max-width: 100%; } }
+  @keyframes rotate_text {
+    0% {
+      transform: rotate(0); }
+    100% {
+      transform: rotate(360deg); } }
+        #shift_section .shift_img .shift_img_inner .shift_img_text {
+          padding: 5%;
+          transform: rotate(calc(var(--viewport-y) * 45deg));
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;}
+          #shift_section .shift_img .shift_img_inner .shift_img_text img {
+            animation: rotate_text 50s linear infinite; }
+
+    .shift_section_inner{
+    	display:flex;
+      align-items:center;
+    }
+
+
+    #shift_section .shift_text .shift_features .sf_item h4{
+    	color:#000;
+      font-family: BlinkerRegular !important;
+      line-height: 1.2 !important;
+        text-transform: capitalize;
+
+      {% comment %} width:50%; {% endcomment %}
+    }
+    @media(max-width:767px){
+      .shift_section_inner{
+        display:block;
+      }
+      #shift_section .shift_text{
+        margin-bottom:30px;
+      }
+      #shift_section .shift_text .shift_features .sf_item h4{
+        text-align:center;
+      }
+    }
+
+  @media (max-width:1024px){
+   #shift_section .shift_text .shift_features .sf_item {
+    padding: 10px;
+}
+#shift_section .shift_text .shift_features .sf_item h4 {
+    font-size: 13px !important;
+}
+}
+@media (max-width:989px){
+  #shift_section .shift_text .shift_features .sf_item h4 {
+    font-size: 11px !important;
+  }
+  #shift_section .shift_text .shift_features .sf_item .sf_img {
+    margin-right: 5px;
+    max-width: 20px;
+}#shift_section .shift_text .shift_features .sf_item{
+  padding: 10px 5px;
+}
+}
+@media (max-width:768px){
+  
+  #shift_section .shift_text .shift_features .sf_item h4 {
+    font-size: 13px !important;
+  }
+  #shift_section .shift_text{
+    
+    flex:auto;
+  }
+  }
+  @media (max-width:749px){
+     #shift_section .shift_text .shift_features .sf_item .sf_img {
+    margin-right: 0px;
+    max-width: 40px;
+    object-fit: contain;
+}
+}
+</style>
+<section id="shift_section">
+  <div class="page-width">
+    <div class="shift_section_inner">
+      <article class="shift_text">
+        <div class="text_xxxxl font_heading color_watermelon">
+          <h2 class="shift_title fadeInUp">{{ section.settings.title }}</h2>
+        </div>
+        <p class="text_lg text_400 shift_desc fadeInUp">
+          {{ section.settings.subtitle }}
+        </p>
+        <div class="shift_features">
+          {% for block in section.blocks %}
+            <div class="sf_item fadeInUp">
+              <img
+                src="{{ block.settings.icon_img | image_url: width: 60, format: 'webp' }}"
+                loading="lazy"
+                alt="{{ block.settings.icon_img.alt }}"
+                class="sf_img img-responsive"
+                width="{{ block.settings.icon_img.width }}"
+                height="{{ block.settings.icon_img.height }}"
+              >
+              <h4 class="text_reg text_400">{{ block.settings.icon_caption }}</h4>
+            </div>
+          {% endfor %}
+        </div>
+        <a href="{{ section.settings.btn_url }}" class="cmn_btn fadeInUp">{{ section.settings.btn_label }}</a>
+      </article>
+      <article class="shift_img fadeInUp">
+        <div class="shift_img_inner">
+          <img
+            src="{{ section.settings.image | image_url: width: 450, format: 'webp' }}"
+            alt="{{ section.settings.image.alt }}"
+            loading="lazy"
+            class="img-responsive"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+          >
+          <div class="shift_img_text">
+            <img
+              src="{{ section.settings.image_text | image_url: width: 450, format: 'webp' }}"
+              alt="{{ section.settings.image_text.alt }}"
+              loading="lazy"
+              class="img-responsive"
+              width="{{ section.settings.image_text.width }}"
+              height="{{ section.settings.image_text.height }}"
+            >
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shift section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_text",
+      "label": "Rotating Image"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_img",
+          "label": "Add Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "icon_caption",
+          "label": "Add Icon Caption"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shift section"
+    }
+  ]
+}
+{% endschema %}

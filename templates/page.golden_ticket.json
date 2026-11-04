@@ -1,0 +1,187 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "72fd3aa1-636a-4466-9430-78b7e5f84ba4": {
+      "type": "golden_ticket_banner_section",
+      "settings": {
+        "img_1": "shopify://shop_images/pouch_1.png",
+        "icon_img": "shopify://shop_images/goden_ubbs_icon_9e5a97da-b316-4955-b627-b5757f8c6e44.png",
+        "heading": "WIN UP TO £1000 WITH THE ÜBBS GOLDEN TICKET COMPETITION",
+        "desc": "We’re giving away cash prizes. Look out for a gold, silver or bronze winning ticket in your order!",
+        "caption": "*Terms and conditions apply <a href=\"https://ubbspouches.com/pages/ubbs-golden-ticket-terms-conditions\">click here</a> to know more",
+        "img_2": "shopify://shop_images/pouch_2.png",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "504e655b-57a6-4772-bf4b-f204cd9067dc": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--14729389015137__504e655b-57a6-4772-bf4b-f204cd9067dc-column-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Golden_ticket__Recovered_-11.png",
+            "title": "1 Gold Ticket",
+            "text": "<p>With a cash prize of <strong>£1000</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--14729389015137__504e655b-57a6-4772-bf4b-f204cd9067dc-column-3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/silver.png",
+            "title": "5 Silver Tickets",
+            "text": "<p>With a cash prize of <strong>£100</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--14729389015137__504e655b-57a6-4772-bf4b-f204cd9067dc-column-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/bronze.png",
+            "title": "10 Bronze Tickets",
+            "text": "<p>With a cash prize of <strong>£50</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14729389015137__504e655b-57a6-4772-bf4b-f204cd9067dc-column-2",
+        "template--14729389015137__504e655b-57a6-4772-bf4b-f204cd9067dc-column-3",
+        "template--14729389015137__504e655b-57a6-4772-bf4b-f204cd9067dc-column-1"
+      ],
+      "settings": {
+        "title": "UP FOR GRABS",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1987f80c-4d53-40d1-9e79-8569d31a2d32": {
+      "type": "reward_discreet_section",
+      "blocks": {
+        "543ea37c-cb4c-45e5-9af1-10729cc87e84": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/hiw_1.png",
+            "number-heading": "01",
+            "heading": "",
+            "descreption": "If you are one of the lucky winners scan the QR code on the ticket"
+          }
+        },
+        "53b7b0be-648f-4117-bb87-75adccc846ac": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/hiw_2.png",
+            "number-heading": "02",
+            "heading": "",
+            "descreption": "Enter your details and ticket’s serial number in the form below"
+          }
+        },
+        "652d3260-4b55-41c4-9aa0-dd1b1064f0dc": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/hiw_3.png",
+            "number-heading": "03",
+            "heading": "",
+            "descreption": "Wait for us to contact you, and send you your prize money"
+          }
+        }
+      },
+      "block_order": [
+        "543ea37c-cb4c-45e5-9af1-10729cc87e84",
+        "53b7b0be-648f-4117-bb87-75adccc846ac",
+        "652d3260-4b55-41c4-9aa0-dd1b1064f0dc"
+      ],
+      "settings": {
+        "custom_class": "golden_ticket_hiw",
+        "title": "How it works",
+        "subtitle": "16 lucky winners will receive a ticket in their next Übbs order"
+      }
+    },
+    "ef9658ae-9aed-469c-bbc4-d8cc13ce2a24": {
+      "type": "why_ubbs_section",
+      "settings": {
+        "custom_class": "why_ubbs_golden_ticket",
+        "desktop_border_img": "shopify://shop_images/golden_desktop_revised.png",
+        "mob_border_img": "shopify://shop_images/golden_mobile_revised.png",
+        "title": "Think you’ve won?",
+        "subtitle": "Did you just open up your Übbs order and found a ticket? Then share your details with us and we’ll get in touch with you!",
+        "info": "",
+        "btn_url": "",
+        "btn_label": "",
+        "html_form": "<div style=\"margin:0 auto;\" class=\"pxFormGenerator\" id=\"w2AGUuQ08YhtC-t-6QG8Fg\"></div>"
+      }
+    },
+    "99ee93bc-cdc4-4a11-b831-6cc7ac17d138": {
+      "type": "newsletter",
+      "blocks": {
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>GET THE LATEST NEWS, OFFERS, UPDATES AND MORE</p>"
+          }
+        },
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN OUR NEWSLETTER",
+            "heading_size": "h0"
+          }
+        },
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-2": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-1",
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-0",
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-2"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "72fd3aa1-636a-4466-9430-78b7e5f84ba4",
+    "504e655b-57a6-4772-bf4b-f204cd9067dc",
+    "1987f80c-4d53-40d1-9e79-8569d31a2d32",
+    "ef9658ae-9aed-469c-bbc4-d8cc13ce2a24",
+    "99ee93bc-cdc4-4a11-b831-6cc7ac17d138"
+  ]
+}

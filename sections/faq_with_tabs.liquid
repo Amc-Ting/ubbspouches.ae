@@ -1,0 +1,274 @@
+{% if customer and customer.tags contains "Approved" %}
+<section class="faq-tabs" id="faqs">
+  <div class="container">
+    <!-- Tab Buttons -->
+    <div class="tabs">
+      <button class="tab-link active" data-tab="tab1">{{ section.settings.tab1_title }}</button>
+      <button class="tab-link" data-tab="tab2">{{ section.settings.tab2_title }}</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div class="tab-content faq_section">
+      <!-- Tab 1 FAQs -->
+      <div id="tab1" class="tab-panel active faq_questions_answer">
+        {% for faq in section.blocks %}
+          {% if faq.type == 'tab1_faq' %}           
+            <div class="faq_accordion">
+              <div class="faq_header4">{{ faq.settings.question }}</div>
+              <div class="faq_content">
+                <div class="body2">{{ faq.settings.answer }}</div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- Tab 2 FAQs -->
+      <div id="tab2" class="tab-panel faq_questions_answer">
+        {% for faq in section.blocks %}
+          {% if faq.type == 'tab2_faq' %}
+            <div class="faq_accordion">
+              <div class="faq_header4">{{ faq.settings.question }}</div>
+              <div class="faq_content">
+                <div class="body2">{{ faq.settings.answer }}</div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+  <style>
+    .faq-tabs .tabs {
+      display: flex;
+      margin-bottom: 20px;
+      justify-content:center;
+    }
+    .faq-tabs .tab-link[data-tab="tab1"]{
+      border-top-left-radius:50px;
+      border-bottom-left-radius:50px;
+    }
+    .faq-tabs .tab-link[data-tab="tab2"]{
+      border-top-right-radius:50px;
+      border-bottom-right-radius:50px;
+    }
+    .faq-tabs .tab-link {
+         margin-right: 0;
+    cursor: pointer;
+    padding: 15px 15px;
+    border: 1px solid #000;
+    background: #fff;
+    width: 25%;
+    font-size: 18px;
+      font-family: 'BlinkerRegular'
+    }
+    .faq-tabs .tab-link.active {
+          background: #000;
+    color: #fff;
+    }
+    .faq-tabs .tab-panel {
+      display: none;
+    }
+    .faq-tabs .tab-panel.active {
+      display: block;
+    }
+
+     @media screen and (min-width: 750px) {
+    .collection-title-btn {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+}
+  .faq_section {
+    overflow: hidden;
+    padding: 5% 0;
+  }
+  
+  @media (min-width: 0) and (max-width: 768px) {
+    .faq_section {
+        padding: 35px 0;
+    }
+  }
+
+  .faq_section .faq_questions_answer {
+    padding-bottom: 40px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 767px) {
+    .faq_section .faq_questions_answer {
+        padding-bottom: 35px 0;
+    }
+    .faq-tabs .tab-link{
+      width:100%;
+    }
+  }
+
+  @media screen and (max-width: 1199px) {
+    .faq_section .faq_questions_answer {
+        width: 100%;
+    }
+  }
+
+  .faq_section {
+    padding: 0;
+  }
+
+  .faq_section .faq_questions_answer .faq_accordion {
+    border-bottom: 0.5px solid #000000;
+  }
+
+  .faq_section .faq_questions_answer .faq_accordion .faq_header4 {
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    cursor: pointer;
+    font-size:28px;
+    font-weight:400;
+  }
+
+  .faq_section .faq_questions_answer .faq_accordion .faq_header4::after {
+    content: "+";
+    font-size: 35px;
+    line-height: 30px;
+    font-weight: 500;
+    position: absolute;
+    right: 0px;
+    color: #000;
+    padding-right: 20px;
+  }
+
+  @media (max-width: 991px) {
+    .faq_section .faq_questions_answer .faq_accordion .faq_header4::after {
+        top: 20px;
+    }
+  }
+
+  @media(max-width:767px) {
+    .faq_section .faq_questions_answer .faq_accordion .faq_header4::after {
+        right: -45px;
+    }
+  }
+
+  .faq_section .faq_questions_answer .faq_accordion .faq_header4.faq_active_bg::after {
+    content: "-";
+    font-size: 35px;
+    line-height: 30px;
+    font-weight: 500;
+    position: absolute;
+    right: 0px;
+  }
+
+  @media (max-width: 991px) {
+    .faq_section .faq_questions_answer .faq_accordion .faq_header4.faq_active_bg::after {
+        top: 20px;
+    }
+  }
+
+  @media(max-width:767px) {
+    .faq_section .faq_questions_answer .faq_accordion .faq_header4 {
+      width: 90%;
+      font-size:20px;
+    }
+
+    .faq_section .faq_questions_answer .faq_accordion .faq_header4.faq_active_bg::after {
+        right: -45px;
+    }
+  }
+
+  .faq_section .faq_questions_answer .faq_accordion .faq_content {
+    padding-bottom: 15px;
+    display: none;
+  }
+
+  .faq_section .faq_questions_answer .faq_accordion .faq_content.faq_active_co {
+    display: block;
+  }
+
+  .faq_section .faq_questions_answer .faq_accordion .faq_content p {
+    padding: 10px 0;
+  }
+
+  .faq_section .faq_questions_answer .faq_accordion .faq_content .links {
+    text-decoration: underline !important;
+  }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tabs = document.querySelectorAll('.tab-link');
+      const panels = document.querySelectorAll('.tab-panel');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+          tabs.forEach(t => t.classList.remove('active'));
+          panels.forEach(p => p.classList.remove('active'));
+
+          this.classList.add('active');
+          document.getElementById(this.dataset.tab).classList.add('active');
+        });
+      });
+    });
+  </script>
+</section>
+{% schema %}
+{
+  "name": "FAQ Tabs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tab1_title",
+      "label": "Tab 1 Title",
+      "default": "General Questions"
+    },
+    {
+      "type": "text",
+      "id": "tab2_title",
+      "label": "Tab 2 Title",
+      "default": "Technical Support"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab1_faq",
+      "name": "Tab 1 FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    },
+    {
+      "type": "tab2_faq",
+      "name": "Tab 2 FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Tabs",
+      "category": "FAQ"
+    }
+  ]
+}
+{% endschema %}

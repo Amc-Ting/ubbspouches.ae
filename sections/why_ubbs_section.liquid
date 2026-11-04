@@ -1,0 +1,232 @@
+<style>
+  .main_page-ubbs-rewards h5.wus_heading.text_xxxxl.font_heading.text_400.color_berry.fadeInUp {
+    font-size: 54px;
+    color: #21c6be;
+}
+  #why_ubbs_section {
+  padding: 10vmin 0px 0; }
+  #why_ubbs_section .wus_inner {
+    padding: 5vmin 0vmin 12vmin 0vmin;
+    position: relative;
+    min-height: 1px;}
+    
+    
+    #why_ubbs_section .wus_inner .wus_inner_border .wus_content {
+      top: 40%;
+      text-align: center;
+      width: 70%;
+      justify-content: center;
+      align-items: center;
+      display:flex;
+      flex-direction:column;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);}
+      @media(max-width:989px){
+            
+    #why_ubbs_section .wus_inner .wus_inner_border .wus_content {
+      top: 38%;
+      width: 75%;
+    }
+        #why_ubbs_section{
+          padding: 7vmin 0px 0; }
+    }
+    @media(max-width:767px){
+      #why_ubbs_section .wus_inner .wus_inner_border .wus_content{
+      padding-bottom: 0px;
+    width: 80%;
+        top:37%;
+      }
+    }
+        #why_ubbs_section .wus_inner .wus_inner_border .wus_content .wus_desc {
+          width: 100%;
+          margin-top: 30px;
+          margin-bottom: 25px; 
+        	margin-left: auto;
+    margin-right: auto; color:#000;
+    text-transform: uppercase;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    #why_ubbs_section .wus_inner .wus_inner_border .wus_content .wus_desc{
+          margin-top: 5px;
+    margin-bottom: 5px;
+    }
+}
+
+          @media (max-width: 767px) {
+            #why_ubbs_section .wus_inner .wus_inner_border .wus_content .wus_desc {
+              width: 100%;
+              margin-top: 22px;
+    margin-bottom: 22px;
+              font-size:18px !important;} }
+        #why_ubbs_section .wus_inner .wus_inner_border .wus_content .wus_image {
+          bottom: -30%;
+          padding: 20px 30px;
+          background-color: #fff;
+          max-width: 230px;
+          position: absolute;
+    	  left: 50%;
+          transform: translateX(-50%);}
+          @media (max-width: 991px) {
+            #why_ubbs_section .wus_inner .wus_inner_border .wus_content .wus_image {
+              max-width: 150px;
+              padding: 0 20px;
+              bottom: -25%; } }
+          @media (max-width: 767px) {
+            #why_ubbs_section .wus_inner .wus_inner_border .wus_content .wus_image {
+              bottom: -20%;
+              padding: 10px;
+              max-width: 150px; } }
+
+  #why_ubbs_section .wus_inner .wus_inner_border .wus_content p{
+        line-height: 1.2 !important;
+    margin-bottom: 35px;
+    color:#000;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    #why_ubbs_section .wus_inner .wus_inner_border .wus_content p{
+      margin-bottom: 10px;
+    }
+  }
+  @media(max-width:767px){
+    #why_ubbs_section .wus_inner .wus_inner_border .wus_content p{
+      margin-bottom: 30px;
+    }
+
+    #why_ubbs_section .wus_inner .wus_inner_border .wus_content p br{
+      display:none;
+    }
+  }
+    .page-ubbs-rewards #why_ubbs_section {
+    padding: unset;
+  }
+  .page-ubbs-rewards #why_ubbs_section .wus_content .text_xxxxl{
+    font-size: 54px !important;
+    margin-top: 5%;
+  }
+  .page-ubbs-rewards #why_ubbs_section .wus_content h3.text_xl p{
+    text-transform: initial;
+  }
+  @media only screen and (max-width: 600px) {
+    .page-ubbs-rewards #why_ubbs_section .wus_content .text_xxxxl{
+      font-size: 32px !important;
+    }
+  }
+  .html_form{
+    width:100%;
+        margin-top: 20px;
+  }
+</style>
+
+
+<section id="why_ubbs_section" class="{{ section.settings.custom_class }}">
+          <div class="container">
+            <div class="wus_inner">
+              <div class="wus_inner_border">
+
+                <picture>
+  					<source media="(max-width:767px)" srcset="{{ section.settings.mob_border_img | image_url: width: 1200, format: 'webp' }}"loading="lazy">
+									
+					<img src="{{ section.settings.desktop_border_img | image_url: width: 1200, format: 'webp' }}" class="img-responsive" alt="{{ section.settings.desktop_border_img.alt }}" width="{{ section.settings.desktop_border_img.width }}" height="{{ section.settings.desktop_border_img.height }}"loading="lazy">
+				</picture>
+                
+                <div class="wus_content">
+                  <h2
+                    class="wus_heading text_xxxxl font_heading text_400 color_berry fadeInUp"
+                  >
+                   {{ section.settings.title }}
+                  </h2>
+                  <h3 class="wus_desc text_xl font_heading text_400 fadeInUp">
+                    {{ section.settings.subtitle }}
+                  </h3>
+          {% if  section.settings.info != blank %}
+                      <p class="text_reg font_text text_40 fadeInUp">{{ section.settings.info }}</p>
+            {% endif %}
+                   {% if section.settings.btn_label != blank %}
+                  <a href="{{ section.settings.btn_url }}" class="cmn_btn fadeInUp"
+                    >{{ section.settings.btn_label }}</a
+                  >
+                     {% endif %}
+{% if section.settings.html_form != blank %}
+                  <div class="html_form">
+                    {{ section.settings.html_form }}
+                  </div>
+  {% endif %}
+<!--                   <div class="wus_image">
+                    <img
+                      src="{{ section.settings.image | img_url: 'master' }}"
+                      alt="why_ubbs_img"
+                      class="img-responsive"
+                    />
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+{% schema %}
+  {
+   "name":"Why Ubbs Section",
+   "settings":[
+     {
+         "type":"text",
+         "id":"custom_class",
+         "label":"Add Custom Class"
+      },
+       {
+         "type":"image_picker",
+         "id":"desktop_border_img",
+         "label":"Desktop Image"
+      },
+      {
+         "type":"image_picker",
+         "id":"mob_border_img",
+         "label":"Mobile Image"
+      },
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title"
+      },
+	  {
+         "type":"text",
+         "id":"subtitle",
+         "label":"Subheading"
+      },
+      {
+         "type":"text",
+         "id":"info",
+         "label":"Description"
+      },
+	  {
+         "type":"url",
+         "id":"btn_url",
+         "label":"Button URL"
+      },
+	  {
+         "type":"text",
+         "id":"btn_label",
+         "label":"Button Label"
+      },
+     {
+       "type":"html",
+         "id":"html_form",
+         "label":"Add HTML"
+     }
+	  
+   ],
+	"presets": [
+      {
+      "name": "Why Ubbs Section"
+      }
+   ]
+}
+{% endschema %}
+<style>
+/* <!-- styel for page-way_to_earn css --> */
+  .page-ubbs-rewards #why_ubbs_section .color_berry {
+    color: #21c6be;
+  }
+</style>

@@ -1,0 +1,139 @@
+{{ 'blog-listing.css' | asset_url | stylesheet_tag }}
+<style>
+    @keyframes scaleCircle {0% {transform: scale(0); }
+  30% {transform: scale(1); }
+  60% {transform: scale(1); }
+  100% {transform: scale(0); }
+  }
+    #psa_section .hand_image .element_05 {
+      position: absolute;
+      top: 0;
+      left: -40px;
+      z-index: -1;
+  }
+    #psa_section .hand_image .blur_circle.watermelon_circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background-color: var(--color_watermelon);
+      opacity: .3;
+      animation: scaleCircle 6s linear infinite;
+  }
+   #psa_section .block-title{
+     -webkit-text-stroke-width: 0.1px;
+      -webkit-text-stroke-color: #000000;
+      -webkit-text-fill-color: #FFFFFF;
+      font-size: 88px;
+      font-family: var(--font_heading);
+      letter-spacing: 2px;
+   }
+    #psa_section .block_info{
+          font-size: 26px;
+          line-height: 1.2;
+    }
+   #psa_section .voting_psa.reverse_section{
+     flex-direction:row-reverse;
+   }
+    #psa_section .voting_psa.reverse_section .hand_image .element_05 {
+      top:unset;
+      bottom:0;
+      right:0;
+      left:unset;
+    }
+    #psa_section .voting_psa .psa_content{
+      text-align:center;
+    }
+    @media(max-width:767px){
+      #psa_section .block-title{
+        font-size:65px;
+         -webkit-text-stroke-width: 1px;
+      }
+       #psa_section .block_info{
+         font-size:18px;
+       }
+       #psa_section .hand_image .blur_circle.watermelon_circle {
+         width:80px;
+         height:80px;
+       }
+      #psa_section .voting_psa.reverse_section{
+        flex-direction:column;
+      }
+      #psa_section .voting_psa.reverse_section .hand_image .element_05{
+            bottom: -13px;
+      right: -30px;
+      }
+    }
+</style>
+<section id="psa_section">
+  <div class="container">
+    <div class="psa_inner voting_psa {{ section.settings.custom_class }}">
+      <div class="psa_img">
+        <div class="hand_image">
+          <div class="element_05">
+            <div class="blur_circle watermelon_circle"></div>
+          </div>
+          <!--
+            <lottie-player class="svganimation" src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Our_Facilities.json?v=1658911636" background="transparent" style="" loop autoplay></lottie-player>
+          -->
+          <img
+            src="{{ section.settings.banner_img | image_url }}"
+            width=""
+            height=""
+            loading="lazy"
+            alt=""
+            class="img-responsive"
+          >
+        </div>
+      </div>
+
+      <div class="psa_content">
+        <h2 class="block-title">{{ section.settings['block-title'] }}</h2>
+        <h3 class="text_xxl font_heading text_400 fadeInUp">{{ section.settings.title }}</h3>
+        <p class="fadeInUp block_info">{{ section.settings.subtitle }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "PSA Section Voting",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    },
+    {
+      "type": "text",
+      "id": "block-title",
+      "label": "Block Title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_img",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "PSA Section Voting"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

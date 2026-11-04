@@ -1,0 +1,131 @@
+{% for block in section.blocks %}
+  {% if block.type == 'psa_section' %}
+    <section id="psa_section">
+      <div class="container">
+        <div class="psa_inner">
+          <div class="psa_img">
+            <div class="hand_image fadeInUp">
+              <div class="element_02">
+                <div class="blur_circle"></div>
+              </div>
+              <img
+                src="{{ block.settings.psa_banner_img | image_url }}"
+                width=""
+                height=""
+                loading="lazy"
+                alt=""
+                class="img-responsive gif-img"
+              >
+              <div class="element_gold">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Ellipse_3_eae44e69-c4ee-4b21-b312-6d551d411f3b.png?v=1670485857"
+                  width=""
+                  height=""
+                  loading="lazy"
+                  class="img-responsive"
+                  alt=""
+                >
+              </div>
+            </div>
+          </div>
+          <div class="psa_content">
+            <h2 class="text_xxl font_heading text_400 fadeInUp">{{ block.settings.psa_title }}</h2>
+            <p class="gold fadeInUp">{{ block.settings.psa_subtitle }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% elsif block.type == 'vision_section' %}
+    <section id="with_this_vision_section">
+      <div class="container">
+        <div class="with_this_vision_inner">
+          <div class="with_this_vision_content">
+            <h2 class="text_xxl font_heading text_400 fadeInUp">{{ block.settings.vision_title }}</h2>
+            <p class="gold fadeInUp">{{ block.settings.vision_subtitle }}</p>
+          </div>
+          <div class="with_this_vision_img">
+            <div class="hand_image fadeInUp">
+              <div class="element_strict">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Ellipse_3_eae44e69-c4ee-4b21-b312-6d551d411f3b.png?v=1670485857"
+                  class="img-responsive"
+                  width=""
+                  height=""
+                  loading="lazy"
+                  alt=""
+                >
+              </div>
+              <img
+                src="{{ block.settings.vision_banner_img | image_url }}"
+                width=""
+                height=""
+                loading="lazy"
+                alt=""
+                class="img-responsive gif-img"
+              >
+              <div class="element_02">
+                <div class="blur_circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+{% endfor %}
+{% schema %}
+{
+  "name": "Multiple Blocks",
+  "settings": [
+    {
+      "type": "text",
+      "id": "Htitle",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "psa_section",
+      "name": "PSA Section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "psa_title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "psa_subtitle",
+          "label": "Subheading"
+        },
+        {
+          "type": "image_picker",
+          "id": "psa_banner_img",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "vision_section",
+      "name": "Vision Section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "vision_title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "vision_subtitle",
+          "label": "Subheading"
+        },
+        {
+          "type": "image_picker",
+          "id": "vision_banner_img",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

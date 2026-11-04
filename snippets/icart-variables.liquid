@@ -1,0 +1,50 @@
+<div class="icartShopifyCartContent">
+  {% if request.path == '/policies/refund-policy' %}
+    <div class="shopify-policy__title custom-title">
+      <h1>Cancellation & Returns</h1>
+    </div>
+  {% elsif request.path == '/policies/privacy-policy' %}
+    <div class="shopify-policy__title custom-title">
+      <h1>Privacy policy</h1>
+    </div>
+  {% elsif request.path == '/policies/shipping-policy' %}
+    <div class="shopify-policy__title custom-title">
+      <h1>Shipping policy</h1>
+    </div>
+  {% elsif request.path == '/policies/terms-of-service' %}
+    <div class="shopify-policy__title custom-title">
+      <h1>Terms & Conditions</h1>
+    </div>
+  {% elsif request.path == '/pages/age-verification' %}
+
+  {% elsif request.path == '/policies/age-verification' %}
+    {% comment %}
+      <div class="shopify-policy__title custom-title">
+        <h1>Age Verification</h1>
+      </div>
+    {% endcomment %}
+  {% else %}
+    {% assign slug = request.path | split: '/' | last %}
+    {% assign title = slug | replace: '-', ' ' | capitalize %}
+    {% comment %}
+      <h1>{{ title }}</h1>
+      <div class="shopify-policy__title custom-title">
+        <h1>Age Verification</h1>
+      </div>
+    {% endcomment %}
+  {% endif %}
+  {{ content_for_layout }}
+</div>
+<style>
+  .icartShopifyCartContent{width: 100%;}
+  .shopify-policy__title{
+    margin-top:25px;
+  }
+  .shopify-policy__title h1{
+      display: none !important;
+
+  }
+  .custom-title h1{
+      display: block !important;
+  }
+</style>

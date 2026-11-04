@@ -1,0 +1,722 @@
+{% comment %}
+  Renders a megamenu for the header with optional product images (normal + hover)
+  Adds Discover section with blog article cards
+  Usage:
+  {% render 'header-mega-menu' %}
+{% endcomment %}
+
+{% comment %}
+  Renders a megamenu for the header with optional product images (normal + hover)
+  Adds Discover section with blog article cards
+{% endcomment %}
+
+{% comment %}
+  Mega menu with Shop products slider and normal Discover section
+{% endcomment %}
+
+<nav class="custom_mega_menu header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in section.settings.menu.links -%}
+      <li>
+        {%- if link.links != blank -%}
+          <header-menu>
+            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+              <summary
+                id="HeaderMenu-{{ link.handle }}"
+                class="header__menu-item list-menu__item link focus-inset"
+              >
+                <span
+                  {%- if link.child_active %}
+                    class="header__active-menu-item"
+                  {% endif %}
+                >
+                  {{- link.title | escape -}}
+                </span>
+                {{- 'icon-caret.svg' | inline_asset_content -}}
+              </summary>
+
+              <div
+                id="MegaMenu-Content-{{ forloop.index }}"
+                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                tabindex="-1"
+              >
+                {% if link.title == 'Shop' %}
+                  {% render 'shop-mega-links', block: block %}
+                  <div class="product-tabs hidden">
+                    <div class="tab-btn active" data-tab="pouches">übbs Nicotine Pouches</div>
+                    <div class="tab-btn" data-tab="bundles">übbs Bundles</div>
+                  </div>
+                  <div id="pouches" class="tab-content active">
+                    <div class="shop-menu-flex">
+                      <!-- Left side: shop title + view all -->
+                      <div class="shop-all-mbl">
+                        <span class="shop-text">Shop by Product</span>
+                        <a href="/collections/shop" class="arrow-view">View all →</a>
+                      </div>
+
+                      <!-- Right side: product images slider -->
+                      <div class="swiper shop-swiper">
+                        <div class="swiper-wrapper">
+                          {%- for childlink in link.links -%}
+                            {% capture productimg %}{{ childlink.url | remove: '/products/'  | remove:'/ar' }}.png{% endcapture %}
+                            {% capture productimghover %}{{ childlink.url | remove: '/products/' | remove:'/ar' }}-hover.png{% endcapture %}
+                            <div class="swiper-slide mega-menu__item-with-image">
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                                href="{{ childlink.url }}"
+                                class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                                {% if childlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                              >
+                                <div class="mega-menu__image-wrapper">
+                                  <img
+                                    src="{{ productimg | asset_url }}"
+                                    alt="{{ childlink.title | escape }}"
+                                    class="mega-menu__image {{ productimg | remove: '.png' }}"
+                                    loading="lazy"
+                                  >
+                                  <img
+                                    src="{{ productimghover | asset_url }}"
+                                    alt="{{ childlink.title | escape }}"
+                                    class="mega-menu__image--hover {{ productimghover | remove : '.png' }}"
+                                    loading="lazy"
+                                  >
+                                </div>
+                                <span class="mega-menu__title">{{ childlink.title | escape }}</span>
+                              </a>
+                            </div>
+                          {%- endfor -%}
+                        </div>
+                        <!-- Swiper controls -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="bundles" class="tab-content">
+                    <div class="shop-menu-flex">
+                      <!-- Left side: shop title + view all -->
+                      <div class="shop-all-mbl">
+                        <span class="shop-text">Shop by Product</span>
+                        <a href="/collections/bundles" class="arrow-view">View all →</a>
+                      </div>
+
+                      <!-- Right side: product images slider -->
+                      <div class="swiper shop-swiper">
+                        <div class="swiper-wrapper">
+                          {%- for childlink in linklists['menu-bundles'].links -%}
+                            {% capture productimg %}{{ childlink.url | remove: '/products/' }}.png{% endcapture %}
+                            {% capture productimghover %}{{ childlink.url | remove: '/products/' }}-hover.png{% endcapture %}
+                            <div class="swiper-slide mega-menu__item-with-image">
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                                href="{{ childlink.url }}"
+                                class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                                {% if childlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                              >
+                                <div class="mega-menu__image-wrapper">
+                                  <img
+                                    src="{{ productimg | asset_url }}"
+                                    alt="{{ childlink.title | escape }}"
+                                    class="mega-menu__image"
+                                    loading="lazy"
+                                  >
+                                  <img
+                                    src="{{ productimghover | asset_url }}"
+                                    alt="{{ childlink.title | escape }}"
+                                    class="mega-menu__image--hover"
+                                    loading="lazy"
+                                  >
+                                </div>
+                                <span class="mega-menu__title">{{ childlink.title | escape }}</span>
+                              </a>
+                            </div>
+                          {%- endfor -%}
+                        </div>
+                        <!-- Swiper controls -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                      </div>
+                    </div>
+                  </div>
+                {% elsif link.title == 'Discover' %}
+                  <div class="discover-menu-flex">
+                    <!-- Left side: Discover links -->
+                    <div class="discover-links">
+                      <ul class="mega-menu__list" role="list">
+                        {%- for childlink in link.links -%}
+                          <li>
+                            <a
+                              id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                              href="{{ childlink.url }}"
+                              class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                              {% if childlink.current %}
+                                aria-current="page"
+                              {% endif %}
+                            >
+                              {{ childlink.title | escape }}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    </div>
+
+                    <!-- Right side: Discover blog articles (normal layout) -->
+                    <div class="discover-articles">
+                      {% for block in section.blocks %}
+                        {% if block.type == 'blog_article' %}
+                          {% assign sarticle = block.settings.article %}
+                          <div class="article_blog">
+                            <div class="image_cover">
+                              <a href="{{ sarticle.url }}">
+                                <img
+                                  src="{{ sarticle.image | image_url: width: 500 }}"
+                                  loading="lazy"
+                                  alt="{{ sarticle.title }}"
+                                >
+                              </a>
+                              {% if sarticle.tags.size > 0 %}
+                                <div class="tab-cyt">
+                                  {% for tag in sarticle.tags %}
+                                    <span class="taged">{{ tag }}</span>
+                                  {% endfor %}
+                                </div>
+                              {% endif %}
+                            </div>
+                            <div class="article_content">
+                              <p class="article_title">
+                                <a href="{{ sarticle.url }}">{{ sarticle.title }}</a>
+                              </p>
+                              <div class="banner__buttons">
+                                <a class="button button--primary" href="{{ sarticle.url }}">Read More</a>
+                              </div>
+                            </div>
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                {% else %}
+                  <ul
+                    class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                    role="list"
+                  >
+                    {%- for childlink in link.links -%}
+                      <li>
+                        <a
+                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                          href="{{ childlink.url }}"
+                          class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                          {% if childlink.current %}
+                            aria-current="page"
+                          {% endif %}
+                        >
+                          {{ childlink.title | escape }}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {% endif %}
+              </div>
+            </details>
+          </header-menu>
+        {%- else -%}
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span
+              {%- if link.current %}
+                class="header__active-menu-item"
+              {% endif %}
+            >
+              {{- link.title | escape -}}
+            </span>
+          </a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector('#shopify-section-{{ section.id }}');
+    if (!section) return;
+
+    const tabs = section.querySelectorAll('.tab-btn');
+    const contents = section.querySelectorAll('.tab-content');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', function () {
+        tabs.forEach((t) => t.classList.remove('active'));
+        contents.forEach((c) => c.classList.remove('active'));
+
+        this.classList.add('active');
+        const activeContent = section.querySelector('#' + this.dataset.tab);
+        activeContent.classList.add('active');
+        //console.log("qwerwew");
+        {% comment %} setTimeout(() => {
+          // 🔥 Proper Dawn 15 slider fix
+          activeContent.querySelectorAll('slider-component').forEach((slider) => {
+            // Force reflow
+            slider.style.display = 'none';
+            slider.offsetHeight;
+            slider.style.display = '';
+
+            // Trigger resize so Dawn recalculates
+            window.dispatchEvent(new Event('resize'));
+          });
+        }, 150); {% endcomment %}
+         setTimeout(() => {
+          const swipers = activeContent.querySelectorAll('.shop-swiper');
+
+          swipers.forEach((swiperEl) => {
+            if (swiperEl.swiper) {
+              swiperEl.swiper.update();
+              swiperEl.swiper.updateSize();
+              swiperEl.swiper.updateSlides();
+              swiperEl.swiper.updateProgress();
+              swiperEl.swiper.updateSlidesClasses();
+            }
+          });
+
+          window.dispatchEvent(new Event('resize'));
+        }, 150);
+      });
+    });
+  });
+</script>
+<style>
+      /* === SHOP MENU FLEX LAYOUT === */
+  /* Underline on active menu item */
+  .header__active-menu-item {
+    position: relative;
+  }
+
+  .header__active-menu-item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* adjust if needed */
+    width: 100%;
+    height: 2px;
+    background-color: currentColor; /* underline matches text color */
+  }
+  .header__inline-menu .header__active-menu-item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+  }
+
+  .shop-all-mbl {
+      display: flex;
+      flex-direction: column;
+  }
+  .shop-menu-flex {
+      display: flex;
+      padding: 0 50px;
+  }
+  .swiper.shop-swiper.swiper-initialized.swiper-horizontal {
+      width: 80%;
+  }
+  span.shop-text {
+      font-weight: bold;
+      font-size: 30px;
+      cursor: pointer;
+      color: #000;
+      display: block;
+      align-items: center;
+  }
+  .shop-all-mbl {
+      display: flex;
+      flex-direction: column;
+      width: 20%;
+      justify-content: center;
+  }
+  .arrow-view {
+        color: var(--color-foreground, #000);
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .arrow-view:hover {
+        color: var(--color-accent, #d33);
+      }
+      .mega-menu__image-wrapper {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+
+
+      }
+
+      .mega-menu__image,
+      .mega-menu__image--hover {
+        width: 100%;
+        height: auto;
+        transition: opacity 0.3s ease;
+      }
+
+      .mega-menu__image--hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+      }
+
+      .mega-menu__item-with-image:hover .mega-menu__image--hover {
+        opacity: 1;
+      }
+
+      .mega-menu__item-with-image:hover .mega-menu__image {
+        opacity: 0;
+      }
+
+      /* === DISCOVER MENU FLEX LAYOUT (Like Shop) === */
+      .custom_mega_menu .mega-menu__link--level-2 {
+        font-weight: 400;
+        font-size: 20px !important;
+        font-family: KronaRegular;
+    }
+      .discover-links .mega-menu__list {
+        display: block;
+        padding-left: 0 !important;
+    }
+      .discover-menu-flex {
+       display: flex;
+        align-items: flex-start;
+        gap: 50px;
+        padding: 1.5rem 2rem;
+        justify-content: space-evenly;
+      }
+
+      .discover-links {
+        flex: 0 0 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .discover-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--color-foreground, #000);
+      }
+
+      .discover-articles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        padding: 0;
+        margin: 0;
+      }
+
+      .article_blog {
+        width: 392px;
+        text-align: left;
+      }
+
+      .image_cover {
+        position: relative;
+        overflow: hidden;
+        border-radius: 0;
+        height: 200px;
+      }
+
+    .article_content {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        text-align: left;
+
+        padding-top: 12px;
+    }
+      .image_cover img {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease;
+        object-fit: cover;
+      }
+
+      .image_cover:hover img {
+        transform: scale(1.05);
+      }
+
+      .tab-cyt {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        background: #fff;
+        border-radius: 4px;
+        padding: 3px 6px;
+        font-size: 0.7rem;
+      }
+
+      .article_title {
+        font-size: 0.95rem;
+        margin: 0.5rem 0 0.3rem;
+      }
+
+      .article_title a {
+        text-decoration: none;
+        color: var(--color-foreground, #000);
+      }
+
+      .banner__buttons .button {
+        {% comment %} font-size: 0.8rem; {% endcomment %}
+        padding: 6px 10px;
+        margin-top: 0.3rem;
+      }
+  .shop-swiper {
+    position: relative;
+    cursor: grab;
+    touch-action: pan-y;
+  }
+  .shop-menu-flex .shop-swiper img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .shop-swiper .swiper-button-next,
+  .shop-swiper .swiper-button-prev {
+    width: 30px;  /* adjust size as needed */
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 50%;
+    transform: translateY(-50%);
+    color: transparent;  /* hide default arrow icon text */
+  }
+  .shop-swiper .swiper-button-prev {
+      background-image: url('https://cdn.shopify.com/s/files/1/0559/7075/8753/files/left-arrow-next-svgrepo-com.svg?v=1762341954');
+      left: 0%;
+      z-index: 999;
+  }
+  .shop-swiper .swiper-button-next {
+    {% comment %} right: -50px;   {% endcomment %}
+    background-image: url('https://cdn.shopify.com/s/files/1/0559/7075/8753/files/right-arrow-next-svgrepo-com.svg?v=1762342216');
+  }
+
+  /* Optional hover effect */
+  {% comment %} .shop-swiper .swiper-button-next:hover,
+  .shop-swiper .swiper-button-prev:hover {
+    opacity: 0.8;
+  } {% endcomment %}
+
+      /* Responsive */
+      @media (max-width: 989px) {
+            .article_blog {
+        width: 85%;
+        text-align: left;
+      }
+      .menu-drawer__inner-submenu .menu-drawer__menu.list-menu li a{
+        {% comment %} width: 100%; {% endcomment %}
+      }
+    }
+      @media (max-width: 989px) {
+            span.mega-menu__title {
+          color: #000;
+          text-decoration: none;
+        }
+        .shop-menu-flex,
+        .discover-menu-flex {
+          flex-direction: column;
+        }
+
+        .discover-menu-flex{
+          padding: 0 2rem;
+        }
+
+        .discover-links {
+          text-align: center;
+          flex-direction: row;
+          justify-content: center ;
+          padding-top: 0px;
+        }
+        .discover-links li{
+          margin-bottom: 1.2rem !important;
+        }
+        .shop-all-mbl
+         {
+          text-align: center;
+          flex-direction: row;
+          justify-content: space-between;
+          padding-top: 20px;
+          width: 100%;
+          align-items: center;
+        }
+        .discover-links {
+          flex: 0 0 100%;
+          width: 100%;
+        }
+
+        .mega-menu__list--shop,
+        .discover-articles {
+          justify-content: center;
+        }
+  .discover-articles .article_blog .artial-wrapper{
+    padding-bottom: 0 !important;
+  }
+
+  .discover-articles .article_blog img{
+    width: 100%;
+    display: flex;
+  }
+  .discover-articles .article_blog h3{
+    font-family: 'BlinkerRegular', Assistant, sans-serif !important;
+            font-size: 20px;
+          line-height: 130%;
+          text-transform: capitalize;
+          font-weight: 600;
+          letter-spacing:0;
+  }
+  .discover-articles .article_blog {
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+      }
+      }
+      @media (max-width:480px){
+        .discover-articles .article_blog img{
+          min-height: 190px;
+          object-fit: cover;
+        }
+        .discover-articles .article_blog {
+          gap: 15px;
+      }
+        .shop-all-mbl {
+          width: 100%;
+        }
+        .shop-menu-flex {
+          padding: 0 10px;
+        }
+        span.mega-menu__title {
+          display: flex;
+          justify-content: center;
+          color: #000;
+          text-decoration: none;
+        }
+        .article_blog {
+          width: 100%;
+        }
+        .article_blog img{
+          width: 100%;
+      }
+      }
+      @media (max-width:390px){
+        {% comment %} .article_blog {
+          width: 320px;
+        } {% endcomment %}
+      }
+
+      header-menu .product-tabs,
+      .drawer-mega-wrapper .product-tabs{
+        display: flex;
+        justify-content: center;
+        width: 500px;
+        margin: 30px auto;
+        border: 1px solid #000;
+        border-radius: 50px;
+        overflow: hidden;
+      }
+      .shop-menu-flex .tab-content {
+        display: none;
+      }
+      .shop-menu-flex .tab-content.active{
+        display: block;
+        overflow: hidden;
+      }
+      header-menu .tab-btn,
+      .drawer-mega-wrapper .tab-btn {
+        background: transparent;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 5px;
+        padding-bottom: 5px;
+        width: 50%;
+        text-align:center;
+      }
+
+      header-menu .tab-btn.active,
+      .drawer-mega-wrapper .tab-btn.active {
+        background: #000;
+        color: #fff
+      }
+      header-menu .tab-btn[data-tab="tab1"].active,
+      .drawer-mega-wrapper .tab-btn[data-tab="tab1"].active{
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+      }
+      header-menu .tab-btn[data-tab="tab2"].active,
+      .drawer-mega-wrapper .tab-btn[data-tab="tab2"].active{
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+      }
+
+    header-menu .tab-content,
+    .drawer-mega-wrapper .tab-content {
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    header-menu .tab-content.active,
+    .drawer-mega-wrapper .tab-content.active {
+      opacity: 1;
+      height: auto;
+      overflow: visible;
+      pointer-events: auto;
+      padding-top: 20px;
+    }
+    @media(max-width:767px){
+      .drawer-mega-wrapper .product-tabs{
+        display:flex;
+        width: 360px;
+      }
+      .drawer-mega-wrapper .tab-btn{
+        font-size:14px;
+        text-align:center;
+      }
+      .product_carousel .grid.product-grid.contains-card{
+        gap:0 !important;
+      }
+      .product_carousel .grid--1-col-tablet-down .grid__item {
+            width: 100%;
+            max-width: 100%;
+      }
+      .product_carousel .card__information .variant_selection{
+        max-width: 100%;
+        width: 100%;
+      }
+      .product_carousel slider-component.page-width{
+        padding: 0 0;
+      }
+      .product_carousel .grid--1-col-tablet-down .grid__item:nth-child(1){
+        padding-left:15px;
+      }
+    }
+</style>

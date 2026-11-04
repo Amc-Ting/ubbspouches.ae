@@ -1,0 +1,224 @@
+<style>
+  #psa_section .psa_inner .psa_content .psa_list li {
+    font-family: BlinkerRegular;
+    color: #000;
+    font-size: 26px !important;
+    line-height: 1.1!important;
+    letter-spacing:0;
+  }
+  #psa_section {
+    padding-top: 10vmin;
+    overflow: hidden; }
+    
+    #psa_section .psa_inner .psa_content {
+         display: flex;
+       flex-direction: column;
+       gap: 10px;
+    }
+    @media (max-width: 1399px) {
+      #psa_section {
+        padding-top: 13vmin; } }
+    @media (max-width: 1199px) {
+        #psa_section .psa_inner .psa_content .psa_list li {
+    font-size: 23px !important;
+  }
+      #psa_section {
+        padding-top: 13vmin; } }
+    #psa_section .psa_inner {
+      display:flex;
+      align-items: center; }
+      @media (max-width: 767px) {
+        #psa_section .psa_inner {
+          flex-direction: column; } }
+      #psa_section .psa_inner .psa_content {
+        width: 65%;
+        padding: 0 15px;
+        padding-bottom: 0vmin;
+      
+}
+ }
+        @media (max-width: 767px) {
+       
+          #psa_section .psa_inner .psa_content {
+            width: 100%;padding-bottom: 14vmin; 
+          } }
+        #psa_section .psa_inner .psa_content .psa_subtext {
+          margin-top: 10px; }
+        #psa_section .psa_inner .psa_content .psa_list {
+          margin-top: 30px;
+        padding-left:20px;}
+      #psa_section .psa_inner .psa_img {
+        width: 35%;
+        padding: 0 15px;
+        align-items: flex-end;
+        position: relative;
+        min-height: 1px;
+        margin-top: 95px;
+      }
+        @media (max-width: 767px) {
+ #psa_section .psa_inner .psa_content {width: 100%; padding: 0;}
+
+          #psa_section .psa_inner .psa_img {
+            width: 60%;
+            margin: 0 auto;
+            padding-top: 80px; } }
+    		#psa_section .psa_inner .psa_img .circle-orbit-container{
+    	position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+        #psa_section .psa_inner .psa_img .circle-orbit-container {
+          transform: translate(-50%, -20%);
+          top: 0; }
+          @media (min-width: 768px) and (max-width: 991px) {
+            #psa_section .psa_inner .psa_img .circle-orbit-container {
+              transform: translate(-50%, -25%); } }
+          @media (max-width: 767px) {
+            #psa_section .psa_inner .psa_img .circle-orbit-container {
+              margin-top: 80px; } }
+        #psa_section .psa_inner .psa_img .hand_image {
+          z-index: 1;
+          position: relative;
+      	min-height: 1px;}
+
+
+
+    #psa_section .psa_inner .psa_content .psa_list li{
+    	font-family: BlinkerRegular;
+      color:#000;
+    }
+
+    .circle-orbit-container {
+      height: var(--orbit_height);
+      width: var(--orbit_width);
+  }
+
+    #psa_section .psa_inner .psa_content h2{
+      color:#000;
+    }
+    .psa_button{
+      padding:35px 0 0 0;
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+  .psa_button{
+      padding:0;
+    }
+    
+  }
+  
+  @media(max-width:767px){
+    .psa_button{
+        padding:0;
+        display: FLEX;
+        justify-content: center;
+        align-items:center;
+      }
+      .index .psa_button{
+        text-align:center;
+        padding-top: 0;
+      }
+    }
+    @media (max-width: 1024px) and (min-width: 768px){
+      #psa_section .psa_inner .psa_content .psa_list{margin: 10px 0;}
+      #psa_section .psa_inner .psa_content .psa_list li{margin: 10px 0;}
+
+      }
+      @media(max-width:480px){
+       #psa_section .psa_inner .psa_content .psa_list li {
+    font-size: 20px !important;t;
+}
+      }
+</style>
+
+<section id="psa_section" class="psa_section {{ section.settings.title | replace:' ', '-' | downcase | remove: '?' }}">
+  <div class="container">
+    <div class="psa_inner">
+      <div class="psa_content">
+        <h2 class="text_xxxl font_heading text_300 fadeInUp">
+          {{ section.settings.title }}
+        </h2>
+        {% unless section.settings.subtitle == blank %}
+          <h5
+            class="text_xl psa_subtext font_heading text_400 color_spearmint fadeInUp"
+          >
+            {{ section.settings.subtitle }}
+          </h5>
+        {% endunless %}
+        <ul class="psa_list">
+          {%- for block in section.blocks -%}
+            <li class="text_lg fadeInUp">
+              {{ block.settings.list_item }}
+            </li>
+          {%- endfor -%}
+        </ul>
+        <div class="psa_button">
+          <a class="cmn_btn fadeInUp" href="{{ section.settings.btn_url }}">{{ section.settings.btn_label }}</a>
+        </div>
+      </div>
+      <div class="psa_img">
+        <div class="circle-orbit-container"></div>
+        <div class="hand_image">
+          <img
+            src="{{ section.settings.image | image_url: width:'300', format: 'webp' }}"
+            loading="lazy"
+            alt="psa_img"
+            class="img-responsive"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image with Text (PSA)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "list_item",
+          "label": "Add List Item"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Text (PSA)"
+    }
+  ]
+}
+{% endschema %}

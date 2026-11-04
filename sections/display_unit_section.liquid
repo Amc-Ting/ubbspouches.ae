@@ -1,0 +1,130 @@
+{% if customer and customer.tags contains "Approved" %}
+<style>
+  .display_unit_inner{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  @media(min-width:767px){
+    .display_unit_detail{
+    width:40%;
+  }
+  }
+  
+  .display_unit_packshot{
+    /* flex:1; */
+  }
+  .display_unit_inner .card-wrapper .card__inner{
+    display:none;
+  }
+  .display_unit_inner .title_desc_sec h3{
+        font-family: 'KronaRegular';
+    text-transform: uppercase;
+  }
+  .display_unit_inner .title_desc_sec p{
+    font-size: 26px;
+    margin-top: 18px;
+    line-height:1.2;
+  }
+  .display_unit_inner .card_content_info,
+  .display_unit_inner .card__information{
+    padding:0;
+  }
+  .display_unit_inner .quick-add{
+        margin: 26px 0;
+  }
+  @media(max-width:767px){
+    .display_unit_inner{
+      flex-direction:column-reverse;
+    }
+    #display_unit_section{
+      margin-top:70px;
+    }
+    .display_unit_inner .title_desc_sec p{
+      font-size:20px;
+    }
+  }
+</style>
+  
+  <section id="display_unit_section" >
+ <div class="page-width">
+    <div class="display_unit_inner">
+      <div class="display_unit_detail">
+        <div class="title_desc_sec">
+          <h3 class="text_xxl">{{ section.settings.title }}</h3>
+          <p>{{ section.settings.description }}</p>
+        </div>
+        {%- for product in section.settings.collection.products limit: 1 -%}
+        <div class="display_unit_product">
+           {% render 'card-product-btn',
+              card_product: product,
+              media_aspect_ratio: section.settings.image_ratio,
+              show_secondary_image: section.settings.show_secondary_image,
+              show_vendor: section.settings.show_vendor,
+              show_rating: section.settings.show_rating,
+              show_quick_add: section.settings.enable_quick_add,
+              section_id: section.id
+            %}
+        </div>
+          {% endfor %}
+      </div>
+       <div class="display_unit_packshot">
+          <picture>
+             <source media="(max-width:767px)" srcset="{{ section.settings.mob_border_img | img_url: 'master' }}">
+             <img src="{{ section.settings.desktop_border_img | img_url: 'master' }}" class="img-responsive" alt="">
+          </picture>
+       </div>
+    </div>
+ </div>
+</section>
+  {% endif %}
+{% schema %}
+  {
+   "name":"Display Unit Section",
+   "settings":[
+       {
+         "type":"image_picker",
+         "id":"desktop_border_img",
+         "label":"Desktop Image"
+      },
+      {
+         "type":"image_picker",
+         "id":"mob_border_img",
+         "label":"Mobile Image"
+      },
+     {
+       "type":"text",
+         "id":"title",
+         "label":"Add Title"
+     },
+     {
+       "type":"text",
+         "id":"description",
+         "label":"Add Description"
+     },
+     {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.featured-collection.settings.collection.label"
+    },
+	 {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.enable_quick_buy.label"
+    }, 
+	  
+   ],
+	"presets": [
+      {
+      "name": "Display Unit Section"
+      }
+   ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

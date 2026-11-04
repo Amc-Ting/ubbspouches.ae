@@ -1,0 +1,233 @@
+<section class="ubbs_banner">
+  {% if section.settings.banner_desktop != blank or section.settings.banner_mobile != blank %}
+    <div class="ubbs_banner_image">
+      <picture>
+        {% if section.settings.banner_mobile != blank %}
+          <source
+            media="(max-width: 767px)"
+            srcset="{{ section.settings.banner_mobile | image_url: width: 800 }}"
+          >
+        {% endif %}
+
+        {% if section.settings.banner_desktop != blank %}
+          <img
+            src="{{ section.settings.banner_desktop | image_url: width: 2000 }}"
+            alt="Banner Image"
+            width=""
+            height=""
+          >
+        {% endif %}
+      </picture>
+    </div>
+  {% endif %}
+  <div class="ubbs_wrap">
+    <div class="left fadeInUp">
+      <p class="text_med text_400 title">{{ section.settings.sec_title }}</p>
+      <div class="text_lg text_400 ">
+        {{ section.settings.sec_description }}
+      </div>
+    </div>
+    <div class="right fadeInUp">
+      {% for block in section.blocks %}
+        <div class="cards">
+          <div class="img_div">
+            <img
+              src="{{ block.settings.image | image_url: width: 600 }}"
+              alt=""
+              height=""
+              width=""
+            >
+          </div>
+
+          <div class="card_content">
+            <p class="title">{{ block.settings.card_title }}</p>
+            <div class="desc">{{ block.settings.card_desc }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+      .ubbs_banner {
+          position: relative;
+          color: #fff;
+          overflow: hidden;
+      }
+
+      .ubbs_banner_image img {
+
+          object-fit: cover;
+          width:100%;
+          display: block;
+      }
+
+      .ubbs_wrap {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 90%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+      }
+
+      .ubbs_banner .left .text_lg p{
+          color:#42CCF0 !important ;
+          text-transform:uppercase;
+          font-size:28px;
+          font-family: KronaRegular !important;
+
+      }
+
+      .ubbs_banner .left{
+        width:450px;
+    }
+
+      .ubbs_banner .right {
+          display: flex;
+          gap: 30px;
+      }
+
+      .cards {
+          display: flex;
+          align-items: top;
+          gap: 15px;
+          width:260px;
+
+      }
+
+      .card_content{
+        text-align:left;
+
+    }
+
+    .card_content .title{
+        font-family: KronaRegular !important;
+        margin:0px;
+    }
+
+    .ubbs_banner .left .text_med.text_400.title{
+        font-size:22px;
+        text-transform:uppercase;
+        margin:0px;
+        font-family: KronaRegular !important;
+
+
+
+    }
+
+    .card_content .desc p{
+      font-size:14px;
+  }
+
+      /* Mobile */
+      @media (max-width: 767px) {
+          .ubbs_wrap {
+              flex-direction: column;
+              text-align: center;
+              align-items: flex-start;
+              gap: 20px;
+          }
+
+          .ubbs_banner .left{
+            width:100%;
+        }
+
+
+
+          .ubbs_banner .right {
+              flex-direction: column;
+          }
+      }
+
+      @media(min-width:768px) and (max-width:1024px){
+
+        .ubbs_banner_image img{
+            height:500px;
+        }
+
+        .ubbs_wrap {
+            flex-direction: column;
+            text-align: center;
+            align-items: flex-start;
+            gap: 40px;
+        }
+        .ubbs_banner .right {
+            display: grid;
+            grid-template-columns:1fr 1fr;
+        }
+
+
+    }
+
+    @media(min-width:990px) and (max-width:1024px){
+        .ubbs_banner .right {
+            display: flex;
+
+        }
+    }
+    @media(max-width:767px){
+      .ubbs_banner_image img{
+            height: 500px;
+      }
+    }
+</style>
+
+{% schema %}
+{
+  "name": "Ubbs Banner New",
+  "settings": [
+    {
+      "type": "text",
+      "id": "sec_title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "sec_description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_desktop",
+      "label": "Banner Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_mobile",
+      "label": "Banner Image (Mobile)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cards",
+      "name": "cards",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Add image"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Add card title"
+        },
+        {
+          "type": "richtext",
+          "id": "card_desc",
+          "label": "Add card Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ubbs Banner New"
+    }
+  ]
+}
+{% endschema %}

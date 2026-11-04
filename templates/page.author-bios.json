@@ -1,0 +1,80 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "author_bio_jhzXiC": {
+      "type": "author-bio",
+      "name": "Author Bio Section",
+      "settings": {
+        "author_image": "shopify://shop_images/image_18_39c50458-6bfe-45de-8edb-deab507cf20c.png",
+        "author_name": "Patrick Wigham",
+        "author_title": "Senior E-Commerce & Operations Manager",
+        "company_name": "übbs Pouches",
+        "author_description": "Patrick is the Senior E-Commerce & Operations Manager at übbs Pouches, where he combines industry insight with a passion for helping adult consumers navigate the world of nicotine pouches and alternatives. With over five years experience in the nicotine industry and over seven years in e-commerce, Patrick has a deep understanding of what customers need - reliable information and straightforward guidance. \n\nAt übbs, Patrick oversees everything from warehouse operations to new product launches. His content is shaped by research, customer feedback, and a commitment to helping readers make informed, confident choices.",
+        "author_flavours": "Spicy Cherry & Peppermint",
+        "linkedin_url": "https://www.linkedin.com/in/patrick-wigham/"
+      }
+    },
+    "99ee93bc-cdc4-4a11-b831-6cc7ac17d138": {
+      "type": "newsletter",
+      "blocks": {
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>FOR THE LATEST NEWS AND UPDATES</p>"
+          }
+        },
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN OUR NEWSLETTER",
+            "heading_size": "h0"
+          }
+        },
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-2": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "info_nFPPTj": {
+          "type": "info",
+          "settings": {
+            "btn_label": "",
+            "btn_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-1",
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-0",
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-2",
+        "info_nFPPTj"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "author_bio_jhzXiC",
+    "99ee93bc-cdc4-4a11-b831-6cc7ac17d138"
+  ]
+}

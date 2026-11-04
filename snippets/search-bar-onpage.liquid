@@ -1,0 +1,81 @@
+  <div class="search-bar-container">
+    <input type="text" id="myInput" class="search-form__input search-bar__input brad_100" onkeyup="myFunction()" placeholder="Search" title="Type ingredients name">
+    <span id="search-btn">{% include 'icon-search' %}</span>
+  </div>
+  <style>
+    .search-bar-container{position:relative;}
+      #myInput {width: 100%; font-size: 16px; padding: 12px 40px 12px 20px; border: 2px solid #000;}
+      #myInput::placeholder {color: #000; opacity: 1;}
+      #myInput:-ms-input-placeholder {color: #000; }
+      #myInput::-ms-input-placeholder {color: #000; }
+      #search-btn{position: absolute; right: 15px; top: 12px;}
+      #myUL {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      #myUL li a {
+        border: 1px solid #ddd;
+        margin-top: -1px; /* Prevent double borders */
+        background-color: #f6f6f6;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        color: black;
+        display: block
+      }
+      
+      #myUL li a:hover:not(.header) {
+        background-color: #eee;
+      }
+  </style>
+  
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const articles = document.querySelectorAll(".blog-articles__article");
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+    let itemsToShow = 9;
+    const step = 9;
+
+    // Initial show
+    showArticles(itemsToShow);
+
+    function showArticles(count) {
+      articles.forEach((el, index) => {
+        el.style.display = index < count ? "" : "none";
+      });
+
+      if (count >= articles.length) {
+        loadMoreBtn.style.display = "none";
+      }
+    }
+
+    loadMoreBtn.addEventListener("click", function () {
+      itemsToShow += step;
+      showArticles(itemsToShow);
+    });
+
+    // Search override
+    document.getElementById("myInput").addEventListener("keyup", function () {
+      const filter = this.value.toUpperCase();
+      let matchCount = 0;
+
+      articles.forEach((article) => {
+        const h3 = article.querySelector("h3");
+        const text = h3?.innerText?.toUpperCase() || "";
+        if (text.includes(filter)) {
+          article.style.display = "";
+          matchCount++;
+        } else {
+          article.style.display = "none";
+        }
+      });
+
+      // Hide load more if searching
+      loadMoreBtn.style.display = filter ? "none" : (itemsToShow < articles.length ? "inline-block" : "none");
+    });
+  });
+</script>
+

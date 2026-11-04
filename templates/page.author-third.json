@@ -1,0 +1,80 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "author_bio_Ghefwn": {
+      "type": "author-bio",
+      "name": "Author Bio",
+      "settings": {
+        "author_image": "shopify://shop_images/New_Project_1.png",
+        "author_name": "Dr Nandan Dhir",
+        "author_title": "Director-Quality And Research (Leaf Fibre Division-India)",
+        "company_name": "",
+        "author_description": "✓ Ph.D. in Chemistry with 24 years of leadership experience in global Pharma & FMCG\n✔ Worked with Reckitt Benckiser, Glenmark, Ranbaxy, Torrent, Orchid and Hetero\n✓ Recognized for Driving USFDA, EU, TGA, Russia & Global Regulatory approvals\n✔ QMS & ISO Implementation across multiple sites\n✔ Patents & Publications in Green Analytical Research\n✓ Guest Speaker at International Conferences\nAt UBBS, he will spearhead Quality Excellence & R&D Innovation in sustainable solutions, strengthening our science based research and vision of eco-friendly global leadership.\nWelcome aboard, Dr. Nandan!",
+        "author_flavours": "Spicy Cherry & Peppermint",
+        "linkedin_url": ""
+      }
+    },
+    "99ee93bc-cdc4-4a11-b831-6cc7ac17d138": {
+      "type": "newsletter",
+      "blocks": {
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>FOR THE LATEST NEWS AND UPDATES</p>"
+          }
+        },
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN OUR NEWSLETTER",
+            "heading_size": "h0"
+          }
+        },
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-2": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "info_FELdVQ": {
+          "type": "info",
+          "settings": {
+            "btn_label": "",
+            "btn_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-1",
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-0",
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-2",
+        "info_FELdVQ"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "author_bio_Ghefwn",
+    "99ee93bc-cdc4-4a11-b831-6cc7ac17d138"
+  ]
+}

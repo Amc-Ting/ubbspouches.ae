@@ -1,0 +1,101 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "about_banner-section",
+      "settings": {
+        "title": "Claim a free übbs sample!",
+        "subtitle": "All you need to do is fill out the form below.",
+        "banner_img": "shopify://shop_images/shpping_bx.png",
+        "big_circle": "shopify://shop_images/Ellipse_1_2e315378-c3bf-404c-a9c2-79a28b872cc3.png",
+        "small_circle": "shopify://shop_images/Ellipse_3_8468ff25-2078-428f-b325-a411199e68e0.png"
+      }
+    },
+    "deafult": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1754293564f292eabe": {
+      "type": "apps",
+      "blocks": {
+        "hulk_form_builder_form_block_8GRCLV": {
+          "type": "shopify://apps/hulk-form-builder/blocks/form-block/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+          "settings": {
+            "form_uuid": "PIuSjUMBtvvGtJPvtZcvSA",
+            "form_settings": false,
+            "font_color": "#000000",
+            "size": 14,
+            "input_background_color": "#ffffff",
+            "input_background_color_focus": "#f4dada",
+            "input_border_radius": 0,
+            "input_border_color": "#000000",
+            "input_border_color_focus": "#2d2727",
+            "input_font_color": "#3d3131",
+            "input_size": 14,
+            "border_color": "#121212",
+            "border_radius": 0,
+            "border": 0,
+            "fill_color": "#ffffff",
+            "padding": 35,
+            "form_width": 600,
+            "btn_text": "Submit",
+            "sub_btn_txt_color": "#f3f3f3",
+            "sub_btn_bg_color": "#000000",
+            "sub_btn_font_size": 14,
+            "sub_btn_bdr_color": "#ffffff",
+            "sub_btn_bdr_rad": 3,
+            "sub_btn_bdr_width": 1,
+            "fonts": "Times New Roman"
+          }
+        }
+      },
+      "block_order": [
+        "hulk_form_builder_form_block_8GRCLV"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "rich_text_kad7TV": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zHtEe9": {
+          "type": "heading",
+          "settings": {
+            "heading": "The free sample offer has now ended.",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zHtEe9"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "deafult",
+    "1754293564f292eabe",
+    "rich_text_kad7TV"
+  ]
+}

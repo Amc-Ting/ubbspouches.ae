@@ -1,0 +1,511 @@
+<style>
+  .upsellProductss{
+    padding-bottom:50px;
+  }
+  .upsellProductss button#ProductSubmitButton- {
+    background: #000 !important;
+    color: #fff !important;
+  }
+  .upsellProductss button#ProductSubmitButton-:hover {
+      color: #000 !important;
+  }
+  h2.title.title--primary {
+      font-size: 20px;
+      margin-bottom: 10px;
+  }
+  h3.upsell-title {
+      font-size: 12px;
+          padding-top: 10px;
+  }
+    .upsell-slider span.money {
+    font-size: 14px;
+    }
+    .upsell-slider {
+    padding: 20px 10px 10px;
+    margin-top: 10px;
+    display: block;
+    }
+    .upsell-slider .image-box {
+    border-radius: 12px;
+    width: 100%;
+    align-self: normal;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.30);
+    background: #FFF;
+    }
+    .upsell-slider .info-box {
+    gap: 4px;
+    height: auto;
+    align-self: normal;
+    display: flex;
+    flex-direction: column;
+    }
+    .upsell-slider .image-box img {
+    max-width: 100%;
+    display: flex;
+    min-height: 145px;
+    max-height: 145px;
+    object-fit: contain;
+    }
+    .upsell-slider .product-card-box {
+    /* border-radius: 3.521px;
+    background: #F4EEDC; */
+    padding: 10px;
+    width:100%;
+    }
+    .upsell-slider .heading {
+    padding-bottom: 10px;
+    color: #000;
+    font-family: "Bricolage Grotesque";
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 97%;
+    letter-spacing: -0.9px;
+    text-transform: capitalize;
+    }
+    .upsell-slider .top-tag {
+    color: #1b1b1b;
+    font-family: Switzer;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 2px;
+    border: 1px dashed #592e83;
+    background: #fff;
+    padding: 2px 5px;
+    text-align: left;
+    width: 95%;
+    }
+    .upsell-slider .top-tag span {
+    font-weight: 600;
+    }
+    .upsell-slider .ptitle {
+    color: var(--Secondary, #131212);
+    font-family: "Bricolage Grotesque";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: -0.36px;
+    text-transform: capitalize;
+    }
+    .upsell-slider .color-option {
+    color: rgba(35, 12, 51, 0.6);
+    font-family: Switzer;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    }
+    .upsell-slider .text-wrapper {
+    display: flex;
+    padding: 5px 0;
+    gap: 11px;
+    flex-direction: column;
+    }
+    .upsell-slider .main-price {
+    color: #1E1E1E;
+    font-family: "Bricolage Grotesque";
+    font-size: 16.489px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: -0.33px;
+    text-transform: capitalize;
+    }
+    .upsell-slider .compare-price {
+    color: rgba(31, 31, 31, 0.5);
+    text-align: right;
+    font-family: Gotham;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25.257px;
+    text-decoration-line: strikethrough;
+    text-transform: uppercase;
+    text-decoration: line-through;
+    }
+    .upsell-slider .rating-box img {
+    width: 100%;
+    max-width: 80px;
+    }
+    .upsell-slider .atc-button {
+    color: #202020;
+    font-family: Switzer;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 2px;
+    background: #ffb800;
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    min-height: 37px;
+    align-items: center;
+    }
+    .upsell-slider .price-wrapper {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    }
+    .upsell-slider .product-form__submit.button:after {
+    content: none;
+    }
+    .upsell-slider cart-remove-button {
+    max-height: 25px;
+    min-height: 25px;
+    }
+    .upsell-slider cart-remove-button .button {
+    max-height: 25px !important;
+    min-height: 25px !important;
+    }
+    .upsell-slider .owl-itme .owl-stage{
+    display:flex;
+    }
+    .upsell-slider .product-form__submit {
+    display: flex
+    ;
+    height: 25px;
+    padding: 13px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    color: #000 !important;
+    font-family: "Bricolage Grotesque";
+    font-size: 14px !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120% !important;
+    letter-spacing: -0.32px !important;
+    text-transform: capitalize;
+    background: #fff !important;
+    border-radius: 5px;
+    border: 1px solid #000;
+    min-height: 35px;
+    }
+    .upsell-slider .image-box {
+    margin-bottom: 7px;
+    }
+
+    .upsell-image{
+      background:#fff;
+    }
+
+    .upsellProductss .left-arrow{
+      position:absolute;
+      left: 43%;
+      bottom: -35px;
+      top: unset;
+      height: 25px;
+      width: 25px;
+    }
+    .upsellProductss .right-arrow {
+      position:absolute;
+      right: 39%;
+      top: unset;
+      bottom: -35px;
+      height: 25px;
+      width: 25px;
+  }
+    @media (max-width:1024px){
+    .upsell-slider .heading {
+    font-size: 16px;
+    }
+    .upsell-slider .product .shopify-payment-button__button, .product .upsell-slider .product-form__submit {
+    min-height: 30px;
+    }
+    /* .upsell-slider .product-form__submit {
+    padding-top: 0px;
+    } */
+    }
+    .upsell-pricing{
+      margin-bottom:15px;
+    }
+    @media(max-width:480px){
+      .upsellProductss .title--primary {
+      margin: 0rem 0;
+  }
+    .upsell-slider .image-box {
+    border-radius: 7px !important;
+    }
+    .upsell-slider .ptitle {
+    font-size: 14px;
+    }
+    .upsell-slider .product-card-box {
+    padding: 5px;
+    }
+    .upsell-slider .image-box img {
+    min-height: auto;
+    max-height: unset;
+    aspect-ratio: 1 / .8;
+    border-radius: 7px !important;
+    }
+    .upsell-slider .text-wrapper {
+    gap: 5px;
+    flex-wrap: wrap;
+    padding: 0;
+    }
+    .upsell-slider .product-form__submit{
+    padding: 6px 0;
+    min-height: 20px !important;
+    font-size: 14px !important;
+    height: 30px;
+    }
+    }
+</style>
+
+{% unless customer and customer.tags contains 'Approved' %}
+<div class="upsellProductss">
+  <h2 class="title title--primary">Special Offers</h2>
+
+  {% assign upsell_products = collections['cart-upsell'].products %}
+
+  {%- assign hide_57000229503351 = false -%}
+  {%- assign hide_57000226881911 = false -%}
+  {% comment %} {%- assign hide_56160293388663 = false -%} {% endcomment %}
+
+  {%- comment -%}
+    CHECK CART CONTENT
+  {%- endcomment -%}
+  {% for item in cart.items %}
+
+    {%- comment -%}
+      Rule #1:
+      If cart has 56989977346423 → hide 56070034227575
+    {%- endcomment -%}
+    {% if item.variant.id == 56989977346423 or item.variant.id == 57000229503351 %}
+      {% assign hide_57000229503351 = true %}
+    {% endif %}
+
+    {%- comment -%}
+      Rule #2:
+      If cart has 55828928528759 → hide 55832045551991
+    {%- endcomment -%}
+    {% if item.variant.id == 56990940332407 or item.variant.id == 57000226881911 %}
+      {% assign hide_57000226881911 = true %}
+    {% endif %}
+
+    {%- comment -%}
+      Rule #3:
+      If cart has 40139708792929 → hide 56160293388663
+    {%- endcomment -%}
+    {% comment %} {% if item.variant.id == 40139708792929 or item.variant.id == 40139708825697 or item.variant.id == 56170214785399 or item.variant.id == 56160293388663 %}
+      {% assign hide_56160293388663 = true %}
+    {% endif %} {% endcomment %}
+
+  {% endfor %}
+
+  {% if upsell_products.size > 0 %}
+    <div class="upsell-products-grid upsell-carousel-slider block-wrapper">
+
+      {% for product in upsell_products %}
+        {% assign first_variant_id = product.variants.first.id %}
+
+        {%- comment -%}
+          APPLY HIDE RULES
+        {%- endcomment -%}
+
+        {% if hide_57000229503351 and first_variant_id == 57000229503351 %}
+          {% continue %}
+        {% endif %}
+        {% if hide_57000229503351 and first_variant_id == 56989977346423 %}
+          {% continue %}
+        {% endif %}
+
+        {% if hide_57000226881911 and first_variant_id == 57000226881911 %}
+          {% continue %}
+        {% endif %}
+        {% if hide_57000226881911 and first_variant_id == 56990940332407 %}
+          {% continue %}
+        {% endif %}
+
+        {% comment %} {% if hide_56160293388663 and first_variant_id == 56160293388663 %}
+          {% continue %}
+        {% endif %}
+        {% if hide_56160293388663 and first_variant_id == 40139708792929 %}
+          {% continue %}
+        {% endif %} {% endcomment %}
+
+        <div class="upsell-card" data-product-id="{{ first_variant_id }}" index-{{ forloop.index }}>
+          <div class="upsell-image">
+            <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.title }}">
+          </div>
+
+          <div class="upsell-info">
+            <h3 class="upsell-title">{{ product.title }}</h3>
+
+            <div class="upsell-pricing">
+              {% if product.compare_at_price > product.price %}
+                <span class="upsell-price">{{ product.price | money }}</span>
+                <span class="upsell-compare"><s>{{ product.compare_at_price | money }}</s></span>
+              {% else %}
+                <span class="upsell-price">{{ product.price | money }}</span>
+              {% endif %}
+            </div>
+
+            <div class="upsell-actions">
+               {%- render 'buy-buttons', product: product -%}  
+                {% comment %} <button 
+                  class="button upsell-add-btn"
+                  data-variant-id="{{ first_variant_id }}"
+                >
+                  Add to Cart
+                </button> {% endcomment %}
+             
+            </div>
+          </div>
+        </div>
+
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+<div id="upsell-warning" style="display:none; color:red; font-weight:600; margin-top:10px;">
+  Please add a main product before proceeding to checkout.
+</div>
+{% endunless %}
+
+
+
+
+
+
+<script>
+  function updateUpsellCards(cart) {
+  {% comment %} console.log('%c[Upsell] Running updateUpsellCards()', 'color:#4CAF50;font-weight:bold;'); {% endcomment %}
+  {% comment %} console.log('[Upsell] Cart object:', cart); {% endcomment %}
+
+  // Check if the cart contains any of the specified product IDs (with OR condition)
+  const hasVar560697 = cart.items.some(
+    item => item.id === 57000229503351 || item.id === 56989977346423
+  );
+  const hasVar558289 = cart.items.some(
+    item => item.id === 56990940332407 || item.id === 57000226881911
+  );
+
+  {% comment %} const hasVar401397 = cart.items.some(
+    item => item.id === 40139708792929 || item.id === 56160293388663
+  ); {% endcomment %}
+  
+  {% comment %} console.log('[Upsell] hasVar560697:', hasVar560697);
+  console.log('[Upsell] hasVar558289:', hasVar558289);
+  console.log('[Upsell] hasVar401397:', hasVar401397); {% endcomment %}
+
+  // Select the upsell cards based on their product ID
+  const upsellA = document.querySelector('.upsell-card[data-product-id="57000229503351"]');
+  const upsellB = document.querySelector('.upsell-card[data-product-id="57000226881911"]');
+  {% comment %} const upsellC = document.querySelector('.upsell-card[data-product-id="56160293388663"]'); {% endcomment %}
+
+  {% comment %} console.log('[Upsell] upsellA element:', upsellA);
+  console.log('[Upsell] upsellB element:', upsellB);
+  console.log('[Upsell] upsellC element:', upsellC); {% endcomment %}
+
+  // Hide upsell card A if the product is in the cart
+  if (upsellA) {
+    upsellA.style.display = hasVar560697 ? 'none' : '';
+    {% comment %} console.log(`[Upsell] Rule #1 → Upsell A is now: ${upsellA.style.display}`); {% endcomment %}
+  }
+
+  // Hide upsell card B if the product is in the cart
+  if (upsellB) {
+    upsellB.style.display = hasVar558289 ? 'none' : '';
+    {% comment %} console.log(`[Upsell] Rule #2 → Upsell B is now: ${upsellB.style.display}`); {% endcomment %}
+  }
+
+  // Hide upsell card C if the product is in the cart
+  {% comment %} if (upsellC) {
+    upsellC.style.display = hasVar401397 ? 'none' : '';
+    {% comment %} console.log(`[Upsell] Rule #3 → Upsell C is now: ${upsellC.style.display}`); {% endcomment %}
+  } {% endcomment %}
+
+  {% comment %} console.log('%c[Upsell] updateUpsellCards COMPLETE\n', 'color:#4CAF50;font-weight:bold;'); {% endcomment %}
+  }
+
+  // =======================
+  // FETCH INTERCEPTOR DEBUG
+  // =======================
+  function refreshCartUI() {
+    document.dispatchEvent(new Event('cart:refresh'));
+  }
+
+  (function() {
+    const originalFetch = window.fetch;
+
+    window.fetch = async function(...args) {
+      {% comment %} console.log('%c[FETCH INTERCEPT]', 'color:#2196F3;font-weight:bold;');
+      console.log('[FETCH] URL:', args[0]);
+      console.log('[FETCH] Options:', args[1]); {% endcomment %}
+
+      const response = await originalFetch.apply(this, args);
+
+      const url = args[0];
+      const cartEndpoints = [
+        '/cart/add.js',
+        '/cart/change.js',
+        '/cart/update.js',
+        '/cart.js'
+      ];
+
+      if (cartEndpoints.some(endpoint => url.includes(endpoint))) {
+        {% comment %} console.log('%c[FETCH] Shopify CART endpoint detected:', 'color:#FF9800;font-weight:bold;', url); {% endcomment %}
+
+        try {
+          const clone = response.clone();
+          const cart = await clone.json();
+
+          {% comment %} console.log('%c[FETCH] Cart JSON received:', 'color:#FF9800;font-weight:bold;'); {% endcomment %}
+          {% comment %} console.log(cart); {% endcomment %}
+
+          {% comment %} setTimeout(() => {
+          }, 400); {% endcomment %}
+            {% comment %} console.log('%c[FETCH] Running updateUpsellCards after delay', 'color:#FF9800;'); {% endcomment %}
+            updateUpsellCards(cart);
+            // 🔥 Refresh cart icon bubble
+            refreshCartUI();
+        } catch (e) {
+          console.error('[FETCH] Error parsing cart JSON:', e);
+        }
+      } else {
+        console.log('[FETCH] Not a cart endpoint.');
+      }
+
+      return response;
+    };
+  })();
+
+
+
+  fetch(window.location.pathname + '?sections=cart-drawer')
+    .then(res => res.json())
+    .then(data => {
+      const parser = new DOMParser();
+      const html = parser.parseFromString(data['cart-drawer'], 'text/html');
+
+      const newDrawer = html.querySelector('cart-drawer');
+      const currentDrawer = document.querySelector('cart-drawer');
+
+      if (newDrawer && currentDrawer) {
+        currentDrawer.replaceWith(newDrawer);
+      }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+

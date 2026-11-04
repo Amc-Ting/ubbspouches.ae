@@ -1,0 +1,390 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "custom_liquid_xA7VrP": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% if product.tags contains \"new\" or product.tags contains \"Spicy\" %}\n<div class=\"product_page_badge\">\n<span style=\"background-color:{{ product.metafields.custom.product_color }}\">New</span>\n<span style=\"background-color:{{ product.metafields.custom.product_color }}\">Spicy</span>\n</div>\n{% endif %}"
+          }
+        },
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Tobacco-free nicotine pouches",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "<p>  Übbs  Nicotine Pouches</p>"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "judgeme_preview_badge_product_page_a4a70452": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        },
+        "text_zLCRie": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Earn 1 point for every £1 spent",
+            "text_style": "subtitle"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "collapsible_tab_nDy4LB": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "<p>Which strength is right for me?</p>",
+            "icon": "none",
+            "content": "<p>We recommend that new users start on our 6mg strength range, while more experienced nicotine users should opt for our stronger 11mg+ range.</p>",
+            "page": ""
+          }
+        },
+        "quick_buy_box_tj44qQ": {
+          "type": "quick-buy-box",
+          "settings": {}
+        },
+        "quick_buy_bwcX3c": {
+          "type": "quick-buy",
+          "settings": {
+            "pack_label": "3 Pack",
+            "pack_price": "£16.20",
+            "unit_price": "£5.40 / can",
+            "card_label": ""
+          }
+        },
+        "quick_buy_XM4UgJ": {
+          "type": "quick-buy",
+          "settings": {
+            "pack_label": "6 Pack",
+            "pack_price": "£28.80",
+            "unit_price": "£5.40 / can",
+            "card_label": ""
+          }
+        },
+        "quick_buy_EVeaxB": {
+          "type": "quick-buy",
+          "settings": {
+            "pack_label": "12 Pack",
+            "pack_price": "£24.00",
+            "unit_price": "£5.40 / can",
+            "card_label": ""
+          }
+        },
+        "quick_buy_wLiktG": {
+          "type": "quick-buy",
+          "settings": {
+            "pack_label": "24 Pack",
+            "pack_price": "£48.00",
+            "unit_price": "£5.40 / can",
+            "card_label": ""
+          }
+        },
+        "quick_buy_GWV8w8": {
+          "type": "quick-buy",
+          "disabled": true,
+          "settings": {
+            "pack_label": "48 Pack",
+            "pack_price": "£96.00",
+            "unit_price": "£5.40 / can",
+            "card_label": ""
+          }
+        },
+        "collapsible_tab_eYdLPd": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "<p>Multibuy – Up to<strong> 50% OFF</strong></p>",
+            "icon": "none",
+            "content": "",
+            "page": "multibuy"
+          }
+        },
+        "collapsible_tab_HGAnQP": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "<p>Earn übbs Rewards</p>",
+            "icon": "none",
+            "content": "<p>Earn 1 point for every 1 AED spent. Use points to unlock discount on future purchases.</p><p> <a href=\"/pages/ubbs-rewards\" target=\"_blank\" title=\"Übbs Rewards\">Click here</a> to find out more</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_ikGhmK": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "<p>Shipping & Delivery</p>",
+            "icon": "none",
+            "content": "<p>For a limited time, we're offering free shipping on all orders across the UAE.</p><p>Delivery times vary by emirate. </p><p>Dubai, Abu Dhabi and Sharjah offer same-day or next-day delivery, plus 1-hour express in Dubai. </p><p>Other emirates receive next-day delivery on orders placed before 2:00pm.</p><p>Valid proof of age (18+) is required on delivery.</p>",
+            "page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "share_nJzP33": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "custom_liquid_xA7VrP",
+        "vendor",
+        "title",
+        "description",
+        "price",
+        "judgeme_preview_badge_product_page_a4a70452",
+        "text_zLCRie",
+        "variant_picker",
+        "collapsible_tab_nDy4LB",
+        "quick_buy_box_tj44qQ",
+        "quick_buy_bwcX3c",
+        "quick_buy_XM4UgJ",
+        "quick_buy_EVeaxB",
+        "quick_buy_wLiktG",
+        "quick_buy_GWV8w8",
+        "collapsible_tab_eYdLPd",
+        "collapsible_tab_HGAnQP",
+        "collapsible_tab_ikGhmK",
+        "quantity_selector",
+        "buy_buttons",
+        "share_nJzP33"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail_slider",
+        "media_size": "medium",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": true,
+        "padding_top": 40,
+        "padding_bottom": 12
+      }
+    },
+    "judgeme_section_review_widget_e95d": {
+      "type": "apps",
+      "blocks": {
+        "judgeme_review_widget_fa3e9ed7": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judgeme_review_widget_fa3e9ed7"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "16584775844cf38ec2": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render 'product_content' %}",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 12
+      }
+    },
+    "16584384606bbab9e4": {
+      "type": "how_to_use",
+      "blocks": {
+        "0e3e6d02-6878-43a6-bece-114cc68c96fb": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/pop.png",
+            "caption": "POP",
+            "info": "Place one soft, white nicotine pouch under your top or bottom lip. Position the pouch to the side of your lip for a more comfortable fit.",
+            "info_1": ""
+          }
+        },
+        "030b49f4-44c8-4aa4-9659-695f493b81fc": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/tingle.png",
+            "caption": "TINGLE",
+            "info": "You’ll feel a tingle in your mouth that lasts up to 30 mins. Enjoy a fresh nicotine experience that is discreet and can be used anytime, anywhere.",
+            "info_1": ""
+          }
+        },
+        "68723e35-8af9-4b9f-8666-e565d1d78e79": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/discard.png",
+            "caption": "DISCARD",
+            "info": "When you’re done with your nicotine pouch, dispose it off in the general waste or store in the top of the can until you can do so.",
+            "info_1": "The container is widely recycled."
+          }
+        }
+      },
+      "block_order": [
+        "0e3e6d02-6878-43a6-bece-114cc68c96fb",
+        "030b49f4-44c8-4aa4-9659-695f493b81fc",
+        "68723e35-8af9-4b9f-8666-e565d1d78e79"
+      ],
+      "settings": {
+        "title": "HOW TO USE",
+        "subtitle": "OPEN. PLACE. AND LET ÜBBS DO ITS THING."
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "Picky?",
+        "heading1": "Choose what Tickles your fancy.",
+        "heading_size": "h2",
+        "products_to_show": 18,
+        "columns_desktop": 3,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "Picky?",
+        "subheading": "Choose what Tickles your fancy",
+        "heading_size": "h1",
+        "products_to_show": 10,
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "1",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "recommended_products_LYybp9": {
+      "type": "recommended_products",
+      "name": "Recommended products",
+      "settings": {
+        "heading": "Picky?",
+        "subheading": "Choose what Tickles your fancy.",
+        "enable_quick_add": false,
+        "related_tag": "ubbs_pouches"
+      }
+    },
+    "1657624490d83870c0": {
+      "type": "featured-blog",
+      "settings": {
+        "blog": "listing",
+        "post_limit": 4,
+        "heading": "Übbs Blogs",
+        "heading_size": "h1",
+        "columns_desktop": 4,
+        "show_view_all": false,
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1658480842b97db29d": {
+      "type": "newsletter",
+      "blocks": {
+        "16584808423190a216-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>FOR THE LATEST NEWS AND UPDATES</p>"
+          }
+        },
+        "16584808423190a216-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN OUR NEWSLETTER",
+            "heading_size": "h1"
+          }
+        },
+        "16584808423190a216-2": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "info_tnfdtx": {
+          "type": "info",
+          "settings": {
+            "btn_label": "Privacy Policy",
+            "btn_url": "shopify://policies/privacy-policy"
+          }
+        }
+      },
+      "block_order": [
+        "16584808423190a216-1",
+        "16584808423190a216-0",
+        "16584808423190a216-2",
+        "info_tnfdtx"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "judgeme_section_review_widget_e95d",
+    "16584775844cf38ec2",
+    "16584384606bbab9e4",
+    "related-products",
+    "product-recommendations",
+    "recommended_products_LYybp9",
+    "1657624490d83870c0",
+    "1658480842b97db29d"
+  ]
+}

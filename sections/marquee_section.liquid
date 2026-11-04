@@ -1,0 +1,98 @@
+<style>
+  
+ #marquee_section {
+  padding: 3vmin 0px;
+  overflow: hidden; }
+  @media (max-width: 767px) {
+    #marquee_section {
+      padding: 5vmin 0px; } }
+  @media (max-width: 991px) {
+    #marquee_section .marquee_wrap_main {
+      font-size: 32px; } }
+  #marquee_section .marquee_wrap_main .marquee_wrap {
+    margin: 0 -10px; }
+    #marquee_section .marquee_wrap_main .marquee_wrap:nth-child(1) {
+      background-color: var(--color_text);
+      color: white;
+      transform: rotate(4deg);
+      transform-origin: bottom left;
+      z-index: 2;
+      position: relative;
+    min-height: 1px;}
+    #marquee_section .marquee_wrap_main .marquee_wrap:nth-child(2) {
+      background-color: var(--color_menthol);
+      color: white;
+      transform: rotate(-2deg);
+      transform-origin: bottom left; } 
+  
+</style>
+
+<section id="marquee_section" class="fadeInUp">
+					<div class="marquee_wrap_main text_xxxxl text_400 font_heading">
+						<div class="marquee_wrap">
+							<div class="marquee_item">
+								<div class="marquee_item_inner">
+									<h3 class="mii_item text_400">
+										{{ section.settings.marque_text_1 }}
+									</h3>
+									<h3 class="mii_item">
+										{{ section.settings.marque_text_1 }}
+									</h3>
+								</div>
+								<div class="marquee_item_inner">
+									<h3 class="mii_item">
+										{{ section.settings.marque_text_1 }}
+									</h3>
+									<h3 class="mii_item">
+										{{ section.settings.marque_text_1 }}
+									</h3>
+								</div>
+							</div>
+						</div>
+						<div class="marquee_wrap">
+							<div class="marquee_item">
+								<div class="marquee_item_inner">
+									<h3 class="mii_item">
+										{{ section.settings.marque_text_2 }}
+									</h3>
+									<h3 class="mii_item">
+										{{ section.settings.marque_text_2 }}
+									</h3>
+								</div>
+								<div class="marquee_item_inner">
+									<h3 class="mii_item">
+										{{ section.settings.marque_text_2 }}
+									</h3>
+									<h3 class="mii_item">
+										{{ section.settings.marque_text_2 }}
+									</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+{% schema %}
+  {
+   "name":"Marquee Section",
+"settings":[
+       {
+         "type":"text",
+         "id":"marque_text_1",
+         "label":"Add Marque Text 1"
+      },
+      {
+         "type":"text",
+         "id":"marque_text_2",
+         "label":"Add Marque Text 2"
+      }
+	  
+   ],
+	"presets": [
+      {
+      "name": "Marquee Section"
+      }
+   ]
+}
+{% endschema %}

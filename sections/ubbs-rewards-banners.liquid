@@ -1,0 +1,59 @@
+
+<section class="responsive-banner">
+  <a href="{{ section.settings.banner_link }}">
+    <picture>
+      <!-- Mobile banner image -->
+      <source 
+        media="(max-width: 749px)" 
+        srcset="{{ section.settings.mobile_banner | img_url: '750x' }}">
+
+      <!-- Desktop banner image -->
+      <source 
+        media="(min-width: 750px)" 
+        srcset="{{ section.settings.desktop_banner | img_url: '1500x' }}">
+
+      <!-- Fallback image -->
+      <img class="img-responsive" style="width:100%"
+        src="{{ section.settings.desktop_banner | img_url: '1500x' }}" 
+        alt="{{ section.settings.banner_alt_text | escape }}" 
+        loading="lazy">
+    </picture>
+  </a>
+</section>
+
+
+{% schema %}
+{
+  "name": "Responsive Banner Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_banner",
+      "label": "Desktop Banner Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_banner",
+      "label": "Mobile Banner Image"
+    },
+    {
+      "type": "url",
+      "id": "banner_link",
+      "label": "Banner Link"
+    },
+    {
+      "type": "text",
+      "id": "banner_alt_text",
+      "label": "Image Alt Text",
+      "default": "Shop Now"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Responsive Banner Section",
+      "category": "Image"
+    }
+  ]
+}
+
+{% endschema %}

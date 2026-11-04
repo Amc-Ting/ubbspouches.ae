@@ -1,0 +1,192 @@
+<style>
+    .faq_page a{
+      font-size:20px;
+      color: rgba(var(--color-foreground));
+      text-decoration: underline;
+    }
+    .faq_section .questions_answer .accordion .header4 {
+      position: relative;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      cursor: pointer;
+      font-family: BlinkerRegular !important;
+      font-size: 26px !important;
+      line-height:1.1 !important;
+      text-transform: none;
+  }
+  .faq_section .body2.text_reg a{
+    color: #000 !important;
+  }
+  .faq_section .body2.text_reg{
+      font-size: 20px!important;
+      line-height: 1.5!important;
+      color: #000 !important;
+  }
+
+    .faq_section {
+         overflow: hidden;
+         padding: 5% 0; }
+
+         @media (min-width: 0) and (max-width: 768px) {
+          .faq_section {
+             padding: 35px 0; } }
+        .faq_section .questions_answer {
+           padding: 40px 0;
+           margin: 0 auto; }
+           @media screen and (max-width: 767px) {
+            .faq_section .questions_answer {
+               padding: 35px 0; }
+           {% comment %} .index .faq_section .questions_answer{
+            padding:35px 15px;
+          } {% endcomment %}
+           }
+           @media screen and (max-width: 1199px) {
+            .faq_section .questions_answer {
+               width: 90%; } }
+           .faq_section {
+     padding: 0; }
+      .faq_section .questions_answer .accordion {
+       border-bottom: 0.5px solid #000000; }
+        .faq_section .questions_answer .accordion .header4 {
+         position: relative;
+         padding-top: 15px;
+         padding-bottom: 15px;
+         cursor: pointer;
+         padding-right: 50px;
+         }
+          .faq_section .questions_answer .accordion .header4::after {
+           content: "+";
+           font-size: 35px;
+           font-weight: 500;
+           position: absolute;
+           right: 0px;
+           color: #000;
+           padding-right: 20px; }
+
+           @media (max-width: 991px) {
+              .faq_section .questions_answer .accordion .header4::after {
+               top: 0; } }
+           @media(max-width:767px){
+
+             .faq_section .questions_answer .accordion .header4{
+               width:90%;
+         padding-right: 0;
+
+             }
+             .faq_section .questions_answer .accordion .header4::after{
+               right:-45px;
+             }
+           }
+          .faq_section .questions_answer .accordion .header4.active_bg::after {
+           content: "-";
+           font-size: 35px;
+           font-weight: 500;
+           position: absolute;
+           right: 0px; }
+           @media (max-width: 991px) {
+              .faq_section .questions_answer .accordion .header4.active_bg::after {
+               top: 0; } }
+           @media(max-width:767px){
+             .faq_section .questions_answer .accordion .header4.active_bg::after{
+               right:-45px;
+             }
+           }
+        .faq_section .questions_answer .accordion .content {
+         padding-bottom: 15px;
+         display: none; }
+          .faq_section .questions_answer .accordion .content.active_co {
+           display: block; }
+          .faq_section .questions_answer .accordion .content p {
+           padding: 10px 0; }
+          .faq_section .questions_answer .accordion .content .links {
+           text-decoration: underline !important;
+          }
+  .home_faq_sec .questions_answer{
+    padding: 20px 0 50px;;
+  }
+</style>
+
+<section class="111 faq_section home_faq_sec container">
+  <div class="">
+    {% if section.settings.heading != blank %}
+      <h2 dir="ltr" class="faq_heading">
+        <span>{{ section.settings.heading }}</span>
+      </h2>
+    {% endif %}
+    <div class="questions_answer">
+      {%- for block in section.blocks -%}
+        <!-- start accordion -->
+        <div class="accordion">
+          <h3 class="header4 {% if forloop.first %}active_bg{% endif %} text_lg text_600">{{ block.settings.ques }}</h3>
+          <div class="content {% if forloop.first %}active_co{% endif %}">
+            <div class="body2 text_reg">{{ block.settings.ans }}</div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {%- for block in section.blocks -%}
+      {
+        "@type": "Question",
+        "name": "{{ block.settings.ques }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ block.settings.ans }}"
+        }
+      }{% unless forloop.last %}, {% endunless %}
+      {%- endfor -%}
+
+    ]
+  }
+</script>
+{% schema %}
+{
+  "name": "FAQ section 1",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "ques",
+          "label": "Add Question"
+        },
+        {
+          "type": "richtext",
+          "id": "ans",
+          "label": "Add Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ section 1"
+    }
+  ]
+}
+{% endschema %}
+<style>
+    @media(max-width: 480px){
+    .faq_section .questions_answer .accordion .header4 {
+        font-size:20px !important;
+     }
+    .faq_section .body2.text_reg {
+      font-size: 16px!important;
+  }
+    }
+</style>

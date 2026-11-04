@@ -1,0 +1,45 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "16579794278560ef9f": {
+      "type": "pages-banner-section",
+      "settings": {
+        "title": "Your opinion matters!",
+        "subtitle": "And we want to hear from you, so we're asking a few short questions below in return for a 20% discount on your next order!",
+        "banner_img": "shopify://shop_images/Contact_Us_Banner_Img.png",
+        "big_circle": "shopify://shop_images/Ellipse_1_d5dbfffb-63c2-4897-a29e-63758762c301.png",
+        "small_circle": "shopify://shop_images/Ellipse_3_eae44e69-c4ee-4b21-b312-6d551d411f3b.png"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_JY8nWr": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div id=\"grapevine-container\"></div>\n<script src=\"https://gvsurveys.s3.eu-west-2.amazonaws.com/gv-embed-ubbs-pouch.myshopify.com-67b49621d6a0f.js\"></script>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "16579794278560ef9f",
+    "main",
+    "custom_liquid_JY8nWr"
+  ]
+}

@@ -1,0 +1,49 @@
+<section id="psa_section">
+  <div class="container">
+     <div class="psa_inner">
+        <div class="psa_img">
+           <div class="hand_image">
+              <div class="element_02">
+                 <div class="blur_circle"></div>
+              </div>
+              <lottie-player class="svganimation" src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Our_Facilities.json?v=1658911636" background="transparent" style="" loop autoplay></lottie-player>
+              <!--<img src="{{ section.settings.banner_img | img_url: 'master' }}" alt="" class="img-responsive" />-->
+           </div>
+        </div>
+
+        <div class="psa_content">
+           <h2 class="text_xxl font_heading text_400 fadeInUp">{{ section.settings.title }}</h2>
+           <p class="fadeInUp">{{ section.settings.subtitle }}</p>
+        </div>
+
+     </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "PSA Section",
+    "settings": [
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title"
+      },
+	  {
+         "type":"text",
+         "id":"subtitle",
+         "label":"Subheading"
+      },
+	  {
+         "type":"image_picker",
+         "id":"banner_img",
+         "label":"Image"
+      }
+      ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

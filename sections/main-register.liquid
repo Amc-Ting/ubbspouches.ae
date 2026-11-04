@@ -1,0 +1,577 @@
+{%  comment %}
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="customer register section-{{ section.id }}-padding">
+  <h1>
+    {{ 'customer.register.title' | t }}
+  </h1>
+  {%- form 'create_customer', novalidate: 'novalidate' -%}
+    {%- if form.errors -%}
+      <h2 class="form__message" tabindex="-1" autofocus>
+        <span class="svg-wrapper">
+          {{- 'icon-error.svg' | inline_asset_content -}}
+        </span>
+        {{ 'templates.contact.form.error_heading' | t }}
+      </h2>
+      <ul>
+        {%- for field in form.errors -%}
+          <li>
+            {%- if field == 'form' -%}
+              {{ form.errors.messages[field] }}
+            {%- else -%}
+              <a href="#RegisterForm-{{ field }}">
+                {{ form.errors.translated_fields[field] | capitalize }}
+                {{ form.errors.messages[field] }}
+              </a>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+    <div class="field">
+      <input
+        type="text"
+        name="customer[first_name]"
+        id="RegisterForm-FirstName"
+        {% if form.first_name %}
+          value="{{ form.first_name }}"
+        {% endif %}
+        autocomplete="given-name"
+        placeholder="{{ 'customer.register.first_name' | t }}"
+      >
+      <label for="RegisterForm-FirstName">
+        {{ 'customer.register.first_name' | t }}
+      </label>
+    </div>
+    <div class="field">
+      <input
+        type="text"
+        name="customer[last_name]"
+        id="RegisterForm-LastName"
+        {% if form.last_name %}
+          value="{{ form.last_name }}"
+        {% endif %}
+        autocomplete="family-name"
+        placeholder="{{ 'customer.register.last_name' | t }}"
+      >
+      <label for="RegisterForm-LastName">
+        {{ 'customer.register.last_name' | t }}
+      </label>
+    </div>
+    <div class="field">
+      <input
+        type="email"
+        name="customer[email]"
+        id="RegisterForm-email"
+        {% if form.email %}
+          value="{{ form.email }}"
+        {% endif %}
+        spellcheck="false"
+        autocapitalize="off"
+        autocomplete="email"
+        aria-required="true"
+        {% if form.errors contains 'email' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-email-error"
+        {% endif %}
+        placeholder="{{ 'customer.register.email' | t }}"
+      >
+      <label for="RegisterForm-email">
+        {{ 'customer.register.email' | t }}
+      </label>
+    </div>
+    {%- if form.errors contains 'email' -%}
+      <span id="RegisterForm-email-error" class="form__message">
+        <span class="svg-wrapper">
+          {{- 'icon-error.svg' | inline_asset_content -}}
+        </span>
+        {{ form.errors.translated_fields.email | capitalize }}
+        {{ form.errors.messages.email }}.
+      </span>
+    {%- endif -%}
+    <div class="field">
+      <input
+        type="password"
+        name="customer[password]"
+        id="RegisterForm-password"
+        aria-required="true"
+        {% if form.errors contains 'password' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-password-error"
+        {% endif %}
+        placeholder="{{ 'customer.register.password' | t }}"
+      >
+      <label for="RegisterForm-password">
+        {{ 'customer.register.password' | t }}
+      </label>
+    </div>
+    {%- if form.errors contains 'password' -%}
+      <span id="RegisterForm-password-error" class="form__message">
+        <span class="svg-wrapper">
+          {{- 'icon-error.svg' | inline_asset_content -}}
+        </span>
+        {{ form.errors.translated_fields.password | capitalize }}
+        {{ form.errors.messages.password }}.
+      </span>
+    {%- endif -%}
+    <button>
+      {{ 'customer.register.submit' | t }}
+    </button>
+  {%- endform -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-register.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %} {% endcomment %}
+
+
+<style>
+   .samitaWS-registrationForm-app .footer .action{min-height: calc(4.5rem + var(--buttons-border-width)* 2);border-radius: 50px !important;}
+  .samitaWS-registrationForm-id-1401 .samitaWS-registrationForm-app .footer button.action.loading .spinner{border-radius: var(--buttons-radius);}
+  .registration-form_container{display:flex;flex-direction: column;--inputs-radius:0;}
+  .step-slider{max-width:380px; margin:auto; text-align:center;}
+  .image-block{margin: auto; display: inline-block; padding: 2rem;}
+  .samitaWS-registrationForm-app{
+    margin-left:0;
+  }
+  .samitaWS-registrationForm-id-2951 .samitaWS-registrationForm-app .footer button.submit:hover{
+    background:#fff;
+    color:#000;
+  }
+  .samitaWS-registrationForm-id-2951 .samitaWS-registrationForm-app .footer button.submit{
+        font-family: 'BlinkerRegular';
+    font-size: 18px;
+  }
+  .text-block .heading {font-size:32px;color:#000000;line-height: normal;margin-bottom: 2rem;}
+  .text-block .heading span{font-size:40px;color:#6293D4;}
+  /* .customers-register .tt-breadcrumb{
+    margin: 80px 0px 0 0;
+  } */
+  .register_title{
+    text-align:center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        font-family: 'BlinkerRegular' !important;
+    text-transform: none !important;
+    font-weight: 600;
+  }
+  .form_tab_btns{
+    text-align:center;
+      display: flex;
+    justify-content: center;
+    
+  }
+  .form_btn[aria-selected="false"]{
+        background-color: transparent;
+    color: #000;
+  }
+  .form_btn:hover {
+    color: #fff;
+    border: solid 1px black;
+    background: #000;
+}
+  .wholesale_register_form{
+    margin-top:40px;
+  }
+  .form_tabs [role="tablist"] .form_btn {
+    background: transparent;
+    color: black;
+    font-size: 18px;
+    padding: 10px 50px;
+    opacity: 1 !important;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #000;
+    margin: 0;
+    
+    display:flex;
+      align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+}
+
+  .form_tabs #retail_register{
+        border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+  }
+  .form_tabs #wholesale_register{
+        border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+  }
+  .form_tabs [role="tablist"] .form_btn[aria-selected="true"] svg,
+  .form_tabs [role="tablist"] .form_btn[aria-selected="true"] svg path{
+    fill:#fff;
+  }
+  .form_tabs [role="tablist"] .form_btn[aria-selected="true"] {
+    background:#000;
+    color:#fff;
+}
+  .samitaWS-registrationForm-control lable[for="2951-phone"]{
+    display:none;
+  }
+  .samitaWS-registrationForm-control input,
+  .samitaWS-registrationForm-control textarea{
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 1px solid #000;
+    font-family: 'BlinkerRegular';
+    letter-spacing: 1px;
+  }
+  .samitaWS-registrationForm-control input::placeholder,
+  .samitaWS-registrationForm-control textarea::placeholder{
+    color:#000;
+  }
+  .step-slider .slick-dots li button:before{
+    font-size:5px;
+  }
+  .back_btn{
+    text-align:center;
+    margin: 15px 0;
+  }
+  .back_btn_text{
+    color:#000;
+  }
+  .reg-steps-sec{
+    text-align: center;
+    font-weight: 400;
+    margin-top: -30px;
+    font-size: 32px;
+    font-family: 'KronaRegular';
+  }
+  @media(min-width:767px){
+    .registration-form_container{display: grid; grid-template-columns:5fr 3fr; align-items: flex-start;gap: 5rem;}
+    .registration-steps{position: sticky;top: 70px;}
+  }
+  @media(max-width:767px){
+    .form_tabs [role="tablist"] .form_btn{
+          padding: 10px 25px;
+    }
+    .registration-steps{
+      margin:50px 0;
+    }
+  }
+</style>
+
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+<h1 class="register_title">
+    {{ 'customer.register.title' | t }}
+  </h1>
+
+<div class="form_tabs">
+ <div role="tablist" aria-label="registeration_forms" class="form_tab_btns">
+          <button role="tab" class="form_btn" aria-selected="true" id="retail_register">{% render 'login_icon' %}Customer</button>
+          <button role="tab" class="form_btn" aria-selected="false" id="wholesale_register">{% render 'wholesale_icon' %}Wholesale</button>
+        </div>
+<div class="back_btn">
+  <a class="back_btn_text" href="{{ routes.account_login_url }}">Back</a>
+</div>
+  
+  <div role="tabpanel" aria-labelledby="retail_register">
+<div class="customer register">
+  <svg style="display: none">
+    <symbol id="icon-error" viewBox="0 0 13 13">
+      <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+      <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+      <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+      <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+    </symbol>
+  </svg>
+  
+  {%- form 'create_customer', novalidate: 'novalidate' -%}
+    {%- if form.errors -%}
+      <h2 class="form__message" tabindex="-1" autofocus>
+        <svg aria-hidden="true" focusable="false" role="presentation">
+          <use href="#icon-error" />
+        </svg>
+        {{ 'templates.contact.form.error_heading' | t }}
+      </h2>
+      <ul> 
+        {%- for field in form.errors -%}
+          <li>
+            {%- if field == 'form' -%}
+              {{ form.errors.messages[field] }}
+            {%- else -%}
+              <a href="#RegisterForm-{{ field }}">
+                {{ form.errors.translated_fields[field] | capitalize }}
+                {{ form.errors.messages[field] }}
+              </a>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+    <div class="field">      
+      <input
+        type="text"
+        name="customer[first_name]"
+        id="RegisterForm-FirstName"
+        {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
+        autocomplete="given-name"
+        placeholder="{{ 'customer.register.first_name' | t }}"
+      >
+      <label for="RegisterForm-FirstName">
+        {{ 'customer.register.first_name' | t }}
+      </label>
+    </div>
+    <div class="field">
+      <input
+        type="text"
+        name="customer[last_name]"
+        id="RegisterForm-LastName"
+        {% if form.last_name %}value="{{ form.last_name }}"{% endif %}
+        autocomplete="family-name"
+        placeholder="{{ 'customer.register.last_name' | t }}"
+      >
+      <label for="RegisterForm-LastName">
+        {{ 'customer.register.last_name' | t }}
+      </label>
+    </div>
+    <div class="field">      
+      <input
+        type="email"
+        name="customer[email]"
+        id="RegisterForm-email"
+        {% if form.email %} value="{{ form.email }}"{% endif %}
+        spellcheck="false"
+        autocapitalize="off"
+        autocomplete="email"
+        aria-required="true"
+        {% if form.errors contains 'email' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-email-error"
+        {% endif %}
+        placeholder="{{ 'customer.register.email' | t }}"
+      >
+      <label for="RegisterForm-email">
+        {{ 'customer.register.email' | t }}
+      </label>
+    </div>
+    {%- if form.errors contains 'email' -%}
+      <span id="RegisterForm-email-error" class="form__message">
+        <svg aria-hidden="true" focusable="false" role="presentation">
+          <use href="#icon-error" />
+        </svg>
+        {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.
+      </span>
+    {%- endif -%}
+    <div class="field">     
+      <input
+        type="password"
+        name="customer[password]"
+        id="RegisterForm-password"
+        aria-required="true"
+        {% if form.errors contains 'password' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-password-error"
+        {% endif %}
+        placeholder="{{ 'customer.register.password' | t }}"
+      >
+      <label for="RegisterForm-password">
+        {{ 'customer.register.password' | t }}
+      </label>
+    </div>
+    {%- if form.errors contains 'password' -%}
+      <span id="RegisterForm-password-error" class="form__message">
+        <svg aria-hidden="true" focusable="false" role="presentation">
+          <use href="#icon-error" />
+        </svg>
+        {{ form.errors.translated_fields['password'] | capitalize }} {{ form.errors.messages['password'] }}.
+      </span>
+    {%- endif -%}
+    <button>
+      {{ 'customer.register.submit' | t }}
+    </button>
+  {%- endform -%}
+</div>
+          </div>
+
+<div role="tabpanel" aria-labelledby="wholesale_register" hidden>
+<div class="page-width section-{{ section.id }}-padding wholesale_register_form">
+  <h1 class="main-page-title uppercase page-title h2{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+
+  </h1>
+  <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    Begin your wholesale adventure with us
+  </div>
+  <div class="registration-form_container">
+    <div class="registration-form">
+      {SamitaWSRegistrationForm:Mjk1MQ==}
+    </div>
+    <div class="registration-steps">
+      <h3 class="reg-steps-sec">HOW IT WORKS</h3>
+      <div class="step-slider">
+      
+        <div class="slider-row">
+          <div class="image-block">
+            <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/step-1.png?v=1730284284" height="100%" width="100%">
+          </div>
+          <div class="text-block">
+          <div class="heading"><span>01</span> Create an account</div>
+          <div class="subheading">Add the necessary personal and company information to create your account.</div>
+          </div>  
+        </div>
+
+        <div class="slider-row">
+          <div class="image-block">
+            <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/step-2.png?v=1730284284" height="100%" width="100%">
+          </div>
+          <div class="text-block">
+          <div class="heading"><span>02</span> Receive your password link</div>
+          <div class="subheading"> If approved, you’ll receive a link to create a password.</div>
+          </div>  
+        </div>
+
+        <div class="slider-row">
+          <div class="image-block">
+            <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/step-3.png?v=1730284284" height="100%" width="100%">
+          </div>
+          <div class="text-block">
+          <div class="heading"><span>03</span> Start ordering</div>
+          <div class="subheading">Once done, you can login to your account and start placing orders.</div>
+          </div>  
+        </div>
+      
+      </div>
+    </div>
+    
+  </div>
+</div>
+</div>
+            
+</div>
+
+
+              <script>
+  // const tab = document.querySelector('.form_tabs');
+  // const tabButtons = tab.querySelectorAll('[role="tab"]');
+  // const tabPanels = Array.from(tab.querySelectorAll('[role="tabpanel"]'));
+
+  // function tabClickHandler(e) {
+  // 	//Hide All Tabpane
+  // 	tabPanels.forEach(panel => {
+  // 		panel.hidden = 'true';
+  // 	});
+
+  // 	//Deselect Tab Button
+  // 	tabButtons.forEach( button => {
+  // 		button.setAttribute('aria-selected', 'false');
+  // 	});
+
+  // 	//Mark New Tab
+  // 	e.currentTarget.setAttribute('aria-selected', 'true');
+
+  // 	//Show New Tab
+  // 	const { id } = e.currentTarget;
+
+  // 	const currentTab = tabPanels.find(
+  // 		panel => panel.getAttribute('aria-labelledby') === id
+  // 	);
+
+  // 	currentTab.hidden = false;
+  // }
+
+  // tabButtons.forEach(button => {
+  // 	button.addEventListener('click', tabClickHandler);
+  // })
+
+
+const tab = document.querySelector('.form_tabs');
+  const tabButtons = tab.querySelectorAll('[role="tab"]');
+  const tabPanels = Array.from(tab.querySelectorAll('[role="tabpanel"]'));
+  const tabId = document.querySelector('.form_btn').getAttribute('id');
+  {% comment %} console.log('tabId:', tabId); {% endcomment %}
+
+  function tabClickHandler(e) {
+    // Hide All Tabpane
+    tabPanels.forEach(panel => {
+      panel.hidden = true;
+    });
+
+    // Deselect Tab Button
+    tabButtons.forEach(button => {
+      button.setAttribute('aria-selected', 'false');
+    });
+
+    // Mark New Tab
+    e.currentTarget.setAttribute('aria-selected', 'true');
+
+    // Show New Tab
+    const { id } = e.currentTarget;
+    const currentTab = tabPanels.find(
+      panel => panel.getAttribute('aria-labelledby') === id
+    );
+
+    currentTab.hidden = false;
+
+    // Update hash without scrolling
+    history.replaceState(null, null, `#${id}`);
+  }
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', tabClickHandler);
+  });
+
+  window.addEventListener('load', function() {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      // Find and trigger the click event on the tab with this ID
+      const tabToActivate = Array.from(tabButtons).find(button => button.id === hash);
+      if (tabToActivate) {
+        tabToActivate.click();
+      }
+    }
+  });
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.location.hash === "#wholesale_register") {
+        setTimeout(function () {
+            window.scrollTo(0, 0); // Forces the scroll position to the top
+        }, 0);
+    }
+});
+                
+</script>
+

@@ -1,0 +1,170 @@
+<style>
+   .main_product h2.text_xxxxl.font_heading.text_400.fadeInUp {
+    color: #fff;
+}
+#how_to_use_section {
+  padding-top: 100px;
+  padding-bottom: 100px; }
+  @media (min-width: 1px) and (max-width: 991px) {
+    #how_to_use_section {
+      padding-top: 50px;
+      padding-bottom: 50px; } }
+  
+  #how_to_use_section {
+  background-image: unset;
+  background-color: #000;
+  color: #fff; }
+  #how_to_use_section .font_heading {
+    text-align: center; }
+  #how_to_use_section .ds_main_title {
+    text-align: center;
+    text-transform: uppercase; }
+   #how_to_use_section .discreet_steps .ds_img img {
+    filter: brightness(0) invert(1); } 
+  #how_to_use_section .discreet_steps .ds_desc {
+    padding: 10px 0 ; }
+    #how_to_use_section .discreet_steps .ds_desc.italic {
+      font-style: italic; }
+
+  #how_to_use_section .discreet_steps {
+    display: grid;
+    margin-top: 30px;
+    grid-template-columns: auto auto auto;
+    max-width: 100%;
+}
+  
+
+  #how_to_use_section .discreet_steps .ds_item {
+    padding: 20px 20px;
+    border-right: 1px solid white;
+}
+
+  #how_to_use_section .discreet_steps .ds_item .ds_img img {
+    max-width: 150px;
+}
+  #how_to_use_section .discreet_steps .ds_item .ds_img{
+        height: 130px;
+    display: flex;
+    align-items:center;
+  }
+
+  #how_to_use_section .discreet_steps .ds_item:nth-last-child(1) {
+    border-right: 0px;
+    border-bottom: 0;
+}
+
+  @media(max-width:767px){
+    #how_to_use_section .discreet_steps{
+          grid-template-columns: auto;
+    }
+    #how_to_use_section .discreet_steps .ds_item {
+    border-right: unset;
+    padding: 30px 20px;
+    border-bottom: 1px solid white;
+    text-align: center;
+}
+
+   #how_to_use_section .discreet_steps .ds_item .ds_img {
+    height: auto;
+}
+   #how_to_use_section .discreet_steps .ds_item .ds_img img {
+    max-width: 100px;
+    margin: 0 auto;
+}
+
+    #how_to_use_section .discreet_steps .ds_item h3{
+      padding-top:10px;
+    }
+
+    #how_to_use_section .discreet_steps .ds_desc{
+      padding:10px 0 0;
+      line-height: 1.2 !important;
+    }
+    
+  }
+  
+</style>
+      
+      
+      <section id="how_to_use_section" class="2222 scroll-section viewportY_Animation">
+         <div class="container">
+            <h2 class="text_xxxxl font_heading text_400 fadeInUp">{{ section.settings.title }}</h2>
+            <h3 class="text_xxl font_text text_600 ds_main_title fadeInUp" style="color: {{product.metafields.custom.product_color}}">
+               {{ section.settings.subtitle }}
+            </h3>
+            <div class="discreet_steps">
+              {%- for block in section.blocks -%}
+               <div class="ds_item fadeInUp">
+                  <div class="ds_img">
+                     <img
+                    src="{{ block.settings.image | img_url: 'master' }}"
+                    alt=""
+                    class="img-responsive"
+                  />
+                  </div>
+
+                  <h3 class="text_xxl font_text text_600 ds_title" style="color: {{product.metafields.custom.product_color}}">{{ block.settings.caption }}</h3>
+                  <p class="text_reg font_text text_400 ds_desc">
+                     {{ block.settings.info }}
+                  </p>
+
+                  <p class="text_reg font_text text_400 ds_desc">
+                     {{ block.settings.info_1 }}
+                  </p>
+               </div>
+              {%- endfor -%}
+            </div>
+         </div>
+      </section>
+
+{% schema %}
+  {
+   "name":"How to use section",
+   "settings":[
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title"
+      },
+      {
+         "type":"text",
+         "id":"subtitle",
+         "label":"Sub Heading"
+      }
+      
+   ],
+   "blocks":[
+      {
+         "type":"text",
+		 "name":"Text Block",
+         "settings":[
+			{
+               "type":"image_picker",
+               "id":"image",
+               "label":"Add Image"
+            },
+            {
+               "type":"text",
+               "id":"caption",
+               "label":"Add Caption"
+            },
+			{
+               "type":"text",
+               "id":"info",
+               "label":"Add Info"
+            },
+            {
+               "type":"text",
+               "id":"info_1",
+               "label":"Add Info"
+            }
+         ]
+      }
+   ],
+	"presets": [
+      {
+      "name": "How to use section"
+      }
+   ]
+}
+{% endschema %}

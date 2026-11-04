@@ -1,0 +1,116 @@
+<style>
+.main_page-about_us section#about_ubbs_section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h5.text_xxxl.font_heading.text_400.color_peppermint.fadeInUp {
+    font-size: 60px !important;
+}
+@media(max-width: 1350px){
+   h5.text_xxxl.font_heading.text_400.color_peppermint.fadeInUp {
+      {% comment %} font-size: 50px !important; {% endcomment %}
+   }
+   .text_med {
+    {% comment %} font-size: 22px; {% endcomment %}
+}
+}
+@media(max-width: 1250px){
+   h5.text_xxxl.font_heading.text_400.color_peppermint.fadeInUp {
+      {% comment %} font-size: 35px !important; {% endcomment %}
+   }
+   .text_med {
+    {% comment %} font-size: 18px; {% endcomment %}
+   }
+}
+@media(max-width: 1050px){
+   h5.text_xxxl.font_heading.text_400.color_peppermint.fadeInUp {
+      font-size: 30px !important;
+   }
+   .text_med {
+    font-size: 15px;
+   }
+}
+@media(max-width: 850px){
+   .about_ubbs_inner{
+      display: flex;
+      justify-content: center;
+      
+   }
+   h5.text_xxxl.font_heading.text_400.color_peppermint.fadeInUp {
+      font-size: 25px !important;
+   }
+   .text_med {
+    font-size: 14px;
+   }
+}
+
+@media(max-width: 480px){
+ .main_page-about_us section#about_ubbs_section {
+    width: 100%;
+}
+h5.text_xxxl.font_heading.text_400.color_peppermint.fadeInUp {
+    font-size: 30px !important;
+}
+}
+</style>
+<section id="about_ubbs_section">
+ <div class="container">
+    <div class="about_ubbs_inner">
+       <div class="">
+          <picture>
+             <source media="(max-width:767px)" srcset="{{ section.settings.mob_border_img | img_url: 'master' }}">
+             <img src="{{ section.settings.desktop_border_img | img_url: 'master' }}" class="img-responsive" alt="">
+          </picture>
+
+          <div class="about_ubbs_content">
+             <h5 class="text_xxxl font_heading text_400 color_peppermint fadeInUp">
+                {{ section.settings.title }}
+             </h5>
+             <h3 class="wus_desc text_med font_heading text_400 fadeInUp">
+                {{ section.settings.subtitle }}
+             </h3>
+          </div>
+       </div>
+    </div>
+ </div>
+</section>
+{% schema %}
+  {
+   "name":"About Ubbs Section",
+   "settings":[
+       {
+         "type":"image_picker",
+         "id":"desktop_border_img",
+         "label":"Desktop Image"
+      },
+      {
+         "type":"image_picker",
+         "id":"mob_border_img",
+         "label":"Mobile Image"
+      },
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title"
+      },
+	  {
+         "type":"text",
+         "id":"subtitle",
+         "label":"Subheading"
+      }
+	  
+   ],
+	"presets": [
+      {
+      "name": "About Ubbs Section"
+      }
+   ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

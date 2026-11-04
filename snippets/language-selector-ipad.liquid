@@ -1,0 +1,257 @@
+<style>
+  /* Language & Country Switcher Styles */
+  .cover_image_country {
+    display: flex;
+    {% comment %} gap: 10px; {% endcomment %}
+  }
+
+  .language-switcher, .country-switcher {
+    position: relative;
+    user-select: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .language-selected, .country-selected {
+    border-radius: 6px;
+    padding: 5px 4px;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .flag-text {
+    display: flex;
+    align-items: center;
+  }
+
+  .language-selected img, .country-selected img {
+    width: 20px;
+    height: 20px;
+    {% comment %} border-radius: 50%; {% endcomment %}
+    margin-right: 8px;
+  }
+
+  .language-selected::after, .country-selected::after {
+    content: "";
+    border-style: solid;
+    border-width: 6px 5px 0 5px;
+    border-color: #555 transparent transparent transparent;
+    margin-left: 10px;
+  }
+
+  .language-options, .country-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1.5px solid #888;
+    border-radius: 6px;
+    background: #fff;
+    max-height: 150px;
+    overflow-y: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: none;
+    z-index: 1000;
+  }
+
+  .language-option, .country-option {
+    padding: 6px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .language-option img, .country-option img {
+    width: 20px;
+    height: 14px;
+    margin-left: 8px;
+  }
+
+  .language-option:hover, .country-option:hover {
+    background-color: #eee;
+  }
+</style>
+
+<div class="cover_image_country">
+  <!-- Country Switcher -->
+  <div class="country-switcher header__icon">
+    <div class="country-selected">
+      <div class="flag-text">
+        <img src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/ae.png?v=1754047315" alt="UAE">
+        <span>UAE</span>
+        {% comment %}
+          <img src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/gb.png?v=1754047195" alt="UK">
+          <span>UK</span>
+        {% endcomment %}
+      </div>
+    </div>
+    <div class="country-options">
+      <div class="country-option" data-value="uk">
+        <img src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/gb.png?v=1754047195" alt="UK">
+        <span>UK</span>
+      </div>
+      <div class="country-option" data-value="uae">
+        <img src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/ae.png?v=1754047315" alt="UAE">
+        <span>UAE</span>
+      </div>
+    </div>
+  </div>
+  {% unless template == 'cart' %}
+    <!-- Language Switcher -->
+    <div class="language-switcher hidden">
+      <div class="language-selected">
+        <div class="flag-text">
+          <img src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/gb.png?v=1754047195" alt="En">
+          <span>En</span>
+        </div>
+      </div>
+      <div class="language-options">
+        <div class="language-option" data-value="en">
+          {% comment %} <img src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/gb.png?v=1754047195" alt="En"> {% endcomment %}
+          <span>En</span>
+        </div>
+        <div class="language-option" data-value="ar">
+          {% comment %} <img src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/ae.png?v=1754047315" alt="Ar"> {% endcomment %}
+          <span>Ar</span>
+        </div>
+      </div>
+    </div>
+  {% endunless %}
+</div>
+
+<script>
+  function handleDropdown(selectedEl, optionsEl) {
+    // helper function to attach both click + touchend
+    function onTap(el, cb) {
+      ['click', 'touchend'].forEach((evt) => {
+        el.addEventListener(
+          evt,
+          (e) => {
+            e.stopPropagation();
+            e.preventDefault(); // prevent double triggers
+            cb(e);
+          },
+          { passive: false }
+        );
+      });
+    }
+
+    // toggle dropdown
+    onTap(selectedEl, () => {
+      document.querySelectorAll('.language-options, .country-options').forEach((opt) => {
+        if (opt !== optionsEl) opt.style.display = 'none';
+      });
+      optionsEl.style.display = optionsEl.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // option selection
+    optionsEl.querySelectorAll('div[data-value]').forEach((option) => {
+      onTap(option, () => {
+        const img = option.querySelector('img').src;
+        const text = option.querySelector('span').textContent;
+        selectedEl.querySelector('.flag-text img').src = img;
+        selectedEl.querySelector('.flag-text span').textContent = text;
+        optionsEl.style.display = 'none';
+
+        if (optionsEl.classList.contains('language-options')) {
+          const value = option.dataset.value;
+          const pathParts = window.location.pathname.split('/').filter((p) => p);
+          const currentLang = pathParts[0];
+          if (['en', 'ar'].includes(currentLang)) pathParts.shift();
+          const newPath = '/' + (value === 'en' ? '' : value + '/') + pathParts.join('/');
+          window.location.href = newPath;
+        }
+        // Add country redirect logic here if needed
+      });
+    });
+  }
+
+  // Initialize both dropdowns
+  document.querySelectorAll('.country-switcher').forEach((sw) => {
+    handleDropdown(sw.querySelector('.country-selected'), sw.querySelector('.country-options'));
+  });
+  document.querySelectorAll('.language-switcher').forEach((sw) => {
+    handleDropdown(sw.querySelector('.language-selected'), sw.querySelector('.language-options'));
+
+    // Auto-detect language from URL
+    const pathLang = window.location.pathname.split('/')[1];
+    const options = sw.querySelector('.language-options');
+    const selected = sw.querySelector('.language-selected');
+    const match = Array.from(options.children).find((opt) => opt.dataset.value === pathLang);
+    if (match) {
+      selected.querySelector('.flag-text img').src = match.querySelector('img').src;
+      selected.querySelector('.flag-text span').textContent = match.querySelector('span').textContent;
+    }
+  });
+
+  // Close dropdowns on outside tap/click
+  ['click', 'touchend'].forEach((evt) => {
+    document.addEventListener(evt, () => {
+      document.querySelectorAll('.language-options, .country-options').forEach((opt) => (opt.style.display = 'none'));
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const sw = document.querySelector('.language-switcher-ipad .language-selected');
+    const options = document.querySelector('.language-switcher-ipad .language-options');
+    const swCountry = document.querySelector('.language-switcher-ipad .country-selected');
+    const optionsCountry = document.querySelector('.language-switcher-ipad .country-options');
+
+    function initDropdown(selectedEl, optionsEl, isLanguage = false) {
+      if (!selectedEl || !optionsEl) return;
+
+      // Attach click + touchstart
+      ['click', 'touchstart'].forEach((evt) => {
+        selectedEl.addEventListener(
+          evt,
+          (e) => {
+            e.stopPropagation();
+            optionsEl.style.display = optionsEl.style.display === 'block' ? 'none' : 'block';
+          },
+          { passive: false }
+        );
+      });
+
+      // Option selection
+      optionsEl.querySelectorAll('[data-value]').forEach((option) => {
+        option.addEventListener('click', () => {
+          selectedEl.querySelector('.flag-text img').src = option.querySelector('img').src;
+          selectedEl.querySelector('.flag-text span').textContent = option.querySelector('span').textContent;
+          optionsEl.style.display = 'none';
+
+          if (isLanguage) {
+            const value = option.dataset.value;
+            const pathParts = window.location.pathname.split('/').filter((p) => p);
+            const currentLang = pathParts[0];
+            if (['en', 'ar'].includes(currentLang)) pathParts.shift();
+            const newPath = '/' + (value === 'en' ? '' : value + '/') + pathParts.join('/');
+            window.location.href = newPath;
+          }
+        });
+      });
+
+      // Close dropdown on outside click/touch
+      ['click', 'touchstart'].forEach((evt) => {
+        document.addEventListener(evt, () => (optionsEl.style.display = 'none'));
+      });
+    }
+
+    initDropdown(sw, options, true);
+    initDropdown(swCountry, optionsCountry, false);
+
+    // Auto-detect language from URL
+    if (sw && options) {
+      const pathLang = window.location.pathname.split('/')[1];
+      const match = Array.from(options.children).find((opt) => opt.dataset.value === pathLang);
+      if (match) {
+        sw.querySelector('.flag-text img').src = match.querySelector('img').src;
+        sw.querySelector('.flag-text span').textContent = match.querySelector('span').textContent;
+      }
+    }
+  });
+</script>

@@ -1,0 +1,72 @@
+<section class="the_scandinavians_section">
+ <div class="container">
+    <div class="the_scandinavians_inner">
+       <div class="the_scandinavians_content">
+          <h5 class="text_xxxl font_heading text_400 fadeInUp">{{ section.settings.title }}</h5>
+          <p>{{ section.settings.subtitle }}</p>
+       </div>
+
+       <div class="the_scandinavians_img">
+          <img src="{{ section.settings.tree_img | img_url: 'master' }}" class="img-responsive" alt="">
+          <img src="{{ section.settings.desktop_border_img | img_url: 'master' }}" class="img-responsive" alt="">
+          <img src="{{ section.settings.mountain_img | img_url: 'master' }}" class="img-responsive" alt="">
+       </div>
+
+    </div>
+ </div>
+</section>
+{% schema %}
+  {
+   "name":"About Scandinavians",
+   "settings":[
+       {
+         "type":"image_picker",
+         "id":"desktop_border_img",
+         "label":"About Us Image"
+      },
+      {
+         "type":"image_picker",
+         "id":"tree_img",
+         "label":"Tree Image"
+      },
+      {
+         "type":"image_picker",
+         "id":"mountain_img",
+         "label":"Mountain Image"
+      },
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title"
+      },
+	  {
+         "type":"richtext",
+         "id":"subtitle",
+         "label":"Subheading"
+      }
+	  
+   ],
+	"presets": [
+      {
+      "name": "About Scandinavians"
+      }
+   ]
+}
+{% endschema %}
+
+{% stylesheet %}
+section.the_scandinavians_section h2 {
+    font-family: 'BlinkerRegular' !important;
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: unset;
+}
+@media(max-width:480px){
+   section.the_scandinavians_section h2 {
+    font-size: 24px;
+}
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

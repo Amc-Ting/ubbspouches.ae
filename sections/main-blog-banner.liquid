@@ -1,0 +1,56 @@
+{{ 'blog-listing.css' | asset_url | stylesheet_tag }}
+<div id="the_best_feeling">
+   <img src="//cdn.shopify.com/s/files/1/0559/7075/8753/files/element04.png" alt="background element | UBBS Pouches - 2" class="element1 element hidden-xs img-responsive" />
+   <div class="container">
+      <img src="//cdn.shopify.com/s/files/1/0559/7075/8753/files/element04.png" alt="background element | UBBS Pouches - 2" class="element2 element img-responsive" />
+      <div class="element_03">
+         <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Ellipse_3_347abbd8-2fcf-4245-bc19-140951ee8a4b.png?v=1670487297" class="img-responsive" alt="red background element of ellipse | UBBS pouches -1" />
+      </div>
+      <div class="element_01">
+         <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Ellipse_2_897d072e-5d0c-4287-b5f1-9b0796cd38c7.png?v=1670487297" class="img-responsive" alt="red background element of ellipse | UBBS pouches -2" />
+      </div>
+
+      <div class="the_best_feeling_inner">
+         <div class="sec_left">
+            <h1 class="text_xl text_400 bs_title">{{ section.settings.title }}</h1>
+
+            <h2 class="text_lg text_400 be_text">{{ section.settings.desc }}</h2>
+            <img src="//cdn.shopify.com/s/files/1/0559/7075/8753/files/element04.png" alt="background element | UBBS Pouches - 2" class="element3 element img-responsive" />
+         </div>
+         <div class="sec_right">
+            <div class="element_05">
+               <div class="blur_circle watermelon_circle"></div>
+            </div>
+            <img src="{{ section.settings.img_1 | img_url:'460x' }}" class="img-responsive" alt="" />
+         </div>
+      </div>
+   </div>
+</div>
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": [
+    {
+         "type":"text",
+         "id":"title",
+         "label":"Title"
+      },
+	  {
+         "type":"text",
+         "id":"desc",
+         "label":"Subheading"
+      },
+      {
+         "type":"image_picker",
+         "id":"img_1",
+         "label":"Add a Blog Image"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

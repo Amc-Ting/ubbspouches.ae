@@ -1,0 +1,206 @@
+<style>
+  .main_loyalty_sec{
+    margin-top:160px;
+  }
+  .loyalty_points_tracker{
+    flex-direction:column;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+    display:flex;
+  }
+  #progressContainer{
+        margin: 5px 0 25px;
+    /* border-radius: 15px; */
+    width: 100%; 
+    position:relative;
+  }
+  #progressBar{
+        /* border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px; */
+  }
+  .checkpoint {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    width: 20px;
+        /* background-color: var(--color_watermelon); */
+    height: 20px;
+    border-radius: 12px;
+}
+  .checkpoint .pound_txt{
+    position: absolute;
+    top: 15px;
+        left: -22px;
+  }
+  .checkpoint .pound_txt img{
+    width:15px;
+  }
+  .checkpoint .clip-path{
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 54% 100%, 83% 51%, 56% 0);
+    width: 20px;
+    height: 18px;
+    background: #fff;
+    top: 0;
+    display: block;
+    position: absolute;
+    left: -15px;
+  }
+ 
+  .checkpoint .points-txt{
+    line-height: 11px;
+    font-size: 14px;
+    text-align: center;
+    top: 28px;
+    position: absolute;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    column-gap: 5px;
+    left: -20px;
+    border: 1px solid rgba(0,0,0,0.4);
+    padding: 5px;
+    border-radius: 5px;
+  }
+  #progressText p{
+    font-size: 22px;
+    margin-top: 28px;
+  }
+  .main_current_total{
+    margin-top:3rem !important;
+  }
+
+  @media(max-width:767px){
+    .main_current_total{
+        margin-top: 8rem !important;
+    }
+    .checkpoint .points-txt{
+      width: 79px;
+      font-size: 12px;
+      column-gap: 3px;
+      padding: 2px;
+      column-gap: 3px;
+    }
+    .checkpoint .pound_txt img {
+      width: 12px;
+    }
+    .checkpoint:nth-child(4) .points-txt{
+      left: -40px;
+    }
+  }
+</style>
+
+<div class="main_loyalty_sec">
+
+          {%- assign points_per_pound = 1 -%}
+{%- assign total_price = customer.total_spent | divided_by: 100.0 -%} 
+{%- assign main_total_price = total_price | times: points_per_pound | ceil -%}
+          <p class="hidden" id="customer_total_spent">{{ main_total_price }}</p>
+
+        <div class="loyalty_points_tracker page-width" id="main_tracker">
+
+          <h2>Loyalty/Reward Points</h2>
+          
+           <div id="progressContainer" style="background-color: rgba(94,204,200,0.3); border: 1px solid #ccc; height: 20px;border-radius:15px;">
+              <div id="progressBar" style="width: 0%; height: 18px; background-color: var(--color_spearmint);border-radius:15px;"></div>
+
+              <!-- Checkpoints -->
+              <div class="checkpoint" data-value="250" data-point="50">
+                <span class="pound_txt">£250<br>
+                  <span class="points-txt">
+                    <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/coin.png?v=1745846269" alt="coin_img">
+                    50 points
+                  </span>
+                </span>
+                <span class="clip-path"></span>
+              </div>
+              <div class="checkpoint" data-value="500" data-point="100">
+                <span class="pound_txt">£500<br>
+                  <span class="points-txt">
+                    <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/coin.png?v=1745846269" alt="coin_img">
+                    100 points
+                  </span>
+                </span>
+                <span class="clip-path"></span>
+              </div>
+              <div class="checkpoint" data-value="1000" data-point="200">
+                <span class="pound_txt">£1000<br>
+                  <span class="points-txt">
+                    <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/coin.png?v=1745846269" alt="coin_img">
+                    200 points
+                  </span>
+                </span>
+                <span class="clip-path"></span>
+              </div>
+           </div>
+
+          <div class="hidden" id="progressText" style="margin-top: 5px;"></div>
+           
+          <p class="main_current_total">Current Total Spent: £{{ main_total_price }}</p>
+        </div>
+</div>
+
+   <script>
+
+     
+const goal = 1000;
+
+setTimeout(function () {
+  let currentPointsElement = document.querySelector("#customer_total_spent");
+
+  if (currentPointsElement && currentPointsElement.innerText.trim() !== "") {
+    let currentPoints = parseInt(currentPointsElement.innerText.trim(), 10);
+    {% comment %} console.log("currentPoints:", currentPoints); {% endcomment %}
+    updateProgress(currentPoints);
+  } else {
+    {% comment %} console.log("Element not found or no value."); {% endcomment %}
+    updateProgress(0);
+  }
+}, 2000);
+
+function updateProgress(points) {
+  const progressContainer = document.getElementById('progressContainer');
+  const progressBar = document.getElementById('progressBar');
+  const progressText = document.getElementById('progressText');
+  
+  const cycleProgress = points % goal;
+  const percentage = (cycleProgress / goal) * 100;
+
+  progressBar.style.width = percentage + '%';
+  progressText.innerText = `£${cycleProgress} / £${goal}`;
+
+  const checkpoints = document.querySelectorAll('.checkpoint');
+  let nextCheckpointValue = goal; // Default to full goal if none found
+
+  checkpoints.forEach(checkpoint => {
+    const value = parseInt(checkpoint.getAttribute('data-value'), 10);
+    const pointsValue = parseInt(checkpoint.getAttribute('data-point'), 10);
+    const positionPercent = (value / goal) * 100;
+    checkpoint.style.left = `calc(${positionPercent}% - 1px)`;
+
+    // Find the next checkpoint greater than current progress
+    if (cycleProgress < value && value < nextCheckpointValue) {
+      nextCheckpointValue = value;
+      nextCheckpointPoints = pointsValue;
+    }
+  });
+
+  // Calculate remaining amount
+  const amountRemaining = nextCheckpointValue - cycleProgress;
+
+  // Add dynamic text (or update existing one)
+  let goalInfo = document.getElementById('goalInfo');
+  if (!goalInfo) {
+    goalInfo = document.createElement('div');
+    goalInfo.id = 'goalInfo';
+    progressContainer.parentNode.insertBefore(goalInfo, progressContainer);
+  }
+  if (amountRemaining > 0) {
+    goalInfo.innerText = `Spend £${amountRemaining} more to unlock ${nextCheckpointPoints} points`;
+  } else {
+    goalInfo.innerText = `Goal achieved! 🎉`;
+  }
+}
+
+
+    </script>

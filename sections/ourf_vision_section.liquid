@@ -1,0 +1,50 @@
+<section id="with_this_vision_section">
+      <div class="container">
+         <div class="with_this_vision_inner">
+
+            <div class="with_this_vision_content">
+               <h2 class="text_xxl font_heading text_400 fadeInUp">{{ section.settings.title }}</h2>
+               <p>{{ section.settings.subtitle }}</p>
+            </div>
+
+            <div class="with_this_vision_img">
+
+               <div class="hand_image fadeInUp">
+                  <img src="{{ section.settings.banner_img | img_url: 'master' }}" alt="" class="img-responsive" />
+                  <div class="element_02">
+                     <div class="blur_circle"></div>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </section>
+{% schema %}
+  {
+    "name": "With This Vision Section",
+    "settings": [
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title"
+      },
+	  {
+         "type":"text",
+         "id":"subtitle",
+         "label":"Subheading"
+      },
+	  {
+         "type":"image_picker",
+         "id":"banner_img",
+         "label":"Image"
+      }
+      ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

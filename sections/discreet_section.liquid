@@ -1,0 +1,237 @@
+ <style>
+.discreet_steps {
+    display: grid;
+    margin-top: 10vmin;
+    grid-template-columns: auto auto auto;
+    max-width: 100%;
+    max-width: 1100px !important;
+    margin: 0 auto;
+    width: 100%;
+}
+   #discreet_section {
+  background-image: url("https://cdn.shopify.com/s/files/1/0559/7075/8753/files/So-discreet_0c6d8f3d-9873-42ad-88e3-35fcb9aaf842.jpg?v=1659525103");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position-x: right;
+  background-position-y: calc(var(--viewport-y) * -50px);
+  color: white;
+    padding-top: 100px;
+    padding-bottom: 60px;}
+  @media (max-width: 1200px) {
+    #discreet_section {
+      background-attachment: initial;
+      background-repeat: no-repeat;
+      background-position-y: initial;
+      position: relative; } }
+   @media (min-width: 768px) and (max-width: 1023px) {
+     #discreet_section {
+       padding-top: 50px;
+     }
+}
+
+  @media (max-width: 767px) {
+    #discreet_section {
+      background-color: black;
+      background-image: none;
+      padding-bottom: 0; padding-top: 55px;} }
+  #discreet_section .full_overlay {
+    background-color: #000;
+    display: none;
+      position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;}
+    @media (min-width: 768px) and (max-width: 991px) {
+      #discreet_section .full_overlay {
+        display: block; } }
+  #discreet_section .discreet_steps {
+    max-width: 70%; }
+    @media (max-width: 991px) {
+      #discreet_section .discreet_steps {
+        max-width: 100%; } }
+    @media (max-width: 767px) {
+      #discreet_section .discreet_steps {
+        max-width: 100%; } }
+  #discreet_section .mob_img {
+    display: block; }
+    @media (min-width: 767px) {
+      #discreet_section .mob_img {
+        display: none; } }
+   
+   .discreet_steps .ds_item {
+    padding: 20px 20px;
+    border-right: 1px solid white;
+}
+   
+   .discreet_steps .ds_item .ds_img {
+    height: 130px;
+     display:flex;
+     align-items:center;
+}
+   .discreet_steps .ds_item .ds_title {
+    text-transform: uppercase;
+    margin: 10px 0px;
+     color:#fff;
+     font-family: 'BlinkerRegular';
+}
+   
+   .discreet_steps .ds_item .ds_img img {
+    max-width: 150px;
+}
+   
+   .discreet_steps .ds_item:nth-last-child(1) {
+    border-right: 0px;
+    border-bottom: 0;
+}
+   .discreet_steps .ds_item .ds_desc{
+   	font-family: 'BlinkerRegular';
+   }
+   
+   @media (max-width: 767px){
+.discreet_steps {
+    grid-template-columns: auto;
+}
+     .discreet_steps .ds_item {
+    border-right: unset;
+    padding: 30px 20px;
+    border-bottom: 1px solid white;
+    text-align: center;
+}
+     .discreet_steps .ds_item .ds_img {
+    height: auto;
+}
+     .discreet_steps .ds_item .ds_img img {
+    max-width: 100px;
+    margin: 0 auto;
+}
+     
+   }
+   .discreet_info p{
+     padding:40px 0 0 0;
+     font-size:18px !important;
+   }
+   #discreet_section .tagline{
+     font-size:32px;
+   }
+   
+</style>
+
+
+<section id="discreet_section" class="viewportY_Animation {{ section.settings.custom_class }}">
+          <div class="full_overlay"></div>
+          <div class="container">
+            <p class="tagline font_heading color_peppermint text_400">{{ section.settings.tagline }}</p>
+            <h4
+              class="text_xxxxl font_heading color_peppermint text_400 fadeInUp"
+            >
+              {{ section.settings.title }}
+            </h4>
+            <div class="discreet_steps">
+              
+              {%- for block in section.blocks -%}
+              <div class="ds_item fadeInUp">
+                <div class="ds_img">
+                  <img
+                    src="{{ block.settings.image | img_url: 'master' }}"
+                    alt="{{ block.settings.image.alt }}"
+                    class="img-responsive"
+                    width="{{ block.settings.image.width }}"
+                    height="{{ block.settings.image.height }}"
+                  />
+                </div>
+
+                <h3 class="text_xxl text_600 ds_title">{{ block.settings.caption }}</h3>
+                <p class="text_reg text_400 ds_desc">
+                  {{ block.settings.info }}
+                </p>
+              </div>
+              {%- endfor -%}
+              
+            </div>
+
+                <div class="discreet_info">
+                  <p class="text_reg text_400 font_text fadeInUp">{{ section.settings.info_text }} <a class="color_peppermint " href="{{ section.settings.link_url }}">{{ section.settings.link_text }}</a></p>
+                </a>
+          </div>
+          </div>
+          <div class="mob_img">
+            <img
+              src="{{ section.settings.mob_image | img_url: 'master' }}"
+              class="img-responsive"
+              alt="{{ section.settings.mob_image.alt }}"
+              width="{{ section.settings.mob_image.width }}"
+              height="{{ section.settings.mob_image.height }}"
+            />
+          </div>
+        </section>
+{% schema %}
+  {
+   "name":"Discreet section",
+   "settings":[
+     {
+         "type":"text",
+         "id":"custom_class",
+         "label":"Add Custom Class"
+      },
+      {
+         "type":"text",
+         "id":"tagline",
+         "label":"Tagline"
+      },
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title"
+      },
+	  {
+         "type":"image_picker",
+         "id":"mob_image",
+         "label":"Image"
+      },
+      {
+         "type":"text",
+         "id":"info_text",
+         "label":"Add Info"
+      },
+      {
+         "type":"url",
+         "id":"link_url",
+         "label":"Add Link URL"
+      },
+      {
+         "type":"text",
+         "id":"link_text",
+         "label":"Add Link Text"
+      }
+   ],
+   "blocks":[
+      {
+         "type":"text",
+		 "name":"Text Block",
+         "settings":[
+			{
+               "type":"image_picker",
+               "id":"image",
+               "label":"Add Image"
+            },
+            {
+               "type":"text",
+               "id":"caption",
+               "label":"Add Caption"
+            },
+			{
+               "type":"text",
+               "id":"info",
+               "label":"Add Info"
+            }
+         ]
+      }
+   ],
+	"presets": [
+      {
+      "name": "Discreet section"
+      }
+   ]
+}
+{% endschema %}

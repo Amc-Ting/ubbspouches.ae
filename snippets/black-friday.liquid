@@ -1,0 +1,163 @@
+<style>
+  #customModal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: auto;
+    bottom:0;
+    width: 100%;
+    /* height: 100%; */
+    /* background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */ */
+  }
+
+  .bolt-icon-svg{width:10px;}
+  .text-content{font-size: 14px;flex:1;padding:15px 120px 15px 20px;text-align: center;}
+  .image-content{position: absolute;right: 10px;bottom: 0;}
+  #modalContent {
+    /* background-color: white; */
+    margin:0 auto 25px auto;
+    /* padding: 20px; */
+    /* border: 1px solid #888; */
+    width: 95%;
+    max-width: 600px;
+    /* text-align: center; */
+    position:relative;
+  }
+  .OuterContent{
+    /* background-color: black; */
+    width: 100%;
+    height: 95px;
+    position: relative;
+    /* clip-path: polygon(3% 0%, 100% 0%, 97% 100%, 0% 100%); */
+  }
+  .innerContent{
+    background-color:#c2daff;
+    /* background: rgb(230,46,59);background: linear-gradient(90deg, rgba(230,46,59,1) 0%, rgba(240,128,136,1) 100%); */
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    color:black;
+    /* text-align: center; */
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius:10px;
+    /* clip-path: polygon(3% 0%, 100% 0%, 97% 100%, 1px 100%); */
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.35);
+    
+    letter-spacing: 1px;
+    display:flex;
+  }
+
+  .close {
+    color: black;
+    text-align: center;
+    position: absolute;
+    z-index:1;
+    font-size: 28px;
+    top: 0;
+    right: 0;
+    height: 25px;
+    width: 25px;
+    background-color:#fff;
+    border: 1px solid #000;
+    border-radius: 50%;
+    line-height: 21px;
+    transform: translate(40%, -40%);
+  }
+  .cta-button{
+    background-color: #111;
+    border-radius: 50px;
+    border: 2px solid #111;
+    outline: none;
+    padding: 0px 20px;
+    color: white;
+    font-size: 14px;
+    line-height: 30px;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: none;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: white;
+    background-color:black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .cta-button:hover,
+  .cta-button:focus {
+    color:black;
+    background-color:white;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #111;
+  }
+  
+  #customModal.show{display:block;}
+  @media (max-width: 768px){
+    .text-content{flex:1;padding:10px 0px 20px 10px;text-align: left;}
+    #customModal {
+      left: 0;
+      top: 120px;
+      bottom:auto;
+    }
+    .image-content{position: relative;right:0}
+    .OuterContent{height:130px;}
+    .innerContent{align-items: flex-end;}
+  }
+</style>
+<!-- The Modal -->
+<div id="customModal">
+  <div id="modalContent">
+    <span class="close" id="closeBtn">&times;</span>
+    <div class="OuterContent">
+      <div class="innerContent">
+        <div class="text-content">
+          <h4 class="text_sm font_heading">SAVE UP TO 60% OFF!</h4>
+          <p><b>Get an extra 10% off all multibuy discounts in our January SALE</b></p>
+          <!-- <p>Sticking to your new years resolutions just got easier...</p> -->
+        </div>
+        <div class="image-content">
+          <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/UBBS_-_MENTHOL_5_copy.png?v=1735718902" width="109" height="109">
+        </div>
+      </div>
+    </div>
+    <a href="/collections/shop" class="cta-button" id="cta-button">Shop Now</a>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $(window).on('scroll', () => {
+      var scrollTop = $(window).scrollTop()
+      if (scrollTop > 350) { 
+        if (localStorage.getItem('offerPopup') !== "true") {
+            $('#customModal').addClass('show');
+        }
+      }
+    })
+      
+  });
+  
+  $('body').on('click', '.close', function () {
+      localStorage.setItem("offerPopup", "true");
+      closePopup();
+  });
+    
+  function closePopup() {
+      $("#customModal").removeClass("show");
+  }
+  
+  $(document).keyup(function (e) {
+      if (e.key === "Escape") {
+          localStorage.setItem("offerPopup", "true");
+          closePopup();
+      }
+  });
+</script>

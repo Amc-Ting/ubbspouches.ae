@@ -1,0 +1,260 @@
+<style>
+    .product-recommendations .product-form__input {
+      min-width: unset;
+  }
+      .related_products{
+        margin-top:100px;
+        margin-bottom:100px
+      }
+      .product-card {
+        box-sizing: border-box;
+        float: left;
+        min-height: 1em;
+        padding-left: 2em;
+        vertical-align: top;
+        width: 25%;
+      }
+
+      .visuallyhidden {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+        white-space: nowrap;
+      }
+  .related_products .jdgm-widget.jdgm-widget{
+      position: absolute;
+      top: -20px;
+    }
+
+  .related_products .card__information {
+      position: relative;
+  }
+
+      @media(max-width:767px){
+    .related_products{
+      margin-top:60px;
+    }
+
+      }
+    #product-grid .left-arrow{top: 45%;
+      position: absolute;
+     left: -5px;
+      width: 35px;
+      object-fit: contain;
+      z-index:9;
+    }
+    #product-grid .right-arrow{top: 45%;
+      position: absolute;
+      right: -5px;
+      width: 35px;
+      object-fit: contain;
+    }
+    #product-grid .left-arrow img,  #product-grid .right-arrow img{width:25px;}
+    @media (max-width: 1024px) and (min-width: 768px){
+      #product-grid .left-arrow{top: 30%;left: 5px;z-index: 9;width: 20px;}
+      #product-grid .right-arrow{top: 30%;right: 10px;width: 20px;}
+    }
+</style>
+
+{%- assign counter = 0 -%}
+{%- assign break_at = section.settings.number_of_products | plus: 0 -%}
+{%- assign current_product = product -%}
+
+{%- capture related_items -%}
+<div class="product-recommendations">
+  <ul id="product-grid" data-id="{{ section.id }}" class="pro_slider
+        grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
+        grid--{{ section.settings.columns_desktop }}-col-desktop">
+        
+     {%- assign counter = 0 -%}
+
+{%- assign is_current_bundle = false -%}
+{%- assign is_current_single = false -%}
+
+{%- if current_product.tags contains 'Bundle' -%}
+  {%- assign is_current_bundle = true -%}
+{%- endif -%}
+
+{%- if current_product.tags contains 'single_product' -%}
+  {%- assign is_current_single = true -%}
+{%- endif -%}
+
+{%- for product in collections.all.products limit: 50 -%}
+
+  {%- unless product.handle == current_product.handle -%}
+
+    {%- assign show_product = false -%}
+
+    {%- if is_current_bundle and product.tags contains 'Bundle' -%}
+      {%- assign show_product = true -%}
+    {%- endif -%}
+
+    {%- if is_current_single and product.tags contains 'single_product' -%}
+      {%- assign show_product = true -%}
+    {%- endif -%}
+
+    {%- if show_product -%}
+      <li class="grid__item xyz">
+        {% render 'card-product-new',
+          card_product: product,
+          media_aspect_ratio: section.settings.image_ratio,
+          show_secondary_image: section.settings.show_secondary_image,
+          show_vendor: section.settings.show_vendor,
+          show_rating: section.settings.show_rating,
+          lazy_load: lazy_load,
+          show_quick_add: section.settings.enable_quick_add,
+          section_id: section.id
+        %}
+      </li>
+
+      {%- assign counter = counter | plus: 1 -%}
+
+      {%- if counter == break_at -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endif -%}
+
+  {%- endunless -%}
+
+{%- endfor -%}
+    </ul>
+</div>
+{%- endcapture -%}
+
+{%- assign related_items = related_items | trim -%}
+{%- unless related_items == blank -%}
+  <div class="related_products page-width" id="recommendation_sec">
+    <aside>
+      {%- if section.settings.heading -%}
+        <h2
+          class="            font_heading text_xxxl text_400 product-recommendations__heading"
+          style="color: {{product.metafields.custom.product_color}}"
+        >
+          {{ section.settings.heading }}
+        </h2>
+        <h2 class="font_heading text_xxxl text_400 font_black product-recommendations__heading {{ section.settings.heading_size }}">
+          {{ section.settings.subheading }}
+        </h2>
+      {%- endif -%}
+
+      {{ related_items }}
+    </aside>
+  </div>
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "Recommended products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Recommended products"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.enable_quick_buy.label"
+    },
+    {
+      "type": "text",
+      "id": "related_tag",
+      "label": "Tag",
+      "info": "The tag determines which products show as related products."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recommended products"
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+  function initProSlider(scope = document) {
+    const sliders = scope.querySelectorAll('.pro_slider');
+
+    sliders.forEach((slider) => {
+      const $slider = $(slider);
+
+      // avoid double initialization
+      if ($slider.hasClass('slick-initialized')) return;
+
+      const totalSlides = $slider.children('li').length;
+
+      // don't init if no slides
+      if (totalSlides === 0) return;
+      console.log('Width:', window.innerWidth);
+      $slider.slick({
+        dots: true,
+        infinite: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow:
+          '<img class="left-arrow" src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/svgviewer-png-output_1.png?v=1769683613" width="34" height="70">',
+        nextArrow:
+          '<img class="right-arrow" src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/svgviewer-png-output.png?v=1769683585" width="34" height="70">',
+        responsive: [
+          {
+            breakpoint: 1199,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 768, // mobile
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      });
+    });
+  }
+
+  // On normal page load
+  document.addEventListener('DOMContentLoaded', function () {
+    initProSlider();
+  });
+
+  // For Shopify theme editor / section reloads
+  document.addEventListener('shopify:section:load', function (event) {
+    initProSlider(event.target);
+  });
+
+  // For AJAX-loaded product recommendations
+  document.addEventListener('DOMContentLoaded', function () {
+    const recommendationWrappers = document.querySelectorAll('product-recommendations');
+
+    recommendationWrappers.forEach((wrapper) => {
+      const observer = new MutationObserver(() => {
+        const slider = wrapper.querySelector('.pro_slider');
+
+        if (slider && !$(slider).hasClass('slick-initialized')) {
+          initProSlider(wrapper);
+        }
+      });
+
+      observer.observe(wrapper, {
+        childList: true,
+        subtree: true,
+      });
+    });
+  });
+</script>

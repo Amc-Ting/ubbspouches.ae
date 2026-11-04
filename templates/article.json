@@ -1,0 +1,136 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "adapt"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "blog_show_date": false,
+            "blog_show_author": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "featured_image",
+        "title",
+        "share",
+        "content"
+      ],
+      "settings": {}
+    },
+    "16582315657de590d5": {
+      "type": "featured-blog",
+      "disabled": true,
+      "settings": {
+        "blog": "listing",
+        "post_limit": 4,
+        "heading": "NERD ALERT!",
+        "heading_size": "h1",
+        "columns_desktop": 1,
+        "show_view_all": true,
+        "show_image": true,
+        "show_date": false,
+        "show_author": true,
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 32
+      }
+    },
+    "faq_tab_accordion_1_6CRGcD": {
+      "type": "faq_tab_accordion_1",
+      "blocks": {
+        "text_Wi3jPk": {
+          "type": "text",
+          "repeater": "{{ article.metafields.custom.faqs_list.value }}",
+          "settings": {
+            "ques": "{{ block.repeater.questions.value }}",
+            "ans": "{{ block.repeater.answer | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "text_Wi3jPk"
+      ],
+      "disabled": true,
+      "name": "FAQ section 1",
+      "settings": {
+        "heading": "FAQs"
+      }
+    },
+    "1658315699f6162fb5": {
+      "type": "newsletter",
+      "blocks": {
+        "16583156997380588c-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>FOR THE LATEST NEWS AND UPDATES</p>"
+          }
+        },
+        "16583156997380588c-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN OUR NEWSLETTER",
+            "heading_size": "h1"
+          }
+        },
+        "16583156997380588c-2": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "info_CQjFAk": {
+          "type": "info",
+          "settings": {
+            "btn_label": "Privacy Policy",
+            "btn_url": "shopify://policies/privacy-policy"
+          }
+        }
+      },
+      "block_order": [
+        "16583156997380588c-1",
+        "16583156997380588c-0",
+        "16583156997380588c-2",
+        "info_CQjFAk"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16582315657de590d5",
+    "faq_tab_accordion_1_6CRGcD",
+    "1658315699f6162fb5"
+  ]
+}

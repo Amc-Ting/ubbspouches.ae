@@ -1,0 +1,10 @@
+.age_title{
+    text-align: center;
+    font-family: var(--font_heading) !important;
+    color: #000;
+}
+
+.age_ver_sec p{
+    font-family: var(--font_text) !important;
+    color: #000;
+}

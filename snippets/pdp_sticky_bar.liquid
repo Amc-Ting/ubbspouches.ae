@@ -1,0 +1,105 @@
+<!-- Sticky Navigation -->
+
+<div class="sticky-nav">
+  <a id="BackToTop" href="#" title="Back to the top" class="back-to-top">
+  <img
+    class="arrow"
+    src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Bottom_to_top_png_icon_89c066e2-adae-4234-972f-8d9668726b43.png?v=1743513449"
+    width="30px"
+    height="30px"
+    alt="icon"
+  >
+</a>
+<span class="sticky_dot first_dot"></span>
+  <a href="#main_description" class="nav-link active">Description</a>
+  <span class="sticky_dot"></span>
+  <a href="#review_section" class="nav-link">Reviews</a>
+  <span class="sticky_dot"></span>
+  <a href="#how_to_use_section" class="nav-link">How to use</a>
+  <span class="sticky_dot"></span>
+  <a href="#recommendation_sec" class="nav-link">Related Products</a>
+
+
+
+  
+
+</div>
+
+<style>
+    .sticky-nav {
+    position: fixed;
+  top: 0; /* or top: 0 if it's top bar */
+  left:0px;
+  width: 100%;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  background: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items:center;
+  gap: 15px;
+  padding: 15px 10px;
+  z-index: 99;
+  border-bottom: 1px solid #eee;
+}
+
+.sticky-nav.show {
+  transform: translateY(0);
+}
+
+.sticky-nav .back-to-top{
+  position:static;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  padding-bottom: 5px;
+  transition: 0.3s;
+  line-height: 1;
+  text-align:center;
+}
+
+.nav-link.active {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+{% comment %} .scroll-section {
+  min-height: 600px;
+  padding: 80px 20px 0;
+} {% endcomment %}
+
+.sticky_dot{
+      width: 7px;
+    height: 7px;
+    background: #000;
+    border-radius: 30px;
+}
+
+@media(max-width:767px){
+.sticky-nav{
+  gap:9px;
+  justify-content: space-between;
+}
+.first_dot{
+  display:none;
+}
+.sticky-nav .nav-link{
+      font-size: 14px;
+}
+}
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  if (window.innerWidth <= 767) {
+    const backToTop = document.querySelector(".sticky-nav #BackToTop");
+    if (backToTop) {
+      backToTop.remove();
+    }
+  }
+});
+</script>

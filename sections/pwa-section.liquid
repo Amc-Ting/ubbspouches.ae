@@ -1,0 +1,1212 @@
+<style>
+   .installation-guide {
+     width: 100%;
+     padding: 100px 0;
+   }
+
+   .installation-guide__heading {
+     margin: 0 0 49px 0;
+     text-transform: uppercase;
+     font-size: 32px;
+   }
+
+   /* =========================================
+      ACCORDION
+   ========================================= */
+
+   .installation-guide__platform-header {
+     width: 100%;
+     max-width: 100%;
+
+     min-height: 58px;
+
+     margin-top: 16px;
+     margin-bottom: 16px;
+
+     border: 0;
+     border-bottom: 1px solid #ddd;
+
+     background: transparent;
+
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+
+     cursor: pointer;
+     text-align: left;
+
+     position: relative;
+     box-sizing: border-box;
+
+     -webkit-tap-highlight-color: transparent;
+   }
+
+   .installation-guide__platform.is-open .installation-guide__content{
+       border-bottom: 1px solid #ddd;
+
+   }
+
+   /* =========================================
+      PLATFORM TITLE
+   ========================================= */
+
+   .installation-guide__platform-title {
+     display: flex;
+     align-items: center;
+     gap: 16px;
+     margin-bottom: 16px;
+   }
+
+   /* =========================================
+      PLATFORM ICON
+   ========================================= */
+
+   .installation-guide__platform-icon {
+     width: 56px;
+     height: 56px;
+
+     display: flex;
+     align-items: center;
+     justify-content: center;
+
+     flex: 0 0 56px;
+
+     border-radius: 50%;
+     overflow: hidden;
+
+     background: #50c4bd;
+   }
+
+   .installation-guide__platform-icon img {
+     width: 100%;
+     height: 100%;
+
+     display: block;
+
+     object-fit: cover;
+   }
+
+   /* =========================================
+      TOGGLE
+   ========================================= */
+
+   .installation-guide__toggle {
+     width: 24px;
+     height: 24px;
+
+     flex: 0 0 24px;
+
+     display: flex;
+     align-items: center;
+     justify-content: center;
+
+     line-height: 1;
+     font-size: 24px;
+   }
+
+   /* =========================================
+      ACCORDION CONTENT
+   ========================================= */
+
+   .installation-guide__content {
+     position: relative;
+
+     display: none;
+
+     width: 100%;
+
+     padding: 24px 0 44px;
+
+     box-sizing: border-box;
+   }
+
+   .installation-guide__platform.is-open
+   .installation-guide__content {
+     display: block;
+   }
+
+   /* =========================================
+      DRAG AREA
+   ========================================= */
+
+   .installation-guide__drag-area {
+     position: relative;
+
+     width: 100%;
+
+     overflow: hidden;
+   }
+
+   /* =========================================
+      SLIDES
+   ========================================= */
+
+   .installation-guide__slides {
+     display: flex;
+
+     gap: 35px;
+
+     width: 100%;
+
+     overflow-x: auto;
+     overflow-y: hidden;
+
+     cursor: grab;
+
+     scrollbar-width: none;
+     -ms-overflow-style: none;
+
+     user-select: none;
+     -webkit-user-select: none;
+
+     touch-action: pan-x;
+
+     -webkit-overflow-scrolling: touch;
+
+     scroll-behavior: smooth;
+     scroll-snap-type: x mandatory;
+
+     box-sizing: border-box;
+   }
+
+   .installation-guide__slides::-webkit-scrollbar {
+     display: none;
+   }
+
+   .installation-guide__slides.is-dragging {
+     cursor: grabbing;
+
+     scroll-behavior: auto;
+
+     scroll-snap-type: none;
+   }
+
+   /* =========================================
+      STEP
+   ========================================= */
+
+   .installation-guide__slide {
+     text-align: center;
+     width: 25%;
+     flex: 0 0 auto;
+
+     user-select: none;
+     -webkit-user-select: none;
+
+     box-sizing: border-box;
+   }
+
+   .installation-guide__slide img {
+     pointer-events: none;
+
+     user-select: none;
+     -webkit-user-drag: none;
+   }
+
+   /* =========================================
+      IMAGE
+      HEIGHT is the single source of truth here.
+      aspect-ratio then derives the WIDTH from that
+      fixed height (rather than the other way around),
+      so every image renders at one consistent, crisp
+      size regardless of the slide's layout width —
+      this is what avoids the stretching/pixelation.
+   ========================================= */
+
+   .installation-guide__image {
+     height: 460px;
+     aspect-ratio: 9 / 19;
+     width: auto;
+     max-width: 100%;
+
+     display: flex;
+     align-items: center;
+     justify-content: center;
+
+     margin: 0 auto 24px;
+
+     overflow: hidden;
+
+     border-radius: 10px;
+
+     box-sizing: border-box;
+   }
+
+   .installation-guide__image img {
+     display: block;
+     width: 100%;
+     height: 100%;
+
+     object-fit: contain;
+
+     border-radius: 10px;
+   }
+
+
+   .installation-guide__step {
+     display: inline-block;
+
+     width: 35%;
+
+     margin-bottom: 12px;
+
+     padding: 8px;
+
+     white-space: nowrap;
+
+     border-radius: 10px;
+
+     background: #DE4859;
+     color: #fff;
+
+     line-height: 1;
+
+     font-size:14px;
+   }
+
+   .installation-guide__step span{
+     font-size:10px;
+   }
+
+   /* =========================================
+      STEP TITLE
+   ========================================= */
+
+   .installation-guide__step-title {
+     margin: 0 0 5px;
+
+     font-size: 20px;
+
+     white-space: nowrap;
+
+     font-family: 'Assistant' !important;
+     font-weight: 600;
+
+   }
+
+   /* =========================================
+      DESCRIPTION
+   ========================================= */
+
+   .installation-guide__description {
+     line-height: 1.4;
+   }
+
+   .installation-guide__description p {
+     margin: 0;
+   }
+
+   /* =========================================
+      DRAG INDICATOR
+   ========================================= */
+
+   .installation-guide__drag-hint {
+     position: absolute;
+
+     left: 90%;
+     top: 35%;
+
+     transform: translateX(-50%);
+
+     display: flex;
+     align-items: center;
+
+     gap: 8px;
+
+     padding: 10px 13px;
+
+     font-size:18px;
+
+     border-radius: 20px;
+
+     background: rgba(0, 0, 0, 0.85);
+     color: #fff;
+
+     pointer-events: none;
+
+     z-index: 2;
+
+     opacity: 1;
+
+     transition: opacity 0.3s ease;
+   }
+
+   .installation-guide__drag-hint span {
+     line-height: 1;
+   }
+
+   .platform_text {
+     font-size: 24px;
+
+     font-family: 'KronaRegular';
+
+     text-transform: uppercase;
+   }
+
+   /* =========================================
+      DESKTOP
+   ========================================= */
+
+   @media screen and (min-width: 990px) {
+
+     /* Keep the same left/right spacing as the heading
+        and platform titles (inherited from page-width) —
+        previously this was zeroed out, which pulled the
+        slider flush to the edge and broke alignment. */
+
+     .installation-guide__slides {
+       gap: 40px;
+     }
+
+   }
+
+   /* =========================================
+      TABLET
+   ========================================= */
+
+   @media screen and (min-width: 750px) and (max-width: 989px) {
+
+     .installation-guide {
+       width: 100%;
+       padding-left: 30px;
+       padding-right: 30px;
+       padding-bottom: 60px;
+       box-sizing: border-box;
+     }
+
+     .installation-guide__slides {
+       display: flex;
+       width: 100%;
+       gap: 25px;
+
+       overflow-x: auto;
+       overflow-y: hidden;
+
+       scroll-snap-type: x mandatory;
+       scroll-behavior: smooth;
+
+       scrollbar-width: none;
+       -ms-overflow-style: none;
+
+       touch-action: pan-x;
+       -webkit-overflow-scrolling: touch;
+
+       box-sizing: border-box;
+     }
+
+     .installation-guide__slides::-webkit-scrollbar {
+       display: none;
+     }
+
+     /* 2 slides visible */
+     .installation-guide__slide {
+       flex: 0 0 calc((100% - 25px) / 2);
+       width: calc((100% - 25px) / 2);
+       min-width: calc((100% - 25px) / 2);
+       max-width: calc((100% - 25px) / 2);
+
+       scroll-snap-align: start;
+       scroll-snap-stop: always;
+
+       text-align: center;
+       box-sizing: border-box;
+     }
+
+     .installation-guide__image {
+       width: 100%;
+       height: auto;
+
+       aspect-ratio: 9 / 19;
+
+       display: flex;
+       align-items: center;
+       justify-content: center;
+
+       padding: 0;
+       margin-bottom: 20px;
+
+       overflow: hidden;
+
+       box-sizing: border-box;
+     }
+
+     .installation-guide__image img {
+       display: block;
+
+       width: 100%;
+       height: 100%;
+
+       object-fit: contain;
+       border-radius: 10px;
+
+       pointer-events: none;
+       user-select: none;
+       -webkit-user-select: none;
+       -webkit-user-drag: none;
+     }
+
+     .installation-guide__step {
+       display: inline-block;
+       width: auto;
+
+       margin-bottom: 10px;
+       padding: 6px 10px;
+
+       border-radius: 6px;
+
+       background: #DE4859;
+       color: #fff;
+
+       line-height: 1;
+       font-size: 13px;
+     }
+
+     .installation-guide__step-title {
+       margin: 0 0 5px;
+
+       font-size: 20px;
+       line-height: 1.25;
+
+       white-space: normal;
+     }
+
+     .installation-guide__description {
+       max-width: 300px;
+       margin: 0 auto;
+
+       line-height: 1.4;
+     }
+
+     .installation-guide__description p {
+       margin: 0;
+     }
+
+     .installation-guide__drag-hint {
+       left: auto;
+       right: 10px;
+       top: 40%;
+
+       transform: none;
+
+       padding: 6px 10px;
+       gap: 6px;
+
+       font-size: 11px;
+       border-radius: 18px;
+     }
+   }
+
+  .installation-guide__platform:last-child .installation-guide__image {
+     height: auto;
+     width: 460px;
+     aspect-ratio: 16 / 9;
+     max-width: 100%;
+   }
+
+
+   /* =========================================
+      MOBILE
+      ONE SLIDE AT A TIME
+   ========================================= */
+
+   @media screen and (max-width: 749px) {
+
+     .installation-guide {
+       width: 100%;
+
+       padding-left: 20px;
+       padding-right: 20px;
+
+       padding-bottom: 50px;
+
+       box-sizing: border-box;
+     }
+
+     .installation-guide__heading {
+       margin-bottom: 20px;
+
+       font-size: 24px;
+       line-height: 1.2;
+     }
+
+     .installation-guide__platform-header {
+       width: 100%;
+       max-width: 100%;
+
+       min-height: 48px;
+
+       margin-top: 8px;
+       margin-bottom: 8px;
+
+       padding-left: 0;
+       padding-right: 0;
+
+       border: 0;
+       border-bottom: 1px solid #ddd;
+
+       box-sizing: border-box;
+     }
+
+     .installation-guide__platform-title {
+       display: flex;
+       align-items: center;
+
+       gap: 10px;
+
+       min-width: 0;
+
+       margin-bottom: 0;
+     }
+
+     .installation-guide__platform-icon {
+       width: 32px;
+       height: 32px;
+
+       flex: 0 0 32px;
+
+       border-radius: 50%;
+     }
+
+     .platform_text {
+       font-size: 14px;
+
+       line-height: 1.2;
+
+       white-space: nowrap;
+     }
+
+     .installation-guide__toggle {
+       width: 20px;
+       height: 20px;
+
+       flex: 0 0 20px;
+
+       font-size: 18px;
+     }
+
+     .installation-guide__content {
+       width: 100%;
+
+       padding: 10px 0 25px;
+
+       box-sizing: border-box;
+     }
+
+     .installation-guide__drag-area {
+       width: 100%;
+
+       overflow: visible;
+
+       position: relative;
+
+       box-sizing: border-box;
+     }
+
+     /* =========================================
+        MOBILE SLIDER
+     ========================================= */
+
+     .installation-guide__slides {
+       display: flex;
+
+       width: 100%;
+
+       gap: 50px;
+
+       overflow-x: auto;
+       overflow-y: hidden;
+
+       scroll-snap-type: x mandatory;
+
+       scroll-behavior: smooth;
+
+       scrollbar-width: none;
+       -ms-overflow-style: none;
+
+       touch-action: pan-x;
+
+       -webkit-overflow-scrolling: touch;
+
+       cursor: grab;
+
+       box-sizing: border-box;
+     }
+
+     .installation-guide__slides::-webkit-scrollbar {
+       display: none;
+     }
+
+     .installation-guide__slides.is-dragging {
+       cursor: grabbing;
+
+       scroll-behavior: auto;
+
+       scroll-snap-type: none;
+     }
+
+     /* =========================================
+        ONE FULL WIDTH SLIDE
+     ========================================= */
+
+     .installation-guide__slide {
+       flex: 0 0 100%;
+
+       width: 100%;
+       min-width: 100%;
+       max-width: 100%;
+
+       scroll-snap-align: start;
+       scroll-snap-stop: always;
+
+       text-align: center;
+
+       box-sizing: border-box;
+
+       user-select: none;
+       -webkit-user-select: none;
+     }
+
+     /* =========================================
+        MOBILE IMAGE
+     ========================================= */
+
+     .installation-guide__image {
+
+       aspect-ratio: 9 / 19;
+
+       display: flex;
+
+       align-items: center;
+       justify-content: center;
+
+       padding: 0;
+
+       margin-bottom: 12px;
+
+       overflow: hidden;
+
+       box-sizing: border-box;
+     }
+
+     .installation-guide__image img {
+       display: block;
+
+       width: 100%;
+       height: 100%;
+
+       object-fit: contain;
+
+       border-radius: 8px;
+
+       pointer-events: none;
+
+       user-select: none;
+       -webkit-user-select: none;
+
+       -webkit-user-drag: none;
+
+
+     }
+
+     /* =========================================
+        MOBILE STEP LABEL
+     ========================================= */
+
+     .installation-guide__step {
+       display: inline-block;
+
+       width: auto;
+
+       margin-bottom: 7px;
+
+       padding: 4px 7px;
+
+       border-radius: 4px;
+
+       background: #DE4859;
+
+       color: #fff;
+
+       font-weight:700;
+
+
+     }
+
+     /* =========================================
+        MOBILE TITLE
+     ========================================= */
+
+     .installation-guide__step-title {
+       margin: 0 0 3px;
+
+       font-size: 20px;
+
+       line-height: 1.25;
+
+       white-space: normal;
+     }
+
+     /* =========================================
+        MOBILE DESCRIPTION
+     ========================================= */
+
+     .installation-guide__description {
+
+       line-height: 1.35;
+
+       max-width: 220px;
+
+       margin: 0 auto;
+     }
+
+     .installation-guide__description p {
+       margin: 0;
+     }
+
+     /* =========================================
+        MOBILE DRAG HINT
+     ========================================= */
+
+     .installation-guide__drag-hint {
+       left: auto;
+       display:none;
+       right: 5px;
+
+       top: 40%;
+
+       transform: none;
+
+       padding: 5px 9px;
+
+       gap: 5px;
+
+       font-size: 9px;
+
+       border-radius: 15px;
+
+       pointer-events: none;
+     }
+
+   }
+</style>
+
+<div class="installation-guide page-width">
+  {% if section.settings.heading != blank %}
+    <h2 class="installation-guide__heading">
+      {{ section.settings.heading }}
+    </h2>
+  {% endif %}
+
+  <div class="installation-guide__platforms">
+    {% for block in section.blocks %}
+      <div
+        class="installation-guide__platform {% if forloop.first %}is-open{% endif %}"
+        {{ block.shopify_attributes }}
+      >
+        <!-- PLATFORM HEADER -->
+
+        <button
+          type="button"
+          class="installation-guide__platform-header"
+          aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+        >
+          <div class="installation-guide__platform-title">
+            <span class="installation-guide__platform-icon">
+              {% if block.settings.platform_image != blank %}
+                {{
+                  block.settings.platform_image
+                  | image_url: width: 100
+                  | image_tag: loading: 'lazy', alt: block.settings.platform
+                }}
+              {% endif %}
+            </span>
+
+            <span class="platform_text">
+              {{ block.settings.platform }}
+            </span>
+          </div>
+
+          <span class="installation-guide__toggle">
+            {% if forloop.first %}
+              &minus;
+            {% else %}
+              +
+            {% endif %}
+          </span>
+        </button>
+
+        <!-- ACCORDION CONTENT -->
+
+        <div class="installation-guide__content">
+          <div class="installation-guide__drag-area">
+            <div class="installation-guide__slides">
+              {% for i in (1..5) %}
+                {% assign image_key = 'step_' | append: i | append: '_image' %}
+                {% assign title_key = 'step_' | append: i | append: '_title' %}
+                {% assign description_key = 'step_' | append: i | append: '_description' %}
+
+                {% assign step_image = block.settings[image_key] %}
+                {% assign step_title = block.settings[title_key] %}
+                {% assign step_description = block.settings[description_key] %}
+
+                {% if step_image != blank %}
+                  <div class="installation-guide__slide">
+                    <!-- IMAGE -->
+
+                    <div class="installation-guide__image">
+                      {{ step_image | image_url: width: 1000 | image_tag: loading: 'lazy', draggable: false }}
+                    </div>
+
+                    <!-- STEP -->
+
+                    <div class="installation-guide__step">
+                      STEP {{ i | prepend: '0' -}}
+                      <span> /05</span>
+                    </div>
+
+                    <!-- TITLE -->
+
+                    {% if step_title != blank %}
+                      <h3 class="installation-guide__step-title">
+                        {{ step_title }}
+                      </h3>
+                    {% endif %}
+
+                    <!-- DESCRIPTION -->
+
+                    {% if step_description != blank %}
+                      <div class="installation-guide__description">
+                        {{ step_description }}
+                      </div>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            <!-- DRAG HINT -->
+
+            <div class="installation-guide__drag-hint">
+              <span>‹</span>
+              <span>Drag</span>
+              <span>›</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    /* =========================================
+       ACCORDION
+       ONLY ONE OPEN AT A TIME
+    ========================================= */
+
+    const platforms = document.querySelectorAll('.installation-guide__platform');
+
+    platforms.forEach(function (platform) {
+      const button = platform.querySelector('.installation-guide__platform-header');
+
+      if (!button) return;
+
+      button.addEventListener('click', function () {
+        const isOpen = platform.classList.contains('is-open');
+
+        /* =========================================
+           CLOSE ALL
+        ========================================= */
+
+        platforms.forEach(function (item) {
+          item.classList.remove('is-open');
+
+          const itemButton = item.querySelector('.installation-guide__platform-header');
+
+          if (itemButton) {
+            itemButton.setAttribute('aria-expanded', 'false');
+          }
+
+          const itemToggle = item.querySelector('.installation-guide__toggle');
+
+          if (itemToggle) {
+            itemToggle.textContent = '+';
+          }
+        });
+
+        /* =========================================
+           OPEN CLICKED
+        ========================================= */
+
+        if (!isOpen) {
+          platform.classList.add('is-open');
+
+          button.setAttribute('aria-expanded', 'true');
+
+          const toggle = platform.querySelector('.installation-guide__toggle');
+
+          if (toggle) {
+            toggle.textContent = '\u2212';
+          }
+        }
+      });
+    });
+
+    /* =========================================
+       DRAG / SWIPE
+    ========================================= */
+
+    const sliders = document.querySelectorAll('.installation-guide__slides');
+
+    sliders.forEach(function (slider) {
+      let isDown = false;
+
+      let startX = 0;
+
+      let startScrollLeft = 0;
+
+      /* =========================================
+         POINTER DOWN
+      ========================================= */
+
+      slider.addEventListener('pointerdown', function (event) {
+        if (event.pointerType === 'mouse' && event.button !== 0) {
+          return;
+        }
+
+        isDown = true;
+
+        startX = event.clientX;
+
+        startScrollLeft = slider.scrollLeft;
+
+        slider.classList.add('is-dragging');
+
+        /* HIDE DRAG HINT */
+
+        const hint = slider.parentElement.querySelector('.installation-guide__drag-hint');
+
+        if (hint) {
+          hint.style.opacity = '0';
+        }
+
+        slider.setPointerCapture(event.pointerId);
+      });
+
+      /* =========================================
+         POINTER MOVE
+      ========================================= */
+
+      slider.addEventListener('pointermove', function (event) {
+        if (!isDown) return;
+
+        const distance = event.clientX - startX;
+
+        slider.scrollLeft = startScrollLeft - distance;
+      });
+
+      /* =========================================
+         POINTER UP
+      ========================================= */
+
+      slider.addEventListener('pointerup', function (event) {
+        isDown = false;
+
+        slider.classList.remove('is-dragging');
+
+        /* SHOW DRAG HINT */
+
+        const hint = slider.parentElement.querySelector('.installation-guide__drag-hint');
+
+        if (hint) {
+          hint.style.opacity = '1';
+        }
+
+        if (slider.hasPointerCapture(event.pointerId)) {
+          slider.releasePointerCapture(event.pointerId);
+        }
+      });
+
+      /* =========================================
+         POINTER CANCEL
+      ========================================= */
+
+      slider.addEventListener('pointercancel', function (event) {
+        isDown = false;
+
+        slider.classList.remove('is-dragging');
+
+        /* SHOW DRAG HINT */
+
+        const hint = slider.parentElement.querySelector('.installation-guide__drag-hint');
+
+        if (hint) {
+          hint.style.opacity = '1';
+        }
+
+        if (slider.hasPointerCapture(event.pointerId)) {
+          slider.releasePointerCapture(event.pointerId);
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Installation Guide",
+
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "LOREM IPSUM DOLOR SIT AMET"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "platform",
+      "name": "Platform",
+
+      "settings": [
+        {
+          "type": "text",
+          "id": "platform",
+          "label": "Platform Name",
+          "default": "iOS (Safari)"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "platform_image",
+          "label": "Platform Icon"
+        },
+
+        {
+          "type": "header",
+          "content": "Step 1"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "step_1_image",
+          "label": "Image"
+        },
+
+        {
+          "type": "text",
+          "id": "step_1_title",
+          "label": "Title"
+        },
+
+        {
+          "type": "textarea",
+          "id": "step_1_description",
+          "label": "Description"
+        },
+
+        {
+          "type": "header",
+          "content": "Step 2"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "step_2_image",
+          "label": "Image"
+        },
+
+        {
+          "type": "text",
+          "id": "step_2_title",
+          "label": "Title"
+        },
+
+        {
+          "type": "textarea",
+          "id": "step_2_description",
+          "label": "Description"
+        },
+
+        {
+          "type": "header",
+          "content": "Step 3"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "step_3_image",
+          "label": "Image"
+        },
+
+        {
+          "type": "text",
+          "id": "step_3_title",
+          "label": "Title"
+        },
+
+        {
+          "type": "textarea",
+          "id": "step_3_description",
+          "label": "Description"
+        },
+
+        {
+          "type": "header",
+          "content": "Step 4"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "step_4_image",
+          "label": "Image"
+        },
+
+        {
+          "type": "text",
+          "id": "step_4_title",
+          "label": "Title"
+        },
+
+        {
+          "type": "textarea",
+          "id": "step_4_description",
+          "label": "Description"
+        },
+
+        {
+          "type": "header",
+          "content": "Step 5"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "step_5_image",
+          "label": "Image"
+        },
+
+        {
+          "type": "text",
+          "id": "step_5_title",
+          "label": "Title"
+        },
+
+        {
+          "type": "textarea",
+          "id": "step_5_description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Installation Guide"
+    }
+  ]
+}
+{% endschema %}

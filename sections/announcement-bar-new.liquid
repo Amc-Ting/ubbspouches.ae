@@ -1,0 +1,228 @@
+<div class="announcement-bar color-accent-1 gradient " role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }} id="bottom_border">
+  {%- for block in section.blocks -%}
+    <div class="announcement-bar__message h5"><p id="announce_center"><span class="icon-sec">{{ block.settings.icon }}</span> <span>{{ block.settings.text }} 
+      <!-- <span id="timer">
+ <span id="days"></span>
+  <span id="hours"></span>
+  <span id="minutes"></span>
+  <span id="seconds"></span>
+</span>  -->
+    </span>
+      {% comment %}
+      {%- if block.settings.link != blank -%}  <span class="link_sec">{{ block.settings.link_label }}<span></span> {%- endif -%}
+      {% endcomment %}
+    </p> </div>
+  {%- endfor -%}
+</div>
+<style>
+  /* #bottom_border{border-bottom: 2px solid #5ECCC8;} */
+  .announcement-bar .slick-track{
+  margin: 0 auto;
+  }
+  p#announce_center {
+    text-align: center;
+}
+  .announcement-bar{margin-bottom:0px;}
+  .announcement-bar__message {text-align: center; padding: 0.5rem 2rem; margin: 0; letter-spacing: .1rem; font-size: 14px; font-weight: 400; }
+</style>
+{% comment %}
+  {%- case block.type -%}
+    {%- when 'announcement' -%}
+      <div class="announcement-bar color-{{ block.settings.color_scheme }} gradient" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
+        {%- if block.settings.text != blank -%}
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
+          {%- endif -%}
+              <p class="announcement-bar__message h5">
+                {{ block.settings.text | escape }}
+                {%- if block.settings.link != blank -%}
+                  {% render 'icon-arrow' %}
+                {%- endif -%}
+              </p>
+          {%- if block.settings.link != blank -%}
+            </a>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+  {%- endcase -%}
+{% endcomment %}
+
+<style>
+  div#shopify-section-announcement-bar-new{
+    z-index: 8;
+    position: fixed;
+    width: 100%;
+    background-color:var(--color_spearmint);
+  }
+  div#shopify-section-announcement-bar-new .announcement-bar{
+         background-color: var(--color_watermelon) !important;
+    color: #fff;
+  }
+  div#shopify-section-announcement-bar-new .announcement-bar a{
+    color:#fff;
+  }
+  .announcement-bar svg{
+    width:15px;
+  }
+
+  .announcement-bar p{
+/*         display: flex; */
+    justify-content: center;
+/*      align-items: end;  */
+  }
+
+  .announcement-bar .icon-sec{
+    margin: -3px 5px;
+  }
+ body.cart #shopify-section-announcement-bar-new {
+      display: none;
+  }
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .announcement-bar p{
+    font-size:14px;
+    letter-spacing:0.5px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .announcement-bar p{
+    font-size:14px;
+    letter-spacing:0.5px;
+  }
+  div#shopify-section-announcement-bar-new .announcement-bar{
+    padding: 5px 5rem;
+  }
+}
+@media (max-width: 767px){
+  div#shopify-section-announcement-bar-new .announcement-bar{
+    display:block;
+  }
+  div#shopify-section-announcement-bar-new .announcement-bar p{
+    font-size:12px;
+    letter-spacing:0.5px;
+    line-height:1.2;
+   
+  }
+
+  #timer{
+    width:100%;
+    display:block;
+  }
+
+}
+  
+</style>
+
+{% schema %}
+{
+  "name": "announcement new",
+  "max_blocks": 12,
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon",
+          "label": "Add icon code"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Welcome to our store",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "options": [
+            {
+              "value": "accent-1",
+              "label": "t:sections.all.colors.accent_1.label"
+            },
+            {
+              "value": "accent-2",
+              "label": "t:sections.all.colors.accent_2.label"
+            },
+            {
+              "value": "background-1",
+              "label": "t:sections.all.colors.background_1.label"
+            },
+            {
+              "value": "background-2",
+              "label": "t:sections.all.colors.background_2.label"
+            },
+            {
+              "value": "inverse",
+              "label": "t:sections.all.colors.inverse.label"
+            }
+          ],
+          "default": "accent-1",
+          "label": "t:sections.all.colors.label"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Add Button Label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "announcement"
+      }
+    ]
+  }
+}
+{% endschema %}
+
+ <script src="{{ 'jquery.js' | asset_url }}" ></script>
+  
+<script>
+  $(document).ready(function() {
+
+    function makeTimer() {
+
+      var endTime = new Date("5 September 2024 22:59:59 GMT+00:00");
+      endTime = Date.parse(endTime) / 1000;
+
+      var now = new Date();
+      now = Date.parse(now) / 1000;
+
+      var timeLeft = endTime - now;
+
+      var days = Math.floor(timeLeft / 86400);
+      var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+      var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600)) / 60);
+      var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+      if (hours < "10") { hours = "0" + hours; }
+      if (minutes < "10") { minutes = "0" + minutes; }
+      if (seconds < "10") { seconds = "0" + seconds; }
+
+      var daysText = days + "days";
+      var hoursText = hours + "h";
+      var minutesText = minutes + "min";
+      var secondsText = seconds + "s";
+
+      $("#days").html(daysText);
+      $("#hours").html(hoursText);
+      $("#minutes").html(minutesText);
+      $("#seconds").html(secondsText);
+
+    }
+
+    setInterval(function() { makeTimer(); }, 1000);
+
+  });
+</script>
+
+

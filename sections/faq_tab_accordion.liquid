@@ -1,0 +1,145 @@
+<style>
+  .faq_page a{
+    font-size:20px;
+    color: rgba(var(--color-foreground));
+    text-decoration: underline;
+  }
+  .faq_section {
+       overflow: hidden;
+       padding: 5% 0; }
+       @media (min-width: 0) and (max-width: 768px) {
+        .faq_section {
+           padding: 35px 0; } }
+      .faq_section .questions_answer {
+         padding: 40px 0;
+         margin: 0 auto; }
+
+         @media screen and (max-width: 767px) {
+          .faq_section .questions_answer {
+             padding: 35px 0; }
+         .index .faq_section .questions_answer{
+           padding:35px 15px;
+         }
+         }
+         @media screen and (max-width: 1199px) {
+          .faq_section .questions_answer {
+             width: 100%; } }
+         .faq_section {
+   padding: 0; }
+    .faq_section .questions_answer .accordion {
+     border-bottom: 0.5px solid #000000; }
+      .faq_section .questions_answer .accordion .header4 {
+       position: relative;
+       padding-top: 15px;
+       padding-bottom: 15px;
+       cursor: pointer;
+       font-family: "KronaRegular";
+       text-transform:unset;
+      }
+        .faq_section .questions_answer .accordion .header4::after {
+         content: "-";
+         font-size: 35px;
+         font-weight: 500;
+         position: absolute;
+         right: 0px;
+         color: #000;
+         padding-right: 20px; }
+         @media (max-width: 991px) {
+            .faq_section .questions_answer .accordion .header4::after {
+             top: 0; } }
+         @media(max-width:767px){
+           .faq_section .questions_answer .accordion .header4::after{
+             right:-45px;
+           }
+         }
+        .faq_section .questions_answer .accordion .header4.active_bg::after {
+         content: "+";
+         font-size: 35px;
+         font-weight: 500;
+         position: absolute;
+         right: 0px; }
+         @media (max-width: 991px) {
+            .faq_section .questions_answer .accordion .header4.active_bg::after {
+             top: 0; } }
+         @media(max-width:767px){
+          .faq_section .questions_answer .accordion .header4{
+             width:90%;
+           }
+
+           .faq_section .questions_answer .accordion ..header4.active_bg::after{
+             right:-45px;
+           }
+         }
+      .faq_section .questions_answer .accordion .content {
+       padding-bottom: 15px;
+       display: none; }
+        .faq_section .questions_answer .accordion .content.active_co {
+         display: block; }
+        .faq_section .questions_answer .accordion .content p {
+         padding: 10px 0; }
+        .faq_section .questions_answer .accordion .content .links {
+         text-decoration: underline !important;
+        }
+</style>
+
+<section class="faq_section ">
+  <div class="questions_answer">
+    {%- for block in section.blocks -%}
+      <!-- start accordion -->
+      <div class="accordion">
+        <h4 class="header4 {% if forloop.first %}active_bg{% endif %} text_lg text_600">{{ block.settings.ques }}</h4>
+        <div class="content {% if forloop.first %}active_co{% endif %}">
+          <div class="body2 text_reg">{{ block.settings.ans }}</div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {%- for block in section.blocks -%}
+      {
+        "@type": "Question",
+        "name": "{{ block.settings.ques }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ block.settings.ans }}"
+        }
+      }{% unless forloop.last %}, {% endunless %}
+      {%- endfor -%}
+
+    ]
+  }
+</script>
+{% schema %}
+{
+  "name": "FAQ section",
+
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "ques",
+          "label": "Add Question"
+        },
+        {
+          "type": "richtext",
+          "id": "ans",
+          "label": "Add Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ section"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,339 @@
+{% comment %} Multibuy Progress Bar  {% endcomment %}
+{% assign total_qty = cart.item_count | default: 0 %}
+{% unless customer and customer.tags contains 'Approved' %}
+  {% assign progress_pct = 0 %}
+  {% comment %}
+    {% if total_qty >= 48 %}
+    {% assign progress_pct = 100 %}
+  {% endcomment %}
+  {% if total_qty >= 24 %}
+    {% assign progress_pct = 100 %}
+  {% elsif total_qty >= 12 %}
+    {% assign progress_pct = 75 %}
+  {% elsif total_qty >= 6 %}
+    {% assign progress_pct = 50 %}
+  {% elsif total_qty >= 3 %}
+    {% assign progress_pct = 25 %}
+  {% endif %}
+
+  <div class="multibuy-wrapper">
+    <div class="multibuy-box">
+      <div class="multibuy-header">
+        {% comment %}
+          {% if total_qty >= 48 %}
+          <h3 class="multibuy-title">
+            <span class="cart-icon">
+              <svg class="cart-bag-svg" version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800px" height="800px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                <polygon fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" points="44,18 54,18 54,63 10,63 10,18 20,18 "/>
+                <path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M22,24V11c0-5.523,4.477-10,10-10s10,4.477,10,10v13"/>
+              </svg>
+              <span class="cart-count">{{ total_qty }}</span>
+            </span>
+            <div class="mult_title"><strong>50%</strong> OFF WITH MULTIBUY!</div>
+          </h3>
+        {% endcomment %}
+        {% if total_qty >= 24 %}
+          <h3 class="multibuy-title">
+            <span class="cart-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 64 64" id="icons">
+                <defs><style>.cls-1{fill:#00c98b;}</style></defs><path class="cls-1" d="M60.53,18.71A2,2,0,0,0,59,18H48.85A15,15,0,0,0,34,5H30A15,15,0,0,0,15.15,18H5a2,2,0,0,0-1.53.71A2,2,0,0,0,3,20.35l5.33,30.3A6.51,6.51,0,0,0,14.77,56H49.23a6.51,6.51,0,0,0,6.41-5.36L61,20.35A2,2,0,0,0,60.53,18.71ZM30,9h4a11,11,0,0,1,10.81,9H19.19A11,11,0,0,1,30,9ZM51.71,49.94A2.52,2.52,0,0,1,49.23,52H14.77a2.5,2.5,0,0,1-2.47-2L7.38,22H56.62Z"/>
+              </svg>
+              <span class="cart-count">{{ total_qty }}</span>
+            </span>
+            <div class="mult_title"><strong>66%</strong> OFF WITH MULTIBUY!</div>
+          </h3>
+        {% elsif total_qty >= 12 %}
+          <h3 class="multibuy-title">
+            <span class="cart-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 64 64" id="icons">
+                <defs><style>.cls-1{fill:#00c98b;}</style></defs><path class="cls-1" d="M60.53,18.71A2,2,0,0,0,59,18H48.85A15,15,0,0,0,34,5H30A15,15,0,0,0,15.15,18H5a2,2,0,0,0-1.53.71A2,2,0,0,0,3,20.35l5.33,30.3A6.51,6.51,0,0,0,14.77,56H49.23a6.51,6.51,0,0,0,6.41-5.36L61,20.35A2,2,0,0,0,60.53,18.71ZM30,9h4a11,11,0,0,1,10.81,9H19.19A11,11,0,0,1,30,9ZM51.71,49.94A2.52,2.52,0,0,1,49.23,52H14.77a2.5,2.5,0,0,1-2.47-2L7.38,22H56.62Z"/>
+              </svg>
+              <span class="cart-count">{{ total_qty }}</span>
+            </span>
+            <div class="mult_title"><strong>65%</strong> OFF WITH MULTIBUY!</div>
+          </h3>
+        {% elsif total_qty >= 6 %}
+          <h3 class="multibuy-title">
+            <span class="cart-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 64 64" id="icons">
+                <defs><style>.cls-1{fill:#00c98b;}</style></defs><path class="cls-1" d="M60.53,18.71A2,2,0,0,0,59,18H48.85A15,15,0,0,0,34,5H30A15,15,0,0,0,15.15,18H5a2,2,0,0,0-1.53.71A2,2,0,0,0,3,20.35l5.33,30.3A6.51,6.51,0,0,0,14.77,56H49.23a6.51,6.51,0,0,0,6.41-5.36L61,20.35A2,2,0,0,0,60.53,18.71ZM30,9h4a11,11,0,0,1,10.81,9H19.19A11,11,0,0,1,30,9ZM51.71,49.94A2.52,2.52,0,0,1,49.23,52H14.77a2.5,2.5,0,0,1-2.47-2L7.38,22H56.62Z"/>
+              </svg>
+              <span class="cart-count">{{ total_qty }}</span>
+            </span>
+            <div class="mult_title"><strong>50%</strong> OFF WITH MULTIBUY!</div>
+          </h3>
+        {% elsif total_qty >= 3 %}
+          <h3 class="multibuy-title">
+            <span class="cart-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 64 64" id="icons">
+                <defs><style>.cls-1{fill:#00c98b;}</style></defs><path class="cls-1" d="M60.53,18.71A2,2,0,0,0,59,18H48.85A15,15,0,0,0,34,5H30A15,15,0,0,0,15.15,18H5a2,2,0,0,0-1.53.71A2,2,0,0,0,3,20.35l5.33,30.3A6.51,6.51,0,0,0,14.77,56H49.23a6.51,6.51,0,0,0,6.41-5.36L61,20.35A2,2,0,0,0,60.53,18.71ZM30,9h4a11,11,0,0,1,10.81,9H19.19A11,11,0,0,1,30,9ZM51.71,49.94A2.52,2.52,0,0,1,49.23,52H14.77a2.5,2.5,0,0,1-2.47-2L7.38,22H56.62Z"/>
+              </svg>
+              <span class="cart-count">{{ total_qty }}</span>
+            </span>
+            <div class="mult_title"><strong>41.67%</strong> OFF WITH MULTIBUY!</div>
+          </h3>
+        {% else %}
+          {% assign next_goal = 0 %}
+          {% assign next_discount = 0 %}
+          {% if total_qty < 3 %}
+            {% assign next_goal = 3 %}
+            {% assign next_discount = 41.67 %}
+          {% elsif total_qty < 6 %}
+            {% assign next_goal = 6 %}
+            {% assign next_discount = 50 %}
+          {% elsif total_qty < 12 %}
+            {% assign next_goal = 12 %}
+            {% assign next_discount = 65 %}
+          {% elsif total_qty < 24 %}
+            {% assign next_goal = 24 %}
+            {% assign next_discount = 66 %}
+            {% comment %}
+              {% elsif total_qty < 48 %}
+              {% assign next_goal = 48 %}
+              {% assign next_discount = 50 %}
+            {% endcomment %}
+          {% endif %}
+          {% assign needed = next_goal | minus: total_qty %}
+          <h3 class="multibuy-title">
+            <span class="cart-icon">
+              <svg id="icons" width="800" height="800" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                <path d="M864 158.704H672.815V97.328c0-52.944-43.056-96-96-96H449.183c-52.944 0-96 43.056-96 96v61.376H159.999c-35.344 0-64 28.656-64 64v735.968c0 35.344 28.656 64 64 64h704c35.344 0 64-28.656 64-64V222.704c0-35.344-28.656-64-64-64zM417.184 97.328c0-17.664 14.336-32 32-32h127.632c17.664 0 32 14.336 32 32v61.376H417.184zM864 958.672H160V222.704h193.184v65.84s-.848 31.967 31.809 31.967c36 0 32.192-31.967 32.192-31.967v-65.84h191.632v65.84s-2.128 32.128 31.872 32.128c32 0 32.128-32.128 32.128-32.128v-65.84h191.184z"/>
+              </svg>
+              <span class="cart-count">{{ total_qty }}</span>
+            </span>
+            Buy {{ needed }} more to unlock {{ next_discount }}% off!
+          </h3>
+        {% endif %}
+      </div>
+
+      <div class="multibuy-steps" style="--progress: calc({{ progress_pct }}% - 50px)">
+        <div class="step {% if total_qty >= 3 %}active{% endif %}">
+          <div class="step-icon">3</div>
+          <div class="step-info">Buy 3 → 41.67%</div>
+        </div>
+        <div class="step {% if total_qty >= 6 %}active{% endif %}">
+          <div class="step-icon">6</div>
+          <div class="step-info">Buy 6 → 50%</div>
+        </div>
+        <div class="step {% if total_qty >= 12 %}active{% endif %}">
+          <div class="step-icon">12</div>
+          <div class="step-info">Buy 12 → 65%</div>
+        </div>
+        <div class="step {% if total_qty >= 24 %}active{% endif %}">
+          <div class="step-icon">24</div>
+          <div class="step-info">Buy 24 → 66%</div>
+        </div>
+        {% comment %}
+          <div class="step {% if total_qty >= 48 %}active{% endif %}">
+            <div class="step-icon">48</div>
+            <div class="step-info">Buy 48 → 50%</div>
+          </div>
+        {% endcomment %}
+      </div>
+    </div>
+  </div>
+{% endunless %}
+
+<style>
+  .cart-icon .cls-1 {
+    fill: #00c98b !important;
+  }
+  .multibuy-wrapper {
+    display: flex;
+    justify-content: end;
+  }
+  .multibuy-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 11px 3px 9px;
+    max-width: 730px;
+    text-align: center;
+    width: 100%;
+  }
+  .multibuy-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-start;
+    padding: 0 10px;
+  }
+  .multibuy-title {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 14px;
+    gap: 15px;
+    color: #000;
+    margin-bottom: 5px;
+    letter-spacing: normal;
+  }
+  span.cart-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+  .cart-icon {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .cart-count {
+    position: absolute;
+    right: -5px;
+    bottom: -10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 20px;
+    background: #2bae7e;
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 8px;
+    border: 2px solid #2bae7e;
+    margin: 0 auto 8px;
+  }
+
+  /* Steps container */
+  .multibuy-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+    gap: 0px;
+  }
+
+  /* Grey base line */
+  .multibuy-steps::before {
+    content: "";
+    position: absolute;
+    top: 23%;
+    left: 0px;
+    width: 100%;
+    height: 4px;
+    background: #ddd;
+    z-index: 1;
+    border-radius: 4px;
+    transform: translateY(-50%);
+  }
+
+  /* Green progress line */
+  .multibuy-steps::after {
+    content: "";
+    position: absolute;
+    top: 23%;
+    left: 0px;
+    width: var(--progress, 0%);
+    height: 4px;
+    background: #2bae7e;
+    z-index: 2;
+    border-radius: 4px;
+    transform: translateY(-50%);
+    transition: width 0.3s ease;
+  }
+
+  /* Individual step */
+  .step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items:center; /*end;*/
+  }
+
+  /* Inactive step icon — grey */
+  .step-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+    background: #fff;
+    color: #aaa;
+    border-radius: 50%;
+    font-weight: 600;
+    border: 2px solid #ccc;
+  }
+
+  /* Active step icon — green */
+  .step.active .step-icon {
+    background: #24c278;
+    color: #fff;
+    border-color: #24c278;
+  }
+
+  .step-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #aaa;
+    background: #cccccc45;
+    border-radius: 4px;
+    padding: 2px 10px;
+    margin-top:10px;
+    /*width: 100%;*/
+  }
+
+  /* Active step info — green */
+  .step.active .step-info {
+    color: #178f5a;
+    background: rgba(23, 143, 90, 0.2);
+  }
+
+  span.cart-icon svg path {
+    fill: #2bae7e;
+  }
+
+  @media (max-width: 600px) {
+    .multibuy-box { padding: 20px; }
+    .multibuy-steps::before, .multibuy-steps::after { left: 15px; right: 15px; }
+    .step-info { font-size: 13px; padding: 0 5px; }
+    .step-icon { margin-top: 4px; }
+  }
+
+  @media (max-width: 480px) {
+    .multibuy-title { font-size: 14px; }
+    .step-icon {
+      width: 18px;
+      height: 18px;
+      font-size: 10px;
+    }
+    .multibuy-steps::before,
+    .multibuy-steps::after {
+      top: 25%;
+      transform: translateY(-50%);
+      left: 0px;
+    }
+    .multibuy-title .mult_title{
+      font-size:12px;
+    }
+    .step-info {
+      font-size: 10px;
+      gap: 2px;
+      white-space:nowrap;
+    }
+    .cart-count {
+      width: 20px;
+      height: 20px;
+      font-size: 8px;
+      right: -4px;
+      bottom: -15px;
+    }
+    .multibuy-box { padding: 10px; }
+  }
+
+  @media (max-width: 375px) {
+    .multibuy-steps::before,
+    .multibuy-steps::after {
+      left: 12px;
+      right: 35px;
+    }
+  }
+</style>

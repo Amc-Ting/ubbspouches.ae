@@ -1,0 +1,95 @@
+{% comment %}
+  Show the button when the user scrolls past half of the page height.
+{% endcomment %}
+<a id="BackToTop" href="#" title="Back to the top" class="back-to-top main_top_bottom">
+  <img
+    class="arrow"
+    src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Bottom_to_top_png_icon_89c066e2-adae-4234-972f-8d9668726b43.png?v=1743513449"
+    width="30px"
+    height="30px"
+    alt="icon"
+  >
+</a>
+
+<style>
+  .back-to-top {
+     position: fixed; 
+    bottom: 2%;
+    right: 2%;
+    text-decoration: none;
+    color: #7f7f7f;
+    background-color: #eee;
+    font-size: 19px;
+      width: 30px;
+    height: 30px;
+    padding: 1rem;
+    border-radius: 30px;
+    z-index: 9;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .back-to-top.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .back-to-top:hover {
+    text-decoration: none;
+    color: #555;
+  }
+  .arrow{
+    width:30px;
+  }
+
+  @media(min-width:767px){
+    .main_product .main_top_bottom{
+      display:none;
+    }
+  }
+
+  @media(max-width:767px){
+    .main_product .back-to-top{
+      bottom: 10%;
+    }
+  }
+</style>
+
+<script id="5r1t3n">
+(function () {
+
+  var goTopBtns = document.querySelectorAll('.back-to-top');
+
+  function trackScroll() {
+    var scrolled = window.pageYOffset;
+    var quarterPage = document.documentElement.scrollHeight / 4;
+
+    goTopBtns.forEach(function(btn){
+      if (scrolled > quarterPage) {
+        btn.classList.add('show');
+      } else {
+        btn.classList.remove('show');
+      }
+    });
+  }
+
+  function backToTop(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  window.addEventListener('scroll', trackScroll);
+
+  goTopBtns.forEach(function(btn){
+    btn.addEventListener('click', backToTop);
+  });
+
+})();
+</script>

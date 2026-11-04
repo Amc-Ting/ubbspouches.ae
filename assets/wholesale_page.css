@@ -1,0 +1,204 @@
+.main_page-wholesale #smile-ui-lite-container,
+.main_page-wholesale #ecomsend-widget{
+  display:none;
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+#shopify-section-header-wholesale .header__menu-item{
+  padding: 0.8rem;
+}
+}
+
+.page-contact-wholesale .contact{
+      justify-content: center;
+}
+
+@media(min-width:767px){
+  .page-wholesale{
+  margin-top:0px !important;
+}
+}
+
+.page-wholesale .slider-counter__link--dots .dot{
+      border-radius: 0;
+      background-color: rgba(var(--color-foreground), .2);
+}
+
+.page-wholesale .card__content .quick-add{
+  display:block
+}
+
+.page-wholesale .quantity_variant_sec{
+  margin-bottom:0px;
+}
+
+.page-wholesale .card-wrapper .card{
+  background:transparent;
+}
+
+.page-wholesale .collection .card-wrapper.wholesale_product{
+  padding:0;
+  cursor:pointer;
+}
+
+ .page-wholesale .quick-add__submit{
+   font-family: 'BlinkerRegular';
+       font-size: 18px;
+    letter-spacing: 0;
+ }
+
+@media(min-width:767px){
+  .page-wholesale .slider--desktop.grid--3-col-desktop .grid__item{
+  width: calc((92% - var(--desktop-margin-left-first-item)) / 3 - var(--grid-desktop-horizontal-spacing)* 4);
+}
+}
+
+
+
+
+.page-wholesale .card-wrapper .card__heading a{
+  height:auto;
+      font-size: 24px;
+}
+
+.page-wholesale .card-wrapper .card__heading a span{
+  font-size: 20px;
+    text-transform: none;
+    font-family: 'BlinkerRegular';
+}
+#marketing_collaterals .card-wrapper .card__heading a span,
+#marketing_collaterals .blog-title{
+  font-family: 'KronaRegular';
+  font-size: 20px;
+  text-transform:uppercase;
+}
+#marketing_collaterals .article-card a.button{
+  width:100%;
+  font-size:18px;
+      color: #fff;
+    background-color: #000;
+}
+.radio_btn.collateral_product .dot, .radio_btn.ubbs-coaster .form__label,
+.radio_btn.ubbs-display-unit-copy .dot{
+  display:none;
+}
+.radio_btn.collateral_product .font_text{
+  margin-bottom:0px;
+}
+.wholesale_tagline{
+      font-weight: 400;
+    font-size: 16px;
+    text-align: left;
+      line-height: 1;
+    height: 25px;
+}
+
+#marketing_collaterals .collection__description p{
+  text-align:left;
+}
+
+/* .main_page-wholesale .quick-add-modal__content{
+  height: calc(100% - 20rem) !important;
+} */
+
+.wholesale_price_sec{
+  display:flex;
+  align-items:center;
+  width:100%;
+      margin-top: 15px;
+}
+.wholesale_price{
+  background:#f2f2f2;
+}
+.price_per_can{
+  background:#FF0000;
+  
+}
+.price_per_can_percentage{
+  background:#90EE90;
+}
+.wholesale_price_sec .main_price{
+ width:33%; 
+      text-align: center;
+      padding: 8px 0;
+}
+.price_per_can p,
+.price_per_can span{
+  color:#fff
+}
+.wholesale_price_sec span{
+      font-weight: bold;
+    font-size: 26px;
+}
+.wholesale_price_sec p{
+  font-size:12px;
+}
+
+
+
+.quick-add-modal__content-info .product-title span{
+      text-transform: none;
+      font-family: 'BlinkerRegular';
+}
+
+.quick-add-modal__content-info .price-review_section,
+.quick-add-modal__content-info .product__description .main_desc,
+.quick-add-modal__content-info #description_page{
+  display:none;
+}
+
+.quick-add-modal__content-info .product__description .main_desc.collateral_desc{
+  display:block;
+}
+
+.quick-add-modal__content-info .radio_btn.product-form__input input[type=radio]+label{
+  width:25%;
+      padding: 1rem 5px;
+}
+
+.quick-add-modal__content-info .product__title h1{
+  width:95%;
+}
+
+
+
+@media(max-width:767px){
+  .quick-add-modal__content-info .radio_btn.product-form__input input[type=radio]+label{
+    padding: 1rem 0px;
+  }
+  .quick-add-modal__content-info .radio_btn.product-form__input input[type=radio]+label{
+  width:40%;
+      padding: 1rem 0px;
+}
+
+#marketing_collaterals .article-card a.button{
+  width:70%;
+}
+}
+
+@media(min-width:767px){
+  #marketing_collaterals .slider-dots{
+    display:none;
+  }
+}
+
+#marketing_collaterals .slider-dots{
+  text-align:center;
+  position: relative;
+  top: -25px;
+}
+#marketing_collaterals .slider-dot {
+  appearance: none;
+    border: 1px solid #000;
+    background: #e2e2e2;
+    width: 10px;
+    height: 12px;
+  margin:0 5px;
+}
+#marketing_collaterals .slider-dot.active{   
+    background: #000;
+}
+#marketing_collaterals .grid.product-grid{
+  overflow-y:hidden;
+}
+

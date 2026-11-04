@@ -1,0 +1,210 @@
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+  .banner_sec{
+    position:relative;
+    overflow:hidden;
+        padding: 50px 15px;
+  }
+  .pouch_img_1{
+    position: absolute;
+    transform: scale(1) translateX(0) translateY(0%);
+    left:0;
+  }
+  .pouch_img_2{
+        position: absolute;
+    transform: translateX(30%);
+    right: 0;
+    top: 0;
+
+  }
+  .heading_icon_img{
+    text-align:center;
+  }
+
+  .pouch_img_1 img, .pouch_img_2 img{
+    max-width:70%;
+  }
+  .golden_ticket_banner .caption{
+    font-size:15px;
+    color:#707070;
+    margin-top:15px;
+  }
+
+  .golden_ticket_banner .caption a{
+    text-decoration :none;
+    color:#707070;
+  }
+
+  .golden_ticket_banner .heading{
+    max-width:50%;
+    margin:0 auto
+  }
+
+  .golden_ticket_banner .desc{
+    max-width:700px;
+    margin:8px auto 0;
+  }
+
+ .golden_ticket_banner .icon_img{
+   max-width: 180px;
+   margin: 0 auto;
+ }
+
+  @media(max-width:767px){
+    .banner_sec{
+      padding: 50px 15px 0;
+    }
+    .heading_icon_img{
+          margin-top: -40%;
+    }
+    .golden_ticket_banner .icon_img{
+      max-width:80px;
+    }
+    .pouch_img_1 img, .pouch_img_2 img {
+    max-width: 40%;
+}
+    .pouch_img_1 {
+    position: relative;
+    transform: scale(1) translateX(-22px) translateY(-11%);
+      left:0;
+}
+    .pouch_img_2 {
+    position: relative;
+    transform: translateY(-2%);
+    top: 0;
+    right: -60%;
+}
+    .golden_ticket_banner{
+      padding-bottom:0;
+    }
+    .golden_ticket_banner .heading {
+    max-width: 100%;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px){
+    .pouch_img_2{
+          transform: translateX(65%);
+      right: 0;
+    }
+    .pouch_img_1 img, .pouch_img_2 img {
+    max-width: 40%;
+}
+    .golden_ticket_banner .heading{
+    max-width:75%;
+  }
+
+  .golden_ticket_banner .desc{
+    max-width:550px;
+  }
+
+ .golden_ticket_banner .icon_img{
+   max-width: 100px;
+    margin: 20px auto 0;
+ }
+  }
+  
+</style>
+
+<section class="golden_ticket_banner section-{{ section.id }}-padding" >
+  <div class="banner_sec">
+    <div class="pouch_img_1">
+    <img src="{{ section.settings.img_1 | img_url: 'master' }}" class="img_responsive pouch_1">
+  </div>
+      
+            <div class="heading_icon_img">
+              <div class="icon_img">
+                <img src="{{ section.settings.icon_img | img_url: 'master' }}" class="img_responsive icon_img">
+              </div>
+              <h1 class="heading font_heading text_400 text_lg">{{ section.settings.heading }}</h1>
+              <h2 class="desc text_lg text_400">
+                {{ section.settings.desc }}
+              </h2>
+              <p class="caption">{{ section.settings.caption }}</p>
+            </div>
+     <div class="pouch_img_2">
+    <img src="{{ section.settings.img_2 | img_url: 'master' }}" class="img_responsive pouch_2">
+  </div>
+  </div>
+  
+        </section>
+
+
+
+{% schema %}
+  {
+   "name":"GT Banner Section",
+   "settings":[
+	  {
+         "type":"image_picker",
+         "id":"img_1",
+         "label":"Add a Product Image"
+      },
+     {
+         "type":"image_picker",
+         "id":"icon_img",
+         "label":"Add Ubbs Icon Image"
+      },
+       {
+         "type":"text",
+         "id":"heading",
+         "label":"Heading"
+      },
+	  {
+         "type":"text",
+         "id":"desc",
+         "label":"Subheading"
+      },
+	  {
+         "type":"text",
+         "id":"caption",
+         "label":"Add Caption"
+      },
+	  {
+         "type":"image_picker",
+         "id":"img_2",
+         "label":"Add a Product Image"
+      },
+     {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+	  
+   ],
+ 
+	"presets": [
+      {
+      "name": "GT Banner Section"
+      }
+   ]
+}
+{% endschema %}

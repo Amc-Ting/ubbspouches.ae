@@ -1,0 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "16579794278560ef9f": {
+      "type": "pages-banner-section",
+      "settings": {
+        "title": "Contact Us",
+        "subtitle": "You don't have to swipe right to get our digits.",
+        "banner_img": "shopify://shop_images/Contact_Us_Banner_Img.png",
+        "big_circle": "shopify://shop_images/Ellipse_1_d5dbfffb-63c2-4897-a29e-63758762c301.png"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "blocks": {
+        "text_aKGd9p": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "icon": "shopify://shop_images/address_icon_b440a8ea-1eb0-49f7-b6d2-ae7c3d448912.png",
+            "caption": "Room 2, 1st Floor, 7 Blighs Walk, Sevenoaks, England, TN13 1DB."
+          }
+        },
+        "text_3hAYgj": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/mail_icon_3a3ec750-a80d-456f-a0c4-bcd865c72b8f.png",
+            "caption": "customerservices@ubbspouches.ae"
+          }
+        },
+        "text_JLcP4e": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/phone-98_1_e1da7968-68dc-4051-9728-495e27fc52ed.png",
+            "caption": "800 69 800 (MyVapery customer care)"
+          }
+        }
+      },
+      "block_order": [
+        "text_aKGd9p",
+        "text_3hAYgj",
+        "text_JLcP4e"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "16579794796d7c7e4d": {
+      "type": "newsletter",
+      "blocks": {
+        "1657979479017be5ce-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>FOR THE LATEST NEWS AND UPDATES</p>"
+          }
+        },
+        "1657979479017be5ce-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN OUR NEWSLETTER",
+            "heading_size": "h1"
+          }
+        },
+        "1657979479017be5ce-2": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "info_pbQU8b": {
+          "type": "info",
+          "settings": {
+            "btn_label": "Privacy Policy",
+            "btn_url": "shopify://policies/privacy-policy"
+          }
+        }
+      },
+      "block_order": [
+        "1657979479017be5ce-1",
+        "1657979479017be5ce-0",
+        "1657979479017be5ce-2",
+        "info_pbQU8b"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "16579794278560ef9f",
+    "main",
+    "form",
+    "16579794796d7c7e4d"
+  ]
+}

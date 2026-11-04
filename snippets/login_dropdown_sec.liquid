@@ -1,0 +1,102 @@
+<section id="login-sec" >
+        <div class="login-wrap">
+            <div class="login-customer container">
+                <div class="bt-content">
+                    <div class="bt-title">
+                        <p class="account-title">Customer</p>
+                    </div>
+                    <div class="bt-desc">
+                        <p>Your adventure with Übbs begins here.<br>Log in to your account now!</p>
+                    </div>
+                    <div class="bt-login-btn">
+                        <a href="/account/login" class="cmn_btn">Login</a>
+                    </div>
+                    <div class="bt-footer-links">
+                       <p>Don’t have an account? <a href="/account/register"><b>Register Now</b></a></p> 
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="login-wholesale container">
+                <div class="bt-content">
+                   <div class="bt-title">
+                        <p class="account-title">wholesale</p>
+                    </div>
+                    <div class="bt-desc">
+                        <p>Access your Übbs Wholesale<br>account here.</p>
+                    </div>
+                    <div class="bt-login-btn">
+                        <a href="/account/login#wholesaler_login" 
+                          id="wholesaleLogin"
+                          class="cmn_btn login_btn_wholesale">Login</a>
+                    </div>
+                    <div class="bt-footer-links">
+                       <p>Don’t have an account? <a href="/account/register#wholesale_register" onclick="window.scrollTo(0, 0)"><b>Register Now</b></a></p> 
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+<style>
+  .login-wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:50px 0;
+  }
+  .login-customer{
+        margin: 0;
+    padding: 0 60px;
+    width: 50%;
+    border-right: 1px solid #000;
+  }
+  .login-wholesale {
+    padding: 0 60px;
+    width: 50%;
+}
+  .bt-content{
+    text-align:center;
+  }
+  .bt-content .account-title{
+        font-family: 'KronaRegular';
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 24px;
+    color:#000;
+  }
+  .bt-login-btn{
+        padding: 25px 0;
+  }
+  .bt-desc p{
+    line-height: 1.2;
+    font-size: 18px;
+    padding-top: 8px;
+  }
+  .bt-footer-links p{
+    font-size:14px;
+  }
+  .bt-footer-links p a{
+    color:#000;
+  }
+  @media(max-width:767px){
+      .login-wrap{
+    flex-direction: column;
+  }
+  .login-customer {
+    margin: 0;
+    padding: 0 0 30px 0;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #000;
+}
+  .login-wholesale {
+    padding: 25px 0 0 0;
+    width: 100%;
+}
+  }
+</style>
+

@@ -1,0 +1,119 @@
+{% comment %}
+  Renders social icons.
+  Accepts:
+  - class: {String} a class to be added to the <ul> element (optional).
+
+  Usage:
+  {% render 'social-icons',
+    class: 'my-class'
+  %}
+{% endcomment %}
+
+<ul class="list-unstyled list-social{% if class %} {{ class}}{% endif %}" role="list">
+  {%- if settings.social_facebook_link != blank -%}
+    <li class="list-social__item">
+      <a href="{{ settings.social_facebook_link }}" target="_blank" class="link list-social__link">
+        <span class="svg-wrapper">
+          {% comment %} {{- 'icon-facebook.svg' | inline_asset_content -}} {% endcomment %}
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 30 30">
+            <g id="fb" transform="translate(2250 1198)">
+              <rect id="Rectangle_182" data-name="Rectangle 182" width="30" height="30" transform="translate(-2250 -1198)" fill="none"></rect>
+              <path id="Path_1265" data-name="Path 1265" d="M0,8.055H2.929v-1.5A9.964,9.964,0,0,1,3.464,2.8,4.249,4.249,0,0,1,5.437.779,7.567,7.567,0,0,1,9.071,0a14.627,14.627,0,0,1,4.412.678l-.713,3.68a10.46,10.46,0,0,0-2.422-.3A2.163,2.163,0,0,0,8.7,4.592a3.089,3.089,0,0,0-.5,2.056V8.055h3.945v4.153H8.206V28H2.929V12.207H0Z" transform="translate(-2242 -1197)" fill="currentColor"></path>
+            </g>
+          </svg>
+        </span>
+        <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_instagram_link != blank -%}
+    <li class="list-social__item">
+      <a href="{{ settings.social_instagram_link }}" target="_blank" class="link list-social__link">
+        <span class="svg-wrapper">
+          {% comment %} {{- 'icon-instagram.svg' | inline_asset_content -}} {% endcomment %}
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 30 30">
+            <g id="insta" transform="translate(2225 1198)">
+              <rect id="Rectangle_183" data-name="Rectangle 183" width="30" height="30" transform="translate(-2225 -1198)" fill="none"></rect>
+              <g id="Group_1403" data-name="Group 1403" transform="translate(-11008.055 -9595.585)">
+                <path id="Path_1266" data-name="Path 1266" d="M694.184,44.579c-1.348,0-2.7.015-4.044,0a17.689,17.689,0,0,1-3.912-.334,7.225,7.225,0,0,1-5.733-5.831,14.69,14.69,0,0,1-.291-3.189q-.026-4.642,0-9.285a13.408,13.408,0,0,1,.441-3.79,7.211,7.211,0,0,1,5.69-5.254,14.637,14.637,0,0,1,3.189-.294q4.653-.026,9.306,0a13.665,13.665,0,0,1,3.666.408,7.206,7.206,0,0,1,5.386,5.765,17.821,17.821,0,0,1,.3,3.788q.024,4.012,0,8.023a17.34,17.34,0,0,1-.327,3.934,7.224,7.224,0,0,1-5.879,5.761,18.178,18.178,0,0,1-3.7.3c-1.362.019-2.724,0-4.086,0m.008-25.546v.042c-1.127,0-2.254-.017-3.38,0a21.717,21.717,0,0,0-3.858.25,4.729,4.729,0,0,0-3.918,3.576,10.424,10.424,0,0,0-.31,2.734c-.024,2.881-.046,5.762-.034,8.643a18.048,18.048,0,0,0,.242,3.537,4.742,4.742,0,0,0,3.6,3.92,10.022,10.022,0,0,0,2.628.3q5.016.021,10.033,0a12.489,12.489,0,0,0,2.189-.205,4.7,4.7,0,0,0,3.959-3.607,10.472,10.472,0,0,0,.3-2.735q.023-4.91,0-9.819a11.436,11.436,0,0,0-.246-2.507,4.74,4.74,0,0,0-2.348-3.261,6.471,6.471,0,0,0-3-.74c-1.953-.06-3.906-.089-5.86-.13" transform="translate(8103.864 8382)" fill="currentColor"></path>
+                <path id="Path_1267" data-name="Path 1267" d="M797.968,127.158a7.195,7.195,0,1,1-7.191,7.109,7.188,7.188,0,0,1,7.191-7.109m.007,2.5a4.686,4.686,0,1,0,4.678,4.685,4.7,4.7,0,0,0-4.678-4.685" transform="translate(8000.081 8278.229)" fill="currentColor"></path>
+                <path id="Path_1268" data-name="Path 1268" d="M1003.531,98.666a1.678,1.678,0,1,1,1.654-1.716,1.683,1.683,0,0,1-1.654,1.716" transform="translate(7802.022 8308.118)" fill="currentColor"></path>
+              </g>
+            </g>
+          </svg>
+        </span>
+        <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_youtube_link != blank -%}
+    <li class="list-social__item">
+      <a href="{{ settings.social_youtube_link }}" target="_blank" class="link list-social__link">
+        <span class="svg-wrapper">
+          {{- 'icon-youtube.svg' | inline_asset_content -}}
+        </span>
+        <span class="visually-hidden">{{ 'general.social.links.youtube' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_tiktok_link != blank -%}
+    <li class="list-social__item">
+      <a href="{{ settings.social_tiktok_link }}" target="_blank" class="link list-social__link">
+        <span class="svg-wrapper">
+          {{- 'icon-tiktok.svg' | inline_asset_content -}}
+        </span>
+        <span class="visually-hidden">{{ 'general.social.links.tiktok' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_twitter_link != blank -%}
+    <li class="list-social__item">
+      <a href="{{ settings.social_twitter_link }}" target="_blank" class="link list-social__link">
+        <span class="svg-wrapper">
+          {{- 'icon-twitter.svg' | inline_asset_content -}}
+        </span>
+        <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_pinterest_link != blank -%}
+    <li class="list-social__item">
+      <a href="{{ settings.social_pinterest_link }}" target="_blank" class="link list-social__link">
+        <span class="svg-wrapper">
+          {{- 'icon-pinterest.svg' | inline_asset_content -}}
+        </span>
+        <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_snapchat_link != blank -%}
+    <li class="list-social__item">
+      <a href="{{ settings.social_snapchat_link }}" target="_blank" class="link list-social__link">
+        <span class="svg-wrapper">
+          {{- 'icon-snapchat.svg' | inline_asset_content -}}
+        </span>
+        <span class="visually-hidden">{{ 'general.social.links.snapchat' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_tumblr_link != blank -%}
+    <li class="list-social__item">
+      <a href="{{ settings.social_tumblr_link }}" target="_blank" class="link list-social__link">
+        <span class="svg-wrapper">
+          {{- 'icon-tumblr.svg' | inline_asset_content -}}
+        </span>
+        <span class="visually-hidden">{{ 'general.social.links.tumblr' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_vimeo_link != blank -%}
+    <li class="list-social__item">
+      <a href="{{ settings.social_vimeo_link }}" target="_blank" class="link list-social__link">
+        <span class="svg-wrapper">
+          {{- 'icon-vimeo.svg' | inline_asset_content -}}
+        </span>
+        <span class="visually-hidden">{{ 'general.social.links.vimeo' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+</ul>

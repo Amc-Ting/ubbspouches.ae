@@ -1,0 +1,84 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-blog-banner",
+      "settings": {
+        "title": "NEXT STOP: NERD TOWN!",
+        "desc": "So that you can feel a tingle in your brain too while übbs does its thing.",
+        "img_1": "shopify://shop_images/Blogs-Listing_460x_3ada9bea-1960-4410-981e-b7212684a257.webp"
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "custom_css": [
+        ".article-card__info,.card__heading {text-align: left;}",
+        ".card__information {padding-left: 0;}",
+        ".read_more_sec a {margin-top: 10px;}"
+      ],
+      "settings": {
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "small",
+        "show_date": false,
+        "show_author": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "16582297022f9910d6": {
+      "type": "newsletter",
+      "blocks": {
+        "1658229702eeeca7a4-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>FOR THE LATEST NEWS AND UPDATES</p>"
+          }
+        },
+        "1658229702eeeca7a4-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN OUR NEWSLETTER",
+            "heading_size": "h1"
+          }
+        },
+        "1658229702eeeca7a4-2": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "info_Ptrcyt": {
+          "type": "info",
+          "settings": {
+            "btn_label": "Privacy Policy",
+            "btn_url": "shopify://policies/privacy-policy"
+          }
+        }
+      },
+      "block_order": [
+        "1658229702eeeca7a4-1",
+        "1658229702eeeca7a4-0",
+        "1658229702eeeca7a4-2",
+        "info_Ptrcyt"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "main",
+    "16582297022f9910d6"
+  ]
+}

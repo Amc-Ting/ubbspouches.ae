@@ -1,0 +1,376 @@
+<style>
+  
+  #banner_section {
+  overflow: hidden;
+  padding: 0 15px;
+      position: relative;
+    min-height: 1px;
+  }
+  @media (max-width: 1024px) and (min-width: 768px){#banner_section {margin-top: 50px;}}
+  @media (max-width: 767px) {
+    #banner_section {
+      padding-bottom: 130px; } }
+  #banner_section .banner_inner .bi_item.bi_spearmint {
+    align-self: flex-start;
+    transform: translateY(15vmin); /*translateY(10vmin);*/
+    margin-left: 10vw;
+    max-width: 18vw;
+    perspective: 1000px;
+   position: relative;
+    min-height: 1px}
+  @media (max-width: 1024px) and (min-width: 768px){
+    #banner_section .banner_inner .bi_item.bi_spearmint {transform: translateY(7vmin);}
+  }
+    @media (max-width: 767px) {
+      #banner_section .banner_inner .bi_item.bi_spearmint {
+        max-width: 30vw;
+      transform: translateY(20vmin);} }
+    #banner_section .banner_inner .bi_item.bi_spearmint > img {
+      z-index: 1;
+     position: relative;
+    min-height: 1px}
+      @media (max-width: 767px) {
+        #banner_section .banner_inner .bi_item.bi_spearmint > img {
+          margin-bottom: 10px; } }
+    #banner_section .banner_inner .bi_item.bi_spearmint .circle-orbit-container {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 40%) scaleX(1.75) rotateX(60deg) rotateY(-15deg);
+    z-index:-1;}
+      @media (max-width: 767px) {
+        #banner_section .banner_inner .bi_item.bi_spearmint .circle-orbit-container {
+          transform: translate(-50%, 40%) scaleX(1.2) rotateX(60deg) rotateY(-15deg); } }
+  #banner_section .banner_inner .bi_item.bi_title {
+    width: 100%; }
+    @media (max-width: 767px) {
+      #banner_section .banner_inner .bi_item.bi_title {
+        padding-top: 110px; } }
+    #banner_section .banner_inner .bi_item.bi_title .ubbs_icon {
+      z-index: 1;
+     position: relative;
+    min-height: 1px}
+      #banner_section .banner_inner .bi_item.bi_title .ubbs_icon img {
+        margin: 0 auto;
+        display: none;
+        max-width: 25vh; }
+        @media (max-width: 1200px) {
+          #banner_section .banner_inner .bi_item.bi_title .ubbs_icon img {
+            max-width: 20vw; } }
+        @media (max-width: 767px) {
+          #banner_section .banner_inner .bi_item.bi_title .ubbs_icon img {
+            max-width: 100px; } }
+     #banner_section .banner_inner .bi_item.bi_title .ubbs_icon .active {
+        display: block; }
+    #banner_section .banner_inner .bi_item.bi_title .font_heading {
+      margin: 0 -15px;
+      overflow: hidden;
+    position: relative;
+    min-height: 1px}
+      @media (min-width: 1440px) {
+        #banner_section .banner_inner .bi_item.bi_title .font_heading {
+          font-size: 81px !important; } }
+      @media (min-width: 767px) and (max-width: 991px) {
+        #banner_section .banner_inner .bi_item.bi_title .font_heading {
+          margin-top: 40px; } }
+    #banner_section .banner_inner .bi_item.bi_title .marquee_wrap_main {
+      width: 100%;
+    	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);}
+      @media (max-width: 767px) {
+        #banner_section .banner_inner .bi_item.bi_title .marquee_wrap_main {
+          position: static;
+          transform: none; } }
+      @media (max-width: 767px) {
+        #banner_section .banner_inner .bi_item.bi_title .marquee_wrap_main .marquee_wrap .marquee_item {
+          animation: none;
+          width: 100%; } }
+      @media (max-width: 767px) {
+        #banner_section .banner_inner .bi_item.bi_title .marquee_wrap_main .marquee_wrap .marquee_item .marquee_item_inner {
+          flex-wrap: wrap;
+          display: none; } }
+      @media (max-width: 767px) {
+        #banner_section .banner_inner .bi_item.bi_title .marquee_wrap_main .marquee_wrap .marquee_item .marquee_item_inner:nth-child(1) {
+          display: block; } }
+     #banner_section .banner_inner .bi_item.bi_title .marquee_wrap_main .marquee_wrap .marquee_item .marquee_item_inner .mii_item:nth-child(1) {
+        padding: 10px 0px;font-weight: 400; }
+        @media (max-width: 767px) {
+          #banner_section .banner_inner .bi_item.bi_title .marquee_wrap_main .marquee_wrap .marquee_item .marquee_item_inner .mii_item:nth-child(1) {
+            display: block; } }
+      #banner_section .banner_inner .bi_item.bi_title .marquee_wrap_main .marquee_wrap .marquee_item .marquee_item_inner .mii_item:nth-child(2) {
+        padding: 10px 30px;
+        margin-right: 20px; font-weight: 400;}
+        @media (max-width: 991px) {
+          #banner_section .banner_inner .bi_item.bi_title .marquee_wrap_main .marquee_wrap .marquee_item .marquee_item_inner .mii_item:nth-child(2) {
+            padding: 10px 15px;
+            margin-right: 10px; } }
+      @media (max-width: 767px) {
+        #banner_section .banner_inner .bi_item.bi_title .marquee_wrap_main .marquee_wrap .marquee_item .marquee_item_inner .mii_item {
+          white-space: unset;
+          display: none;
+          text-align: center;
+          padding: 10px; } }
+  #banner_section .banner_inner .bi_item.bi_watermenlon {
+    align-self: flex-end;
+    order: 1;
+    transform: translateY(-50%);
+    max-width: 20vw; }
+    @media (max-width: 991px) {
+      #banner_section .banner_inner .bi_item.bi_watermenlon {
+        transform: translateY(-40%); } }
+    @media (max-width: 767px) {
+      #banner_section .banner_inner .bi_item.bi_watermenlon {
+        max-width: 35vw;
+        transform: translateY(10%); } }
+    #banner_section .banner_inner .bi_item.bi_watermenlon > img {
+      z-index: 1;
+      margin-bottom: 20px;
+    position: relative;
+    min-height: 1px}
+    #banner_section .banner_inner .bi_item.bi_watermenlon .circle-orbit-container {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-60%, 40%) scaleX(1.75) rotateX(60deg) rotateY(15deg);z-index:-1; }
+      @media (max-width: 991px) {
+        #banner_section .banner_inner .bi_item.bi_watermenlon .circle-orbit-container {
+          transform: translate(-60%, 40%) scaleX(1.75) rotateX(55deg) rotateY(15deg); } }
+      @media (max-width: 767px) {
+        #banner_section .banner_inner .bi_item.bi_watermenlon .circle-orbit-container {
+          transform: translate(-60%, 40%) scaleX(1.2) rotateX(60deg) rotateY(15deg); } }
+  #banner_section .banner_inner .bi_item.bi_desc {
+    margin-top: 30px;
+    text-align: center;
+    z-index: 1; }
+    @media (max-width: 767px) {
+      #banner_section .banner_inner .bi_item.bi_desc {
+        margin-top: 10px; } }
+    #banner_section .banner_inner .bi_item.bi_desc .cmn_btn {
+      margin-top: 30px; }
+  
+  .banner_inner{
+  	display:flex;
+    flex-direction:column;
+    align-items: center;
+  }
+  
+  #banner_section .marquee_wrap .marquee_item .marquee_item_inner:nth-child(2){
+  	    position: absolute;
+    top: 0;
+/*     left: 0; */
+    width: 100%;
+    height: 100%;
+  }
+  
+  #banner_section .banner_inner .bi_item.bi_desc h1{
+  	font-family: 'BlinkerRegular';
+    color: #000;
+  }
+
+ 
+
+   #banner_section .banner_inner .bi_item .upanimate {
+    animation: upAnimate 6s ease-in-out infinite;
+}
+  #banner_section .banner_inner .bi_item .upanimaterev {
+    animation: upAnimate 6s ease-in-out infinite;
+}
+
+  #banner_section .banner_inner .bi_item .orbit_box {
+    position: absolute;
+    transform: scale(2.5) translateY(-30%);
+}
+
+  #banner_section .banner_inner .bi_item .orbit_box.orbit_spearmint {
+    transform: scale(2.7) translateY(-30%) translateX(2%);
+}
+
+@media(max-width:767px){
+  #banner_section .banner_inner .bi_item.bi_desc h1 br{
+    display:none;
+  }
+}
+
+
+  #banner_section .banner_inner .heading{
+    text-transform: uppercase;
+    font-family: 'KronaRegular' !important;
+    font-weight: 400;
+    margin-bottom: 15px;
+     font-size:23px; 
+    line-height: 1.2;
+  }
+  
+  @media(max-width:767px){
+    #banner_section .banner_inner .heading{
+      font-size:20px;
+    }
+
+   
+    
+     
+  }
+
+</style>
+
+<section id="banner_section">
+          <div class="banner_inner">
+            <div class="bi_item bi_spearmint">
+              <img
+                src="{{ section.settings.img_1 | img_url:'master' }}"
+                alt="Spearmint flavoured nicotine pouches image for Homepage | UBBS Pouches"
+                class="img-responsive upanimate"
+                width="{{ section.settings.img_1.width }}"
+                height="{{ section.settings.img_1.height }}"
+              />
+              <div class="orbit_box orbit_spearmint">
+                <picture>
+  
+  <source media="(max-width:767px)" srcset="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Ellipse-1-mobile-tinified.webp?v=1721677428"  class="img-responsive orbit_circle orbit_spearmint-mobile">
+  <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Ellipse-1-tinified.webp?v=1721678302" alt="Ellipse - Ubbs Background image | UBBS Pouches" 
+    class="img-responsive orbit_circle orbit_spearmint-img"
+                                    width="259"
+
+                                    height="90">
+</picture>
+								<!-- <img
+									src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Ellipse-1.png?v=1670426211"
+									alt="Ellipse - Ubbs Background image | UBBS Pouches"
+									class="img-responsive orbit_circle orbit_spearmint-img"
+                                    width="849"
+                                    height="296"
+								/>
+                                <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Ellipse-1-mobile_d06153dc-9a5c-4e45-9060-67e8ce78c696_300px.png?v=1720120632"
+                                  alt="Ellipse - Ubbs Background image | UBBS Pouches"
+									class="img-responsive orbit_circle orbit_spearmint-mobile"
+                                    width="400"
+                                    height="150"> -->
+							</div>
+            </div>
+            <div class="bi_item bi_title">
+              <div class="text_xxxxl font_heading">
+                <div class="ubbs_icon">
+                  {%- for block in section.blocks -%}
+                  <img
+                    src="{{ block.settings.icon_img | img_url:'master' }}"
+                    alt="{{ block.settings.icon_img.alt }}"
+                    class="img-responsive {{ block.settings.icon_img.alt }} {% if forloop.first == true %}active{% endif %}"
+                    width="{{ block.settings.icon_img.width }}"
+                    height="{{ block.settings.icon_img.height }}"
+                  />
+                  {%- endfor -%}
+                </div>
+                <div class="marquee_wrap_main">
+                  <div class="marquee_wrap">
+                    <div class="marquee_item">
+                      <div class="marquee_item_inner">
+                        <div class="mii_item">{{ section.settings.title }}</div>
+                        <div class="mii_item">
+                          • {{ section.settings.title }}
+                        </div>
+                      </div>
+                      <div class="marquee_item_inner">
+                        <div class="mii_item">
+                          • {{ section.settings.title }}
+                        </div>
+                        <div class="mii_item">
+                          • {{ section.settings.title }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bi_item bi_watermenlon">
+              <img
+                src="{{ section.settings.img_2 | img_url:'master' }}"
+                alt="Watermelon flavoured nicotine pouches image for Homepage | UBBS Pouches"
+                class="img-responsive upanimaterev"
+                width="{{ section.settings.img_2.width }}"
+                height="{{ section.settings.img_2.height }}"
+              />
+              <div class="orbit_box">
+								<img
+									src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Ellipse_2_0bf1fa47-6e23-4b98-ada5-8ff4e78d34e5.png?v=1721675555"
+									alt="Ellipse 2 - Ubbs Background image | UBBS Pouches"
+									class="img-responsive orbit_circle"
+                                    width="1058"
+                                    height="369"
+								/>
+							</div>
+            </div>
+            <div class="bi_item bi_desc">
+              <h1 class="heading">{{ section.settings.heading }}</h1>
+              <h2 class="text_lg text_400">
+                {{ section.settings.desc }}
+              </h2>
+              <a href="{{ section.settings.btn_url }}" class="cmn_btn">{{ section.settings.btn_label }}</a>
+            </div>
+          </div>
+        </section>
+
+
+
+{% schema %}
+  {
+   "name":"Banner Section",
+   "settings":[
+	  {
+         "type":"image_picker",
+         "id":"img_1",
+         "label":"Add a Product Image"
+      },
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title"
+      },
+       {
+         "type":"text",
+         "id":"heading",
+         "label":"Heading"
+      },
+	  {
+         "type":"text",
+         "id":"desc",
+         "label":"Subheading"
+      },
+	  {
+         "type":"url",
+         "id":"btn_url",
+         "label":"Button Url"
+      },
+	  {
+         "type":"text",
+         "id":"btn_label",
+         "label":"Button Label"
+      },
+	  {
+         "type":"image_picker",
+         "id":"img_2",
+         "label":"Add a Product Image"
+      }
+	  
+   ],
+   "blocks":[
+      {
+         "type":"image_picker",
+		 "name":"Image Block",
+         "settings":[            
+            {
+               "type":"image_picker",
+               "id":"icon_img",
+               "label":"Add Ubbs Icon"
+            }
+         ]
+      }
+   ],
+	"presets": [
+      {
+      "name": "Banner Section"
+      }
+   ]
+}
+{% endschema %}

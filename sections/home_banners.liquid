@@ -1,0 +1,185 @@
+{% schema %}
+{
+  "name": "3 Promo Cards",
+  "tag": "section",
+  "class": "promo-card-section",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "promo_card",
+      "name": "Promo Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "PROMO TITLE"
+        },
+        {
+          "type": "textarea",
+          "id": "subtext",
+          "label": "Subtext",
+          "default": "Your promotional message here."
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Fallback Background Color",
+          "default": "#f2f2f2"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#000000"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "3 Promo Cards",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .promo-cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    padding-top:1%;
+  }
+  .promo-card {
+  flex: 1 1 calc(33.333% - 13.33px);
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      padding: 20px 0 20px 20px;
+      box-sizing: border-box;
+      text-align: left;
+      color: var(--text-color, #000);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+  }
+
+  .promo-card-content {
+    position: relative;
+  }
+  .promo-card h1 {
+    margin: 0 0 10px;
+    width: 270px;
+    font-family: var(--font_heading);
+    text-transform: uppercase;
+    font-weight:400;
+    font-size: 19px;
+    line-height:1.2;
+  }
+  .promo-card p {
+    margin-bottom: 15px;
+    width: 300px;
+    font-family: BlinkerRegular;
+    font-weight:400;
+    font-size: 20px;
+    line-height:1.2;
+  }
+  .promo-card a.button {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+   .cmn_btn{
+     width: fit-content;
+   }
+     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+      .promo-card h1{
+        width:100%;
+        font-size:36px;
+      }
+       .promo-card p{
+         font-size:28px;
+        line-height: 1;
+       }
+      .promo-card{
+        flex: 1 1 100%;
+        padding: 40px 0 60px 30px;
+          height: 300px;
+      }
+    }
+  @media (max-width: 767px) {
+    .promo-card {
+      flex: 1 1 100%;
+    }
+    .promo_main {
+      min-height:115px;
+    }
+    .promo-card p,
+    .promo-card h1{
+      font-size:14px;
+    }
+    .promo-card h1{
+      width:300px;
+    }
+    .promo-card .cmn_btn{
+      padding:8px 15px;
+    }
+
+  }
+</style>
+<section class="container-fluid">
+  <div class="promo-cards-wrapper">
+    {% for block in section.blocks %}
+      {% assign settings = block.settings %}
+      {% assign bg_img_url = settings.background_image | image_url: width: 500 %}
+      <div
+        class="promo-card"
+        style="
+          background-image: url('{{ bg_img_url }}');
+          background-color: {{ settings.bg_color }};
+          --text-color: {{ settings.text_color }};
+        "
+          loading="lazy"
+      >
+        <div class="promo-card-content">
+          <div class="promo_main">
+            {% if settings.heading %}
+              <h1>{{ settings.heading }}</h1>
+            {% endif %}
+            {% if settings.subtext %}
+              <p>{{ settings.subtext }}</p>
+            {% endif %}
+          </div>
+        </div>
+        {% if settings.button_label and settings.button_link %}
+          <a href="{{ settings.button_link }}" class="cmn_btn">{{ settings.button_label }}</a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>

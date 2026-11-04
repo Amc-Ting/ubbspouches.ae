@@ -1,0 +1,277 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1658291420627c530a": {
+      "type": "pages-banner-section",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "title": "EXPERIENCING ÜBBS' IS THE BEST FEELING IN THE WORLD",
+        "subtitle": "Being spoilt for a choice is a close second.",
+        "banner_img": "shopify://shop_images/Product-Listing_img.png",
+        "big_circle": "shopify://shop_images/Ellipse_1_f4b9fad7-d4a0-485b-a689-e230ad03773b.png",
+        "small_circle": "shopify://shop_images/Ellipse_2_38497fd7-1448-44a4-b3f7-e50e6d9416f7.png"
+      }
+    },
+    "collection_banner_section_ATn6e8": {
+      "type": "collection-banner-section",
+      "name": "Collection Banner section",
+      "settings": {
+        "title": "<p>{{ collection.metafields.custom.collection_title | metafield_tag }}</p>",
+        "subtitle": "<p>{{ collection.metafields.custom.collection_subheading | metafield_tag }}</p>",
+        "banner_img": "shopify://shop_images/Product-Listing_img.png",
+        "big_circle": "shopify://shop_images/Ellipse_1_f4b9fad7-d4a0-485b-a689-e230ad03773b.png",
+        "small_circle": "shopify://shop_images/Ellipse_2_38497fd7-1448-44a4-b3f7-e50e6d9416f7.png"
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 3,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": false,
+        "columns_mobile": "1",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "seo_content_bQ3iez": {
+      "type": "seo_content",
+      "disabled": true,
+      "settings": {
+        "title": "Multibuy Offer",
+        "subtitle": "<p>Take advantage of our multibuy offers, allowing you to buy nicotine pouches for less and stock up on your favorite Übbs Nicotine Pouches. Embark on your journey towards a smoke-free, tobacco-free lifestyle, without breaking the bank.</p><p>Browse through our collection and find the one that suits your taste and preferences. Start your smoke-free journey with Übbs Pouches today.</p>"
+      }
+    },
+    "a37b5717-fb3f-4690-89b7-198a43e4417a": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=0FzROqHO5ec",
+        "cover_image": "shopify://shop_images/thumbnail-op_1.png",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_blog_nnAaNp": {
+      "type": "featured-blog",
+      "disabled": true,
+      "custom_css": [],
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "listing",
+        "post_limit": 3,
+        "heading": "Übbs Blogs",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "show_view_all": false,
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_GKfPYR": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_YKPBPj": {
+          "type": "heading",
+          "settings": {
+            "heading": "Common FAQ's",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YKPBPj"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 72,
+        "padding_bottom": 0
+      }
+    },
+    "faq_tab_accordion_1_G3DWhA": {
+      "type": "faq_tab_accordion_1",
+      "blocks": {
+        "text_JaTjtj": {
+          "type": "text",
+          "settings": {
+            "ques": "What are nicotine pouches?",
+            "ans": "<p>Nicotine pouches are 100% tobacco, smoke and vape-free flavourful pouches of nicotine. They sit between your lip and gums to give you a fresh nicotine experience for up to 30 minutes.</p>"
+          }
+        },
+        "text_4aVx9q": {
+          "type": "text",
+          "settings": {
+            "ques": "How do nicotine pouches work?",
+            "ans": "<p>Nicotine pouches are extremely easy to use. Follow our 3 step guide below:<br/><br/>Step 1 – POP<br/>Pop the soft, white nicotine pouch under your lip and position it to the side for a more comfortable fit.<br/><br/>Step 2 – TINGLE<br/>You will feel a tingling sensation on your gums and a release of flavour, this is normal and means the pouch is working. We recommend leaving the pouch in for up to 30 minutes.<br/><br/>Step 3 - DISCARD<br/>When you’re done, discard of it in the general waste or store in the top of the can.<br/><br/>Übbs Tobacco Free-Nicotine Pouches are designed to be absorbed through the gums and should not be swallowed. If you swallow a pouch and feel unwell, seek medical advice with the can or label at hand.</p>"
+          }
+        },
+        "text_xVfGQj": {
+          "type": "text",
+          "settings": {
+            "ques": "How long should I keep nicotine pouches in for?",
+            "ans": "<p>We recommend you keep a nicotine pouch in for up to 30 minutes.</p>"
+          }
+        },
+        "text_ePGqpN": {
+          "type": "text",
+          "settings": {
+            "ques": "Is Übbs the same as snus?",
+            "ans": "<p>No, Übbs Nicotine Pouches are not the same as snus. While they’re used in a similar way to snus, nicotine pouches are 100% tobacco-free unlike snus which contains tobacco.</p>"
+          }
+        },
+        "text_fDta4K": {
+          "type": "text",
+          "settings": {
+            "ques": "Who can use Übbs?",
+            "ans": "<p>Übbs contains nicotine and are to be used by existing smokers, vapers and nicotine consumers who are aged 18 or over.<br/><br/>Übbs is not to be used if you are under the age of 18, not an existing tobacco and nicotine consumer, allergic to nicotine and any other ingredients, pregnant/breast-feeding or are suffering from an unstable heart condition, severe hypertension or diabetes.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_JaTjtj",
+        "text_4aVx9q",
+        "text_xVfGQj",
+        "text_ePGqpN",
+        "text_fDta4K"
+      ],
+      "name": "FAQ section",
+      "settings": {
+        "heading": ""
+      }
+    },
+    "16582928855dc3dfa2": {
+      "type": "image_with_text_section",
+      "blocks": {
+        "56502c04-5fd1-4644-9651-87995b052c27": {
+          "type": "text",
+          "settings": {
+            "list_item": "Over 18 years of age."
+          }
+        },
+        "5e7573de-18ef-437a-863d-78ef2062b2e5": {
+          "type": "text",
+          "settings": {
+            "list_item": "Not pregnant, nursing or susceptible to cardiovascular disease."
+          }
+        },
+        "62b46be2-857f-4818-adcb-a8cf176abc0e": {
+          "type": "text",
+          "settings": {
+            "list_item": "Aware that nicotine is a highly addictive substance."
+          }
+        },
+        "118cb823-0968-410c-aec2-f599e71a3a9a": {
+          "type": "text",
+          "settings": {
+            "list_item": "An existing smoker or vaper."
+          }
+        }
+      },
+      "block_order": [
+        "56502c04-5fd1-4644-9651-87995b052c27",
+        "5e7573de-18ef-437a-863d-78ef2062b2e5",
+        "62b46be2-857f-4818-adcb-a8cf176abc0e",
+        "118cb823-0968-410c-aec2-f599e71a3a9a"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "ONLY USE ÜBBS IF YOU ARE:",
+        "subtitle": "",
+        "btn_url": "shopify://pages/faqs",
+        "btn_label": "Learn More",
+        "image": "shopify://shop_images/Hand-Mockup_f61cf62c-72c4-483e-bc06-ff97d7c5aa9d.png"
+      }
+    },
+    "1658293032100acacb": {
+      "type": "newsletter",
+      "blocks": {
+        "16582930325e82b82f-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>FOR THE LATEST NEWS AND UPDATES</p>"
+          }
+        },
+        "16582930325e82b82f-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN OUR NEWSLETTER",
+            "heading_size": "h0"
+          }
+        },
+        "16582930325e82b82f-2": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "info_Ptrcyt": {
+          "type": "info",
+          "settings": {
+            "btn_label": "Privacy Policy",
+            "btn_url": "shopify://policies/privacy-policy"
+          }
+        }
+      },
+      "block_order": [
+        "16582930325e82b82f-1",
+        "16582930325e82b82f-0",
+        "16582930325e82b82f-2"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "1658291420627c530a",
+    "collection_banner_section_ATn6e8",
+    "banner",
+    "product-grid",
+    "seo_content_bQ3iez",
+    "a37b5717-fb3f-4690-89b7-198a43e4417a",
+    "featured_blog_nnAaNp",
+    "rich_text_GKfPYR",
+    "faq_tab_accordion_1_G3DWhA",
+    "16582928855dc3dfa2",
+    "1658293032100acacb"
+  ]
+}

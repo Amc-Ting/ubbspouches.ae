@@ -1,0 +1,163 @@
+<style>
+    .main_page-ubbs-rewards #discreet_section {
+      padding: 0vmin 0 !important;
+  }
+  .main_page-ubbs-rewards .ds_item.fadeInUp {
+      padding: 20px 20px !important;
+  }
+  .main_page-ubbs-rewards #discreet_section .container .ds_item .ds_img h2 {
+      -webkit-text-stroke-width: 2px !important;
+      -webkit-text-stroke-color: #000000 !important;
+      -webkit-text-fill-color: #FFFFFF  !important;
+      font-size: 88px;
+      font-family: 'KronaRegular' !important;
+      letter-spacing: 2px;
+      text-align: center;
+      font-weight: 800;
+      {% comment %} text-shadow:
+        1px 0 0 #000,
+      -1px 0 0 #000,
+        0 1px 0 #000,
+        0 -1px 0 #000,
+        1px 1px 0 #000,
+      -1px -1px 0 #000,
+        1px -1px 0 #000,
+      -1px 1px 0 #000; {% endcomment %}
+  }
+  @supports (-webkit-touch-callout: none) {
+    .main_page-ubbs-rewards #discreet_section .container .ds_item .ds_img h2 {
+      -webkit-text-stroke: 2px #000;
+    }
+  }
+  .main_page-ubbs-rewards .discreet_steps .ds_item .ds_title {
+      text-transform: uppercase;
+      margin: 10px 0px;
+      font-size: 40px !important;
+      letter-spacing: -3px;
+      font-weight: 500 !important;
+      min-height: 60px;
+      line-height: 90% !important;
+  }
+    .main_page-ubbs-rewards p.text_med.text_400.ds_desc {
+      color: #000;
+    }
+    @media only screen and (max-width: 600px) {
+      .main_page-ubbs-rewards #discreet_section .container .ds_item .ds_img {
+        justify-content: center;
+      }
+      .main_page-ubbs-rewards #discreet_section .discreet_steps {
+        margin-top: 0;
+      }
+    }
+</style>
+
+<section id="discreet_section" class="viewportY_Animation {{ section.settings.custom_class }}">
+  <div class="full_overlay"></div>
+  <div class="container">
+    <h4 class="text_xxxxl font_heading text_400 fadeInUp">{{ section.settings.title }}</h4>
+    {% if section.settings.subtitle != blank %}
+      <p class="text_lg text_400 fadeInUp desc">{{ section.settings.subtitle }}</p>
+    {% endif %}
+    <div class="discreet_steps">
+      {%- for block in section.blocks -%}
+        <div class="ds_item fadeInUp">
+          <div class="ds_img">
+            {% if block.settings.block_image != blank %}
+              <img src="{{ block.settings.block_image | image_url }}" alt="" class="img-responsive">
+            {% endif %}
+            {% if block.settings['number-heading'] != blank %}
+              <h2>{{ block.settings['number-heading'] }}</h2>
+            {% endif %}
+          </div>
+          <h3 class="text_xxl text_600 ds_title">{{ block.settings.heading | escape }}</h3>
+          <p class="text_med text_400 ds_desc">{{ block.settings.descreption | escape }}</p>
+        </div>
+      {%- endfor -%}
+      {% comment %}
+        <div class="ds_item fadeInUp">
+            <div class="ds_img">
+                <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/pop_blackwhite.png"alt=""class="img-responsive"/>
+            </div>
+
+            <h3 class="text_xxl text_600 ds_title">POP</h3>
+            <p class="text_med text_400 ds_desc"> Pop the the soft, white nicotine pouch under your lip and position it to the side for a more comfortable fit. </p>
+        </div>
+        <div class="ds_item fadeInUp">
+            <div class="ds_img">
+                <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/tingle_blackwhite.png"alt=""class="img-responsive"/>
+            </div>
+            <h3 class="text_xxl text_600 ds_title">Tingle</h3>
+            <p class="text_med text_400 ds_desc"> Enjoy a fresh nicotine experience that lasts for up to 30 minutes. Use it discreetly anytime, anywhere. </p>
+        </div>
+        <div class="ds_item fadeInUp">
+            <div class="ds_img">
+                <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/discard_blackwhite.png"alt=""class="img-responsive"/>
+            </div>
+            <h3 class="text_xxl text_600 ds_title">Discard</h3>
+            <p class="text_med text_400 ds_desc"> When you’re done, dispose of it in the general waste or store in the top of the can. </p>
+        </div>
+      {% endcomment %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "HOW IT WORKS",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Add Custom Class"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "SubTitle"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Block Image"
+        },
+        {
+          "type": "text",
+          "id": "number-heading",
+          "label": "Number Title"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Block Title"
+        },
+        {
+          "type": "text",
+          "id": "descreption",
+          "label": "Block Desc"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "HOW IT WORKS"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

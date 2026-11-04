@@ -1,0 +1,44 @@
+<div class="account_banner_sec">
+  <div class="customer_info page-width">
+    <h2>Welcome<br class="large-up-hide medium-hide"> {{ customer.first_name }}</h2>
+  </div>
+  <picture>
+  <source media="(max-width:767px)" srcset="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/account_banner_mob.jpg?v=1749632493">
+  <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/account_banner_desktop.jpg?v=1749632494" alt="account banner">
+</picture>
+</div>
+
+<style>
+  .account_banner_sec{
+    margin-top: 135px;
+    position:relative;
+  }
+  .account_banner_sec .customer_info{
+    position: absolute;
+    bottom: 50%;
+    left: 65px;
+    transform: translateY(50%);
+  }
+  .account_banner_sec .customer_info h2{
+    font-family: 'BlinkerRegular';
+    font-weight: 400;
+        line-height: 1.2;
+  }
+  .account_banner_sec img{
+    width:100%;
+  }
+  @media(max-width:767px){
+    .account_banner_sec .customer_info{
+      left:0;
+    }
+    .account_banner_sec{
+      margin-top: 30px;
+    }
+  }
+   @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+     .account_banner_sec{
+    margin-top: 100px;
+    position:relative;
+  }
+   }
+</style>

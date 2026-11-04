@@ -1,0 +1,73 @@
+<section id="psa_section">
+  <div class="container">
+    <div class="psa_inner">
+      <div class="psa_img">
+        <div class="hand_image">
+          <div class="element_02">
+            <div class="blur_circle"></div>
+          </div>
+          <img
+            src="{{ section.settings.banner_img | image_url }}"
+            width=""
+            height=""
+            loading="lazy"
+            alt=""
+            class="img-responsive"
+          >
+        </div>
+      </div>
+      <div class="psa_content">
+        <h2 class="text_xxl font_heading text_400 fadeInUp">{{ section.settings.title }}</h2>
+        <p class="common-desc">{{ section.settings.subtitle }}</p>
+        <p class="our-text common-desc">{{ section.settings.subtext }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  @media(max-width: 989px){
+    .common-desc{
+      font-size: 16px !important;
+
+    }
+    #psa_section .psa_inner .psa_content {
+    padding: 0 15px 0 2rem;
+}
+#listing_page.our_facilities #psa_section .psa_inner .psa_img {
+    padding: 0 10px 0 0;
+}
+  }
+  </style>
+{% schema %}
+{
+  "name": "PSA Section 1",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "SubText"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_img",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

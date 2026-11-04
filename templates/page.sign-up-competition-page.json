@@ -1,0 +1,203 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "d6549c65-3b47-4e67-9b86-91b02025ebf4": {
+      "type": "about_banner-section",
+      "settings": {
+        "title": "LET THE ADVENTURE BEGIN WITH ÜBBS",
+        "subtitle": "A new year calls for a new adventure and that’s why we’re giving you to chance to WIN a £500 LastMinute.com gift card and the full Übbs Nicotine pouch range.",
+        "banner_img": "shopify://shop_images/Ubbs_image-circle_1_fff0a4b2-a22f-4d8e-9e20-7a92ba2afe56.png",
+        "big_circle": "shopify://shop_images/Ellipse_1_d5dbfffb-63c2-4897-a29e-63758762c301.png",
+        "small_circle": "shopify://shop_images/Ellipse_3_eae44e69-c4ee-4b21-b312-6d551d411f3b.png"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "a48967cb-cb5b-468f-888c-90ac4a111a6a": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--14604499320929__a48967cb-cb5b-468f-888c-90ac4a111a6a-16756613534cea7818-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "The perfect prize to help you unleash your potential and discover who you want to be in 2023.",
+            "heading_size": "h1"
+          }
+        },
+        "template--14604499320929__a48967cb-cb5b-468f-888c-90ac4a111a6a-16756613534cea7818-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Whether you want to hit the beach, hike the hills, soak up a new culture in a buzzing city or party the night away. Go solo or bring a friend, you can choose the destination and flights to suit you.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "template--14604499320929__a48967cb-cb5b-468f-888c-90ac4a111a6a-16756613534cea7818-0",
+        "template--14604499320929__a48967cb-cb5b-468f-888c-90ac4a111a6a-16756613534cea7818-1"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Berry-homepage.jpg",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "color_scheme": "background-1",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "eea7ff1d-4361-406d-ac51-7ac55a88a1f4": {
+      "type": "rich-text",
+      "blocks": {
+        "template--14604499320929__eea7ff1d-4361-406d-ac51-7ac55a88a1f4-16733509326e7e1900-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "The perfect prize to help you unleash your potential and discover who you want to be in 2023.",
+            "heading_size": "h1"
+          }
+        },
+        "template--14604499320929__eea7ff1d-4361-406d-ac51-7ac55a88a1f4-16733509326e7e1900-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Whether you want to hit the beach, hike the hills, soak up a new culture in a buzzing city or party the night away. Go solo or bring a friend, you can choose the destination and flights to suit you.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--14604499320929__eea7ff1d-4361-406d-ac51-7ac55a88a1f4-16733509326e7e1900-0",
+        "template--14604499320929__eea7ff1d-4361-406d-ac51-7ac55a88a1f4-16733509326e7e1900-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "2b3ae6ed-d7e0-4057-9e38-07cc2f70911f": {
+      "type": "rich-text",
+      "blocks": {
+        "b671b30e-20cd-4e63-93cd-e1d74aa7cc53": {
+          "type": "heading",
+          "settings": {
+            "heading": "For a chance to win, simply sign up to our newsletter below:",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "b671b30e-20cd-4e63-93cd-e1d74aa7cc53"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 32
+      }
+    },
+    "dd37e259-cf50-484a-80ca-4b2a0fd054c4": {
+      "type": "newsletter",
+      "blocks": {
+        "template--14604499320929__dd37e259-cf50-484a-80ca-4b2a0fd054c4-16747130897635ab6b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our emails",
+            "heading_size": "h1"
+          }
+        },
+        "template--14604499320929__dd37e259-cf50-484a-80ca-4b2a0fd054c4-16747130897635ab6b-2": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "template--14604499320929__dd37e259-cf50-484a-80ca-4b2a0fd054c4-16747130897635ab6b-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Competition closes on 31/03/23. By subscribing, you agree to our <a href=\"https://ubbs-pouch.myshopify.com/policies/privacy-policy\">Privacy Policy</a>. You can unsubscribe at any point.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--14604499320929__dd37e259-cf50-484a-80ca-4b2a0fd054c4-16747130897635ab6b-0",
+        "template--14604499320929__dd37e259-cf50-484a-80ca-4b2a0fd054c4-16747130897635ab6b-2",
+        "template--14604499320929__dd37e259-cf50-484a-80ca-4b2a0fd054c4-16747130897635ab6b-1"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "e3034a3b-80ea-4bd8-a47b-c0ff930048fd": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--14604499320929__e3034a3b-80ea-4bd8-a47b-c0ff930048fd-1674713338277efd59-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Want more ways to win?",
+            "heading_size": "h1"
+          }
+        },
+        "template--14604499320929__e3034a3b-80ea-4bd8-a47b-c0ff930048fd-1674713338277efd59-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Purchase a can of Übbs to get a second entry to increase your chances.</p><p></p><p>PSA: Use the email address to place your order.</p><p></p><p>Competition closes on 23:59 31.03.23. The winner will be chosen at random on the 07.04.23 and contacted via email.</p><p>You must be 18+ to enter.</p><p>*T&C’s apply. View full T&C’s <a href=\"https://ubbspouches.com/pages/ubbs-pouches-city-break-competition-terms-conditions\" target=\"_blank\" title=\"https://ubbspouches.com/pages/ubbs-pouches-city-break-competition-terms-conditions\">here</a>.</p>",
+            "text_style": "body"
+          }
+        },
+        "8263f20f-a86d-44f6-a4f1-cba7bea07e8f": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/shop"
+          }
+        }
+      },
+      "block_order": [
+        "template--14604499320929__e3034a3b-80ea-4bd8-a47b-c0ff930048fd-1674713338277efd59-0",
+        "template--14604499320929__e3034a3b-80ea-4bd8-a47b-c0ff930048fd-1674713338277efd59-1",
+        "8263f20f-a86d-44f6-a4f1-cba7bea07e8f"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Cigarettes-vs-Nicotine-Pouches-How-They-Work-and-the-Differences-Explained-Ubbs-Pouches-Mobile.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "d6549c65-3b47-4e67-9b86-91b02025ebf4",
+    "main",
+    "a48967cb-cb5b-468f-888c-90ac4a111a6a",
+    "eea7ff1d-4361-406d-ac51-7ac55a88a1f4",
+    "2b3ae6ed-d7e0-4057-9e38-07cc2f70911f",
+    "dd37e259-cf50-484a-80ca-4b2a0fd054c4",
+    "e3034a3b-80ea-4bd8-a47b-c0ff930048fd"
+  ]
+}

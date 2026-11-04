@@ -1,0 +1,163 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1658291420627c530a": {
+      "type": "pages-banner-section",
+      "settings": {
+        "title": "NEW TO ÜBBS? CLAIM YOUR FIRST CAN FOR FREE",
+        "subtitle": "Simply add a can to your basket and use code FREESAMPLE<br>at checkout. As always, our standard shipping service is also free.",
+        "banner_img": "shopify://shop_images/Product-Listing_img.png",
+        "big_circle": "shopify://shop_images/Ellipse_1.png",
+        "small_circle": "shopify://shop_images/Ellipse_3.png"
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 3,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": false,
+        "columns_mobile": "1",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "265858f2-abca-4cec-a84e-c55972243330": {
+      "type": "rich-text",
+      "blocks": {
+        "template--14583538221153__265858f2-abca-4cec-a84e-c55972243330-16685027415498b4bb-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>*This free sample offer is limited to one per customer and two per household. Übbs reserves the right to cancel your free sample order at anytime.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--14583538221153__265858f2-abca-4cec-a84e-c55972243330-16685027415498b4bb-1"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "16582928855dc3dfa2": {
+      "type": "image_with_text_section",
+      "blocks": {
+        "56502c04-5fd1-4644-9651-87995b052c27": {
+          "type": "text",
+          "settings": {
+            "list_item": "Over 18 years of age."
+          }
+        },
+        "5e7573de-18ef-437a-863d-78ef2062b2e5": {
+          "type": "text",
+          "settings": {
+            "list_item": "Not pregnant, nursing or susceptible to cardiovascular disease."
+          }
+        },
+        "62b46be2-857f-4818-adcb-a8cf176abc0e": {
+          "type": "text",
+          "settings": {
+            "list_item": "Aware that nicotine is a highly addictive substance."
+          }
+        },
+        "118cb823-0968-410c-aec2-f599e71a3a9a": {
+          "type": "text",
+          "settings": {
+            "list_item": "An existing smoker or vaper."
+          }
+        }
+      },
+      "block_order": [
+        "56502c04-5fd1-4644-9651-87995b052c27",
+        "5e7573de-18ef-437a-863d-78ef2062b2e5",
+        "62b46be2-857f-4818-adcb-a8cf176abc0e",
+        "118cb823-0968-410c-aec2-f599e71a3a9a"
+      ],
+      "settings": {
+        "title": "PSA: ONLY USE ÜBBS IF YOU ARE...",
+        "subtitle": "",
+        "btn_url": "shopify://pages/faqs",
+        "btn_label": "Learn More",
+        "image": "shopify://shop_images/Hand-Mockup.png"
+      }
+    },
+    "1658293032100acacb": {
+      "type": "newsletter",
+      "blocks": {
+        "16582930325e82b82f-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>GET THE LATEST NEWS, OFFERS, UPDATES AND MORE</p>"
+          }
+        },
+        "16582930325e82b82f-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN OUR NEWSLETTER",
+            "heading_size": "h0"
+          }
+        },
+        "16582930325e82b82f-2": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "info_8mwwW9": {
+          "type": "info",
+          "settings": {
+            "btn_label": "",
+            "btn_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "16582930325e82b82f-1",
+        "16582930325e82b82f-0",
+        "16582930325e82b82f-2",
+        "info_8mwwW9"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "1658291420627c530a",
+    "banner",
+    "product-grid",
+    "265858f2-abca-4cec-a84e-c55972243330",
+    "16582928855dc3dfa2",
+    "1658293032100acacb"
+  ]
+}

@@ -1,0 +1,154 @@
+{% comment %}
+  <div class="box_product">
+    <h3 class="qb-title">Quick buy</h3>
+    <div class="box_d">
+      <div class="quick-buy-wrapper">
+        {% for block1 in section.blocks %}
+          {% case block1.type %}
+            {%- when 'quick-buy' -%}
+              <div class="quick-buy-box">
+                <div class="qb-options">
+                  <label class="qb-item" data-qt="{{ block1.settings.pack_label | replace: 'pack', '' }}">
+                    <div class="qb-box">
+                      <div class="qb-pack">
+                        {{ block1.settings.pack_label }}
+                      </div>
+
+                      <div class="qb-price">
+                        {% assign updatedPrice = block1.settings.pack_label | replace: 'pack', '' %}
+                       <span class="PDP-price">{{ product.selected_or_first_available_variant.price | times: updatedPrice | money }}</span>
+                        <span class="qb-unit">{{ product.price | money }}p/can</span>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endcomment %}
+
+<style>
+   .qb-options{
+   position:relative;
+
+   }
+  .qb-card {
+     position: absolute;
+     background: #000;
+     border-radius: 17px;
+     color: #fff;
+     padding: 1px 12px;
+       top: -16px;
+     left: 50%;
+     transform: translateX(-50%); /* ✅ FIX */
+     font-size: 14px !important;
+     white-space:nowrap;
+   }
+   .quick-buy-wrapper{
+       padding-top: 4%;
+   }
+   .qb-options{
+     overflow-x:clip !important;
+   }
+</style>
+
+<div class="box_product">
+  <h3 class="qb-title">Quick buy</h3>
+  <div class="box_d">
+    <div class="quick-buy-wrapper">
+      {% assign base_unit_price = product.selected_or_first_available_variant.price | divided_by: 100.0 %}
+
+      {% for block1 in section.blocks %}
+        {% case block1.type %}
+          {% when 'quick-buy' %}
+            {% assign pack_label = block1.settings.pack_label %}
+            {% assign packQty = pack_label | remove: ' Pack' | remove: ' pack' | strip | plus: 0 %}
+
+            {% assign discount = 0 %}
+            {% if packQty == 3 %}
+              {% assign discount = 41.67 %}
+            {% elsif packQty == 6 %}
+              {% assign discount = 50 %}
+            {% elsif packQty == 12 %}
+              {% assign discount = 65 %}
+            {% elsif packQty == 24 %}
+              {% assign discount = 66 %}
+              {% comment %}
+                {% elsif packQty == 48 %}
+                {% assign discount = 50 %}
+              {% endcomment %}
+            {% endif %}
+
+            {% assign base_unit_price_decimal = base_unit_price | divided_by: 100.0 %}
+            {% assign originalTotal = base_unit_price | times: packQty %}
+
+            {% assign discountMultiplier = 100 | minus: discount %}
+
+            {% assign discountedUnitPrice = base_unit_price | times: discountMultiplier | divided_by: 100.0 %}
+            {% assign discountedUnitPrice = discountedUnitPrice | round: 1 %}
+
+            {% assign discountedTotal = discountedUnitPrice | times: packQty %}
+            {% assign perCan = discountedUnitPrice %}
+
+            <div class="quick-buy-box">
+              <div class="qb-options">
+                <label class="qb-item" data-qt="{{ packQty }}">
+                  {% if packQty == 12 %}
+                    <div class="qb-card">Most popular</div>
+                  {% endif %}
+
+                  {% comment %}
+                    {% if packQty == 24 %}
+                      <div class="qb-card">Best Buy</div>
+                    {% endif %}
+                  {% endcomment %}
+
+                  <div class="qb-box">
+                    <div class="qb-pack">{{ packQty }} Pack</div>
+
+                    <div class="qb-price">
+                      <span class="PDP-price">
+                        <span class="qb-discounted-price">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-plus"
+                            width="10"
+                            height="10"
+                            viewBox="0 0 10 10"
+                          >
+                            <g id="Group_1365" data-name="Group 1365" transform="translate(-502.5 -129.5)">
+                              <line id="Line_182" data-name="Line 182" y2="10" transform="translate(507.5 129.5)" fill="none" stroke="#000" stroke-width="2.5"></line>
+                              <line id="Line_183" data-name="Line 183" x2="10" transform="translate(502.5 134.5)" fill="none" stroke="#000" stroke-width="2.5"></line>
+                            </g>
+                          </svg>
+                        </span>
+                        {% comment %}
+                          <span class="qb-old-price">
+                            <s>{{ originalTotal | times: 100 | money }}</s>
+                          </span>
+                          <span class="qb-discounted-price">
+                            {{ discountedTotal | times: 100 | money }}
+                          </span>
+                        {% endcomment %}
+                      </span>
+
+                      <span class="qb-unit" {{ perCan | times: 100 | money }}> Add to Cart </span>
+
+                      {% comment %}
+                        <span class="qb-old-price">
+
+                        </span>
+                      {% endcomment %}
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ shop.url }}"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "übbs",
+    "url": "{{ shop.url }}",
+    "logo": "{{ shop.url }}/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ shop.address.address1 }} {{ shop.address.address2 }}",
+      "addressLocality": "{{ shop.address.city }}",
+      "addressRegion": "{{ shop.address.country }}",
+      "postalCode": "{{ shop.address.zip }}",
+      "addressCountry": "GB"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "customerservices@ubbspouches.com"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "reviewCount": "159",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "4.5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Trustpilot"
+      }
+    },
+    "sameAs": [
+      "https://facebook.com/ubbspouches",
+      "https://instagram.com/ubbspouches"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Introducing Übbs Nicotine Pouches - A Tobacco-Free Alternative",
+    "description": "Übbs Tobacco-Free Nicotine Pouches aim to deliver an unparalleled nicotine experience for adult smokers and vapers.",
+    "thumbnailUrl": "https://img.youtube.com/vi/0FzROqHO5ec/maxresdefault.jpg",
+    "uploadDate": "2024-04-16",
+    "contentUrl": "https://www.youtube.com/watch?v=0FzROqHO5ec",
+    "embedUrl": "https://www.youtube.com/embed/0FzROqHO5ec",
+    "publisher": {
+      "@type": "Organization",
+      "name": "übbs",
+      "url": "{{ shop.url }}"
+    },
+    "potentialAction": {
+      "@type": "SeekToAction",
+      "target": "https://www.youtube.com/watch?v=0FzROqHO5ec&t={seek_to_second_number}",
+      "startOffset-input": "required name=seek_to_second_number"
+    }
+  } 
+]
+</script>

@@ -1,0 +1,250 @@
+<style>
+    /* Language & Country Switcher Styles */
+    .cover_image_country {
+      display: flex;
+      {% comment %} gap: 10px; {% endcomment %}
+    }
+
+    .language-switcher, .country-switcher {
+      position: relative;
+      user-select: none;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .language-selected, .country-selected {
+      border-radius: 0px;
+      padding: 0px 5px;
+      background: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .language-selected .flag-text, .country-selected .flag-text {
+      display: flex;
+      align-items: center;
+    }
+
+    .language-selected img, .country-selected img {
+      width: 20px;
+      height: 14px;
+      margin-right: 8px;
+    }
+
+    .language-selected::after, .country-selected::after {
+      content: "";
+      border-style: solid;
+      border-width: 6px 5px 0 5px;
+      border-color: #555 transparent transparent transparent;
+      margin-left: 10px;
+    }
+
+    .language-options, .country-options {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      border: 1.5px solid #888;
+      border-radius: 6px;
+      background: #fff;
+      max-height: 150px;
+      overflow-y: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: none;
+      z-index: 1000;
+      width: max-content;
+    }
+
+    .language-options {
+      right: auto!important;
+  }
+
+    .language-option, .country-option {
+      padding: 6px 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .language-option img, .country-option img {
+      width: 20px;
+      height: 14px;
+      margin-right: 8px;
+    }
+
+    .language-option:hover, .country-option:hover {
+      background-color: #eee;
+    }
+</style>
+
+<div class="cover_image_country">
+  <!-- Country Switcher -->
+  <div class="country-switcher header__icon">
+    <div class="country-selected">
+      <div class="flag-text">
+        <img src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/ae.png?v=1754047315" alt="UAE">
+        <span><b>UAE</b></span>
+      </div>
+    </div>
+    <div class="country-options">
+      <div class="country-option" data-value="uk">
+        <span><b>UK</b></span>
+        <img src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/gb.png?v=1754047195" alt="UK">
+      </div>
+      <div class="country-option" data-value="uae">
+        <span><b>UAE</b></span>
+        <img src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/ae.png?v=1754047315" alt="UAE">
+      </div>
+    </div>
+  </div>
+
+  <!-- Language Switcher -->
+  <div class="language-switcher 123 header__icon">
+    <div class="language-selected">
+      <div class="flag-text">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/English_icon_8833058d-d27d-481d-8a8d-e70e99b92d8e.png?v=1789130216"
+          alt="ENG"
+        >
+        <span><b>ENG</b></span>
+      </div>
+    </div>
+    <div class="language-options">
+      <div class="language-option" data-value="en">
+        <span><b>ENG</b></span>
+        <img
+          src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/English_icon_8833058d-d27d-481d-8a8d-e70e99b92d8e.png?v=1789130216"
+          alt="ENG"
+        >
+      </div>
+      <div class="language-option" data-value="ar">
+        <span><b>AR</b></span>
+        <img
+          src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/Arabic_Icon_96a47355-9d32-42f3-b490-593180bd3423.png?v=1789130216"
+          alt="AR"
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function updateSelection(selectedEl, optionEl) {
+    const span = selectedEl.querySelector('span');
+    const imgEl = selectedEl.querySelector('img');
+    const optSpan = optionEl.querySelector('span');
+    const optImg = optionEl.querySelector('img');
+
+    if (span && optSpan) span.textContent = optSpan.textContent;
+
+    if (optImg) {
+      if (imgEl) {
+        imgEl.src = optImg.src;
+        imgEl.alt = optImg.alt;
+      } else {
+        const newImg = document.createElement('img');
+        newImg.src = optImg.src;
+        newImg.alt = optImg.alt;
+        selectedEl.prepend(newImg);
+      }
+    }
+  }
+
+  // ------------------- Country Switcher -------------------
+  document.querySelectorAll('.country-switcher').forEach((countrySwitcher) => {
+    const selected = countrySwitcher.querySelector('.country-selected .flag-text');
+    const options = countrySwitcher.querySelector('.country-options');
+
+    selected.parentElement.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.querySelectorAll('.language-options').forEach((opt) => (opt.style.display = 'none'));
+      options.style.display = options.style.display === 'block' ? 'none' : 'block';
+    });
+
+    options.querySelectorAll('.country-option').forEach((option) => {
+      option.addEventListener('click', () => {
+        const selectedValue = option.dataset.value;
+        const countryUrls = { uk: 'ubbspouches.com', uae: 'ubbspouches.ae' };
+        const targetHost = countryUrls[selectedValue];
+        const currentHost = window.location.host;
+
+        if (targetHost && currentHost !== targetHost) {
+          // Redirect to same path on target domain
+          //const newUrl =
+          //window.location.protocol + '//' + targetHost + window.location.pathname + window.location.search;
+
+          const newUrl = window.location.protocol + '//' + targetHost + '/';
+          window.location.href = newUrl;
+          return;
+        }
+        updateSelection(selected, option);
+        options.style.display = 'none';
+      });
+    });
+  });
+
+  // ------------------- Language Switcher -------------------
+  document.querySelectorAll('.language-switcher').forEach((languageSwitcher) => {
+    const selected = languageSwitcher.querySelector('.language-selected .flag-text');
+    const options = languageSwitcher.querySelector('.language-options');
+
+    languageSwitcher.style.position = 'relative'; // ensure absolute dropdown works
+
+    selected.parentElement.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.querySelectorAll('.country-options').forEach((opt) => (opt.style.display = 'none'));
+      options.style.display = options.style.display === 'block' ? 'none' : 'block';
+    });
+
+    options.querySelectorAll('.language-option').forEach((option) => {
+      option.addEventListener('click', () => {
+        const value = option.dataset.value; // 'en' or 'ar'
+        const pathParts = window.location.pathname.split('/').filter((p) => p);
+        const languages = ['en', 'ar'];
+
+        // Replace first segment if it's a language
+        if (languages.includes(pathParts[0])) {
+          pathParts[0] = value === 'en' ? '' : value;
+        } else if (value !== 'en') {
+          pathParts.unshift(value);
+        }
+
+        const newPath = '/' + pathParts.filter(Boolean).join('/');
+        updateSelection(selected, option);
+        options.style.display = 'none';
+        window.location.href = newPath;
+      });
+    });
+
+    // Auto-detect language from URL
+    const firstSegment = window.location.pathname.split('/')[1];
+    const currentLangOption = Array.from(options.children).find((opt) => opt.dataset.value === firstSegment);
+    if (currentLangOption) updateSelection(selected, currentLangOption);
+  });
+
+  // ------------------- Auto-detect country from domain -------------------
+  document.addEventListener('DOMContentLoaded', () => {
+    const currentHost = window.location.host;
+    const countryMap = { 'ubbspouches.com': 'uk', 'ubbspouches.ae': 'uae' };
+
+    const countryCode = countryMap[currentHost];
+    if (countryCode) {
+      document.querySelectorAll('.country-switcher').forEach((countrySwitcher) => {
+        const selected = countrySwitcher.querySelector('.country-selected .flag-text');
+        const options = countrySwitcher.querySelector('.country-options');
+        const match = Array.from(options.children).find((opt) => opt.dataset.value === countryCode);
+        if (match) updateSelection(selected, match);
+      });
+    }
+  });
+
+  // ------------------- Close dropdowns on outside click -------------------
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.country-options, .language-options').forEach((opt) => {
+      opt.style.display = 'none';
+    });
+  });
+</script>

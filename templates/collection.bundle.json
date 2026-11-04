@@ -1,0 +1,326 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1658291420627c530a": {
+      "type": "pages-banner-section",
+      "disabled": true,
+      "settings": {
+        "title": "Nicotine Pouch Bundles",
+        "subtitle": "Struggling to find your favourite pouch or keen to try something new? Our nicotine pouch bundle options make it easy. Choose from expertly selected mix packs based on flavour, strength, and bestsellers, helping you explore, save, and enjoy. Whether you're after bold hits or smooth satisfaction, each bundle delivers a premium experience tailored to your taste. Flavour discovery starts here.",
+        "banner_img": "shopify://shop_images/Our_Responsibility_img.png",
+        "big_circle": "shopify://shop_images/Ellipse_1_f4b9fad7-d4a0-485b-a689-e230ad03773b.png"
+      }
+    },
+    "banner_wNhKCi": {
+      "type": "banner",
+      "blocks": {
+        "slide_7drpCE": {
+          "type": "slide",
+          "settings": {
+            "use_video": false,
+            "image": "shopify://shop_images/Banner_3_-_1920_x_400.jpg",
+            "tablet_image": "shopify://shop_images/Banner_3_-_1920_x_400.jpg",
+            "mobile_image": "shopify://shop_images/Banner_3_-_1080_x_500.jpg",
+            "image_alt": "",
+            "subheading": "10 AED per can",
+            "subheading_color": "#000000",
+            "heading": "introducing<br>\nIce mint mini",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "text_color": "#000000",
+            "text_align": "left",
+            "content_position": "center-left"
+          }
+        },
+        "slide_Mw7Agq": {
+          "type": "slide",
+          "settings": {
+            "use_video": false,
+            "image": "shopify://shop_images/Banner_2_-_1920_x_400.jpg",
+            "tablet_image": "shopify://shop_images/Banner_2_-_1920_x_400.jpg",
+            "mobile_image": "shopify://shop_images/Banner_2_-_1080_x_500.jpg",
+            "image_alt": "",
+            "subheading": "",
+            "subheading_color": "#000000",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "text_color": "#000000",
+            "text_align": "left",
+            "content_position": "center-left"
+          }
+        },
+        "slide_AJ8R3U": {
+          "type": "slide",
+          "settings": {
+            "use_video": false,
+            "image": "shopify://shop_images/Banner_1_-_1920_x_400.jpg",
+            "tablet_image": "shopify://shop_images/Banner_1_-_1920_x_400.jpg",
+            "mobile_image": "shopify://shop_images/Banner_1_-_1080_x_500.jpg",
+            "image_alt": "",
+            "subheading": "Discover Menthol 14mg, Peppermint 6mg & Peppermint 20mg",
+            "subheading_color": "#000000",
+            "heading": "NEW ÜBBS<br>\nSTRENGTHS",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "text_color": "#000000",
+            "text_align": "left",
+            "content_position": "center-left"
+          }
+        }
+      },
+      "block_order": [
+        "slide_7drpCE",
+        "slide_Mw7Agq",
+        "slide_AJ8R3U"
+      ],
+      "name": "Banner Slider",
+      "settings": {}
+    },
+    "custom_collection_banner_tGYCCz": {
+      "type": "custom-collection-banner",
+      "name": "Custom Collection Banner",
+      "settings": {
+        "title": "<p>{{ collection.metafields.custom.collection_title | metafield_tag }}</p>",
+        "subtitle": "<p>{{ collection.metafields.custom.collection_subheading | metafield_tag }}</p>"
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 3,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": false,
+        "columns_mobile": "1",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "seo_content_HXVqBL": {
+      "type": "seo_content",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "subtitle": "<p>Embrace your freedom of choice and embark on your Übbs journey today.</p>"
+      }
+    },
+    "990420e6-09a2-4f6f-b39d-dc524c65f0f4": {
+      "type": "video_new",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "video_url": "https://www.youtube.com/watch?v=ebNyTs6-ZVQ",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "below_fold_copy_cfUctx": {
+      "type": "Below_Fold_Copy",
+      "name": "Below Fold Copy",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "faq_tab_accordion_1_nkRra3": {
+      "type": "faq_tab_accordion_1",
+      "blocks": {
+        "text_BQH49b": {
+          "type": "text",
+          "settings": {
+            "ques": "What is a nicotine pouch bundle?",
+            "ans": "<p>A nicotine pouch bundle is a curated collection of different flavoured nicotine pouches packaged together at a discounted price. Rather than buying individual cans, each nicotine pouch bundle gives you multiple flavours to try, helping you discover your preferences while saving money and exploring variety.</p>"
+          }
+        },
+        "text_t9TRFH": {
+          "type": "text",
+          "settings": {
+            "ques": "What nicotine pouch bundles are available?",
+            "ans": "<p>We offer five different nicotine pouch bundle options to suit every taste: the <a href=\"https://ubbspouches.com/products/best-seller-bundle\"><span style=\"text-decoration:underline\">Best Seller Bundle</span></a> (our most popular flavours), <a href=\"https://ubbspouches.com/products/mint-bundle\"><span style=\"text-decoration:underline\">Mint Bundle</span></a> (for mint enthusiasts), <a href=\"https://ubbspouches.com/products/fruit-bundle\"><span style=\"text-decoration:underline\">Fruit Bundle</span></a> (sweet and fruity options), <a href=\"https://ubbspouches.com/products/mix-bundle\"><span style=\"text-decoration:underline\">Mix Bundle</span></a> (variety pack for explorers), and <a href=\"https://ubbspouches.com/products/starter-bundle\"><span style=\"text-decoration:underline\">Starter Bundle</span></a> (perfect introduction with maximum savings). Each nicotine pouch bundle is designed for different preferences and needs.</p>"
+          }
+        },
+        "text_EKQkG3": {
+          "type": "text",
+          "settings": {
+            "ques": "How much can I save with a nicotine pouch bundle?",
+            "ans": "<p>Our nicotine pouch bundle savings are significant! Most bundles offer 33% off the regular price (£4.00 per can instead of £5.99), while our <a href=\"https://ubbspouches.com/products/starter-bundle\"><span style=\"text-decoration:underline\">Starter Bundle</span></a> provides the best value at 44% off (£3.33 per can). Every nicotine pouch bundle delivers better value than buying individual cans.</p>"
+          }
+        },
+        "text_bEwFzc": {
+          "type": "text",
+          "settings": {
+            "ques": "Which nicotine pouch bundle is best for beginners?",
+            "ans": "<p>The <a href=\"https://ubbspouches.com/products/starter-bundle\"><span style=\"text-decoration:underline\">Starter Bundle</span></a> is specifically designed for newcomers, offering maximum savings (44% off) and a great introduction to nicotine pouches. However, any nicotine pouch bundle works well for beginners - the <a href=\"https://ubbspouches.com/products/mix-bundle\"><span style=\"text-decoration:underline\">Mix Bundle</span></a> is also excellent for first-timers who want to explore different flavour profiles.</p>"
+          }
+        },
+        "text_JF8mhw": {
+          "type": "text",
+          "settings": {
+            "ques": "Can I choose my nicotine strength for any nicotine pouch bundle?",
+            "ans": "<p>Yes! Every nicotine pouch bundle is available in both Regular (6mg per pouch) and Strong (11mg per pouch) strengths. Whether you prefer a milder experience or something stronger, you can select the nicotine level that matches your preferences across any bundle option.</p>"
+          }
+        },
+        "text_GPNAJP": {
+          "type": "text",
+          "settings": {
+            "ques": "How do I know which nicotine pouch bundle suits me?",
+            "ans": "<p>If you want proven favourites, choose the <a href=\"https://ubbspouches.com/products/best-seller-bundle\"><span style=\"text-decoration:underline\">Best Seller Bundle</span></a>. Love minty freshness? The <a href=\"https://ubbspouches.com/products/mint-bundle\"><span style=\"text-decoration:underline\">Mint Bundle</span></a> is perfect. Prefer sweet flavours? Go for the <a href=\"https://ubbspouches.com/products/fruit-bundle\"><span style=\"text-decoration:underline\">Fruit Bundle</span></a>. Want maximum variety? The <a href=\"https://ubbspouches.com/products/mix-bundle\"><span style=\"text-decoration:underline\">Mix Bundle</span></a> covers all bases. New to pouches? The <a href=\"https://ubbspouches.com/products/starter-bundle\"><span style=\"text-decoration:underline\">Starter Bundle</span></a> offers the best value and variety to begin your journey.</p>"
+          }
+        },
+        "text_Rf3a7L": {
+          "type": "text",
+          "settings": {
+            "ques": "How many pouches come in each nicotine pouch bundle?",
+            "ans": "<p>Each nicotine pouch bundle contains multiple cans with 20 pouches per can. The exact number varies by bundle, but you'll get plenty of pouches to properly experience each flavour and decide which ones you want to reorder individually.</p>"
+          }
+        },
+        "text_wagxRw": {
+          "type": "text",
+          "settings": {
+            "ques": "Can I mix and match different bundles?",
+            "ans": "<p>While each nicotine pouch bundle is pre-curated for specific preferences, you can certainly order multiple different bundles to create your own mega-variety pack. Many customers combine bundles to ensure they always have their favourite flavours plus some variety options.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_BQH49b",
+        "text_t9TRFH",
+        "text_EKQkG3",
+        "text_bEwFzc",
+        "text_JF8mhw",
+        "text_GPNAJP",
+        "text_Rf3a7L",
+        "text_wagxRw"
+      ],
+      "custom_css": [],
+      "settings": {
+        "heading": "Common Faq's"
+      }
+    },
+    "16582928855dc3dfa2": {
+      "type": "image_with_text_section",
+      "blocks": {
+        "56502c04-5fd1-4644-9651-87995b052c27": {
+          "type": "text",
+          "settings": {
+            "list_item": "Over 18 years of age."
+          }
+        },
+        "5e7573de-18ef-437a-863d-78ef2062b2e5": {
+          "type": "text",
+          "settings": {
+            "list_item": "Not pregnant, nursing or susceptible to cardiovascular disease."
+          }
+        },
+        "62b46be2-857f-4818-adcb-a8cf176abc0e": {
+          "type": "text",
+          "settings": {
+            "list_item": "Aware that nicotine is a highly addictive substance."
+          }
+        },
+        "118cb823-0968-410c-aec2-f599e71a3a9a": {
+          "type": "text",
+          "settings": {
+            "list_item": "An existing smoker or vaper."
+          }
+        }
+      },
+      "block_order": [
+        "56502c04-5fd1-4644-9651-87995b052c27",
+        "5e7573de-18ef-437a-863d-78ef2062b2e5",
+        "62b46be2-857f-4818-adcb-a8cf176abc0e",
+        "118cb823-0968-410c-aec2-f599e71a3a9a"
+      ],
+      "settings": {
+        "title": "ONLY USE ÜBBS IF YOU ARE:",
+        "subtitle": "",
+        "btn_url": "shopify://pages/faqs",
+        "btn_label": "Learn More"
+      }
+    },
+    "1658293032100acacb": {
+      "type": "newsletter",
+      "blocks": {
+        "16582930325e82b82f-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>FOR THE LATEST NEWS AND UPDATES</p>"
+          }
+        },
+        "16582930325e82b82f-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN OUR NEWSLETTER",
+            "heading_size": "h0"
+          }
+        },
+        "16582930325e82b82f-2": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "info_z3CeaE": {
+          "type": "info",
+          "settings": {
+            "btn_label": "Privacy Policy",
+            "btn_url": "shopify://policies/privacy-policy"
+          }
+        }
+      },
+      "block_order": [
+        "16582930325e82b82f-1",
+        "16582930325e82b82f-0",
+        "16582930325e82b82f-2",
+        "info_z3CeaE"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "1658291420627c530a",
+    "banner_wNhKCi",
+    "custom_collection_banner_tGYCCz",
+    "banner",
+    "product-grid",
+    "seo_content_HXVqBL",
+    "990420e6-09a2-4f6f-b39d-dc524c65f0f4",
+    "below_fold_copy_cfUctx",
+    "faq_tab_accordion_1_nkRra3",
+    "16582928855dc3dfa2",
+    "1658293032100acacb"
+  ]
+}

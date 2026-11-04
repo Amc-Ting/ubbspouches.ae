@@ -1,0 +1,70 @@
+<div id="the_best_feeling">
+  <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/element04.png" alt="" class="element1 element img-responsive" />
+  <div class="container">
+     <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/element04.png" alt="" class="element2 element img-responsive" />
+     <div class="element_03">
+        <img src="{{ section.settings.big_circle | img_url: 'master' }}" class="img-responsive" alt="" />
+     </div>
+     <div class="element_01">
+        <img src="{{ section.settings.small_circle | img_url: 'master' }}" class="img-responsive" alt="" />
+     </div>
+
+     <div class="the_best_feeling_inner">
+        <div class="sec_left">
+           <h1 class="text_xl text_400 bs_title">{{ section.settings.title }}</h1>
+
+           <h2 class="text_lg text_400 be_text">{{ section.settings.subtitle }}</h2>
+           <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/element04.png" alt="" class="element3 element img-responsive" />
+        </div>
+        <div class="sec_right">
+           <div class="element_02">
+              <div class="blur_circle"></div>
+           </div>
+           <img src="{{ section.settings.banner_img | img_url: 'master' }}" class="img-responsive" alt="" />
+        </div>
+     </div>
+  </div>
+</div>
+{% schema %}
+  {
+   "name":"Pages Banner",
+   "settings":[
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title"
+      },
+	  {
+         "type":"text",
+         "id":"subtitle",
+         "label":"Subheading"
+      },
+	  {
+         "type":"image_picker",
+         "id":"banner_img",
+         "label":"Image"
+      },
+      {
+         "type":"image_picker",
+         "id":"big_circle",
+         "label":"Add Image"
+      },
+	  {
+         "type":"image_picker",
+         "id":"small_circle",
+         "label":"Add Image"
+      }
+   ],
+	"presets": [
+      {
+      "name": "Pages Banner"
+      }
+   ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

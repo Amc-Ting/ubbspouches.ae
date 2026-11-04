@@ -1,0 +1,271 @@
+<div class="rewards-banner">
+  <div class="banner-image">
+    <picture>
+      <source
+        media="(max-width:767px)"
+        srcset="{{ section.settings.mob_image | image_url: width: 800, format: 'webp' }}"
+      >
+      <source
+        media="(min-width: 768px) and (max-width: 991px)"
+        srcset="{{ section.settings.tab_image | image_url: width: 800, format: 'webp' }}"
+      >
+      <img
+        src="{{ section.settings.desk_image | img_url: 'master' }}"
+        loading="lazy"
+        alt="Flowers"
+        style="width:100%;max-width: 100%;height: auto;display: block;"
+        width=""
+        height=""
+      >
+    </picture>
+  </div>
+  <div class="banner-content">
+    <div class="banner-element">
+      <picture>
+        <source
+          media="(max-width:768px)"
+          srcset="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/homepage-angle-banner-img---peppermint_b71b4ba2-8fb8-4feb-8c90-2e431b9fb52d.png?v=1789127327"
+        >
+        <img
+          src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/homepage-angle-banner-img---peppermint_b71b4ba2-8fb8-4feb-8c90-2e431b9fb52d.png?v=1789127327"
+          loading="lazy"
+          alt="Flowers"
+          style="width:auto;max-width: 100%;height: auto;display: block;"
+          width="100%"
+          height="100%"
+        >
+      </picture>
+      <!-- <img src="" alt="Flowers" style="width:auto;max-width: 100%;height: auto;display: block;"> -->
+    </div>
+    <div class="row">
+      <div class="Ban-heading fadeInUp">{{ section.settings.row1_heading }}</div>
+      <div class="Ban-text fadeInUp">{{ section.settings.row1_text }}</div>
+      <div class="Ban-button fadeInUp">
+        <a href="/pages/ubbs-rewards" class="cmn_btn banner-btn">{{ section.settings.row1_button_text }}</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="Ban-heading fadeInUp">{{ section.settings.row2_heading }}</div>
+      <div class="Ban-text fadeInUp">{{ section.settings.row2_text }}</div>
+      <div class="Ban-button fadeInUp">
+        <a href="/pages/ubbs-rewards#shopify-section-reward_nicotine_section" class="cmn_btn banner-btn">
+          {{- section.settings.row2_button_text -}}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+    .rewards-banner {
+      /* display: flex; */
+      position: relative;
+      align-items: center;
+      text-align: center;
+    }
+    .banner-image img{
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .rewards-banner .banner-content{
+      position: absolute;
+      top: 50% !important;
+      left: 0;
+      transform: translateY(-50%) !important;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20rem;
+      padding: 10rem;
+      box-sizing: border-box;
+    }
+    .banner-element{
+      position: absolute;
+      bottom: 0;
+      max-width: 240px;
+      z-index: 1;
+      transform: translateY(30%);
+    }
+    .row {
+      max-width: 435px;
+    }
+    .row:not(:last-child):after{
+      content:'';
+      position: absolute;
+      top: 5%;
+      bottom: 5%;
+      left: 50%;
+      width:1px;
+      background: #000000;
+      background: linear-gradient(0deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+    }
+    .Ban-heading {
+      font-family: 'KronaRegular';
+      font-weight: 400;
+      font-size: 52px;
+      line-height: 100%;
+      letter-spacing: 0;
+      text-align: center;
+      text-transform: uppercase;
+      color: #000 !important;
+  }
+    .Ban-text {
+      font-family: 'BlinkerRegular';
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 100%;
+      letter-spacing: 0;
+      text-align: center;
+      padding: 0 4rem;
+      margin: 2rem 0 3rem;
+      color: #000;
+  }
+    a.banner-btn {
+      font-family: 'BlinkerRegular';
+      font-size: 18px;
+      line-height: 56px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #000000;
+      padding: 0px 30px 0px;
+      border-radius: 50px;
+      {% comment %} transition:ease all .3s; {% endcomment %}
+      border: 2px solid #000;
+  }
+    {% comment %} a.banner-btn:hover {
+      background-color: #fff;
+      color: #000;
+  } {% endcomment %}
+    @media screen and (max-width: 767px){
+      .rewards-banner .banner-content {
+        flex-direction: column;
+        gap: 4rem;
+        padding: 2rem;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+      }
+      .Ban-heading {
+          font-size: 45px;
+      }
+      .Ban-text {
+          font-size: 16px;
+      }
+      .row:not(:last-child):after {
+          top: 50%;
+          bottom: auto;
+          left: 10%;
+          right: 10%;
+          width: 80%;
+          height: 1px;
+          background: #000000;
+          background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+      }
+      .banner-element {
+          position: absolute;
+          bottom: auto;
+          right: 0px;
+          max-width: 100px;
+          z-index: 1;
+          transform: none;
+      }
+    }
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+    .rewards-banner .banner-content {
+      position: absolute;
+      top: 50% !important;
+      left: 0;
+      transform: translateY(-50%) !important;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6rem;
+      padding: 4rem;
+      }
+      .row {
+          max-width: 300px;
+      }
+      .Ban-heading {
+        font-size: 36px;
+      }
+      .Ban-text{
+        padding:0;
+      }
+      .banner-element{max-width:160px;}
+    }
+    @media screen and (min-width: 1600px){
+      .rewards-banner .banner-content {
+          gap: 20rem;
+          padding: 10rem;
+      }
+    }
+</style>
+{% schema %}
+{
+  "name": "Rewards Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desk_image",
+      "label": "Desktop banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "tab_image",
+      "label": "Tablet banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "mob_image",
+      "label": "Mobile banner"
+    },
+    {
+      "type": "header",
+      "content": "First Row Content"
+    },
+    {
+      "type": "text",
+      "id": "row1_heading",
+      "label": "Heading (Row 1)"
+    },
+    {
+      "type": "textarea",
+      "id": "row1_text",
+      "label": "Text (Row 1)"
+    },
+    {
+      "type": "text",
+      "id": "row1_button_text",
+      "label": "Button Text (Row 1)"
+    },
+    {
+      "type": "header",
+      "content": "Second Row Content"
+    },
+    {
+      "type": "text",
+      "id": "row2_heading",
+      "label": "Heading (Row 2)"
+    },
+    {
+      "type": "textarea",
+      "id": "row2_text",
+      "label": "Text (Row 2)"
+    },
+    {
+      "type": "text",
+      "id": "row2_button_text",
+      "label": "Button Text (Row 2)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rewards Banner"
+    }
+  ]
+}
+{% endschema %}

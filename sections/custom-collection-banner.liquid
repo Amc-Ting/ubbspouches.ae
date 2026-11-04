@@ -1,0 +1,181 @@
+<style>
+  .custom_collection_banner#the_best_feeling .the_best_feeling_inner {
+      display: flex;
+      align-items: unset;
+      justify-content: unset;
+  }
+
+  .custom_collection_banner .text_lg.text_400.be_text.more {
+      max-width: 590px;
+      padding-top: 10px;
+  }
+  .custom_collection_banner#the_best_feeling {
+      {% comment %} padding: 115px 0; {% endcomment %}
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100%;
+      padding: 13% 0;
+  }
+  .bs_title{
+    text-transform: uppercase;
+  }
+  .custom_collection_banner .morelink {
+      color: #000;
+  }
+  .col-inner.mob {
+    display: none;
+  }
+  .col-inner.desk h1.text_xl.text_400.bs_title {
+      padding-top: 40px;
+      padding-bottom: 28px;
+  }
+
+  .morelink {
+      color: #000;
+              text-decoration: underline !important;
+          text-underline-offset: 2px;
+  }
+  @media (max-width: 768px) {
+    .col-inner.mob {
+      display: block;
+    }
+    .col-inner.desk {
+      display: none;
+    }
+
+    .col-inner.mob .the_best_feeling_inner .sec_left .be_text {
+      font-size: 14px !important;
+      letter-spacing: 0;
+      font-family: BlinkerREgular !important;
+      padding-top: 10px;
+      color:#000;
+    }
+    .col-inner.mob .morelink {
+      color: #000;
+    }
+  }
+
+  @media (max-width: 600px) {
+
+  }
+</style>
+
+<section>
+  {% comment %}
+    <div class="custom_collection_banner" id="the_best_feeling" style="background-image: url('{{ section.settings.banner_img | image_url }}')">
+    </div>
+  {% endcomment %}
+  <div class="page-width col-inner desk">
+    <div class="the_best_feeling_inner">
+      <div class="sec_left">
+        <h1 class="text_xl text_400 bs_title">
+          {{ section.settings.title }}
+        </h1>
+
+        <p class="text_lg text_400 be_text more">
+          {{ section.settings.subtitle | strip_html }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="page-width col-inner mob">
+    <div class="the_best_feeling_inner">
+      <div class="sec_left">
+        <h1 class="text_xl text_400 bs_title">
+          {{ section.settings.title }}
+        </h1>
+
+        <p class="text_lg text_400 be_text more">
+          {{ section.settings.subtitle | strip_html }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Configure/customize these variables.
+    var showChar = 150; // How many characters are shown by default
+    var ellipsestext = '...';
+    var moretext = 'Show more';
+    var lesstext = 'Show less';
+
+    var moreElements = document.querySelectorAll('.more');
+
+    moreElements.forEach(function (el) {
+      var content = el.innerHTML;
+
+      if (content.length > showChar) {
+        var c = content.substr(0, showChar);
+        var h = content.substr(showChar);
+
+        var html =
+          c +
+          '<span class="moreellipses">' +
+          ellipsestext +
+          '&nbsp;</span>' +
+          '<span class="morecontent"><span style="display:none;">' +
+          h +
+          '</span>&nbsp;&nbsp;<a href="#" class="morelink">' +
+          moretext +
+          '</a></span>';
+
+        el.innerHTML = html;
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (e.target && e.target.classList.contains('morelink')) {
+        e.preventDefault();
+
+        var link = e.target;
+        var moreContent = link.parentElement;
+        var ellipses = moreContent.previousElementSibling;
+
+        if (link.classList.contains('less')) {
+          link.classList.remove('less');
+          link.innerHTML = moretext;
+          ellipses.style.display = 'inline';
+          moreContent.querySelector('span').style.display = 'none';
+        } else {
+          link.classList.add('less');
+          link.innerHTML = lesstext;
+          ellipses.style.display = 'none';
+          moreContent.querySelector('span').style.display = 'inline';
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Custom Collection Banner",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_img",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Collection Banner"
+    }
+  ]
+}
+{% endschema %}

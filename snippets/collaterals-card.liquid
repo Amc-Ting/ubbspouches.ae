@@ -1,0 +1,83 @@
+{%- liquid
+  assign ratio = 1
+  if media_aspect_ratio != null
+    assign ratio = media_aspect_ratio
+  endif
+-%}
+<div class="article-card-wrapper card-wrapper underline-links-hover" {{ article.file.value }}>
+  <div
+    class="card article-card card--standard article-card__image--medium"
+    style="--ratio-percent: {{ 1 | divided_by: ratio | times: 80 }}%;"
+  >
+    <div
+      class="card__inner {% if settings.blog_card_style == 'standard' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %} ratio"
+      style="--ratio-percent: {{ 1 | divided_by: ratio | times: 80 }}%; height:var(--ratio-percent);"
+    >
+      {%- if show_image == true and article.banner_image.value -%}
+        <div class="article-card__image-wrapper card__media">
+          <div
+            class="article-card__image media media--hover-effect"
+            {% if section.settings.media_height == 'adapt' %}
+              style="padding-bottom: {{ 1 | divided_by: article.banner_image.value.aspect_ratio | times: 80 }}%;"
+            {% endif %}
+          >
+            {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+            <img
+              srcset="
+                {%- if article.banner_image.value.width >= 165 -%}{{ article.banner_image.value | image_url: width: 165 }} 165w,{%- endif -%}
+                {%- if article.banner_image.value.width >= 360 -%}{{ article.banner_image.value | image_url: width: 360 }} 360w,{%- endif -%}
+                {%- if article.banner_image.value.width >= 533 -%}{{ article.banner_image.value | image_url: width: 533 }} 533w,{%- endif -%}
+                {%- if article.banner_image.value.width >= 720 -%}{{ article.banner_image.value | image_url: width: 720 }} 720w,{%- endif -%}
+                {%- if article.banner_image.value.width >= 1000 -%}{{ article.banner_image.value | image_url: width: 1000 }} 1000w,{%- endif -%}
+                {%- if article.banner_image.value.width >= 1500 -%}{{ article.banner_image.value | image_url: width: 1500 }} 1500w,{%- endif -%}
+                {{ article.banner_image.value | image_url }} {{ article.banner_image.value.width }}w
+              "
+              src="{{ article.banner_image.value | image_url: width: 533 }}"
+              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+              alt="{{ article.banner_image.value.alt | escape }}"
+              class="motion-reduce"
+              {% unless lazy_load == false %}
+                loading="lazy"
+              {% endunless %}
+              width="{{ article.banner_image.value.width }}"
+              height="{{ article.banner_image.value.height }}"
+            >
+            {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+          </div>
+        </div>
+      {% else %}
+        {%- assign placeholder_image_index = forloop.index0 | modulo: 3 | plus: 1 -%}
+        {%- assign placeholder_image = 'blog-apparel-' | append: placeholder_image_index -%}
+        <div class="article-card__image-wrapper card__media">
+          <div class="article-card__image media media--hover-effect">
+            {{ placeholder_image | placeholder_svg_tag: 'blog-placeholder-svg' }}
+          </div>
+        </div>
+      {%- endif -%}
+      <div class="card__content visually-hidden">
+        <div class="card__information">
+          <div class="rte-width blog-title">
+            {{ article.title.value | truncate: 80 | escape }}          
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card__content">
+      <div class="card__information">
+        <div class="rte-width blog-title">
+            {{ article.title.value | truncate: 80 | escape }}          
+        </div>
+        <div>
+          {% if article.file.value  %}
+          <a href="{% if article.file.value contains "files" %}{{ article.file.value }}{% else %}{{ article.file.value.url }}{% endif %}"  class="button" download="{% if article.file.value contains "files" %}{{ article.file.value | remove:"files/" }}{% else %}UBBS Compressed{% endif %}">Download</a>
+          {% else %}
+            <a class="button" target="_blank" href="{{ article.file_url.value }}">Download</a>     
+            {% endif %}
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .blog-title{font-size: 24px; color: #231F20;}
+</style>

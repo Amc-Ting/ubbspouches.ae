@@ -1,0 +1,110 @@
+{% if article.metafields.custom.product_carousel != blank %}
+  {% comment %} {{ article.metafields.custom.product_carousel.value | json }} {% endcomment %}
+  {{ 'component-card.css' | asset_url | stylesheet_tag }}
+  {{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+  <link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+  <noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+  <noscript>{{ 'template-collection.css' | asset_url | stylesheet_tag }}</noscript>
+  <style>
+    @media screen and (min-width: 990px) {
+        .product_carousel .slider--desktop.grid--3-col-desktop .grid__item{
+            width: calc(33.33% - var(--grid-desktop-horizontal-spacing)* 2 / 3) !important;
+        }
+        .product_carousel  .slider--desktop .slider__slide:first-child {
+            margin-left: unset ;
+            scroll-margin-left: unset;
+            padding-left: 15px;
+        }
+        .product_carousel .slider-button[disabled] .slick-arrow{
+            opacity:0.3;
+        }
+        .product_carousel .slider--desktop{
+            scroll-padding-left: unset;
+            padding-right: 15px;
+        }
+        .product_carousel .left-arrow{
+            position:absolute;
+            left:0;
+            top:40%;
+        }
+        .product_carousel .right-arrow{
+            position:absolute;
+            right:0;
+            top:40%;
+        }
+    }
+    .card-information {
+      position: relative;
+    }
+    .product-grid .jdgm-widget.jdgm-widget{
+      position: absolute;
+      top: -10px;
+    }
+  </style>
+
+  <slider-component class="product_carousel slider-mobile-gutter page-width page-width page-width-desktop">
+    <ul
+      id="Slider-{{ section.id }}"
+      class="grid product-grid contains-card grid--3-col-desktop grid--1-col-tablet-down slider slider--desktop"
+      role="list"
+      aria-label="Slider"
+    >
+      {%- for product in article.metafields.custom.product_carousel.value -%}
+        <li
+          id="Slide-{{ section.id }}-{{ forloop.index }}"
+          class="grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %} "
+        >
+          {% render 'card-product-new',
+            card_product: product,
+            media_aspect_ratio: section.settings.image_ratio,
+            show_secondary_image: section.settings.show_secondary_image,
+            show_vendor: section.settings.show_vendor,
+            show_rating: section.settings.show_rating,
+            show_quick_add: section.settings.enable_quick_add,
+            section_id: section.id
+          %}
+        </li>
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          <li class="grid__item">
+            {% render 'card-product', show_vendor: section.settings.show_vendor %}
+          </li>
+        {%- endfor -%}
+      {%- endfor -%}
+    </ul>
+    <div class="slider-buttons no-js-hidden">
+      <button
+        type="button"
+        class="slider-button slider-button--prev"
+        name="previous"
+        aria-label="{{ 'general.slider.previous_slide' | t }}"
+        aria-controls="Slider-{{ section.id }}"
+      >
+        <img
+          class="left-arrow slick-arrow"
+          src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/left_arrow.png?v=1696511384"
+          style=""
+        >
+      </button>
+      <button
+        type="button"
+        class="slider-button slider-button--next"
+        name="next"
+        aria-label="{{ 'general.slider.next_slide' | t }}"
+        aria-controls="Slider-{{ section.id }}"
+      >
+        <img
+          class="ppppp right-arrow slick-arrow"
+          src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/right_arrow.png?v=1696511384"
+          style=""
+        >
+      </button>
+    </div>
+  </slider-component>
+{% endif %}

@@ -1,0 +1,202 @@
+<section id="nicotine_section_">
+  <div class="">
+    <div class="nicotine_inner">
+      <h2 class="text_xxl font_heading text_400 color_spearmint fadeInUp">
+        {{ section.settings.title }}
+      </h2>
+      <div class=" fadeInUp">
+        {{ section.settings.subtitle }}
+      </div>
+      {% if section.settings.btntitle != blank %}
+        <a href="{{ section.settings.btnlink }}" class="cmn_btn fadeInUp">{{ section.settings.btntitle }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+<style>
+  section#nicotine_section_ {
+      position: relative;
+  }
+
+  .nicotine_inner {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding-left: 135px;
+  }
+  .main_page-ubbs-rewards  #nicotine_section_ {
+      background-image: url(//ubbspouches.com/cdn/shop/files/refer_bg.webp?v=1761221484) !important;
+      background-position: center right;
+      /* height: 100%; */
+      height: calc(100vw * 853 / 1920);
+      background-size: cover;
+      background-repeat: no-repeat;
+  }
+  .main_page-ubbs-rewards .fadeInUp p {
+      color: #fff;
+      padding: 20px 0;
+  }
+    /*   page-way-to-earn */
+    .main_page-ubbs-rewards  #nicotine_section_ {
+      background-image: url({{ section.settings.big_image | img_url: "master" }}) !important;
+        background-position: center right;
+    }
+        .main_page-ubbs-rewards  #nicotine_section_ .fs16{
+      font-size: 16px !important;
+    }
+        .main_page-ubbs-rewards .nicotine_inner ul{
+        padding-left:17px;
+        }
+       .main_page-ubbs-rewards .nicotine_inner ul li{
+        color:#fff;
+        list-style: decimal;
+       }
+        .main_page-ubbs-rewards .nicotine_inner ul li::marker{
+        color:var(--color_spearmint);
+        }
+        @media (min-width:990px){
+          .main_page-ubbs-rewards #nicotine_section_ .nicotine_inner{
+            width: 50% !important;
+         }
+        }
+        @media  (max-width:991px) and (min-width:767px){
+          .main_page-ubbs-rewards #nicotine_section_ .nicotine_inner{
+            width: 70% !important;
+         }
+        }
+
+        @media only screen and (max-width: 1050px) {
+           #nicotine_section_   .text_xxl {
+          font-size: 34px !important;
+      }
+          .nicotine_inner {
+      padding-left: 35px;
+  }
+  #nicotine_section_ li {
+          font-size: 16px !important;
+      }
+  #nicotine_section_ p {
+          font-size: 16px !important;
+          padding: 10px 0;
+      }
+  }
+  @media only screen and (max-width: 1300px) {
+  .nicotine_inner {
+  padding-left: 25px;
+  }
+  }
+        @media only screen and (max-width: 989px) {
+           #nicotine_section_   .text_xxl {
+          font-size: 30px !important;
+      }
+          .nicotine_inner {
+      padding-left: 25px;
+  }
+  #nicotine_section_ p {
+          font-size: 14px !important;
+      }
+  #nicotine_section_ li {
+          font-size: 14px !important;
+      }
+  }
+        @media only screen and (max-width: 600px) {
+          .nicotine_inner {
+      top: 28%;
+  }
+          #nicotine_section_ p {
+          font-size: 16px !important;
+      }
+  #nicotine_section_ li {
+          font-size: 16px !important;
+      }
+          .nicotine_inner {
+      padding-left: 20px !important;
+  }
+        .main_page-ubbs-rewards #why_ubbs_section .color_berry {
+      padding: 10% 0 0 0;
+        }
+          .main_page-ubbs-rewards #nicotine_section_ {
+          background-image: url({{ section.settings.small_image | img_url: "master" }}) !important;
+          padding-top: unset !important;
+          height: 100vh !important;
+          background-size: cover !important;
+          position: relative;
+          }
+        .main_page-ubbs-rewards #nicotine_section_ .nicotine_inner p {
+            color: white !important;
+            text-align: left;
+          }
+        .main_page-ubbs-rewards #nicotine_section_ h2.color_spearmint{
+            text-align: left;
+            margin: 1rem 0;
+        }
+
+        }
+            @media(min-width:768px) and (max-width:1023px){
+
+
+                .main_page-ubbs-rewards  #shopify-section-multicolumn .grid--1-col-tablet-down .grid__item{
+                    width: 49%;
+                    max-width: 49%;
+                }
+
+          .main_page-ubbs-rewards #why_ubbs_section .wus_content .text_xxxxl{
+            font-size:36px !important;
+                margin-top: 0;
+          }
+
+            .main_page-ubbs-rewards  #nicotine_section_ .nicotine_inner p{
+              padding:0 !important;
+            }
+
+            }
+
+    @media(min-width:1023px){
+      .main_page-ubbs-rewards  #nicotine_section_{
+                       background-attachment: unset !important;
+              }
+    }
+</style>
+{% schema %}
+{
+  "name": "Nicotine Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "btntitle",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "btnlink",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "big_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "small_image",
+      "label": "Moblie Image"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

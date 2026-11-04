@@ -1,0 +1,191 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "pages_voting_banner_xwFnNc": {
+      "type": "pages-voting-banner",
+      "settings": {
+        "title": "NEW ÜBBS FLAVOUR? NOW WE’RE <s>TALKING</s> VOTING.",
+        "subtitle": "Have your say - vote for which Übbs flavour to come out next! Plus, get exclusive early access & a discount on your next order for taking part.",
+        "banner_img": "shopify://shop_images/voting_banner_img.png",
+        "big_circle": "shopify://shop_images/Ellipse_3_347abbd8-2fcf-4245-bc19-140951ee8a4b.png",
+        "small_circle": "shopify://shop_images/Ellipse_2_897d072e-5d0c-4287-b5f1-9b0796cd38c7.png"
+      }
+    },
+    "rich_text_j7RNY7": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_iEH6Cn": {
+          "type": "heading",
+          "settings": {
+            "heading": "HOW IT WORKS",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_iEH6Cn"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "psa_section_voting_JBXzf4": {
+      "type": "psa-section-voting",
+      "settings": {
+        "custom_class": "",
+        "block-title": "01",
+        "title": "SELECT",
+        "subtitle": "Select which flavour you’d like us to launch.",
+        "banner_img": "shopify://shop_images/01_Select_1.gif"
+      }
+    },
+    "psa_section_voting_UYHrKg": {
+      "type": "psa-section-voting",
+      "settings": {
+        "custom_class": "reverse_section",
+        "block-title": "02",
+        "title": "ENTER DETAILS",
+        "subtitle": "Enter your email address (this is optional) so we can email you with your early access link.",
+        "banner_img": "shopify://shop_images/02-Enter-Details_4f480c6b-bf84-4c41-94c7-bbc4722e7dd3.gif"
+      }
+    },
+    "psa_section_voting_mQQYzX": {
+      "type": "psa-section-voting",
+      "settings": {
+        "custom_class": "",
+        "block-title": "03",
+        "title": "SUBMIT",
+        "subtitle": "Submit your vote & unlock a discount on your next order.",
+        "banner_img": "shopify://shop_images/03-Submit.gif"
+      }
+    },
+    "rich_text_BE4AkB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WteCX4": {
+          "type": "heading",
+          "settings": {
+            "heading": "CHOOSE YOUR FLAVOUR",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WteCX4"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_liquid_gzAfEy": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"page-width\"\n><script src=\"https://static.elfsight.com/platform/platform.js\" data-use-service-core=\"\" defer=\"\"></script>\n<div data-elfsight-app-lazy=\"\" class=\"elfsight-app-27595f10-face-4168-bab1-e597c7e6d445\"></div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_PcWyTU": {
+      "type": "rich-text",
+      "blocks": {
+        "text_BVtMx6": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>The vote closes at 23:59 on Monday 12th August 2024.</h3>"
+          }
+        }
+      },
+      "block_order": [
+        "text_BVtMx6"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 52
+      }
+    },
+    "99ee93bc-cdc4-4a11-b831-6cc7ac17d138": {
+      "type": "newsletter",
+      "blocks": {
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>FOR THE LATEST NEWS AND UPDATES</p>"
+          }
+        },
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN OUR NEWSLETTER",
+            "heading_size": "h0"
+          }
+        },
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-2": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "info_Y7VmKX": {
+          "type": "info",
+          "settings": {
+            "btn_label": "",
+            "btn_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-1",
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-0",
+        "template--14565436588129__99ee93bc-cdc4-4a11-b831-6cc7ac17d138-16729277813a31ce5b-2",
+        "info_Y7VmKX"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "pages_voting_banner_xwFnNc",
+    "rich_text_j7RNY7",
+    "psa_section_voting_JBXzf4",
+    "psa_section_voting_UYHrKg",
+    "psa_section_voting_mQQYzX",
+    "rich_text_BE4AkB",
+    "custom_liquid_gzAfEy",
+    "rich_text_PcWyTU",
+    "99ee93bc-cdc4-4a11-b831-6cc7ac17d138"
+  ]
+}

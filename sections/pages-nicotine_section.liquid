@@ -1,0 +1,113 @@
+{% comment %}
+<section id="nicotine_section">
+  <picture>
+      <source media="(max-width:767px)" srcset="{{ section.settings.small_image | img_url: 'master' }}">
+      <img src="{{ section.settings.big_image | img_url: 'master' }}" class="img-responsive" alt="">
+  </picture>
+  <div class="">
+      <div class="nicotine_inner">
+          <h2 class="text_xxxl font_heading text_400 color_spearmint fadeInUp">Nicotine<br class="hidden-xs"> that’s<br class="hidden-xs"> done right<br class="hidden-xs"> {{ section.settings.title }} </h2>
+           <p>Designed in Sweden and manufactured in facilities that adhere to global pharmaceutical standards in India, our tobacco-free nicotine pouches take you on an adventure unlike any other.</p> 
+          <a href="javascript:void(0)" class="cmn_btn fadeInUp"></a>
+      </div>
+  </div>
+</section>
+{% endcomment %}
+<section id="nicotine_section">
+   <!-- <picture>
+      <source media="(max-width:767px)" srcset="img/home/nicotine_banner_img.jpg">
+
+      <img src="img/home/nicotine_img.jpg" class="img-responsive" alt="">
+   </picture> -->
+   <div class="">
+      <div class="nicotine_inner">
+         <h2 class="text_xxl font_heading text_400 color_spearmint fadeInUp">
+            {{ section.settings.title }} 
+         </h2>
+        <div class=" fadeInUp">
+         {{ section.settings.subtitle }}
+        </div>
+        {% if section.settings.btntitle != blank %}
+         <a href="{{ section.settings.btnlink }}" class="cmn_btn fadeInUp">{{ section.settings.btntitle }}</a>
+          {% endif %}
+      </div>
+   </div>
+</section>
+<style>
+  /*   page-way-to-earn */
+  .page-way_to_earn  #nicotine_section {
+    background-image: url({{ section.settings.big_image | img_url: "master" }}) !important;
+  }
+      .page-way_to_earn  #nicotine_section .fs16{
+    font-size: 16px !important;
+  }
+      @media (min-width:767px){
+        .page-way_to_earn #nicotine_section .nicotine_inner{
+          width: 50% !important;
+       }
+      }
+      
+      @media only screen and (max-width: 600px) {
+      .page-way_to_earn #why_ubbs_section .color_berry {
+    padding: 10% 0 0 0;
+      }
+        .page-way_to_earn #nicotine_section {
+        background-image: url({{ section.settings.small_image | img_url: "master" }}) !important;
+        padding-top: unset !important;
+        height: 100vh !important;
+        background-size: cover !important;
+        }
+      .page-way_to_earn #nicotine_section .nicotine_inner p {
+          color: white !important;
+          text-align: left;
+        }
+      .page-way_to_earn #nicotine_section h2.color_spearmint{
+          text-align: left;
+          margin: 1rem 0;
+      }
+       
+      }
+</style>
+{% schema %}
+  {
+    "name": "Nicotine Section",
+    "settings": [
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title"
+      },
+	  {
+         "type":"text",
+         "id":"subtitle",
+         "label":"Subheading"
+      },
+	  {
+         "type":"text",
+         "id":"btntitle",
+         "label":"Button Text"
+      },
+	  {
+         "type":"url",
+         "id":"btnlink",
+         "label":"Button Link"
+      },
+	  {
+         "type":"image_picker",
+         "id":"big_image",
+         "label":"Desktop Image"
+      },
+	  {
+         "type":"image_picker",
+         "id":"small_image",
+         "label":"Moblie Image"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

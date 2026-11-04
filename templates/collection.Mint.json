@@ -1,0 +1,353 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1658291420627c530a": {
+      "type": "pages-banner-section",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "title": "EXPERIENCING ÜBBS' IS THE BEST FEELING IN THE WORLD",
+        "subtitle": "Being spoilt for a choice is a close second.",
+        "banner_img": "shopify://shop_images/Product-Listing_img.png",
+        "big_circle": "shopify://shop_images/Ellipse_1_f4b9fad7-d4a0-485b-a689-e230ad03773b.png"
+      }
+    },
+    "banner_d4hxhn": {
+      "type": "banner",
+      "blocks": {
+        "slide_kiYYhC": {
+          "type": "slide",
+          "settings": {
+            "use_video": false,
+            "image": "shopify://shop_images/Banner_3_-_1920_x_400.jpg",
+            "tablet_image": "shopify://shop_images/Banner_3_-_1920_x_400.jpg",
+            "mobile_image": "shopify://shop_images/Banner_3_-_1080_x_500.jpg",
+            "image_alt": "",
+            "subheading": "10 AED per can",
+            "subheading_color": "#000000",
+            "heading": "Introducing<br>\nIce mint mini",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "text_color": "#000000",
+            "text_align": "left",
+            "content_position": "center-left"
+          }
+        },
+        "slide_CPUGct": {
+          "type": "slide",
+          "settings": {
+            "use_video": false,
+            "image": "shopify://shop_images/Banner_2_-_1920_x_400.jpg",
+            "tablet_image": "shopify://shop_images/Banner_2_-_1920_x_400.jpg",
+            "mobile_image": "shopify://shop_images/Banner_2_-_1080_x_500.jpg",
+            "image_alt": "",
+            "subheading": "",
+            "subheading_color": "#000000",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "text_color": "#000000",
+            "text_align": "left",
+            "content_position": "center-left"
+          }
+        },
+        "slide_r3VxYx": {
+          "type": "slide",
+          "settings": {
+            "use_video": false,
+            "image": "shopify://shop_images/Banner_1_-_1920_x_400.jpg",
+            "tablet_image": "shopify://shop_images/Banner_1_-_1920_x_400.jpg",
+            "mobile_image": "shopify://shop_images/Banner_1_-_1080_x_500.jpg",
+            "image_alt": "",
+            "subheading": "Discover Menthol 14mg, Peppermint 6mg & Peppermint 20mg",
+            "subheading_color": "#000000",
+            "heading": "NEW ÜBBS<br>\nSTRENGTHS",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "text_color": "#000000",
+            "text_align": "left",
+            "content_position": "center-left"
+          }
+        }
+      },
+      "block_order": [
+        "slide_kiYYhC",
+        "slide_CPUGct",
+        "slide_r3VxYx"
+      ],
+      "name": "Banner Slider",
+      "settings": {}
+    },
+    "custom_collection_banner_LcRErG": {
+      "type": "custom-collection-banner",
+      "name": "Custom Collection Banner",
+      "settings": {
+        "title": "<p>{{ collection.metafields.custom.collection_title | metafield_tag }}</p>",
+        "subtitle": "<p>{{ collection.metafields.custom.collection_subheading | metafield_tag }}</p>"
+      }
+    },
+    "collection_banner_section_ATn6e8": {
+      "type": "collection-banner-section",
+      "disabled": true,
+      "name": "Collection Banner section",
+      "settings": {
+        "title": "<p>{{ collection.metafields.custom.collection_title | metafield_tag }}</p>",
+        "subtitle": "<p>{{ collection.metafields.custom.collection_subheading | metafield_tag }}</p>",
+        "banner_img": "shopify://shop_images/Product-Listing_img.png",
+        "big_circle": "shopify://shop_images/Ellipse_1_f4b9fad7-d4a0-485b-a689-e230ad03773b.png"
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 3,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": false,
+        "columns_mobile": "1",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "seo_content_bQ3iez": {
+      "type": "seo_content",
+      "disabled": true,
+      "settings": {
+        "title": "Multibuy Offer",
+        "subtitle": "<p>Take advantage of our multibuy offers, allowing you to buy nicotine pouches for less and stock up on your favorite Übbs Nicotine Pouches. Embark on your journey towards a smoke-free, tobacco-free lifestyle, without breaking the bank.</p><p>Browse through our collection and find the one that suits your taste and preferences. Start your smoke-free journey with Übbs Pouches today.</p>"
+      }
+    },
+    "a37b5717-fb3f-4690-89b7-198a43e4417a": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=ebNyTs6-ZVQ",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "below_fold_copy_Dkdatx": {
+      "type": "Below_Fold_Copy",
+      "name": "Below Fold Copy",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_blog_nnAaNp": {
+      "type": "featured-blog",
+      "custom_css": [],
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "listing",
+        "post_limit": 3,
+        "heading": "Übbs Blogs",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "show_view_all": false,
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "faq_tab_accordion_1_G3DWhA": {
+      "type": "faq_tab_accordion_1",
+      "blocks": {
+        "text_JaTjtj": {
+          "type": "text",
+          "settings": {
+            "ques": "What is a mint nicotine pouch?",
+            "ans": "<p>A mint nicotine pouch is a small, tobacco-free pouch packed with nicotine and cool, refreshing mint flavour. You pop it under your upper lip and let it work its magic—no smoke, no tobacco.</p>"
+          }
+        },
+        "text_4aVx9q": {
+          "type": "text",
+          "settings": {
+            "ques": "What mint flavours do you have in your nicotine pouches?",
+            "ans": "<p>Our mint nicotine pouches collection brings you all the fresh flavour you could want. Choose from sweet <a href=\"https://ubbspouches.com/products/spearmint\"><span style=\"text-decoration:underline\">Spearmint</span></a>, the icy blast of <a href=\"https://ubbspouches.com/products/menthol\"><span style=\"text-decoration:underline\">Menthol</span></a>, or the bold sharpness of <a href=\"https://ubbspouches.com/products/peppermint\"><span style=\"text-decoration:underline\">Peppermint</span></a>. Each flavour is crafted to keep things fresh without any bitter or artificial aftertaste. Just cool mint satisfaction in every pouch.</p>"
+          }
+        },
+        "text_xVfGQj": {
+          "type": "text",
+          "settings": {
+            "ques": "What makes your mint nicotine pouches stand out?",
+            "ans": "<p>Our mint nicotine pouches are smooth, cooling, and completely tobacco-free. Made to pharmaceutical-grade standards, each pouch delivers a consistent nicotine release and a flavour that stays crisp from start to finish. Whether you're after a subtle chill or an icy blast, these mint nicotine pouch collections bring freshness without the fuss.</p>"
+          }
+        },
+        "text_ePGqpN": {
+          "type": "text",
+          "settings": {
+            "ques": "Are cool mint flavoured nicotine pouches beginner-friendly?",
+            "ans": "<p>Absolutely. Cool mint flavoured nicotine pouches are a go-to for first-timers. The fresh, familiar taste makes them easy to enjoy, and they’re available in a range of strengths to help you find your sweet spot. We recommend starting with Regular (6mg) if you're new to mint pouches.</p>"
+          }
+        },
+        "text_fDta4K": {
+          "type": "text",
+          "settings": {
+            "ques": "What nicotine strengths are available in mint pouches?",
+            "ans": "<p>Our mint pouches come in a range of strengths to suit all preferences. You’ll find Regular (6mg), and Strong (11mg) across most flavours, with Max (14mg) available in the <a href=\"https://ubbspouches.com/products/menthol\"><span style=\"text-decoration:underline\">Menthol</span></a> flavour for those who like a more intense experience. Whether you're easing in or looking for a stronger option, there’s a mint pouch to match your routine.</p>"
+          }
+        },
+        "text_HB9hHp": {
+          "type": "text",
+          "settings": {
+            "ques": "Which mint nicotine pouch is the most popular?",
+            "ans": "<p><a href=\"https://ubbspouches.com/products/peppermint\"><span style=\"text-decoration:underline\">Peppermint</span></a> is one of our top sellers: clean, classic and refreshing with just the right amount of tingle. Whichever you pick, you’re getting some of the freshest mint-flavoured nicotine pouches available.</p>"
+          }
+        },
+        "text_TQj8mY": {
+          "type": "text",
+          "settings": {
+            "ques": "How do mint nicotine pouches compare to other flavours?",
+            "ans": "<p>Mint pouches offer a fresher, sharper experience than <a href=\"https://ubbspouches.com/collections/fruit-flavours\"><span style=\"text-decoration:underline\">fruity</span></a> or sweet flavours. If you prefer something refreshing and less sweet, mint is a great shout. They’re especially popular for their crisp taste, cooling effect and how well they pair with everything—coffee, work, nights out, you name it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_JaTjtj",
+        "text_4aVx9q",
+        "text_xVfGQj",
+        "text_ePGqpN",
+        "text_fDta4K",
+        "text_HB9hHp",
+        "text_TQj8mY"
+      ],
+      "name": "FAQ section",
+      "settings": {
+        "heading": "Common Faq's"
+      }
+    },
+    "16582928855dc3dfa2": {
+      "type": "image_with_text_section",
+      "blocks": {
+        "56502c04-5fd1-4644-9651-87995b052c27": {
+          "type": "text",
+          "settings": {
+            "list_item": "Over 18 years of age."
+          }
+        },
+        "5e7573de-18ef-437a-863d-78ef2062b2e5": {
+          "type": "text",
+          "settings": {
+            "list_item": "Not pregnant, nursing or susceptible to cardiovascular disease."
+          }
+        },
+        "62b46be2-857f-4818-adcb-a8cf176abc0e": {
+          "type": "text",
+          "settings": {
+            "list_item": "Aware that nicotine is a highly addictive substance."
+          }
+        },
+        "118cb823-0968-410c-aec2-f599e71a3a9a": {
+          "type": "text",
+          "settings": {
+            "list_item": "An existing smoker or vaper."
+          }
+        }
+      },
+      "block_order": [
+        "56502c04-5fd1-4644-9651-87995b052c27",
+        "5e7573de-18ef-437a-863d-78ef2062b2e5",
+        "62b46be2-857f-4818-adcb-a8cf176abc0e",
+        "118cb823-0968-410c-aec2-f599e71a3a9a"
+      ],
+      "settings": {
+        "title": "ONLY USE ÜBBS IF YOU ARE:",
+        "subtitle": "",
+        "btn_url": "shopify://pages/faqs",
+        "btn_label": "Learn More",
+        "image": "shopify://shop_images/Hand-Mockup_f61cf62c-72c4-483e-bc06-ff97d7c5aa9d.png"
+      }
+    },
+    "1658293032100acacb": {
+      "type": "newsletter",
+      "blocks": {
+        "16582930325e82b82f-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>FOR THE LATEST NEWS AND UPDATES</p>"
+          }
+        },
+        "16582930325e82b82f-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN OUR NEWSLETTER",
+            "heading_size": "h0"
+          }
+        },
+        "16582930325e82b82f-2": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "info_wKzGqU": {
+          "type": "info",
+          "settings": {
+            "btn_label": "",
+            "btn_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "16582930325e82b82f-1",
+        "16582930325e82b82f-0",
+        "16582930325e82b82f-2",
+        "info_wKzGqU"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "1658291420627c530a",
+    "banner_d4hxhn",
+    "custom_collection_banner_LcRErG",
+    "collection_banner_section_ATn6e8",
+    "banner",
+    "product-grid",
+    "seo_content_bQ3iez",
+    "a37b5717-fb3f-4690-89b7-198a43e4417a",
+    "below_fold_copy_Dkdatx",
+    "featured_blog_nnAaNp",
+    "faq_tab_accordion_1_G3DWhA",
+    "16582928855dc3dfa2",
+    "1658293032100acacb"
+  ]
+}

@@ -1,0 +1,277 @@
+<style>
+  .linkedin-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .linkedin-button svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+      span.flavour-text {
+      padding-left: 7px;
+  }
+    .author-bio-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #fafafa 0%, #f2f4f7 100%);
+      border-radius: 16px;
+    }
+    .author-bio-container {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+    .author-image img {
+      border-radius: 50%;
+      width: 340px;
+      height: 340px;
+      object-fit: cover;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .author-image img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    .author-content {
+      flex: 1;
+      max-width: 700px;
+    }
+    .author-name {
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0 0 0.2em;
+      color: #222;
+      text-transform: capitalize;
+    }
+    .author-title {
+      font-size: 24px;
+      font-weight: 500;
+      color: #000;
+      margin-bottom: 0.3em;
+    }
+    .author-company {
+      font-size: 22px;
+      color: #000;
+      margin-bottom: 10px;
+    }
+    .author-description {
+        font-size: 19px;
+        line-height: 130%;
+        color: #000;
+        margin-bottom: 15px;
+        text-align:justify;
+    }
+    .author-favourites {
+      font-size: 1.1rem;
+      margin-bottom: 2em;
+      font-weight: 500;
+      color: #444;
+    }
+    .author-favourites span {
+        color: #000;
+        font-size: 17px;
+    }
+  @media (max-width: 1024px){
+      .author-name {
+          font-size: 20px;
+      }
+      .author-title {
+          font-size: 20px;
+          margin-bottom: 0.1em;
+     }
+     .author-description {
+          font-size: 16px;
+          margin-bottom: 10px;
+      }
+      .author-favourites {
+          margin-bottom: 1em;
+      }
+  }
+    @media (max-width: 768px) {
+      .author-bio-container {
+        flex-direction: column;
+        text-align: center;
+        gap:1rem;
+      }
+      .author-content {
+        max-width: 100%;
+      }
+      .author-image img {
+        margin: 0 auto;
+        width: 318px;
+        height: 318px;
+      }
+      .author-name {
+        font-size: 1.8rem;
+      }
+      .author-description {
+        font-size: 15px;
+      }
+      .author-bio-section {
+          padding: 40px 0;
+      }
+    }
+    @media(max-width: 480px){
+      .author-bio-section {
+          padding: 25px 0;
+      }
+      .author-image img {
+          width: 285px;
+          height: 285px;
+      }
+      .author-name {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .author-title {
+          font-size: 17px;
+      }
+      .author-company {
+          font-size: 15px;
+      }
+      .author-description {
+          font-size: 14px;
+          line-height: 110%;
+      }
+      p.author-favourites span {
+          font-size: 14px;
+      }
+      .author-favourites {
+          margin-bottom: 10px;
+      }
+      p.author-title-company {
+        max-width: 330px;
+        margin: 0 auto;
+        padding-bottom: 15px;
+      }
+    }
+
+</style>
+<section class="author-bio-section">
+  <div class="page-width">
+    <div class="author-bio-container">
+      {% if section.settings.author_image != blank %}
+        <div class="author-image">
+          <img
+            src="{{ section.settings.author_image | image_url: width: 500 }}"
+            alt="{{ section.settings.author_name | escape }}"
+            loading="lazy"
+          >
+        </div>
+      {% endif %}
+
+      <div class="author-content">
+        {% if section.settings.author_name != blank %}
+          <h2 class="author-name">{{ section.settings.author_name }}</h2>
+        {% endif %}
+        {% if section.settings.author_title != blank or section.settings.company_name != blank %}
+          <p class="author-title-company">
+            {% if section.settings.author_title != blank %}
+              {{ section.settings.author_title }}
+            {% endif %}
+            {% if section.settings.company_name != blank %}
+              <span class="company">
+                at <strong>{{ section.settings.company_name }}</strong></span
+              >
+            {% endif %}
+          </p>
+        {% endif %}
+
+        {% if section.settings.author_description != blank %}
+          <div class="author-description">
+            {{ section.settings.author_description | newline_to_br }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.author_flavours != blank %}
+          <p class="author-favourites">
+            <span>Favourite übbs flavour(s)</span>
+            <span class="flavour-text">: {{ section.settings.author_flavours }}</span>
+          </p>
+        {% endif %}
+
+        {% if section.settings.linkedin_url != blank %}
+          <a href="{{ section.settings.linkedin_url }}" target="_blank" rel="noopener" class="linkedin-button cmn_btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              class="inline mr-2"
+              viewBox="0 0 16 16"
+            >
+              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175
+              1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943
+              12.248V6.169H2.542v7.225h2.401zM3.743
+              5.044a1.387 1.387 0 110-2.774 1.387 1.387
+              0 010 2.774zM13.458 13.394V9.359c0-2.17-1.157-3.179-2.7-3.179-1.243
+              0-1.803.682-2.115 1.163v-1h-2.4c.032.662
+              0 7.05 0 7.05h2.4V9.525c0-.206.015-.412.076-.56.167-.412.547-.839
+              1.185-.839.836 0 1.171.633 1.171 1.561v3.707h2.383z"/>
+            </svg>
+            Connect on LinkedIn
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Author Bio (Enhanced)",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "author_image",
+      "label": "Author Image"
+    },
+    {
+      "type": "text",
+      "id": "author_name",
+      "label": "Author Name",
+      "default": "Patrick Wigham"
+    },
+    {
+      "type": "text",
+      "id": "author_title",
+      "label": "Author Title",
+      "default": "Senior E-Commerce & Operations Manager"
+    },
+    {
+      "type": "text",
+      "id": "company_name",
+      "label": "Company Name",
+      "default": "übbs Pouches"
+    },
+    {
+      "type": "textarea",
+      "id": "author_description",
+      "label": "Author Description",
+      "default": "Patrick is the Senior E-Commerce & Operations Manager at übbs Pouches, where he combines industry insight with a passion for helping adult consumers navigate the world of nicotine pouches and alternatives. With over five years experience in the nicotine industry and over seven years in e-commerce, Patrick has a deep understanding of what customers need - reliable information and straightforward guidance. At übbs, Patrick oversees everything from warehouse operations to new product launches. His content is shaped by research, customer feedback, and a commitment to helping readers make informed, confident choices."
+    },
+    {
+      "type": "text",
+      "id": "author_flavours",
+      "label": "Favourite Flavours",
+      "default": "Spicy Cherry & Peppermint"
+    },
+    {
+      "type": "url",
+      "id": "linkedin_url",
+      "label": "LinkedIn URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Author Bio"
+    }
+  ]
+}
+{% endschema %}

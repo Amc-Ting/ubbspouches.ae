@@ -1,0 +1,94 @@
+<section id="psa_section">
+  <div class="container">
+    <div class="psa_inner">
+      <div class="psa_img">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/element04.png"
+          width=""
+          height=""
+          loading="lazy"
+          alt=""
+          class="element2 element img-responsive"
+        >
+        <div class="hand_image">
+          <img
+            src="{{ section.settings.banner_img | img_url: 'master' }}"
+            width=""
+            height=""
+            loading="lazy"
+            alt=""
+            class="img-responsive"
+          >
+        </div>
+        <img
+          src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/element04.png"
+          width=""
+          height=""
+          loading="lazy"
+          alt=""
+          class="element1 element img-responsive"
+        >
+        <img
+          src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/element04.png"
+          width=""
+          height=""
+          loading="lazy"
+          alt=""
+          class="element3 element img-responsive"
+        >
+        <div class="element_01">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Ellipse_2_38497fd7-1448-44a4-b3f7-e50e6d9416f7.png?v=1670486178"
+            width=""
+            height=""
+            loading="lazy"
+            class="img-responsive"
+            alt=""
+          >
+        </div>
+        <div class="element_03">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/Ellipse_1_f4b9fad7-d4a0-485b-a689-e230ad03773b.png?v=1670486161"
+            width=""
+            height=""
+            loading="lazy"
+            class="img-responsive"
+            alt=""
+          >
+        </div>
+      </div>
+      <div class="psa_content">
+        <h2 class="text_xxxl font_heading text_400 fadeInUp">{{ section.settings.title }}</h2>
+        {{ section.settings.subtitle }}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "PSA Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_img",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

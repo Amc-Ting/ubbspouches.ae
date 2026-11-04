@@ -1,0 +1,223 @@
+<style>
+
+  #the_best_feeling {
+  padding: 50px 0;
+  position: relative;
+  overflow: hidden; }
+  #the_best_feeling .element {
+    position: absolute; }
+    @media (max-width: 1400px) {
+      #the_best_feeling .element {
+        max-width: 100px; } }
+    @media (max-width: 1080px) {
+      #the_best_feeling .element {
+        max-width: 80px; } }
+  #the_best_feeling .element1 {
+    top: 20%;
+    left: -2%;
+    animation: reverseanimation 20s linear infinite; }
+    @media (max-width: 767px) {
+      #the_best_feeling .element1 {
+        top: 3%;
+        left: -10%; } }
+  #the_best_feeling .element2 {
+    top: 15%;
+    right: -10%;
+    animation: sideanimation 20s reverse linear infinite; }
+    @media (max-width: 1400px) {
+      #the_best_feeling .element2 {
+        top: 10%;
+        right: -5%; } }
+    @media (max-width: 1080px) {
+      #the_best_feeling .element2 {
+        top: 5%;
+        right: 0%; } }
+    @media (max-width: 767px) {
+      #the_best_feeling .element2 {
+        top: 2%;
+        right: 5%; } }
+  #the_best_feeling .element3 {
+    bottom: -20%;
+    left: -5%;
+    animation: sideanimation 20s linear infinite; }
+    @media (max-width: 1080px) {
+      #the_best_feeling .element3 {
+        left: -2%; } }
+    @media (max-width: 767px) {
+      #the_best_feeling .element3 {
+        bottom: -15px; } }
+  #the_best_feeling .element_01 {
+    position: absolute;
+    top: 70%;
+    left: 55%; }
+    @media (max-width: 991px) {
+      #the_best_feeling .element_01 {
+        top: 75%; } }
+    @media (max-width: 767px) {
+      #the_best_feeling .element_01 {
+        top: 50%;
+        right: 15%;
+        width: 10px; } }
+  #the_best_feeling .blur_circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: var(--color_spearmint);
+    opacity: 0.3; }
+    @media (max-width: 767px) {
+      #the_best_feeling .blur_circle {
+        width: 120px;
+        height: 120px; } }
+    #the_best_feeling .blur_circle.watermelon_circle {
+      background-color: var(--color_watermelon); }
+  #the_best_feeling .element_03 {
+    position: absolute;
+    top: 0%;
+    right: -7%;
+    animation: reverseanimation 20s linear infinite; }
+    @media (max-width: 1400px) {
+      #the_best_feeling .element_03 {
+        top: 0%;
+        right: -3%; } }
+    @media (max-width: 1080px) {
+      #the_best_feeling .element_03 {
+        top: -10%;
+        right: 3%; } }
+    @media (max-width: 767px) {
+      #the_best_feeling .element_03 {
+        width: 15px;
+        top: -3%;
+        right: 10%; } }
+  #the_best_feeling .the_best_feeling_inner{
+  display: flex;
+  align-items: center;
+  justify-content: center;   
+  }
+  @media (max-width: 767px) {
+    #the_best_feeling .the_best_feeling_inner {
+      flex-direction: column-reverse; } }
+  #the_best_feeling .the_best_feeling_inner .sec_left {
+     position: relative;
+  min-height: 1px;
+    width: 60%; }
+    @media (max-width: 767px) {
+      #the_best_feeling .the_best_feeling_inner .sec_left {
+        width: 100%;
+        padding-top: 40px; } }
+    #the_best_feeling .the_best_feeling_inner .sec_left .bs_title {
+      font-family: var(--font_heading);
+      color:#000;
+      text-transform: uppercase; }
+    #the_best_feeling .the_best_feeling_inner .sec_left .be_text {
+          padding: 35px 0;
+    font-family: BlinkerREgular;
+    color: #000; }
+  #the_best_feeling .the_best_feeling_inner .sec_right {
+    position: relative;
+    width: 40%; }
+    @media (max-width: 767px) {
+      #the_best_feeling .the_best_feeling_inner .sec_right {
+        width: 80%; } }
+    #the_best_feeling .the_best_feeling_inner .sec_right .element_02 {
+      position: absolute;
+      z-index: -1;
+      top: -10px;
+      left: -40px;
+      animation: scaleCircle 6s linear infinite; }
+      @media (max-width: 767px) {
+        #the_best_feeling .the_best_feeling_inner .sec_right .element_02 {
+          left: -20px;
+          width: 40%; } }
+    #the_best_feeling .the_best_feeling_inner .sec_right .element_05 {
+      position: absolute;
+      z-index: -1;
+      bottom: -10px;
+      right: -40px;
+      animation: scaleCircle 6s linear infinite; }
+      @media (max-width: 767px) {
+        #the_best_feeling .the_best_feeling_inner .sec_right .element_05 {
+          right: -20px;
+          width: 40%; } }
+
+  .page-contact #the_best_feeling .blur_circle {
+    background-color: #66a3fe;
+}
+@media (max-width:480px){
+ #the_best_feeling {
+    padding: 20px 0 0 !important;
+}
+}  
+</style>
+
+
+
+<div id="the_best_feeling">
+         <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/element04.png?v=1657976818" alt="" class="element1 element img-responsive" />
+         <div class="container">
+            <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/element04.png?v=1657976818" alt="" class="element2 element img-responsive" />
+            <div class="element_03">
+               <img src="{{ section.settings.big_circle | img_url: 'master' }}" class="img-responsive" alt="" />
+            </div>
+            <div class="element_01">
+               <img src="{{ section.settings.small_circle | img_url: 'master' }}" class="img-responsive" alt="" />
+            </div>
+
+            <div class="the_best_feeling_inner">
+               <div class="sec_left">
+                  <h1 class="text_xl text_400 bs_title">
+                    {{ section.settings.title }}
+                  </h1>
+
+                  <h2 class="text_lg text_400 be_text">
+                     {{ section.settings.subtitle }}
+                  </h2>
+                  <img src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/element04.png?v=1657976818" alt="" class="element3 element img-responsive" />
+               </div>
+               <div class="sec_right">
+                  <div class="element_02">
+                     
+                     <div class="blur_circle"></div>
+                  </div>
+                  <img src="{{ section.settings.banner_img | img_url: 'master' }}" class="img-responsive" alt="" />
+               </div>
+            </div>
+         </div>
+      </div>
+
+      {% schema %}
+  {
+   "name":"Pages Banner",
+   "settings":[
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title"
+      },
+	  {
+         "type":"text",
+         "id":"subtitle",
+         "label":"Subheading"
+      },
+	  {
+         "type":"image_picker",
+         "id":"banner_img",
+         "label":"Image"
+      },
+      {
+         "type":"image_picker",
+         "id":"big_circle",
+         "label":"Add Image"
+      },
+	  {
+         "type":"image_picker",
+         "id":"small_circle",
+         "label":"Add Image"
+      }
+   ],
+	"presets": [
+      {
+      "name": "Pages Banner"
+      }
+   ]
+}
+{% endschema %}

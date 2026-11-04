@@ -1,0 +1,102 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "pwa_section_ah4YfL": {
+      "type": "pwa-section",
+      "blocks": {
+        "platform_exBbKf": {
+          "type": "platform",
+          "settings": {
+            "platform": "IOS (Safari)",
+            "platform_image": "shopify://shop_images/Group_1787.png",
+            "step_1_image": "shopify://shop_images/IMG_0952_1.png",
+            "step_1_title": "Open our website in Safari",
+            "step_1_description": "Visit the website using the Safari browser.",
+            "step_2_image": "shopify://shop_images/IMG_0952_1.png",
+            "step_2_title": "Open our website in Safari",
+            "step_2_description": "Visit the website using the Safari browser.",
+            "step_3_image": "shopify://shop_images/IMG_0952_1.png",
+            "step_3_title": "Open our website in Safari",
+            "step_3_description": "Open our website in Safari",
+            "step_4_image": "shopify://shop_images/IMG_0952_1.png",
+            "step_4_title": "Open our website in Safari",
+            "step_4_description": "Open our website in Safari",
+            "step_5_image": "shopify://shop_images/IMG_0952_1.png",
+            "step_5_title": "Open our website in Safari",
+            "step_5_description": "Open our website in Safari"
+          }
+        },
+        "platform_nJR3mL": {
+          "type": "platform",
+          "settings": {
+            "platform": "Android (Chrome)",
+            "platform_image": "shopify://shop_images/Group_1788.png",
+            "step_1_image": "shopify://shop_images/IMG_0952_1.png",
+            "step_1_title": "Open our website in Safari",
+            "step_1_description": "Visit the website using the Safari browser.",
+            "step_2_image": "shopify://shop_images/IMG_0952_1.png",
+            "step_2_title": "Open our website in Safari",
+            "step_2_description": "Visit the website using the Safari browser.",
+            "step_3_image": "shopify://shop_images/IMG_0952_1.png",
+            "step_3_title": "Open our website in Safari",
+            "step_3_description": "Open our website in Safari",
+            "step_4_image": "shopify://shop_images/IMG_0952_1.png",
+            "step_4_title": "Open our website in Safari",
+            "step_4_description": "Open our website in Safari",
+            "step_5_image": "shopify://shop_images/IMG_0952_1.png",
+            "step_5_title": "Open our website in Safari",
+            "step_5_description": "Open our website in Safari"
+          }
+        },
+        "platform_xbLiAM": {
+          "type": "platform",
+          "settings": {
+            "platform": "Desktop (Chrome)",
+            "platform_image": "shopify://shop_images/Group_1787_1.png",
+            "step_1_image": "shopify://shop_images/Subtract.png",
+            "step_1_title": "Open our website in Safari",
+            "step_1_description": "Visit the website using the Safari browser.",
+            "step_2_image": "shopify://shop_images/Subtract.png",
+            "step_2_title": "Visit the website using the Safari browser.",
+            "step_2_description": "Visit the website using the Safari browser.",
+            "step_3_title": "",
+            "step_3_description": "",
+            "step_4_title": "",
+            "step_4_description": "",
+            "step_5_title": "",
+            "step_5_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "platform_exBbKf",
+        "platform_nJR3mL",
+        "platform_xbLiAM"
+      ],
+      "name": "Installation Guide",
+      "settings": {
+        "heading": "LOREM IPSUM DOLOR SIT AMET"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "pwa_section_ah4YfL"
+  ]
+}

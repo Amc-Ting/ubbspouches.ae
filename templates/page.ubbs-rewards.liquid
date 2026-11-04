@@ -1,0 +1,18 @@
+{{ 'blog-listing.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+<main id="listing_page" class="how_its_works">
+  {% section 'reward_banner_section' %}
+  {% section 'reward_discreet_section' %}
+  {% comment %}
+    {% section 'ubbs-rewards-banners' %}
+  {% endcomment %}
+
+  {% section 'icons' %}
+  {% comment %} {% section 'multicolumn' %} {% endcomment %}
+  {% comment %} {% section 'rewards-multicolumn' %} {% endcomment %}
+  {% section 'why_ubbs_section' %}
+  {% section 'reward_nicotine_section' %}
+  {% section 'product_carousel' %}
+  {% section 'newsletter' %}
+</main>

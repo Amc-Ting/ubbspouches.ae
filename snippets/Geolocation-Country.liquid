@@ -1,0 +1,69 @@
+<script>
+  (function () {
+    const redirectUrl = 'https://ubbspouches.com/'; // ✅ Redirect target (.com)
+    const storageKey = 'geoRedirectShown'; // localStorage key
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Skip if popup already shown
+      if (localStorage.getItem(storageKey)) return;
+
+      fetch('https://ipapi.co/json/')
+        .then((res) => res.json())
+        .then((data) => {
+          console.log('Geo API Response:', data);
+          if (!data || !data.country_code) return;
+          const visitorCountry = data.country_code.toUpperCase();
+          if (visitorCountry === 'GB' || visitorCountry === 'US') {
+            showGeoPopup(visitorCountry);
+          }
+        })
+        .catch((err) => console.error('Geo API error:', err));
+    });
+
+    function showGeoPopup(countryCode) {
+      if (document.getElementById('geoRedirectPopup')) return;
+
+      const popup = document.createElement('div');
+      popup.id = 'geoRedirectPopup';
+      popup.innerHTML = `
+        <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+                    background: rgba(0,0,0,0.6); display: flex;
+                    align-items: center; justify-content: center; z-index: 10000;">
+          <div style="background: #fff; padding: 30px; border-radius: 10px;
+                      max-width: 500px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+                      text-align: center; font-family: 'KronaRegular', sans-serif;">
+
+            <img src="https://cdn.shopify.com/s/files/1/0626/6981/5874/files/SgGpexJE1mV6TZljy9YismPyN9G6rNO0hhpRufsP_1.png?v=1753337817"
+                alt="Übbs Logo" style="width:200px; height:200px; margin-bottom:20px;">
+            
+            <p style="text-transform: uppercase; color:#000; font-weight: 400; margin-bottom:20px;">
+              Looks like you’re visiting from the ${
+                countryCode === 'GB' ? 'UK' : 'US'
+              }. would you like to visit <span style="text-transform: uppercase;">ubbspouches.com</span> instead?
+            </p>
+
+            <button id="redirectYes" style="background-color: #000; color: white; border: none;
+                    padding: 10px 20px; margin: 10px; border-radius: 25px; cursor: pointer;font-family: var(--font_text);">
+              Yes
+            </button>
+            <button id="redirectNo" style="background-color: #6c757d; color: white; border: none;
+                    padding: 10px 20px; margin: 10px; border-radius: 25px; cursor: pointer;font-family: var(--font_text);">
+              No
+            </button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(popup);
+
+      document.getElementById('redirectYes').addEventListener('click', function () {
+        localStorage.setItem(storageKey, 'yes');
+        window.location.href = redirectUrl;
+      });
+
+      document.getElementById('redirectNo').addEventListener('click', function () {
+        localStorage.setItem(storageKey, 'no');
+        popup.remove();
+      });
+    }
+  })();
+</script>

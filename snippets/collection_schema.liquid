@@ -1,0 +1,166 @@
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ shop.url }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Shop",
+        "item": "{{ shop.url }}/collections/shop"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Introducing Übbs Nicotine Pouches - A Tobacco-Free Alternative",
+    "description": "Übbs Tobacco-Free Nicotine Pouches aim to deliver an unparalleled nicotine experience for adult smokers and vapers.",
+    "thumbnailUrl": "https://img.youtube.com/vi/0FzROqHO5ec/maxresdefault.jpg",
+    "uploadDate": "2024-04-16",
+    "contentUrl": "https://www.youtube.com/watch?v=0FzROqHO5ec",
+    "embedUrl": "https://www.youtube.com/embed/0FzROqHO5ec",
+    "publisher": {
+      "@type": "Organization",
+      "name": "übbs",
+      "url": "{{ shop.url }}"
+    },
+    "potentialAction": {
+      "@type": "SeekToAction",
+      "target": "https://www.youtube.com/watch?v=0FzROqHO5ec&t={seek_to_second_number}",
+      "startOffset-input": "required name=seek_to_second_number"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Übbs Nicotine Pouches Collection",
+    "description": "Complete range of tobacco-free nicotine pouches in various flavors",
+    "numberOfItems": "{{ collections.shop.products.size }}",
+    "itemListElement": [
+      {%- for product in collection.products -%}
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.index }},
+          "name": "{{ product.title }}",
+          "url": "{{ shop.url }}{{ product.url }}",
+          "description": "{{ product.description | strip_html }}"
+        }{% unless forloop.last %}, {% endunless %}
+      {%- endfor -%}  
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    "name": "Übbs Nicotine Pouches - Volume Discounts",
+    "description": "Multi-buy offers on Übbs tobacco-free nicotine pouches with discounts up to 50%",
+    "url": "{{ shop.url }}/collections/shop",
+    "priceCurrency": "GBP",
+    "seller": {
+      "@type": "Organization",
+      "name": "übbs",
+      "url": "{{ shop.url }}"
+    },
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "priceSpecification": [
+      {
+        "@type": "PriceSpecification",
+        "name": "3-5 Cans Offer",
+        "price": "5.40",
+        "priceCurrency": "GBP",
+        "eligibleQuantity": {
+          "@type": "QuantitativeValue",
+          "minValue": 3,
+          "maxValue": 5,
+          "unitCode": "C62"
+        },
+        "valueAddedTaxIncluded": true,
+        "additionalProperty": {
+          "@type": "PropertyValue",
+          "name": "Discount Percentage",
+          "value": "10%"
+        }
+      },
+      {
+        "@type": "PriceSpecification",
+        "name": "6-11 Cans Offer",
+        "price": "4.80",
+        "priceCurrency": "GBP",
+        "eligibleQuantity": {
+          "@type": "QuantitativeValue",
+          "minValue": 6,
+          "maxValue": 11,
+          "unitCode": "C62"
+        },
+        "valueAddedTaxIncluded": true,
+        "additionalProperty": {
+          "@type": "PropertyValue",
+          "name": "Discount Percentage",
+          "value": "20%"
+        }
+      },
+      {
+        "@type": "PriceSpecification",
+        "name": "12-23 Cans Offer",
+        "price": "4.20",
+        "priceCurrency": "GBP",
+        "eligibleQuantity": {
+          "@type": "QuantitativeValue",
+          "minValue": 12,
+          "maxValue": 23,
+          "unitCode": "C62"
+        },
+        "valueAddedTaxIncluded": true,
+        "additionalProperty": {
+          "@type": "PropertyValue",
+          "name": "Discount Percentage",
+          "value": "30%"
+        }
+      },
+      {
+        "@type": "PriceSpecification",
+        "name": "24-47 Cans Offer",
+        "price": "3.60",
+        "priceCurrency": "GBP",
+        "eligibleQuantity": {
+          "@type": "QuantitativeValue",
+          "minValue": 24,
+          "maxValue": 47,
+          "unitCode": "C62"
+        },
+        "valueAddedTaxIncluded": true,
+        "additionalProperty": {
+          "@type": "PropertyValue",
+          "name": "Discount Percentage",
+          "value": "40%"
+        }
+      },
+      {
+        "@type": "PriceSpecification",
+        "name": "48+ Cans Offer",
+        "price": "3.00",
+        "priceCurrency": "GBP",
+        "eligibleQuantity": {
+          "@type": "QuantitativeValue",
+          "minValue": 48,
+          "unitCode": "C62"
+        },
+        "valueAddedTaxIncluded": true,
+        "additionalProperty": {
+          "@type": "PropertyValue",
+          "name": "Discount Percentage",
+          "value": "50%"
+        }
+      }
+    ]
+  }
+]
+</script>
