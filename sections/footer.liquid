@@ -231,13 +231,14 @@
             aria-expanded="false"
             aria-controls="ubbs-footer-nav-help-{{ section.id }}"
           >
-            <span>
+            <span class="ubbs-footer__help-label">
               {%- if footer_help_block != blank and footer_help_block.settings.heading != blank -%}
                 {{ footer_help_block.settings.heading }}
               {%- else -%}
                 Need a Hand?
               {%- endif -%}
             </span>
+            <span class="ubbs-footer__help-label-mobile">Help</span>
             <span class="ubbs-footer__nav-arrow" aria-hidden="true">
               {{- 'icon-caret.svg' | inline_asset_content -}}
             </span>
