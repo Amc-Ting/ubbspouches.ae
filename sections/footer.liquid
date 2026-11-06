@@ -268,13 +268,24 @@
 
         <div class="ubbs-footer__age-row">
           <div class="ubbs-footer__age">
+            {% comment %}
+              <div class="ubbs-footer__age-icon" aria-hidden="true">
+                <span>18+</span>
+                <span class="ubbs-footer__age-check">
+                  <svg viewBox="0 0 12 10" fill="none" aria-hidden="true">
+                    <path d="M1 5.2 4.2 8.4 11 1.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </span>
+              </div>
+            {% endcomment %}
             <div class="ubbs-footer__age-icon" aria-hidden="true">
-              <span>18+</span>
-              <span class="ubbs-footer__age-check">
-                <svg viewBox="0 0 12 10" fill="none" aria-hidden="true">
-                  <path d="M1 5.2 4.2 8.4 11 1.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-              </span>
+              <img
+                src="{{ 'ubbs-18plus-badge-white.png' | asset_url }}"
+                alt=""
+                width="704"
+                height="704"
+                loading="lazy"
+              >
             </div>
             <div class="ubbs-footer__age-copy">
               <p class="ubbs-footer__age-title">{{ section.settings.age_title | escape }}</p>
