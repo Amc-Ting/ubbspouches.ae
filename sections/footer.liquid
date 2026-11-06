@@ -276,9 +276,38 @@
               </span>
             </div>
             <div class="ubbs-footer__age-copy">
-              <p class="ubbs-footer__age-title">18+ only. For adult nicotine users.</p>
-              <p class="ubbs-footer__age-sub">Not suitable for pregnant or breastfeeding women.</p>
+              <p class="ubbs-footer__age-title">{{ section.settings.age_title | escape }}</p>
+              <p class="ubbs-footer__age-sub">
+                {{ section.settings.age_verification_text | escape }}
+                {%- if section.settings.age_verification_link != blank -%}
+                  <a href="{{ section.settings.age_verification_link }}">
+                    {{- section.settings.age_verification_link_label | escape -}}
+                  </a>
+                {%- endif -%}
+              </p>
             </div>
+            {%- if section.settings.agechecked_logo != blank or section.settings.trading_standards_logo != blank -%}
+              <div class="ubbs-footer__verification-logos">
+                {%- if section.settings.agechecked_logo != blank -%}
+                  <div class="ubbs-footer__verification-logo ubbs-footer__verification-logo--agechecked">
+                    {{
+                      section.settings.agechecked_logo
+                      | image_url: width: 500
+                      | image_tag: loading: 'lazy', widths: '180,300,500', alt: 'AgeChecked'
+                    }}
+                  </div>
+                {%- endif -%}
+                {%- if section.settings.trading_standards_logo != blank -%}
+                  <div class="ubbs-footer__verification-logo ubbs-footer__verification-logo--standards">
+                    {{
+                      section.settings.trading_standards_logo
+                      | image_url: width: 500
+                      | image_tag: loading: 'lazy', widths: '180,300,500', alt: 'Trading Standards'
+                    }}
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
           </div>
 
           <div class="ubbs-footer__localization">
@@ -310,6 +339,20 @@
           </div>
         </div>
 
+        {%- if section.settings.trustpilot_image != blank -%}
+          <div class="ubbs-footer__trustpilot">
+            {%- if section.settings.trustpilot_url != blank -%}
+              <a href="{{ section.settings.trustpilot_url }}" target="_blank" rel="noopener noreferrer">
+            {%- endif -%}
+            {{
+              section.settings.trustpilot_image
+              | image_url: width: 700
+              | image_tag: loading: 'lazy', widths: '250,450,700', alt: 'Trustpilot reviews'
+            }}
+            {%- if section.settings.trustpilot_url != blank -%}</a>{%- endif -%}
+          </div>
+        {%- endif -%}
+
         <div class="ubbs-footer__payments">
           {%- if section.settings.payment_enable -%}
             <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
@@ -324,6 +367,9 @@
             products away from children at all times.
           </p>
           <p class="ubbs-footer__copyright">&copy; übbs Nicotine Pouches {{ 'now' | date: '%Y' }}</p>
+          {%- if section.settings.company_details != blank -%}
+            <p class="ubbs-footer__company-details">{{ section.settings.company_details | escape }}</p>
+          {%- endif -%}
           {%- if section.settings.show_policy -%}
             <ul class="policies list-unstyled">
               {%- for policy in shop.policies -%}
@@ -516,6 +562,59 @@
       "default": true,
       "label": "t:sections.footer.settings.show_policy.label",
       "info": "t:sections.footer.settings.show_policy.info"
+    },
+    {
+      "type": "header",
+      "content": "Age verification and trust"
+    },
+    {
+      "type": "text",
+      "id": "age_title",
+      "label": "Age verification heading",
+      "default": "For adult nicotine users only."
+    },
+    {
+      "type": "text",
+      "id": "age_verification_text",
+      "label": "Age verification text",
+      "default": "Every order is age verified by AgeChecked before it ships."
+    },
+    {
+      "type": "url",
+      "id": "age_verification_link",
+      "label": "Age verification information URL"
+    },
+    {
+      "type": "text",
+      "id": "age_verification_link_label",
+      "label": "Age verification link label",
+      "default": "How it works"
+    },
+    {
+      "type": "image_picker",
+      "id": "agechecked_logo",
+      "label": "AgeChecked logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "trading_standards_logo",
+      "label": "Trading Standards logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "trustpilot_image",
+      "label": "Trustpilot rating graphic"
+    },
+    {
+      "type": "url",
+      "id": "trustpilot_url",
+      "label": "Trustpilot reviews URL"
+    },
+    {
+      "type": "textarea",
+      "id": "company_details",
+      "label": "Company legal details",
+      "default": "RV Karma Limited. Company no. 13811906. Room 2, 1st Floor, 7 Blighs Walk, Sevenoaks, England, TN13 1DB"
     },
     {
       "type": "header",
