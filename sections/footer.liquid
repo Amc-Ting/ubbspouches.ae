@@ -245,7 +245,7 @@
           </button>
           <div class="ubbs-footer__nav-panel" id="ubbs-footer-nav-help-{{ section.id }}">
             {%- if footer_help_block != blank and footer_help_block.settings.subtext != blank -%}
-              <div class="ubbs-footer__help-text rte">{{ footer_help_block.settings.subtext }}</div>
+              {% comment %} <div class="ubbs-footer__help-text rte">{{ footer_help_block.settings.subtext }}</div> {% endcomment %}
             {%- else -%}
               <ul class="ubbs-footer__links list-unstyled">
                 <li><a href="tel:+97180069800">+971 800 69 800</a></li>
