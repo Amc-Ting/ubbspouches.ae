@@ -874,6 +874,7 @@
     align-items: stretch;
     gap: 0;
     padding: 0;
+    overflow: hidden;
   }
 
   /* Flatten the desktop columns so all mobile content follows one vertical flow. */
