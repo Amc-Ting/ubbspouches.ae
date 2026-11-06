@@ -24,7 +24,7 @@
 
   .ubbs-footer__main {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr 0.8fr 0.9fr 0.7fr;
+    grid-template-columns: 1.2fr 0.8fr 0.8fr 0.9fr 0.9fr;
     column-gap: 34px;
     row-gap: 0;
     align-items: start;
