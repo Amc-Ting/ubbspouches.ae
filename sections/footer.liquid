@@ -1,323 +1,109 @@
 {% comment %}theme-check-disable UndefinedObject{% endcomment %}
-{{ 'section-footer.css' | asset_url | stylesheet_tag }}
 {{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+{{ 'ubbs-footer.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  .social_icon {
-      display: flex;
-      justify-content: end;
-      margin-right: 23%;
-  }
-    .footer {
-      margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
-    }
-   .grid--3-col-tablet .grid__item {
-      width: calc(18% - var(--grid-desktop-horizontal-spacing) * 2 / 3)!important;
-  }
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    }
-  @media (min-width:1400px){
-    .social_icon {
-      margin-right: 17%;
-  }
-  }
-    @media screen and (min-width: 750px) {
-      .footer {
-        margin-top: {{ section.settings.margin_top }}px;
-      }
-
-      .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
-      }
-    }
-  .custom_footer .footer__content-top {
-      display: flex;
-      width: 100%;
-  }
-
-  .custom_footer .footer__blocks-wrapper {
-      display: flex !important;
-      width: 100% !important;
-  }
-
-  .custom_footer .footer-block.grid__item.scroll-trigger.animate--slide-in {
-      width: 18% !important;
-  }
-  @media (max-width:1024px){
-    .footer-block__details-content.rte a {
-      font-size: 13px;
-  }
-  }
-  /* === FOOTER ACCORDION STYLE FOR MOBILE === */
-  @media (max-width: 989px) {
-  .custom_footer .footer__blocks-wrapper {
-      display: block !important;
-    }
-    .footer-block:first-child {
-    border-bottom: none;
-  }
-    .footer-block:not(:last-child) {
-      border-bottom: 1px solid #444;
-      margin-bottom: 10px;
-    }
-    .footer-block__heading.inline-richtext::after {
-      content: "";
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      background-image: url('https://cdn.shopify.com/s/files/1/0559/7075/8753/files/down_arrow.png?v=1655988093'); /* your plus icon */
-      background-repeat: no-repeat;
-      background-size: contain;
-      transition: transform 0.3s ease;
-    }
-
-    .footer-block__details-content:not(.footer__list-social-block),
-    .footer-block__details-content.rte:not(.footer__list-social-block) {
-      display: none;
-    }
-    .footer-block__heading.inline-richtext {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: 600;
-      padding: 15px 0;
-      color: #fff;
-      text-transform: capitalize;
-    }
-    .footer-block__heading.inline-richtext::after {
-      content: "";
-      font-size: 22px;
-      line-height: 1;
-      transition: transform 0.3s ease;
-    }
-    .footer-block__details-content:not(.footer__list-social-block) {
-      display: none;
-      padding-bottom: 15px;
-    }
-  .footer-block.active .footer-block__details-content {
-      display: block;
-      /* padding-left: 20px; */
-  }
-    /* Company Info (rte) */
-    .footer-block__details-content.rte:not(.footer__list-social-block) {
-      display: none;
-    }
-
-    .footer-block.active .footer-block__details-content.rte {
-      display: block;
-    }
-
-    /* Keep images and brand info always visible */
-    .footer-block__brand-info,
-    .footer-block-image {
-      display: block !important;
-    }
-     .custom_footer .footer-block.grid__item.scroll-trigger.animate--slide-in {
-      width: 100% !important;
-  }
-  .footer-block__image-wrapper {
-      display: flex;
-      justify-content: center;
-      width: 100% !important;
-      margin-left: 34%;
-      margin: 0 auto;
-  }
-  .social_icon {
-         justify-content: flex-start;
-      margin-left: 9%;
-  }
-  }
-  @media (max-width: 480px){
-   .custom_footer .footer-block.grid__item.scroll-trigger.animate--slide-in {
-      width: 100% !important;
-  }
-  .footer-block__image-wrapper {
-      display: flex;
-      justify-content: center;
-      width: 100% !important;
-      /* margin-left: 80px; */
-  }
-  .footer-block.grid__item {
-      margin:  0 !important;
-  }
-  .footer-block__details-content {
-      padding-bottom: 0 !important;
-  }
-  .footer-block__heading {
-      font-size: 19px!important;
-  }
-  }
-
-  .trading_standard_sec{
-    text-align:center;
-    background:#fff;
-  }
-  .trading_standard_sec img{
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-  }
-  @media (min-width:768px){
-    .trading_standard_sec img{
-      max-width:600px;
-    }
-  }
-{%- endstyle -%}
-
-<footer class="custom_footer footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-  {%- liquid
+{%- liquid
+  assign has_social_icons = false
+  if settings.social_facebook_link != blank or settings.social_instagram_link != blank or settings.social_youtube_link != blank or settings.social_tiktok_link != blank or settings.social_twitter_link != blank or settings.social_pinterest_link != blank or settings.social_snapchat_link != blank or settings.social_tumblr_link != blank or settings.social_vimeo_link != blank
     assign has_social_icons = true
-    if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
-      assign has_social_icons = false
-    endif
+  endif
 
-    if settings.brand_image == blank and settings.brand_headline == blank and settings.brand_description == blank
-      assign brand_empty = true
-    endif
+  assign footer_logo_block = blank
+  assign footer_help_block = blank
+  for block in section.blocks
+    case block.type
+      when 'image'
+        if footer_logo_block == blank
+          assign footer_logo_block = block
+        endif
+      when 'text'
+        if footer_help_block == blank
+          assign footer_help_block = block
+        endif
+    endcase
+  endfor
 
-    if section.blocks.size == 1 and section.blocks[0].type == 'brand_information' and brand_empty and has_social_icons == false and section.settings.newsletter_enable == false and section.settings.enable_follow_on_shop == false
-      assign only_empty_brand = true
-    endif
-  -%}
-  {%- if section.blocks.size > 0
-    or section.settings.newsletter_enable
-    or section.settings.show_social
-    and has_social_icons == true
-    or section.settings.enable_follow_on_shop
-  -%}
-    {%- unless only_empty_brand -%}
-      <div class="footer__content-top page-width">
-        {%- if section.blocks.size > 0 -%}
-          {%- liquid
-            if section.blocks.size == 9
-              assign footer_grid_class = 'grid--3-col-tablet'
-            elsif section.blocks.size > 6
-              assign footer_grid_class = 'grid--4-col-desktop'
-            elsif section.blocks.size > 4
-              assign footer_grid_class = 'grid--3-col-tablet'
-            endif
-          -%}
+  assign has_language = false
+  if section.settings.enable_language_selector and localization.available_languages.size > 1
+    assign has_language = true
+  endif
+
+  assign has_country = false
+  if section.settings.enable_country_selector and localization.available_countries.size > 1
+    assign has_country = true
+  endif
+-%}
+
+<footer
+  id="UbbsFooter-{{ section.id }}"
+  class="custom_footer ubbs-footer color-{{ section.settings.color_scheme }} gradient"
+  style="--ubbs-footer-padding-top: {{ section.settings.padding_top }}px; --ubbs-footer-padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="ubbs-footer__inner">
+    <div class="ubbs-footer__main">
+      <div class="ubbs-footer__left">
+        <div class="ubbs-footer__brand">
           <div
-            class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            {% if settings.animations_reveal_on_scroll %}
-              data-cascade
+            class="ubbs-footer__logo"
+            {% if footer_logo_block != blank %}
+              {{- footer_logo_block.shopify_attributes -}}
             {% endif %}
           >
-            {%- for block in section.blocks -%}
-              <div
-                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} {% if forloop.index == 2 %}active {% endif %}"
-                {{ block.shopify_attributes }}
-                {% if settings.animations_reveal_on_scroll %}
-                  data-cascade
-                  style="--animation-order: {{ forloop.index }};"
-                {% endif %}
-              >
-                {%- if block.settings.heading != blank -%}
-                  <span class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</span>
-                {%- endif -%}
-
-                {%- case block.type -%}
-                  {%- when '@app' -%}
-                    {% render block %}
-                  {%- when 'text' -%}
-                    <div class="footer__list-social-block footer-block__details-content rte">
-                      {{ block.settings.subtext }}
-                      {%- render 'social-icons', class: 'footer__list-social' -%}
-                    </div>
-                  {%- when 'link_list' -%}
-                    {%- if block.settings.menu != blank -%}
-                      <ul class="footer-block__details-content list-unstyled">
-                        {%- for link in block.settings.menu.links -%}
-                          <li>
-                            <a
-                              href="{{ link.url }}"
-                              class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
-                            >
-                              {{ link.title | escape }}
-                            </a>
-                          </li>
-                        {%- endfor -%}
-                      </ul>
-                    {%- endif -%}
-                  {%- when 'brand_information' -%}
-                    <div class="footer-block__brand-info">
-                      {%- if settings.brand_image != blank -%}
-                        {%- assign brand_image_height = settings.brand_image_width
-                          | divided_by: settings.brand_image.aspect_ratio
-                        -%}
-                        <div
-                          class="footer-block__image-wrapper"
-                          style="max-width: min(100%, {{ settings.brand_image_width }}px);"
-                        >
-                          {{
-                            settings.brand_image
-                            | image_url: width: 1100
-                            | image_tag:
-                              loading: 'lazy',
-                              widths: '50, 100, 150, 200, 300, 400, 550, 800, 1100',
-                              height: brand_image_height,
-                              width: settings.brand_image_width
-                          }}
-                        </div>
-                      {%- endif -%}
-                      {%- if settings.brand_headline != blank -%}
-                        <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2>
-                      {%- endif -%}
-                      {%- if settings.brand_description != blank -%}
-                        <div class="rte">{{ settings.brand_description }}</div>
-                      {%- endif -%}
-                      {% comment %}
-                        {%- if block.settings.show_social and has_social_icons -%}
-                          {%- render 'social-icons', class: 'footer__list-social' -%}
-                        {%- endif -%}
-                      {% endcomment %}
-                    </div>
-                  {%- when 'image' -%}
-                    <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
-                      {%- if block.settings.image != blank -%}
-                        {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
-                        <div
-                          class="footer-block__image-wrapper"
-                          style="max-width: min(100%, {{ block.settings.image_width }}px);"
-                        >
-                          <a href="/">
-                            <img
-                              srcset="{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
-                              src="{{ block.settings.image | image_url: width: 760 }}"
-                              alt="{{ block.settings.image.alt | escape }}"
-                              loading="lazy"
-                              width="{{ block.settings.image.width }}"
-                              height="{{ block.settings.image.height }}"
-                            >
-                          </a>
-                        </div>
-                      {%- else -%}
-                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-                      {%- endif -%}
-                    </div>
-                    <div class="footer-copy-text">{{ block.settings.footer_copy_text }}</div>
-                {%- endcase -%}
-              </div>
-            {%- endfor -%}
+            <a href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }}">
+              {%- if footer_logo_block != blank and footer_logo_block.settings.image != blank -%}
+                {{
+                  footer_logo_block.settings.image
+                  | image_url: width: 300
+                  | image_tag: loading: 'lazy', widths: '100,150,200,300', width: 100, alt: shop.name
+                }}
+              {%- elsif settings.brand_image != blank -%}
+                {{
+                  settings.brand_image
+                  | image_url: width: 300
+                  | image_tag: loading: 'lazy', widths: '100,150,200,300', width: 100, alt: shop.name
+                }}
+              {%- elsif settings.logo != blank -%}
+                {{
+                  settings.logo
+                  | image_url: width: 300
+                  | image_tag: loading: 'lazy', widths: '100,150,200,300', width: 100, alt: shop.name
+                }}
+              {%- else -%}
+                {{ shop.name }}
+              {%- endif -%}
+            </a>
           </div>
-        {%- endif -%}
 
-        <div
-          class="footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-          {% endif %}
-        >
+          <p class="ubbs-footer__desc">
+            Long-lasting flavour. Pharmaceutical-grade quality. Precision-crafted satisfaction in every pouch.
+          </p>
+
+          <span class="ubbs-footer__email-label">Email us at</span>
+          <a class="ubbs-footer__email" href="mailto:customerservices@ubbspouches.ae">
+            customerservices@ubbspouches.ae
+          </a>
+
+          <div class="ubbs-footer__contacts">
+            <a class="ubbs-footer__contact-btn" href="mailto:customerservices@ubbspouches.ae">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="m3 7 9 6 9-6"></path>
+              </svg>
+              <span>customerservices@ubbspouches.ae</span>
+            </a>
+            <a class="ubbs-footer__contact-btn" href="tel:+97180069800">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.6 21 3 13.4 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.2.2 2.4.57 3.6a1 1 0 0 1-.25 1l-2.22 2.2Z"></path>
+              </svg>
+              <span>+971 800 69 800</span>
+            </a>
+          </div>
+
           {%- if section.settings.newsletter_enable -%}
-            <div class="footer-block__newsletter">
+            <div class="ubbs-footer__newsletter">
               {%- if section.settings.newsletter_heading != blank -%}
                 <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
               {%- endif -%}
@@ -352,7 +138,7 @@
                       type="submit"
                       class="newsletter-form__button field__button"
                       name="commit"
-                      id="Subscribe"
+                      id="Subscribe-{{ section.id }}"
                       aria-label="{{ 'newsletter.button_label' | t }}"
                     >
                       <span class="svg-wrapper">
@@ -388,282 +174,176 @@
           {%- endif -%}
 
           {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
-            <div class="footer__follow-on-shop">
+            <div class="ubbs-footer__follow-shop">
               {{ shop | login_button: action: 'follow' }}
             </div>
           {%- endif -%}
         </div>
+
+        {%- assign nav_col = 1 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'link_list' -%}
+            {%- assign nav_col = nav_col | plus: 1 -%}
+            {%- assign nav_panel_id = 'ubbs-footer-nav-' | append: block.id -%}
+            <div class="ubbs-footer__nav" style="--nav-col: {{ nav_col }};" {{ block.shopify_attributes }}>
+              <button
+                type="button"
+                class="ubbs-footer__nav-heading"
+                aria-expanded="false"
+                aria-controls="{{ nav_panel_id }}"
+              >
+                <span>{{ block.settings.heading | default: 'Menu' }}</span>
+                <span class="ubbs-footer__nav-arrow" aria-hidden="true">
+                  {{- 'icon-caret.svg' | inline_asset_content -}}
+                </span>
+              </button>
+              <div class="ubbs-footer__nav-panel" id="{{ nav_panel_id }}">
+                {%- if block.settings.menu != blank -%}
+                  <ul class="ubbs-footer__links list-unstyled">
+                    {%- for link in block.settings.menu.links -%}
+                      <li>
+                        <a
+                          href="{{ link.url }}"
+                          class="ubbs-footer__link{% if link.active %} ubbs-footer__link--active{% endif %}"
+                        >
+                          {{ link.title | escape }}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- assign help_col = nav_col | plus: 1 -%}
+        <div
+          class="ubbs-footer__nav ubbs-footer__nav--help"
+          style="--nav-col: {{ help_col }};"
+          {% if footer_help_block != blank %}
+            {{- footer_help_block.shopify_attributes -}}
+          {% endif %}
+        >
+          <button
+            type="button"
+            class="ubbs-footer__nav-heading"
+            aria-expanded="false"
+            aria-controls="ubbs-footer-nav-help-{{ section.id }}"
+          >
+            <span>
+              {%- if footer_help_block != blank and footer_help_block.settings.heading != blank -%}
+                {{ footer_help_block.settings.heading }}
+              {%- else -%}
+                Need a Hand?
+              {%- endif -%}
+            </span>
+            <span class="ubbs-footer__nav-arrow" aria-hidden="true">
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </span>
+          </button>
+          <div class="ubbs-footer__nav-panel" id="ubbs-footer-nav-help-{{ section.id }}">
+            {%- if footer_help_block != blank and footer_help_block.settings.subtext != blank -%}
+              <div class="ubbs-footer__help-text rte">{{ footer_help_block.settings.subtext }}</div>
+            {%- else -%}
+              <ul class="ubbs-footer__links list-unstyled">
+                <li><a href="tel:+97180069800">+971 800 69 800</a></li>
+                <li><a href="/pages/contact">Contact us</a></li>
+                <li><a href="/pages/faq">FAQs</a></li>
+              </ul>
+            {%- endif -%}
+          </div>
+        </div>
       </div>
-      {% comment %}
-        <div class="social_icon">
-           {%- if section.settings.show_social and has_social_icons -%}
-            {%- render 'social-icons', class: 'footer__list-social' -%}
+
+      <div class="ubbs-footer__right">
+        <div class="ubbs-footer__top">
+          <div class="ubbs-footer__social">
+            {%- if section.settings.show_social and has_social_icons -%}
+              {%- render 'social-icons', class: 'footer__list-social' -%}
+            {%- endif -%}
+          </div>
+        </div>
+
+        <div class="ubbs-footer__age-row">
+          <div class="ubbs-footer__age">
+            <div class="ubbs-footer__age-icon" aria-hidden="true">
+              <span>18+</span>
+              <span class="ubbs-footer__age-check">
+                <svg viewBox="0 0 12 10" fill="none" aria-hidden="true">
+                  <path d="M1 5.2 4.2 8.4 11 1.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+            </div>
+            <div class="ubbs-footer__age-copy">
+              <p class="ubbs-footer__age-title">18+ only. For adult nicotine users.</p>
+              <p class="ubbs-footer__age-sub">Not suitable for pregnant or breastfeeding women.</p>
+            </div>
+          </div>
+
+          <div class="ubbs-footer__localization">
+            {%- if has_language -%}
+              <div class="ubbs-footer__loc-group">
+                <localization-form>
+                  {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
+                    <h2 class="ubbs-footer__loc-label" id="UbbsFooterLanguageLabel">
+                      {{ 'localization.language_label' | t }}
+                    </h2>
+                    {%- render 'language-localization', localPosition: 'UbbsFooterLanguage' -%}
+                  {%- endform -%}
+                </localization-form>
+              </div>
+            {%- endif -%}
+
+            {%- if has_country -%}
+              <div class="ubbs-footer__loc-group ubbs-footer__loc-group--country">
+                <localization-form>
+                  {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
+                    <h2 class="ubbs-footer__loc-label" id="UbbsFooterCountryLabel">
+                      {{ 'localization.country_label' | t }}
+                    </h2>
+                    {%- render 'country-localization', localPosition: 'UbbsFooterCountry' -%}
+                  {%- endform -%}
+                </localization-form>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+
+        <div class="ubbs-footer__payments">
+          {%- if section.settings.payment_enable -%}
+            <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+            {%- render 'ubbs-footer-payments' -%}
           {%- endif -%}
         </div>
-      {% endcomment %}
-    {%- endunless -%}
-  {%- endif -%}
 
-  <div
-    class="footer__content-bottom{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-    {% if settings.animations_reveal_on_scroll %}
-      data-cascade
-    {% endif %}
-  >
-    <div class="footer__content-bottom-wrapper page-width">
-      <div class="footer__column footer__localization isolate">
-        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-          <localization-form>
-            {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
-              <div>
-                <h2 class="caption-large text-body" id="FooterCountryLabel">{{ 'localization.country_label' | t }}</h2>
-                {%- render 'country-localization', localPosition: 'FooterCountry' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {%- endif -%}
-
-        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-          <localization-form>
-            {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
-              <div>
-                <h2 class="caption-large text-body" id="FooterLanguageLabel">
-                  {{ 'localization.language_label' | t }}
-                </h2>
-                {%- render 'language-localization', localPosition: 'FooterLanguage' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {%- endif -%}
-      </div>
-      <div class="footer__column footer__column--info">
-        {%- if section.settings.payment_enable -%}
-          <div class="footer__payment">
-            <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
-            <ul class="list list-payment" role="list">
-              <li class="list-payment__item">
-                <svg
-                  class="icon icon--full-color"
-                  viewBox="0 0 38 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  role="img"
-                  width="38"
-                  height="24"
-                  aria-labelledby="pi-visa"
-                >
-                  <title id="pi-visa">Visa</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><path d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z" fill="#142688"></path>
-                </svg>
-              </li>
-              <li class="list-payment__item">
-                <svg
-                  class="icon icon--full-color"
-                  viewBox="0 0 38 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  role="img"
-                  width="38"
-                  height="24"
-                  aria-labelledby="pi-master"
-                >
-                  <title id="pi-master">Mastercard</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><circle fill="#EB001B" cx="15" cy="12" r="7"></circle><circle fill="#F79E1B" cx="23" cy="12" r="7"></circle><path fill="#FF5F00" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"></path>
-                </svg>
-              </li>
-              <li class="list-payment__item">
-                <svg
-                  class="icon icon--full-color"
-                  xmlns="http://www.w3.org/2000/svg"
-                  role="img"
-                  aria-labelledby="pi-american_express"
-                  viewBox="0 0 38 24"
-                  width="38"
-                  height="24"
-                >
-                  <title id="pi-american_express">American Express</title><path fill="#000" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3Z" opacity=".07"></path><path fill="#006FCF" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32Z"></path><path fill="#FFF" d="M22.012 19.936v-8.421L37 11.528v2.326l-1.732 1.852L37 17.573v2.375h-2.766l-1.47-1.622-1.46 1.628-9.292-.02Z"></path><path fill="#006FCF" d="M23.013 19.012v-6.57h5.572v1.513h-3.768v1.028h3.678v1.488h-3.678v1.01h3.768v1.531h-5.572Z"></path><path fill="#006FCF" d="m28.557 19.012 3.083-3.289-3.083-3.282h2.386l1.884 2.083 1.89-2.082H37v.051l-3.017 3.23L37 18.92v.093h-2.307l-1.917-2.103-1.898 2.104h-2.321Z"></path><path fill="#FFF" d="M22.71 4.04h3.614l1.269 2.881V4.04h4.46l.77 2.159.771-2.159H37v8.421H19l3.71-8.421Z"></path><path fill="#006FCF" d="m23.395 4.955-2.916 6.566h2l.55-1.315h2.98l.55 1.315h2.05l-2.904-6.566h-2.31Zm.25 3.777.875-2.09.873 2.09h-1.748Z"></path><path fill="#006FCF" d="M28.581 11.52V4.953l2.811.01L32.84 9l1.456-4.046H37v6.565l-1.74.016v-4.51l-1.644 4.494h-1.59L30.35 7.01v4.51h-1.768Z"></path>
-                </svg>
-              </li>
-              {% comment %}
-                <li class="list-payment__item">
-                  <svg
-                    class="icon icon--full-color"
-                    viewBox="0 0 38 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="38"
-                    height="24"
-                    role="img"
-                    aria-labelledby="pi-maestro"
-                  >
-                    <title id="pi-maestro">Maestro</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><circle fill="#EB001B" cx="15" cy="12" r="7"></circle><circle fill="#00A2E5" cx="23" cy="12" r="7"></circle><path fill="#7375CF" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"></path>
-                  </svg>
-                </li>
-              {% endcomment %}
-              <li class="list-payment__item">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="38px" height="38px">
-                  <path fill="#E1E7EA" d="M45,35c0,2.2-1.8,4-4,4H7c-2.2,0-4-1.8-4-4V13c0-2.2,1.8-4,4-4h34c2.2,0,4,1.8,4,4V35z"/><path fill="#FF6D00" d="M45,35c0,2.2-1.8,4-4,4H16c0,0,23.6-3.8,29-15V35z M22,24c0,1.7,1.3,3,3,3s3-1.3,3-3c0-1.7-1.3-3-3-3S22,22.3,22,24z"/><path d="M11.2,21h1.1v6h-1.1V21z M17.2,24c0,1.7,1.3,3,3,3c0.5,0,0.9-0.1,1.4-0.3v-1.3c-0.4,0.4-0.8,0.6-1.4,0.6c-1.1,0-1.9-0.8-1.9-2c0-1.1,0.8-2,1.9-2c0.5,0,0.9,0.2,1.4,0.6v-1.3c-0.5-0.2-0.9-0.4-1.4-0.4C18.5,21,17.2,22.4,17.2,24z M30.6,24.9L29,21h-1.2l2.5,6h0.6l2.5-6h-1.2L30.6,24.9z M33.9,27h3.2v-1H35v-1.6h2v-1h-2V22h2.1v-1h-3.2V27z M41.5,22.8c0-1.1-0.7-1.8-2-1.8h-1.7v6h1.1v-2.4h0.1l1.6,2.4H42l-1.8-2.5C41,24.3,41.5,23.7,41.5,22.8z M39.2,23.8h-0.3v-1.8h0.3c0.7,0,1.1,0.3,1.1,0.9C40.3,23.4,40,23.8,39.2,23.8z M7.7,21H6v6h1.6c2.5,0,3.1-2.1,3.1-3C10.8,22.2,9.5,21,7.7,21z M7.4,26H7.1v-4h0.4c1.5,0,2.1,1,2.1,2C9.6,24.4,9.5,26,7.4,26z M15.3,23.3c-0.7-0.3-0.9-0.4-0.9-0.7c0-0.4,0.4-0.6,0.8-0.6c0.3,0,0.6,0.1,0.9,0.5l0.6-0.8C16.2,21.2,15.7,21,15,21c-1,0-1.8,0.7-1.8,1.7c0,0.8,0.4,1.2,1.4,1.6c0.6,0.2,1.1,0.4,1.1,0.9c0,0.5-0.4,0.8-0.9,0.8c-0.5,0-1-0.3-1.2-0.8l-0.7,0.7c0.5,0.8,1.1,1.1,2,1.1c1.2,0,2-0.8,2-1.9C16.9,24.2,16.5,23.8,15.3,23.3z"/>
-                </svg>
-              </li>
-              <li class="list-payment__item">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="38px" height="38px">
-                  <path fill="#CFD8DC" d="M45,35c0,2.2-1.8,4-4,4H7c-2.2,0-4-1.8-4-4V13c0-2.2,1.8-4,4-4h34c2.2,0,4,1.8,4,4V35z"/><path fill="#1565C0" d="M29,16H19c-4.4,0-8,3.6-8,8c0,4.4,3.6,8,8,8h10c4.4,0,8-3.6,8-8C37,19.6,33.4,16,29,16z"/><path fill="#FFF" d="M19,18c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S22.3,18,19,18z M15,24c0-1.9,1.3-3.4,3-3.9v7.7C16.3,27.4,15,25.9,15,24z M20,27.9v-7.7c1.7,0.4,3,2,3,3.9C23,25.9,21.7,27.4,20,27.9z"/>
-                </svg>
-              </li>
-              <li class="list-payment__item">
-                <svg width="50px" height="50px" viewBox="0 -139.5 750 750" xmlns="http://www.w3.org/2000/svg">
-                  <g fill="none" fill-rule="evenodd">
-                    <rect width="750" height="471" rx="40"/>
-                    <path fill="#D10429" d="M201.809581,55 L344.203266,55 C364.072152,55 376.490206,71.4063861 371.833436,91.4702467 L305.500331,378.94775 C300.843561,399.011611 280.871191,415.417997 261.002305,415.417997 L118.60862,415.417997 C98.7397339,415.417997 86.32168,399.011611 90.9784502,378.94775 L157.311555,91.4702467 C161.968325,71.3018868 181.837211,55 201.706097,55 L201.809581,55 Z"/>
-                    <path fill="#022E64" d="M331.750074,55 L495.564902,55 C515.433788,55 506.430699,71.4063861 501.773929,91.4702467 L435.440824,378.94775 C430.784054,399.011611 432.232827,415.417997 412.363941,415.417997 L248.549113,415.417997 C228.576743,415.417997 216.262173,399.011611 221.022427,378.94775 L287.355531,91.4702467 C292.012302,71.3018868 311.881188,55 331.853558,55 L331.750074,55 Z"/>
-                    <path fill="#076F74" d="M489.814981,55 L632.208666,55 C652.077552,55 664.495606,71.4063861 659.838836,91.4702467 L593.505731,378.94775 C588.848961,399.011611 568.876591,415.417997 549.007705,415.417997 L406.61402,415.417997 C386.64165,415.417997 374.32708,399.011611 378.98385,378.94775 L445.316955,91.4702467 C449.973725,71.3018868 469.842611,55 489.711498,55 L489.814981,55 Z"/>
-                    <path fill="#FEFEFE" d="M465.904754,326.014514 L479.357645,326.014514 L483.186545,312.952104 L469.837137,312.952104 L465.904754,326.014514 L465.904754,326.014514 Z M476.667067,290.066763 L476.667067,290.066763 L472.010297,305.532656 C472.010297,305.532656 477.081002,302.920174 479.875064,302.08418 C482.669126,301.457184 486.808478,300.934688 486.808478,300.934688 L490.016475,290.171263 L476.563583,290.171263 L476.667067,290.066763 Z M483.393513,267.912917 L483.393513,267.912917 L478.94371,282.751814 C478.94371,282.751814 483.910932,280.45283 486.704994,279.721335 C489.499056,278.98984 493.638407,278.780842 493.638407,278.780842 L496.846405,268.017417 L483.496997,268.017417 L483.393513,267.912917 Z M513.093359,267.912917 L513.093359,267.912917 L495.708083,325.910015 L500.364853,325.910015 L496.742921,337.927431 L492.086151,337.927431 L490.947829,341.584906 L474.390424,341.584906 L475.528745,337.927431 L442,337.927431 L445.311481,326.850508 L448.726446,326.850508 L466.318689,267.912917 L469.837137,256 L486.704994,256 L484.94577,261.956459 C484.94577,261.956459 489.395572,258.716981 493.741891,257.567489 C497.984726,256.417997 522.406899,256 522.406899,256 L518.784967,267.808418 L512.989875,267.808418 L513.093359,267.912917 Z"/>
-                    <path fill="#FEFEFE" d="M520 256L538.006178 256 538.213146 262.792453C538.109662 263.941945 539.041016 264.464441 541.214175 264.464441L544.836108 264.464441 541.524627 275.645864 531.797151 275.645864C523.414965 276.272859 520.206968 272.615385 520.413935 268.539913L520.103484 256.104499 520 256zM522.216235 309.20029L505.037927 309.20029 507.935473 299.272859 527.597391 299.272859 530.391454 290.181422 511.039986 290.181422 514.351467 279 568.163034 279 564.851553 290.181422 546.741891 290.181422 543.947829 299.272859 562.057491 299.272859 559.056461 309.20029 539.498026 309.20029 535.979578 313.380261 543.947829 313.380261 545.914021 325.920174C546.120989 327.174165 546.120989 328.01016 546.534924 328.532656 546.948859 328.950653 549.328986 329.159652 550.674275 329.159652L553.054402 329.159652 549.328986 341.386067 543.223443 341.386067C542.292089 341.386067 540.843316 341.281567 538.877124 341.281567 537.014416 341.072569 535.77261 340.027576 534.530805 339.400581 533.392483 338.878084 531.736743 337.519594 531.322808 335.11611L529.4601 322.576197 520.560494 334.907112C517.766432 338.773585 513.937532 341.804064 507.418054 341.804064L495 341.804064 498.311481 330.936139 503.071735 330.936139C504.417024 330.936139 505.65883 330.413643 506.590184 329.891147 507.521538 329.473149 508.349408 329.055152 509.177278 327.696662L522.216235 309.20029 522.216235 309.20029zM334.31354 282L379.742921 282 376.43144 292.972424 358.321778 292.972424 355.527716 302.272859 374.154797 302.272859 370.739832 313.558781 352.216235 313.558781 347.662948 328.711176C347.145529 330.383164 352.112751 330.592163 353.871975 330.592163L363.185516 329.338171 359.4601 341.878084 338.556375 341.878084C336.900635 341.878084 335.65883 341.669086 333.796122 341.251089 332.036897 340.833091 331.209027 339.997097 330.48464 338.847605 329.760254 337.593614 328.518449 336.65312 329.346319 333.936139L335.348378 313.872279 325 313.872279 328.414965 302.377358 338.763343 302.377358 341.557405 293.076923 331.209027 293.076923 334.520508 282.104499 334.31354 282zM365.700875 262.165457L384.327956 262.165457 380.912991 273.555878 355.455981 273.555878 352.661919 275.959361C351.420113 277.108853 351.109662 276.690856 349.557405 277.526851 348.108632 278.258345 345.107603 279.721335 341.175219 279.721335L333 279.721335 336.311481 268.748911 338.795092 268.748911C340.864767 268.748911 342.31354 268.539913 343.037927 268.121916 343.865797 267.599419 344.797151 266.449927 345.728505 264.56894L350.385275 256 368.908872 256 365.700875 262.269956 365.700875 262.165457zM400.808726 280.975327C400.808726 280.975327 405.879431 276.272859 414.572069 274.809869 416.538261 274.391872 428.956314 274.600871 428.956314 274.600871L430.819023 268.330914 404.637626 268.330914 400.808726 281.079826 400.808726 280.975327zM425.437866 285.782293L425.437866 285.782293 399.463436 285.782293 397.91118 291.111756 420.470644 291.111756C423.161223 290.798258 423.678642 291.216255 423.885609 291.007257L425.54135 285.782293 425.437866 285.782293zM391.702153 256.104499L391.702153 256.104499 407.535171 256.104499 405.258528 264.150943C405.258528 264.150943 410.22575 260.075472 413.744198 258.612482 417.262647 257.358491 425.127414 256.104499 425.127414 256.104499L450.791393 256 441.995271 285.468795C440.546498 290.484761 438.787274 293.724238 437.752436 295.291727 436.821082 296.754717 435.68276 298.113208 433.406117 299.367199 431.232958 300.516691 429.266766 301.248186 427.404058 301.352685 425.748317 301.457184 423.057739 301.561684 419.53929 301.561684L394.806666 301.561684 387.873253 324.865022C387.25235 327.164006 386.941899 328.313498 387.355834 328.940493 387.666285 329.46299 388.597639 330.089985 389.735961 330.089985L400.601758 329.044993 396.876342 341.793904 384.665256 341.793904C380.732872 341.793904 377.93881 341.689405 375.972618 341.584906 374.10991 341.375907 372.143718 341.584906 370.798429 340.539913 369.660107 339.49492 367.900883 338.13643 368.004367 336.777939 368.10785 335.523948 368.625269 333.433962 369.45314 330.507983L391.702153 256.104499 391.702153 256.104499z"/>
-                    <path fill="#FEFEFE" d="M437.840227 303L436.391454 310.105951C435.770551 312.300435 435.253132 313.972424 433.597391 315.435414 431.838167 316.898403 429.871975 318.465893 425.111721 318.465893L416.3156 318.88389 416.212116 326.825835C416.108632 329.020319 416.729535 328.811321 417.039986 329.229318 417.453921 329.647315 417.764373 329.751814 418.178308 329.960813L420.97237 329.751814 429.354556 329.333817 425.836108 341.037736 416.212116 341.037736C409.48567 341.037736 404.414965 340.828737 402.862708 339.574746 401.206968 338.529753 401 337.275762 401 334.976778L401.620903 303.835994 417.039986 303.835994 416.833019 310.21045 420.558435 310.21045C421.80024 310.21045 422.731594 310.105951 423.249013 309.792453 423.766432 309.478955 424.076883 308.956459 424.283851 308.224964L425.836108 303.208999 437.94371 303.208999 437.840227 303zM218.470396 147C217.952978 149.507983 208.018534 195.592163 208.018534 195.592163 205.845375 204.892598 204.293118 211.580552 199.118929 215.865022 196.117899 218.373004 192.599451 219.522496 188.563583 219.522496 182.044105 219.522496 178.318689 216.283019 177.697786 210.117562L177.594302 208.027576C177.594302 208.027576 179.560494 195.592163 179.560494 195.487663 179.560494 195.487663 189.908872 153.478955 191.771581 147.940493 191.875064 147.626996 191.875064 147.417997 191.875064 147.313498 171.695727 147.522496 168.073794 147.313498 167.866827 147 167.763343 147.417997 167.245924 150.030479 167.245924 150.030479L156.690578 197.36865 155.759224 201.339623 154 214.506531C154 218.373004 154.724386 221.612482 156.276643 224.224964 161.140381 232.793904 174.903724 234.047896 182.665008 234.047896 192.702935 234.047896 202.119959 231.853411 208.43247 227.986938 219.505234 221.403483 222.40278 211.058055 224.886391 201.966618L226.128196 197.264151C226.128196 197.264151 236.787026 153.687954 238.649734 148.044993 238.753218 147.731495 238.753218 147.522496 238.856702 147.417997 224.162004 147.522496 219.919169 147.417997 218.470396 147.104499L218.470396 147zM277.499056 233.622642C270.358675 233.518142 267.771581 233.518142 259.389394 233.936139L259.078943 233.309144C259.803329 230.069666 260.6312 226.934688 261.252102 223.69521L262.28694 219.306241C263.839197 212.513788 265.28797 204.467344 265.494937 202.063861 265.701905 200.600871 266.11584 196.943396 261.976489 196.943396 260.217264 196.943396 258.45804 197.77939 256.595332 198.615385 255.560494 202.272859 253.594302 212.513788 252.559465 217.111756 250.489789 226.934688 250.386305 228.08418 249.454951 232.891147L248.834048 233.518142C241.4867 233.413643 238.899605 233.413643 230.413935 233.83164L230 233.100145C231.448773 227.248186 232.794062 221.396226 234.139351 215.544267 237.6578 199.764877 238.589154 193.703919 239.520508 185.657475L240.244894 185.239478C248.523597 184.089985 250.489789 183.776488 259.492878 182L260.217264 182.835994 258.871975 187.851959C260.424232 186.911466 261.873005 185.970972 263.425262 185.239478 267.668097 183.149492 272.324867 182.522496 274.911962 182.522496 278.844345 182.522496 283.190664 183.671988 284.949888 188.269956 286.605629 192.345428 285.570791 197.361393 283.294148 207.288824L282.155826 212.30479C279.879183 223.381713 279.465248 225.367199 278.223443 232.891147L277.395572 233.518142 277.499056 233.622642zM306.558435 233.650218C302.212116 233.650218 299.418054 233.545718 296.727476 233.650218 294.036897 233.650218 291.449803 233.859216 287.413935 233.963716L287.206968 233.650218 287 233.232221C288.138322 229.05225 288.655741 227.58926 289.276643 226.12627 289.794062 224.66328 290.311481 223.20029 291.346319 218.91582 292.588124 213.377358 293.415995 209.510885 293.933413 206.062409 294.554316 202.822932 294.864767 200.001451 295.278703 196.761974L295.589154 196.552975 295.899605 196.239478C300.245924 195.612482 302.936502 195.194485 305.730565 194.776488 308.524627 194.358491 311.422173 193.835994 315.871975 193L316.078943 193.417997 316.182427 193.835994C315.354556 197.28447 314.526686 200.732946 313.698816 204.181422 312.870946 207.629898 312.043075 211.078374 311.318689 214.526851 309.766432 221.8418 309.042046 224.558781 308.731594 226.544267 308.317659 228.425254 308.214175 229.365747 307.593273 233.127721L307.179338 233.441219 306.765402 233.754717 306.558435 233.650218zM352.499319 207.975327C352.188868 209.856313 350.533127 216.857765 348.359968 219.783745 346.807711 221.978229 345.048487 223.33672 342.978811 223.33672 342.357909 223.33672 338.83946 223.33672 338.735976 218.007257 338.735976 215.394775 339.253395 212.677794 339.874298 209.751814 341.737006 201.287373 344.013649 194.285922 349.705257 194.285922 354.15506 194.285922 354.465511 199.510885 352.499319 207.975327L352.499319 207.975327zM371.229884 208.811321L371.229884 208.811321C373.713495 197.734398 371.747303 192.509434 369.367176 189.374456 365.64176 184.567489 359.018798 183 352.188868 183 348.049517 183 338.322041 183.417997 330.664241 190.523948 325.179601 195.644412 322.592506 202.645864 321.143733 209.333817 319.591476 216.12627 317.832252 228.352685 329.008501 232.950653 332.423466 234.413643 337.390687 234.83164 340.598684 234.83164 348.773903 234.83164 357.156089 232.532656 363.4686 225.844702 368.332338 220.41074 370.505497 212.259797 371.333368 208.811321L371.229884 208.811321zM545.661919 234.891147C536.969281 234.786647 534.48567 234.786647 526.517419 235.204644L526 234.577649C528.173159 226.322206 530.346319 217.962264 532.312511 209.602322 534.796122 198.734398 535.417024 194.13643 536.244894 187.761974L536.865797 187.239478C545.454951 185.985486 547.835078 185.671988 556.838167 184L557.045135 184.731495C555.389394 191.628447 553.837137 198.4209 552.181397 205.213353 548.869916 219.529753 547.731594 226.844702 546.489789 234.36865L545.661919 234.995646 545.661919 234.891147z"/>
-                    <path fill="#FEFEFE" d="M533.159909 209.373777C532.745974 211.150265 531.090233 218.256216 528.917074 221.182195 527.468301 223.272181 523.949852 224.630672 521.983661 224.630672 521.362758 224.630672 517.947793 224.630672 517.740826 219.405708 517.740826 216.793226 518.258244 214.076245 518.879147 211.150265 520.741855 202.894822 523.018498 195.893371 528.710106 195.893371 533.159909 195.893371 535.126101 201.013836 533.159909 209.478277L533.159909 209.373777zM550.234733 210.209772L550.234733 210.209772C552.718344 199.132849 542.576933 209.269278 541.024677 205.611804 538.541066 199.864344 540.093322 188.369423 530.158879 184.50295 526.329979 182.935461 517.32689 184.920947 509.66909 192.026898 504.287934 197.042863 501.597355 204.044315 500.148582 210.732268 498.596326 217.420222 496.837101 229.751136 507.909866 234.035606 511.428315 235.603095 514.636312 236.021092 517.844309 235.812094 529.020558 235.185098 537.506228 218.151717 543.818739 211.463763 548.682476 206.1343 549.510347 213.449249 550.234733 210.209772L550.234733 210.209772zM420.292089 233.622642C413.151708 233.518142 410.668097 233.518142 402.28591 233.936139L401.975459 233.309144C402.699846 230.069666 403.527716 226.934688 404.252102 223.69521L405.183456 219.306241C406.735713 212.513788 408.28797 204.467344 408.391454 202.063861 408.598421 200.600871 409.012356 196.943396 404.976489 196.943396 403.217264 196.943396 401.354556 197.77939 399.595332 198.615385 398.663978 202.272859 396.594302 212.513788 395.559465 217.111756 393.593273 226.934688 393.386305 228.08418 392.454951 232.891147L391.834048 233.518142C384.4867 233.413643 381.899605 233.413643 373.413935 233.83164L373 233.100145C374.448773 227.248186 375.794062 221.396226 377.139351 215.544267 380.6578 199.764877 381.48567 193.703919 382.520508 185.657475L383.141411 185.239478C391.420113 184.089985 393.489789 183.776488 402.389394 182L403.113781 182.835994 401.871975 187.851959C403.320748 186.911466 404.873005 185.970972 406.321778 185.239478 410.564613 183.149492 415.221383 182.522496 417.808478 182.522496 421.740862 182.522496 425.983697 183.671988 427.846405 188.269956 429.502145 192.345428 428.363824 197.361393 426.08718 207.288824L424.948859 212.30479C422.568732 223.381713 422.25828 225.367199 421.016475 232.891147L420.188605 233.518142 420.292089 233.622642zM482.293118 147.104499L476.291059 147.208999C460.768492 147.417997 454.559465 147.313498 452.075854 147 451.868886 148.149492 451.454951 150.134978 451.454951 150.134978 451.454951 150.134978 445.866827 176.050798 445.866827 176.155298 445.866827 176.155298 432.620903 231.330914 432 233.943396 445.556375 233.734398 451.041016 233.734398 453.421143 234.047896 453.938562 231.435414 457.043075 216.07402 457.146559 216.07402 457.146559 216.07402 459.837137 204.788099 459.940621 204.370102 459.940621 204.370102 460.768492 203.22061 461.596362 202.698113L462.838167 202.698113C474.531835 202.698113 487.674275 202.698113 498.022653 195.069666 505.05955 189.844702 509.819804 182.007257 511.992964 172.602322 512.510383 170.303338 512.924318 167.586357 512.924318 164.764877 512.924318 161.107402 512.199931 157.554427 510.130256 154.732946 504.852583 147.313498 494.400721 147.208999 482.293118 147.104499L482.293118 147.104499zM490.054402 174.169811L490.054402 174.169811C488.812597 179.917271 485.08718 184.828737 480.326926 187.127721 476.394543 189.113208 471.634289 189.322206 466.667067 189.322206L463.45907 189.322206 463.666037 188.068215C463.666037 188.068215 469.564613 162.152395 469.564613 162.256894L469.771581 160.898403 469.875064 159.853411 472.255191 160.062409C472.255191 160.062409 484.466278 161.107402 484.673245 161.107402 489.433499 162.988389 491.503175 167.795356 490.054402 174.169811L490.054402 174.169811zM617.261369 182.835994L616.536983 182C607.740862 183.776488 606.085121 184.089985 598.013386 185.239478L597.392483 185.866473C597.392483 185.970972 597.288999 186.075472 597.288999 186.28447L597.288999 186.179971C591.28694 200.287373 591.390424 197.256894 586.526686 208.333817 586.526686 207.811321 586.526686 207.497823 586.423202 206.975327L585.181397 182.940493 584.45701 182.104499C575.14347 183.880987 574.936502 184.194485 566.450832 185.343977L565.82993 185.970972C565.726446 186.28447 565.726446 186.597968 565.726446 186.911466L565.82993 187.015965C566.864767 192.554427 566.6578 191.300435 567.692638 199.973875 568.210057 204.258345 568.830959 208.542816 569.348378 212.722787 570.176248 219.828737 570.693667 223.277213 571.728505 234.040639 565.933413 243.654572 564.588124 247.312046 559 255.776488L559.310451 256.612482C567.692638 256.298984 569.555346 256.298984 575.764373 256.298984L577.109662 254.731495C581.766432 244.595065 617.364853 182.940493 617.364853 182.940493L617.261369 182.835994zM314.543608 189.75837C319.303862 186.414394 319.924765 181.816425 315.888897 179.412942 311.85303 177.009459 304.712649 177.740954 299.952395 181.084931 295.192141 184.324408 294.674722 188.922376 298.71059 191.430359 302.642973 193.729343 309.783354 193.102347 314.543608 189.75837L314.543608 189.75837z"/>
-                    <path fill="#FEFEFE" d="M575.734683,256.104499 L568.80127,268.121916 C566.628111,272.197388 562.488759,275.332366 556.072765,275.332366 L545,275.123367 L548.207997,264.255443 L550.381157,264.255443 C551.519478,264.255443 552.347349,264.150943 552.968251,263.837446 C553.589154,263.628447 553.899605,263.21045 554.417024,262.583454 L558.556375,256 L575.838167,256 L575.734683,256.104499 Z"/>
-                  </g>
-                </svg>
-              </li>
-              <li class="list-payment__item">
-                <svg
-                  version="1.1"
-                  id="Layer_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  viewBox="0 0 1000 602.409668"
-                  width="40"
-                  height="38"
-                  xml:space="preserve"
-                >
-                                    <path
-                                        fill="#004097"
-                                        d="M889.7793579,602.409668H110.220665C49.3474731,602.409668,0,553.0621948,0,492.1889648V110.220665
-                                        C0,49.3474731,49.3474731,0,110.220665,0h779.5587158C950.6525269,0,1000,49.3474731,1000,110.220665v381.9682922
-                                        C1000,553.0621948,950.6525269,602.409668,889.7793579,602.409668z"
-                                    />
-
-                                    <g>
-                  	<g>
-                  		<g>
-                  			<polygon fill="#FFFFFF" points="731.8113403,167.360672 733.1920166,247.1867065 732.6314087,247.1867065
-                  				709.2609253,167.360672 671.5151367,167.360672 671.5151367,268.0050659 696.5256348,268.0050659 695.119873,185.4261169
-                  				695.680481,185.4261169 720.78302,268.0050659 756.9975586,268.0050659 756.9975586,167.360672 			"/>
-                  			<polygon fill="#FFFFFF" points="253.0961609,167.360672 234.2441559,269.0509949 261.7314148,269.0509949
-                  				275.6382141,176.7825012 276.2072144,176.7741241 289.7625732,269.0509949 317.082489,269.0509949 298.3392639,167.360672 			"/>
-                  			<polygon fill="#FFFFFF" points="406.7536621,167.360672 394.2107544,245.1199341 393.6333923,245.1199341
-                  				381.1072693,167.360672 339.6295166,167.360672 337.3870239,269.0509949 362.8410034,269.0509949 363.4769287,177.6359711
-                  				364.0375366,177.6359711 381.0235901,269.0509949 406.82901,269.0509949 423.8233948,177.6443481 424.3840027,177.6359711
-                  				425.019928,269.0509949 450.4571533,269.0509949 448.2146912,167.360672 			"/>
-                  			<path fill="#FFFFFF" d="M191.4438171,240.3648987c0.9958801,2.4600983,0.6777039,5.6147766,0.2006989,7.5222778
-                  				c-0.8283691,3.3890839-3.1296387,6.8445587-9.9072876,6.8445587c-6.3593903,0-10.2167969-3.6817169-10.2167969-9.2209015
-                  				l-0.0250244-9.8567352H144.225708l-0.0084229,7.8404541c0,22.6842804,17.8478394,29.5375214,36.9591827,29.5375214
-                  				c18.3999176,0,33.5287323-6.2756348,35.9469452-23.2532196c1.2384796-8.7776031,0.326355-14.5261688-0.1087799-16.6681061
-                  				c-4.2925262-21.2951355-42.8752594-27.646347-45.7536316-39.5530853
-                  				c-0.4851837-2.0668488-0.3682251-4.2087708-0.1087799-5.3466339c0.7195892-3.2634583,2.928421-6.827713,9.287796-6.827713
-                  				c5.9574585,0,9.4471436,3.6735535,9.4471436,9.212738v6.3006439h25.3787994v-7.162735
-                  				c0-22.1485443-19.8978424-25.6127014-34.2902069-25.6127014c-18.0735779,0-32.8591919,5.9911652-35.5534515,22.5755005
-                  				c-0.7364502,4.5351257-0.8368073,8.5932312,0.2344208,13.7141418
-                  				c4.4097443,20.7849426,40.5487213,26.7929535,45.7870941,39.9550171"/>
-                  			<path fill="#FFFFFF" d="M522.0734863,240.1718597c0.9708252,2.4432373,0.6695557,5.5478516,0.1925049,7.4471893
-                  				c-0.8201904,3.3472137-3.0958862,6.7608032-9.8066406,6.7608032c-6.3006897,0-10.1248779-3.6316681-10.1248779-9.1289673
-                  				l-0.0168762-9.7479553h-27.0018311l-0.0081787,7.7648621c0,22.4585571,17.6803284,29.2362061,36.5996704,29.2362061
-                  				c18.2160339,0,33.1936951-6.2087402,35.5868835-23.0187988c1.2216187-8.6856842,0.326355-14.3755188-0.1087646-16.5092773
-                  				c-4.2588501-21.0862579-42.4564819-27.3700562-45.2934875-39.1598358
-                  				c-0.493866-2.0331421-0.3682251-4.1500397-0.1256409-5.2797394c0.719574-3.2297363,2.9120789-6.7608032,9.1958618-6.7608032
-                  				c5.9155884,0,9.3634033,3.6229858,9.3634033,9.1208038v6.2255707h25.1275024v-7.0789642
-                  				c0-21.9309845-19.7052612-25.353775-33.9551697-25.353775c-17.8815308,0-32.5246582,5.9155731-35.1854858,22.3410797
-                  				c-0.7364502,4.4932404-0.8365479,8.5099945,0.234436,13.5721588
-                  				c4.3512573,20.5924072,40.1388855,26.5335236,45.3266907,39.5699463"/>
-                  			<path fill="#FFFFFF" d="M607.4445801,253.8298187c7.0702515,0,9.2459106-4.8696442,9.7479248-7.3716125
-                  				c0.2175903-1.095993,0.2512817-2.5770569,0.2426147-3.882431V167.343338h25.7383423v72.9143219
-                  				c0.0336914,1.8743134-0.1588745,5.6985168-0.2594604,6.6938934
-                  				c-1.7736816,18.9775238-16.7769165,25.1275177-35.4699707,25.1275177c-18.7012329,0-33.7044067-6.1499939-35.4868164-25.1275177
-                  				c-0.0919189-0.9958954-0.2844238-4.8195801-0.234375-6.6938934V167.343338h25.7214966v75.2324371
-                  				c-0.0250244,1.3053741,0.0250244,2.786438,0.2425537,3.882431c0.4938354,2.5019684,2.6776733,7.3716125,9.7566528,7.3716125"/>
-                  			<path fill="#FFFFFF" d="M819.5513306,252.7721405c7.3634033,0,9.932312-4.6607666,10.3924561-7.3802948
-                  				c0.2093506-1.1465607,0.2593994-2.5688934,0.2425537-3.8574066v-14.7687683h-10.4256592v-14.8269806h36.0220337v27.2612762
-                  				c-0.0168457,1.9161987-0.0587158,3.3135071-0.3682251,6.6939087
-                  				c-1.6817627,18.5255585-17.7390747,25.1362152-35.7625732,25.1362152c-18.0322266,0-34.0726318-6.6101685-35.7713013-25.1362152
-                  				c-0.2926025-3.3804016-0.3432007-4.77771-0.3513184-6.6939087l0.0081177-42.7828217
-                  				c0-1.8074188,0.2175903-4.9952698,0.427002-6.6939087c2.2675171-19.0107269,17.6552734-25.1275177,35.6956787-25.1275177
-                  				c18.0321655,0,33.8213501,6.0580597,35.6956787,25.1275177c0.326355,3.2384338,0.2175293,6.6939087,0.234436,6.6939087v3.3890839
-                  				h-25.6464233v-5.6985321c0.0081787,0.0081787-0.0168457-2.4100494-0.3181763-3.8742523
-                  				c-0.460144-2.2425385-2.3931885-7.3802948-10.166748-7.3802948c-7.3966675,0-9.5722656,4.8696289-10.1330566,7.3802948
-                  				c-0.2926025,1.3385773-0.4100952,3.1546631-0.4100952,4.8114166v46.4900818
-                  				c-0.0081787,1.2885284,0.0418701,2.7108612,0.234436,3.8574066c0.4769897,2.7195435,3.0458984,7.3802948,10.4006348,7.3802948"/>
-                  		</g>
-                  	</g>
-                  	<g>
-                  		<path fill="#FFFFFF" d="M144.2172852,333.4697266h37.2322845c22.4896088,0,39.1690216,17.2749023,39.1690216,38.7219238
-                  			c0,21.5936584-16.6794128,38.8739929-39.3174438,38.8739929h-16.8296509v31.1252747h-20.2542114V333.4697266z
-                  			 M164.4714966,352.2342834v40.0631714h15.4884186c12.0638428,0,20.2560272-8.9360962,20.2560272-20.1058044
-                  			c0-11.0212402-8.1921844-19.9573669-20.2560272-19.9573669H164.4714966z"/>
-                  		<path fill="#FFFFFF" d="M225.9943695,398.7031555c0-28.8952942,21.1483765-45.4263,43.1891022-45.4263
-                  			c11.4683533,0,21.743866,4.7658081,27.9993286,12.2122803v-10.4257812h20.1058044v87.1275635h-20.1058044v-11.3199463
-                  			c-6.4038696,8.0437927-16.8296509,13.1082458-28.2961731,13.1082458
-                  			C247.886673,443.9792175,225.9943695,427.1495667,225.9943695,398.7031555z M298.2253723,398.406311
-                  			c0-14.7463074-11.1696777-26.8101501-26.0625916-26.8101501s-26.3612518,11.7651978-26.3612518,26.8101501
-                  			c0,15.1897583,11.468338,27.103363,26.3612518,27.103363S298.2253723,413.4476624,298.2253723,398.406311z"/>
-                  		<path fill="#FFFFFF" d="M361.0894775,437.8721619l-35.7426147-82.8088074h21.4452209l24.2760925,58.6811523l22.9348755-58.6811523
-                  			h21.150177l-51.9785767,127.3391418h-20.4026489L361.0894775,437.8721619z"/>
-                  	</g>
-                  </g>
-                </svg>
-              </li>
+        <div class="ubbs-footer__legal">
+          <p class="ubbs-footer__disclaimer">
+            18+ only. This product contains nicotine, which is a highly addictive substance. Not suitable for pregnant
+            and lactating women. Please read all the safety information on the übbs can before consumption. Keep übbs
+            products away from children at all times.
+          </p>
+          <p class="ubbs-footer__copyright">&copy; übbs Nicotine Pouches {{ 'now' | date: '%Y' }}</p>
+          {%- if section.settings.show_policy -%}
+            <ul class="policies list-unstyled">
+              {%- for policy in shop.policies -%}
+                {%- if policy != blank -%}
+                  <li>
+                    <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
             </ul>
-            {% comment %}
-              <ul class="list list-payment" role="list">
-                {%- for type in shop.enabled_payment_types -%}
-                <li class="list-payment__item">
-                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                </li>
-                {%- endfor -%}
-              </ul>
-            {% endcomment %}
-          </div>
-        {%- endif -%}
-      </div>
-    </div>
-    <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
-      <div class="footer__copyright caption">
-        <small class="copyright__content"
-          >18+ only. This product contains nicotine, which is a highly addictive substance. Not suitable for pregnant
-          and lactating women. Please read all the safety information on the übbs can before consumption. Keep übbs
-          products away from children at all times.
-
-          <br>
-          <br>
-        </small>
-        <small class="copyright__content copyright_age_verification">
-          <span>&copy; übbs Nicotine Pouches {{ 'now' | date: '%Y' }}</span>
-        </small>
-        {% comment %} <small class="copyright__content">{{ powered_by_link }}</small> {% endcomment %}
-        {%- if section.settings.show_policy -%}
-          <ul class="policies list-unstyled">
-            {%- for policy in shop.policies -%}
-              {%- if policy != blank -%}
-                <li>
-                  <small class="copyright__content"
-                    ><a href="{{ policy.url }}">{{ policy.title | escape }}</a></small
-                  >
-                </li>
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
-        {%- endif -%}
+          {%- endif -%}
+        </div>
       </div>
     </div>
   </div>
-
-  {% comment %}
-    <div class="trading_standard_sec">
-      <img
-        src="https://cdn.shopify.com/s/files/1/0559/7075/8753/files/footer_new_cont_jpg_d3b40886-4892-4e91-b1f0-37274ded8913.jpg?v=1774266497"
-        alt="trading_img"
-      >
-    </div>
-  {% endcomment %}
 </footer>
 
 {% schema %}
 {
-  "name": "t:sections.footer.name",
+  "name": "Übbs custom footer",
   "blocks": [
     {
       "type": "@app"
@@ -876,41 +556,70 @@
       "default": 36
     }
   ],
-  "default": {
-    "blocks": [
-      {
-        "type": "link_list"
-      },
-      {
-        "type": "text"
-      }
-    ]
-  }
+  "presets": [
+    {
+      "name": "Übbs custom footer",
+      "blocks": [
+        { "type": "link_list", "settings": { "heading": "Shop" } },
+        { "type": "link_list", "settings": { "heading": "Discover" } },
+        { "type": "link_list", "settings": { "heading": "Policies" } },
+        { "type": "text", "settings": { "heading": "Need a Hand?" } }
+      ]
+    }
+  ]
 }
 {% endschema %}
+
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    setTimeout(initFooterAccordion, 50);
-  });
+  (function () {
+    function initUbbsFooterAccordions() {
+      var footer = document.getElementById('UbbsFooter-{{ section.id }}');
+      if (!footer || footer.dataset.accordionsInitialized === 'true') return;
+      footer.dataset.accordionsInitialized = 'true';
 
-  function initFooterAccordion() {
-    if (window.innerWidth <= 989) {
-      const headings = document.querySelectorAll('.footer-block__heading');
+      var navs = footer.querySelectorAll('.ubbs-footer__nav');
+      var mobileQuery = window.matchMedia('(max-width: 749px)');
 
-      const firstBlock = document.querySelector('.footer-block');
-      if (firstBlock) firstBlock.classList.add('active');
+      function closeAll() {
+        navs.forEach(function (nav) {
+          nav.classList.remove('is-open');
+          var button = nav.querySelector('.ubbs-footer__nav-heading');
+          if (button) button.setAttribute('aria-expanded', 'false');
+        });
+      }
 
-      headings.forEach((heading) => {
-        heading.addEventListener('click', () => {
-          const parent = heading.closest('.footer-block');
+      navs.forEach(function (nav) {
+        var button = nav.querySelector('.ubbs-footer__nav-heading');
+        if (!button) return;
 
-          document.querySelectorAll('.footer-block').forEach((block) => {
-            if (block !== parent) block.classList.remove('active');
-          });
+        button.addEventListener('click', function () {
+          if (!mobileQuery.matches) return;
 
-          parent.classList.toggle('active');
+          var isOpen = nav.classList.contains('is-open');
+          closeAll();
+
+          if (!isOpen) {
+            nav.classList.add('is-open');
+            button.setAttribute('aria-expanded', 'true');
+          }
         });
       });
+
+      function handleViewportChange(event) {
+        if (!event.matches) closeAll();
+      }
+
+      if (typeof mobileQuery.addEventListener === 'function') {
+        mobileQuery.addEventListener('change', handleViewportChange);
+      } else if (typeof mobileQuery.addListener === 'function') {
+        mobileQuery.addListener(handleViewportChange);
+      }
     }
-  }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initUbbsFooterAccordions);
+    } else {
+      initUbbsFooterAccordions();
+    }
+  })();
 </script>
