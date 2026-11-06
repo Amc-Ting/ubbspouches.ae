@@ -3,8 +3,6 @@
     background-attachment: scroll !important;
     color: #ffffff;
     font-family: 'BlinkerRegular', Assistant, sans-serif;
-    border-top: 0 !important;
-    margin-top: 0 !important;
   }
 
   .ubbs-footer,
@@ -861,9 +859,6 @@
 @media screen and (max-width: 749px) {
   .ubbs-footer {
     padding: 0 !important;
-    border-top: 2px solid #54c8c8 !important;
-    border-right: 1px solid #222 !important;
-    border-left: 1px solid #222 !important;
     background: #000 !important;
   }
 
