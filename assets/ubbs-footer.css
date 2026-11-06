@@ -1302,7 +1302,20 @@
     font-size: 12px;
   }
 }
+.ubbs-footer__help-label-mobile {
+  display: none;
+}
 
+/* Mobile heading */
+@media screen and (max-width: 749px) {
+  .ubbs-footer__help-label {
+    display: none;
+  }
+
+  .ubbs-footer__help-label-mobile {
+    display: inline;
+  }
+}
 @media screen and (min-width: 750px) { .ubbs-footer__trustpilot, .ubbs-footer__verification-logos { display: none !important; } }
 
 @media screen and (max-width: 749px) {
