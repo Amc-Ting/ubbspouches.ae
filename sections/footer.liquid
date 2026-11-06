@@ -559,9 +559,11 @@
             products away from children at all times.
           </p>
           <p class="ubbs-footer__copyright">&copy; übbs Nicotine Pouches {{ 'now' | date: '%Y' }}</p>
-          {%- if section.settings.company_details != blank -%}
-            <p class="ubbs-footer__company-details">{{ section.settings.company_details | escape }}</p>
-          {%- endif -%}
+          {% comment %}
+            {%- if section.settings.company_details != blank -%}
+              <p class="ubbs-footer__company-details">{{ section.settings.company_details | escape }}</p>
+            {%- endif -%}
+          {% endcomment %}
           {%- if section.settings.show_policy -%}
             <ul class="policies list-unstyled">
               {%- for policy in shop.policies -%}
