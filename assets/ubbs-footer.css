@@ -387,7 +387,22 @@
   .ubbs-footer__localization .disclosure__link:hover {
     color: #ffffff;
   }
+  .ubbs-footer__age-icon {
+    width: 80px;
+    height: 80px;
+    flex: 0 0 80px;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    position: relative;
+    }
 
+    .ubbs-footer__age-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    }
   /* Payments */
   .ubbs-footer__payments {
     grid-column: 1 / -1;
