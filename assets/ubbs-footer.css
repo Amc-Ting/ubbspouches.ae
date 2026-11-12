@@ -435,7 +435,7 @@
     display: block;
     width: auto;
     max-width: 40px;
-    height: 20px;
+    height: 40px;
   }
 
   /* Legal */
@@ -786,7 +786,7 @@
 
     .ubbs-footer__payments svg {
       max-width: 42px;
-      height: 22px;
+      height: 42px;
     }
 
     .ubbs-footer__legal {
@@ -1210,7 +1210,7 @@
 
   .ubbs-footer__payments svg {
     max-width: 42px;
-    height: 24px;
+    height: 44px;
   }
 
   /* Disclaimer and company details are the final content. */
