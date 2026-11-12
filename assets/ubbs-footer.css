@@ -1329,3 +1329,107 @@
   .ubbs-footer__trustpilot { display: flex; }
   .ubbs-footer__verification-logos { display: flex; }
 }
+/* Mobile: Social icons and localization on the same row */
+@media screen and (max-width: 749px) {
+
+  /* Convert the right footer area into a grid */
+  .ubbs-footer__right {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 24px;
+  }
+
+  /* Flatten wrappers to position social and localization together */
+  .ubbs-footer__top,
+  .ubbs-footer__age-row {
+    display: contents !important;
+  }
+
+  /* Social icons - left */
+  .ubbs-footer__social {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex !important;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    margin: 0;
+  }
+
+  .ubbs-footer__social .list-social {
+    display: flex;
+    justify-content: flex-start;
+    gap: 14px;
+  }
+
+  .ubbs-footer__social .list-social__link {
+    width: 56px;
+    height: 56px;
+  }
+
+  /* Localization - right */
+  .ubbs-footer__localization {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    width: auto;
+    margin: 0;
+  }
+
+  /* Hide LANGUAGE heading on mobile */
+  .ubbs-footer__loc-label {
+    display: none !important;
+  }
+
+  /* Language dropdown */
+  .ubbs-footer__localization .disclosure__button.localization-form__select {
+    width: 116px;
+    min-width: 116px;
+    height: 54px;
+    min-height: 54px;
+    padding: 0 30px 0 14px;
+    font-size: 16px;
+  }
+
+  /* Age verification card - next row */
+  .ubbs-footer__age {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Trustpilot */
+  .ubbs-footer__trustpilot {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin: 0;
+  }
+
+  /* Payment icons */
+  .ubbs-footer__payments {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Disclaimer and copyright */
+  .ubbs-footer__legal {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Hide country selector if only language is shown in the reference */
+  .ubbs-footer__loc-group--country {
+    display: none;
+  }
+}
