@@ -447,12 +447,12 @@
   }
 
   .ubbs-footer__disclaimer {
-    max-width: 100%;
+    max-width: 90%;
     margin: 0;
     color: #afafaf;
-    font-size: 8px;
+    font-size: 12px;
     font-weight: 400;
-    line-height: 14px;
+    line-height: 1.5;
   }
 
   .ubbs-footer__copyright {
