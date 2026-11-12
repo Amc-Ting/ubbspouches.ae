@@ -35,7 +35,7 @@
   .ubbs-footer__left,
   .ubbs-footer__right,
   .ubbs-footer__top {
-    display: contents;
+    /* display: contents; */
   }
 
   /* Brand */
