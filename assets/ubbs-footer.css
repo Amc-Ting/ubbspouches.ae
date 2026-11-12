@@ -534,7 +534,7 @@
       column-gap: 10px;
       row-gap: 14px;
       padding: 20px;
-      border: 1px solid #202020;
+      /* border: 1px solid #202020; */
     }
 
     .ubbs-footer__top {
