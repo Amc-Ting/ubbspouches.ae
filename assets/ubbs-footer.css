@@ -590,6 +590,7 @@
       background: transparent;
       border: 1px solid #303030;
       border-radius: 14px;
+      letter-spacing: 0.1rem;
       font-family: inherit;
       font-size: clamp(8px, 2.3vw, 12px);
       font-weight: 600;
