@@ -274,11 +274,11 @@
   }
 
   .ubbs-footer__age-title {
-    margin: 0 0 3px;
+    margin: 10px 0 5px;
     color: #ffffff;
     font-size: 18px;
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.5;
   }
 
   .ubbs-footer__age-sub {
