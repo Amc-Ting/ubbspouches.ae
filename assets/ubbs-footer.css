@@ -85,7 +85,7 @@
     color: #ffffff;
     font-size: 20px;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.5;
     overflow-wrap: anywhere;
   }
 
@@ -934,7 +934,7 @@
     border: 1px solid #303030;
     border-radius: 13px;
     font-family: inherit;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     line-height: 1.2;
     white-space: nowrap;
@@ -1301,11 +1301,11 @@
   }
 
   .ubbs-footer__age-sub {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .ubbs-footer__contact-btn {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 .ubbs-footer__help-label-mobile {
