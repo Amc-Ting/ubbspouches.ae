@@ -882,7 +882,7 @@
   .ubbs-footer__left,
   .ubbs-footer__right,
   .ubbs-footer__top {
-    display: contents !important;
+    /* display: contents !important; */
   }
 
   .ubbs-footer__brand {
