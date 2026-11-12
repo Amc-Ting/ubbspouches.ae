@@ -1,1 +1,1198 @@
-{"current":{"logo":"shopify:\/\/shop_images\/Ubbs_Logo.svg","logo_width":150,"favicon":"shopify:\/\/shop_images\/favicon_39b2c5e1-70c2-48f8-8c2b-cbcaeff8b2be.png","type_header_font":"assistant_n4","heading_scale":100,"type_body_font":"assistant_n4","body_scale":100,"page_width":1400,"spacing_sections":0,"spacing_grid_horizontal":8,"spacing_grid_vertical":8,"animations_reveal_on_scroll":true,"animations_hover_elements":"none","buttons_border_thickness":1,"buttons_border_opacity":100,"buttons_radius":40,"buttons_shadow_opacity":0,"buttons_shadow_horizontal_offset":0,"buttons_shadow_vertical_offset":4,"buttons_shadow_blur":5,"variant_pills_border_thickness":1,"variant_pills_border_opacity":55,"variant_pills_radius":40,"variant_pills_shadow_opacity":0,"variant_pills_shadow_horizontal_offset":0,"variant_pills_shadow_vertical_offset":4,"variant_pills_shadow_blur":5,"inputs_border_thickness":1,"inputs_border_opacity":55,"inputs_radius":0,"inputs_shadow_opacity":0,"inputs_shadow_horizontal_offset":0,"inputs_shadow_vertical_offset":4,"inputs_shadow_blur":5,"card_style":"standard","card_image_padding":0,"card_text_alignment":"left","card_color_scheme":"scheme-1","card_border_thickness":0,"card_border_opacity":10,"card_corner_radius":0,"card_shadow_opacity":0,"card_shadow_horizontal_offset":0,"card_shadow_vertical_offset":4,"card_shadow_blur":5,"collection_card_style":"standard","collection_card_image_padding":0,"collection_card_text_alignment":"left","collection_card_color_scheme":"scheme-1","collection_card_border_thickness":0,"collection_card_border_opacity":10,"collection_card_corner_radius":0,"collection_card_shadow_opacity":0,"collection_card_shadow_horizontal_offset":0,"collection_card_shadow_vertical_offset":4,"collection_card_shadow_blur":5,"blog_card_style":"card","blog_card_image_padding":0,"blog_card_text_alignment":"left","blog_card_color_scheme":"scheme-1","blog_card_border_thickness":0,"blog_card_border_opacity":10,"blog_card_corner_radius":0,"blog_card_shadow_opacity":0,"blog_card_shadow_horizontal_offset":0,"blog_card_shadow_vertical_offset":4,"blog_card_shadow_blur":5,"text_boxes_border_thickness":0,"text_boxes_border_opacity":10,"text_boxes_radius":0,"text_boxes_shadow_opacity":0,"text_boxes_shadow_horizontal_offset":0,"text_boxes_shadow_vertical_offset":4,"text_boxes_shadow_blur":5,"media_border_thickness":1,"media_border_opacity":5,"media_radius":0,"media_shadow_opacity":0,"media_shadow_horizontal_offset":0,"media_shadow_vertical_offset":4,"media_shadow_blur":5,"popup_border_thickness":1,"popup_border_opacity":10,"popup_corner_radius":0,"popup_shadow_opacity":5,"popup_shadow_horizontal_offset":0,"popup_shadow_vertical_offset":4,"popup_shadow_blur":5,"drawer_border_thickness":1,"drawer_border_opacity":10,"drawer_shadow_opacity":0,"drawer_shadow_horizontal_offset":0,"drawer_shadow_vertical_offset":4,"drawer_shadow_blur":5,"badge_position":"top right","badge_corner_radius":40,"sale_badge_color_scheme":"scheme-4","sold_out_badge_color_scheme":"scheme-3","brand_headline":"","brand_description":"<p><\/p>","brand_image_width":100,"social_facebook_link":"https:\/\/www.facebook.com\/people\/Ubbs-MiddleEast\/61557124140436\/","social_instagram_link":"https:\/\/www.instagram.com\/ubbsmiddleeast\/","social_youtube_link":"","social_tiktok_link":"","social_twitter_link":"","social_snapchat_link":"","social_pinterest_link":"","social_tumblr_link":"","social_vimeo_link":"","predictive_search_enabled":true,"predictive_search_show_vendor":false,"predictive_search_show_price":false,"currency_code_enabled":true,"cart_type":"drawer","show_vendor":false,"show_cart_note":false,"cart_drawer_collection":"","cart_color_scheme":"scheme-1","logo_svg_html":"<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 118.65 28.53\" style=\"width:150px\"><g id=\"Layer_2\" data-name=\"Layer 2\"><g id=\"Isolation_Mode\" data-name=\"Isolation Mode\"><path d=\"M20.18,16.48c0,2.55-.92,5.15-2.18,6.19a8.37,8.37,0,0,1-5.23,1.7,8.38,8.38,0,0,1-5.25-1.76C6.26,21.56,5.34,19,5.34,16.48V5.25H0V16.48a11.64,11.64,0,0,0,4.12,9.05,13.69,13.69,0,0,0,8.62,3h.09a13.42,13.42,0,0,0,8.56-2.92,11.68,11.68,0,0,0,4.13-9.11V5.25H20.18Z\"><\/path><path d=\"M46.83,5.52h0a16.57,16.57,0,0,0-5.57-.07c-3.41.77-5.43,1.88-6.88,3.87V0h-5.5V28.2l.05.27v0H34l.28,0h.11V24.61c2.19,2.69,6.09,3.9,9.18,3.9,7.69,0,13.83-5,14-11.4C57.66,11.6,53.16,6.72,46.83,5.52Zm-3,18.83h-.17c-4.72-.09-8.63-2.83-9.29-6.46V15.54c.71-4,5.23-6.11,9.33-6.11h.19a9.47,9.47,0,0,1,2.67.38A7.55,7.55,0,0,1,52.2,17C52.11,21.1,48.37,24.35,43.83,24.35Z\"><\/path><path d=\"M78.89,5.52h0a16.57,16.57,0,0,0-5.57-.07c-3.42.77-5.44,1.88-6.89,3.87V0h-5.5V28.2l.06.27v0H66l.28,0h.1V24.61c2.2,2.69,6.1,3.9,9.19,3.9,7.69,0,13.83-5,14-11.4C89.72,11.6,85.22,6.72,78.89,5.52Zm-3,18.83h-.18c-4.71-.09-8.62-2.83-9.29-6.46V15.54c.71-4,5.22-6.11,9.33-6.11h.18a9.36,9.36,0,0,1,2.67.38A7.55,7.55,0,0,1,84.26,17C84.16,21.1,80.43,24.35,75.89,24.35Z\"><\/path><path d=\"M105.65,14.86c-2.12,0-7.6-.49-7.6-2.74,0-2.75,5.58-2.76,7.41-2.76h0c3.65,0,6.48,1.18,7.4,3.09l.07.16h5.48l-.08-.35a8.21,8.21,0,0,0-4.12-5.15,18,18,0,0,0-8.77-1.9,22.65,22.65,0,0,0-8.09,1.14c-2.32.91-4.66,3.17-4.66,6.16,0,4.18,4.33,6.36,12.84,6.49l.74.05c2.1.13,7,.44,7,2.52,0,1.77-2.65,2.71-7.86,2.8-3.73,0-6.5-1.17-7.22-3.06l-.07-.18H92.76l0,.33a7.4,7.4,0,0,0,3.54,5.36c2.11,1.22,4.75,1.71,9.11,1.71s7.29-.48,9.49-1.59a6.73,6.73,0,0,0,3.7-5.78C118.65,15.06,108.87,14.91,105.65,14.86Z\"><\/path><rect x=\"7.76\" y=\"0.57\" width=\"3.16\" height=\"3.16\"><\/rect><rect x=\"14.6\" y=\"0.57\" width=\"3.16\" height=\"3.16\"><\/rect><\/g><\/g><\/svg>","sections":{"main-password-header":{"type":"main-password-header","settings":{"color_scheme":"scheme-1"}},"main-password-footer":{"type":"main-password-footer","settings":{"color_scheme":"scheme-1"}},"reward_banner_section":{"type":"reward_banner_section","settings":{"title":"Welcome to <br class=\"hidden-xs\">Übbs Rewards","subtitle":"Become a member to earn points<br class=\"hidden-xs\"> and unlock exclusive rewards every<br class=\"hidden-xs\">time you shop.","banner_img":"shopify:\/\/shop_images\/How-it-works_img.png","big_circle":"shopify:\/\/shop_images\/Ellipse_1_f4b9fad7-d4a0-485b-a689-e230ad03773b.png","btn-text1":"Join Now","button-link1":"https:\/\/ubbspouches.ae\/pages\/way-to-earn\/#smile-home","btn-text2":"Sign In","button-link2":"https:\/\/ubbspouches.ae\/account\/login"}},"reward_discreet_section":{"type":"reward_discreet_section","blocks":{"text_tAnA4K":{"type":"text","settings":{"number-heading":"01","heading":"SIGN UP","descreption":"Create an account and receive 10 points."}},"text_KxCxBA":{"type":"text","settings":{"number-heading":"02","heading":"EARN POINTS","descreption":"Earn points every time you shop."}},"text_4DqMQw":{"type":"text","settings":{"number-heading":"03","heading":"REDEEM POINTS","descreption":"Redeem points for exclusive discounts."}}},"block_order":["text_tAnA4K","text_KxCxBA","text_4DqMQw"],"settings":{"custom_class":"","title":"HOW IT WORKS","subtitle":""}},"icons":{"type":"icons","blocks":{"earn_item_DhkQeQ":{"type":"earn_item","settings":{"icon":"shopify:\/\/shop_images\/sign_up.svg","title":"","points":"Sign up<br><b>150 POINTS<\/b>","description":"Receive 150 points for registering your account."}},"earn_item_J3btY8":{"type":"earn_item","settings":{"icon":"shopify:\/\/shop_images\/order.svg","title":"","points":"Place an order <br><b>1 POINT FOR EVERY 1 AED SPENT<\/b>","description":"Spend to earn, receive 1 point for every 1  AED spent."}},"earn_item_PJD3Gy":{"type":"earn_item","settings":{"icon":"shopify:\/\/shop_images\/bday_revised.svg","title":"","points":"Celebrate a birthday<br><b>250 POINTS<\/b>","description":"Happy birthday! Receive 250 points on your birthday."}},"earn_item_7iBmfm":{"type":"earn_item","settings":{"icon":"shopify:\/\/shop_images\/follow.svg","title":"","points":"Follow us on Instagram<br><b>150 POINTS<\/b>","description":"Receive 150 points for following\nus on Instagram."}},"earn_item_FwNrzG":{"type":"earn_item","settings":{"icon":"shopify:\/\/shop_images\/like.svg","title":"","points":"Like on Facebook<br><b>150 POINTS<\/b>","description":"Receive 150 points for liking our\nFacebook page."}},"earn_item_W3fgwE":{"type":"earn_item","settings":{"icon":"shopify:\/\/shop_images\/share.svg","title":"","points":"Share on Facebook<br><b>150 POINTS<\/b>","description":"Receive 150 points for sharing our Facebook page."}}},"block_order":["earn_item_DhkQeQ","earn_item_J3btY8","earn_item_PJD3Gy","earn_item_7iBmfm","earn_item_FwNrzG","earn_item_W3fgwE"],"settings":{"heading":"Ways to Earn"}},"rewards-multicolumn":{"type":"rewards-multicolumn","blocks":{"column_V7xX9a":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/fi_9729465.png","title":"1250 AED","text":"<p>Earn <strong>750 points<\/strong><\/p>","link_label":"","link":""}},"column_AHPdnm":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/fi_9729465.png","title":"2500 AED","text":"<p>Earn <strong>1500 points<\/strong><\/p>","link_label":"","link":""}},"column_GTnG6P":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/fi_9729465.png","title":"5000 AED","text":"<p>Earn <strong>3000 points<\/strong><\/p>","link_label":"","link":""}}},"block_order":["column_V7xX9a","column_AHPdnm","column_GTnG6P"],"settings":{"custom_class":"","title":"Bonus Points","description":"<p>Earn more points as you spend on your übbs account over time!<\/p>","heading_size":"h1","image_width":"full","image_ratio":"adapt","columns_desktop":3,"column_alignment":"left","background_style":"primary","button_label":"","button_link":"","caption":"<p>Bonus points collection resets after each cycle (5000 AED)<br\/>To view how much you've spent and when your next bonus point is <a href=\"\/account?a=cd_loyalty-rewards\" title=\"\/account?a=cd_loyalty-rewards\">click here<\/a>.<\/p>","color_scheme":"background-1","columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"why_ubbs_section":{"type":"why_ubbs_section","settings":{"custom_class":"","desktop_border_img":"shopify:\/\/shop_images\/Ubbs-desktop-box.png","mob_border_img":"shopify:\/\/shop_images\/Ubbs-rewards-mobile.png","title":"How to redeem your points","subtitle":"<p class=\"text_reg font_text text_40 fadeInUp\" data-live-text-setting=\"section.why_ubbs_section.info\" data-scroll=\"in\">Redeeming your points is easy, simply click the rewards button in the bottle left of your screen and head to ways to redeem. Once you reach 100 points you can unlock your discount.<\/p>Points currency<br>40 points = 1 AED","info":"","btn_url":"","btn_label":"","html_form":""}},"reward_nicotine_section":{"type":"reward_nicotine_section","settings":{"title":"Refer a friend","subtitle":"<p>Become an übbs ambassador and unlock even bigger rewards! Give your friends 30% off their first order over 15 AED. Earn 50 points for every successful referral — use points to save even more and stay rewarded!<\/p>  <p>How it works:<\/p><ul>     <li> Share your referral link with your friends.<\/li>        <li> Your friend will get 30% off once they enter their email through the on-screen prompt.<\/li>     <li> When your friend places their first order, you’ll automatically earn 50 points to use towards future rewards!<\/li> <\/ul>","btntitle":"","btnlink":"","big_image":"shopify:\/\/shop_images\/refer_bg_1.png","small_image":"shopify:\/\/shop_images\/Refer-a-friend-Mobile_1.jpg"}},"reward_product_carousel":{"type":"reward_product_carousel","settings":{"title":"Start earning today","heading_size":"h1","description":"","show_description":false,"description_style":"body","collection":"shop","products_to_show":12,"columns_desktop":3,"full_width":false,"show_view_all":true,"view_all_style":"solid","enable_desktop_slider":false,"color_scheme":"background-1","image_ratio":"adapt","show_secondary_image":false,"show_vendor":false,"show_rating":false,"enable_quick_add":true,"columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"newsletter":{"type":"newsletter","blocks":{"paragraph_x6ywVK":{"type":"paragraph","settings":{"text":"<p>FOR THE LATEST NEWS AND UPDATES<\/p>"}},"heading_4pEbQe":{"type":"heading","settings":{"heading":"JOIN OUR NEWSLETTER","heading_size":"h1"}},"email_form_CHrdBM":{"type":"email_form","settings":{}},"info_TRxhkp":{"type":"info","settings":{"btn_label":"Privacy Policy","btn_url":"shopify:\/\/policies\/privacy-policy"}}},"block_order":["paragraph_x6ywVK","heading_4pEbQe","email_form_CHrdBM","info_TRxhkp"],"settings":{"color_scheme":"","full_width":true,"padding_top":40,"padding_bottom":52}},"about_banner-section":{"type":"about_banner-section","settings":{"title":"The origin,<br class=\"hidden-xs\"> the inspiration<br class=\"hidden-xs\"> and more!","subtitle":"Learn all about where übbs came from.","banner_img":"shopify:\/\/shop_images\/About_Us_Img1.png","big_circle":"shopify:\/\/shop_images\/Ellipse_1_d5dbfffb-63c2-4897-a29e-63758762c301.png"}},"about_ubbs_section":{"type":"about_ubbs_section","settings":{"desktop_border_img":"shopify:\/\/shop_images\/Rectangle_2.png","mob_border_img":"shopify:\/\/shop_images\/About-Mobile-Img.png","title":"AH, SO YOU'RE HERE <br class=\"hidden-xs\"> TO KNOW MORE ABOUT ÜBBS","subtitle":"Let us tell you the tale of indulgence."}},"about_psa_section":{"type":"about_psa_section","settings":{"hand_image":"shopify:\/\/shop_images\/Img_1_-_tinified.png","calmtext1":"Calm your impulses","calmtext2":"Sharpen your senses","title":"IMAGINE THE FINEST<br class=\"hidden-xs\"> TOBACCO-FREE<br class=\"hidden-xs\"> NICOTINE EXPERIENCE","subtitle":"<p>Here’s a discreet yet impactful experience, crafted with pure ingredients and designed for your convenience—no smoke, no hassle. Just clean, satisfying moments you can enjoy anytime, anywhere. This was our vision when creating the finest tobacco-free alternatives.<\/p><p>Introducing übbs, where every pouch delivers a mindful and elevated nicotine experience.<\/p>"}},"about_vision_section":{"type":"about_vision_section","settings":{"desktop_border_img":"shopify:\/\/shop_images\/Img_2.png","title":"WITH THIS VISION,<br class=\"hidden-xs\"> WE EMBARKED ON<br class=\"hidden-xs\"> A JOURNEY","subtitle":"To create übbs—a nicotine pouch brand that does everything to pharmaceutical-grade standards. With experience on our side, we took the next step: bringing our innovation to customers around the globe. And so, übbs was born."}},"about_scandinavians_section":{"type":"about_scandinavians_section","settings":{"desktop_border_img":"shopify:\/\/shop_images\/Group_shots_image.png","tree_img":"shopify:\/\/shop_images\/tree.png","mountain_img":"shopify:\/\/shop_images\/mountain.png","title":"Inspired by<br class=\"hidden-xs\"> Scandinavian Innovation","subtitle":"<p>When challenges arose, we didn’t just find a way to enjoy tobacco-free nicotine—we elevated the experience with carefully curated flavours and game-changing materials. By combining innovative thinking and world-class manufacturing, we created a pouch that delivers an unparalleled nicotine experience for adult smokers and vapers.<\/p><h2>Explore übbs and discover the ultimate tobacco-free pouches.<\/h2>"}},"hiw-banner-section":{"type":"hiw-banner-section","settings":{"title":"EXPERIENCING ÜBBS<br>IN 3 EASY STEPS","subtitle":"Pop | Tingle | Discard","banner_img":"shopify:\/\/shop_images\/How-it-works_img.png","big_circle":"shopify:\/\/shop_images\/Ellipse_1_f4b9fad7-d4a0-485b-a689-e230ad03773b.png","btn-text1":"","button-link1":"","btn-text2":"","button-link2":""}},"pages-discreet_section":{"type":"pages-discreet_section","blocks":{"text_UxHcYA":{"type":"text","settings":{"block_image":"shopify:\/\/shop_images\/01_02_Once_07c51ad9-fe16-450e-8872-0eb96ffc23d4.gif","number-heading":"","heading":"POP","descreption":"Place the soft, white nicotine pouch under your upper lip and position it to the side for a comfortable fit."}},"text_Un9fLN":{"type":"text","settings":{"block_image":"shopify:\/\/shop_images\/02_01_ONCE_1c8be29d-08c0-4327-ab01-4452c6ebff48.gif","number-heading":"","heading":"TINGLE","descreption":"Enjoy a fresh nicotine experience that lasts for up to 30 minutes. Use it discreetly anytime, anywhere."}},"text_tjB87V":{"type":"text","settings":{"block_image":"shopify:\/\/shop_images\/03_01_ONCE_46740ba7-f848-47dc-aa48-14f71f53c3a7.gif","number-heading":"","heading":"DISCARD","descreption":"When done, dispose of the pouch in the general waste or store it in the top of the can. Recycle the can separately once all the pouches are used."}}},"block_order":["text_UxHcYA","text_Un9fLN","text_tjB87V"],"settings":{"title":"How to Use <br class=\"hidden-xs\">Nicotine Pouches?"}},"pages-nicotine_section":{"type":"pages-nicotine_section","settings":{"title":"NICOTINE THAT’S DONE RIGHT","subtitle":"<p>Designed in Sweden and manufactured to global pharmaceutical standards, our tobacco-free nicotine pouches offer a new nicotine experience. Crafted with precision, each pouch is a refreshing burst of flavours without the harmful effects of tobacco.<\/p>","btntitle":"Shop Now","btnlink":"shopify:\/\/collections\/shop","big_image":"shopify:\/\/shop_images\/Nicotine_Thats_Done_Right.jpg","small_image":"shopify:\/\/shop_images\/nicotine_banner_img.jpg"}},"pages-psa_section":{"type":"pages-psa_section","settings":{"title":"100% indulgence.<br> 0% tobacco.","subtitle":"What are nicotine pouches?<br>übbs tobacco-free nicotine pouches are made only with pure, premium ingredients—nicotine, plant-based materials, flavourings, and sweeteners. They offer a clean, flavourful nicotine experience without the harmful side effects of tobacco. Each pouch delivers a consistent and satisfying feeling, allowing you to truly enjoy a tobacco-free alternative.","banner_img":"shopify:\/\/shop_images\/how-it-works_-_Open_can_image.png"}},"nicotine-banner":{"type":"nicotine-banner","settings":{"title":"NICOTINE THAT’S DONE RIGHT","subtitle":"<p>Designed in Sweden and manufactured to global pharmaceutical standards, our tobacco-free nicotine pouches offer a new nicotine experience. Crafted with precision, each pouch is a refreshing burst of flavours without the harmful effects of tobacco.<\/p>","btntitle":"Shop Now","btnlink":"shopify:\/\/collections\/shop","big_image":"shopify:\/\/shop_images\/refer_bg_1.png","small_image":"shopify:\/\/shop_images\/Refer-a-friend-Mobile_1.jpg"}},"ourf_banner-section":{"type":"ourf_banner-section","settings":{"title":"Geek out on where<br class=\"hidden-xs\"> Übbs is produced","subtitle":"Know all about our manufacturing<br class=\"hidden-xs\"> facility and more!","banner_img":"shopify:\/\/shop_images\/Our_Facilities_img.png","big_circle":"shopify:\/\/shop_images\/Ellipse_1_2e315378-c3bf-404c-a9c2-79a28b872cc3.png"}},"ourf_psa_section":{"type":"ourf_psa_section","settings":{"title":"Launched<br class=\"hidden-xs\"> in 2022","subtitle":"übbs tobacco-free nicotine pouch is a thoughtfully crafted product catering to adult smokers and vapers across the world. We produce nicotine pouches that adhere to global pharmaceutical standards and we come with market experience, dedicated R&D teams and state-of-the-art, fully automated manufacturing facilities to deliver premium smokeless nicotine products globally."}},"ourf_vision_section":{"type":"ourf_vision_section","settings":{"title":"Advanced<br class=\"hidden-xs\"> manufacturing<br class=\"hidden-xs\"> facility","subtitle":"To provide a smokeless, tobacco-free alternative to smokers and vapers in the UK, übbs has established an advanced manufacturing facility, commissioned under strict pharmaceutical guidelines to meet Good Manufacturing Practices (GMP), to produce nicotine pouches.","banner_img":"shopify:\/\/shop_images\/Img-tinified.png"}},"ourf_psa_section1":{"type":"ourf_psa_section1","settings":{"title":"A sophisticated<br class=\"hidden-xs\"> packaging<br class=\"hidden-xs\"> machinery","subtitle":"We can retain approximately 45% moisture content while producing nicotine pouches at high volumes with our custom packaging machinery. The smart-tech equipment automatically removes waste sachets during roll changeovers and comes with industry-leading auto-cleaning features. The facility also features inbuilt stability chambers to test the products’ shelf life in various environments and temperatures.","subtext":"With übbs tobacco-free nicotine pouches, we aim to deliver an unparalleled sensory experience for adult smokers and vapers.","banner_img":"shopify:\/\/shop_images\/Our_Facilities_-_image.png"}},"oursp_banner-section":{"type":"oursp_banner-section","settings":{"title":"We put the ‘pro’<br class=\"hidden-xs\"> in processes","subtitle":"Everything we do to deliver high-quality<br class=\"hidden-xs\"> nicotine pouches.","banner_img":"shopify:\/\/shop_images\/Our_Responsibility_img.png","big_circle":"shopify:\/\/shop_images\/Ellipse_1_d5dbfffb-63c2-4897-a29e-63758762c301.png"}},"oursp-responsibility_section":{"type":"oursp-responsibility_section","blocks":{"psa_section_AQJFXf":{"type":"psa_section","settings":{"psa_title":"Gold<br class=\"hidden-xs\"> standard factory operations","psa_subtitle":"Our entire factory operations are executed under pharmaceutical Good Manufacturing Practices (GMP) and have been authenticated by the central and state drugs control department. We have a talented group of skilled individuals who ensure every task performed at the manufacturing facilities meets the standards set by the organisation.","psa_banner_img":"shopify:\/\/shop_images\/GOLD-STANDARD-FACTORY-OPERATIONS_LOOP.gif"}},"vision_section_fGMCtz":{"type":"vision_section","settings":{"vision_title":"Strict<br class=\"hidden-xs\"> manufacturing<br class=\"hidden-xs\"> processes","vision_subtitle":"The manufacturing process is monitored and approved by a dedicated, certified manufacturing chemist, who ensures our products are of the highest quality. This quality inspection is performed at every single stage of the process from blending, to curing, pouch making and finally container packing.","vision_banner_img":"shopify:\/\/shop_images\/STRICT-MANUFACTURING-PROCESSES_LOOP.gif"}},"psa_section_w3QwiU":{"type":"psa_section","settings":{"psa_title":"Stringent<br class=\"hidden-xs\"> tests","psa_subtitle":"We don’t just test our products for quality purposes, but also to make sure every pouch we produce is safe for our customers and meets all regulations. We have a fully equipped in-house laboratory ensuring all necessary tests are conducted to meet and exceed regulatory standards.","psa_banner_img":"shopify:\/\/shop_images\/STRINGENT-TESTS_LOOP_2750765e-b48a-4f37-851b-a9e4ebc526d4.gif"}},"vision_section_wQqLCP":{"type":"vision_section","settings":{"vision_title":"Highest<br class=\"hidden-xs\"> quality materials","vision_subtitle":"All the raw materials we use are procured from global suppliers who have years of experience and expertise in the food and pharmaceutical sectors. The raw materials are validated through qualitative wet, instrumental and microbial analysis. These analyses are performed by qualified quality control chemists who are certified by the drugs control department.","vision_banner_img":"shopify:\/\/shop_images\/HIGHEST-QUALITY-MATERIALS_LOOP_39219e3d-b42b-4b90-8258-958108900fc2.gif"}},"psa_section_kqWcRz":{"type":"psa_section","settings":{"psa_title":"Our commitment<br class=\"hidden-xs\"> to the planet","psa_subtitle":"Wherever and whenever possible, we strive to do our bit for the planet. The non-woven fabric used to produce our tobacco-free nicotine pouches is procured from industry leaders in the UK and Europe. The packaging material used to produce the übbs can is made from Polypropylene (PP), which is safe and recyclable. Moreover, all the materials we use to facilitate shipping and transport are paper-based and completely recyclable.","psa_banner_img":"shopify:\/\/shop_images\/OUR-COMMITMENT-TO-THE-PLANET_LOOP_ed7ca81e-82b0-4701-88b3-049bfe5930cf.gif"}}},"block_order":["psa_section_AQJFXf","vision_section_fGMCtz","psa_section_w3QwiU","vision_section_wQqLCP","psa_section_kqWcRz"],"settings":{"Htitle":""}},"pages-banner-section":{"type":"pages-banner-section","settings":{"title":"Übbs tingling<br class=\"hidden-xs\"> your mind?","subtitle":"You’ve come to the right place!","banner_img":"shopify:\/\/shop_images\/FAQ-Img.png","big_circle":"shopify:\/\/shop_images\/Ellipse_1_2e315378-c3bf-404c-a9c2-79a28b872cc3.png"}},"faq_tab_accordion":{"type":"faq_tab_accordion","blocks":{"text_6qifC9":{"type":"text","settings":{"ques":"How can I contact you?","ans":"<p>You can get in touch via our <a href=\"https:\/\/ubbspouches.ae\/pages\/contact\" target=\"_blank\" title=\"https:\/\/ubbspouches.ae\/pages\/contact\">Contact Us<\/a> or email us at <a href=\"mailto:customerservices@ubbspouches.ae\" title=\"mailto:customerservices@ubbspouches.ae\">customerservices@ubbspouches.ae<\/a><\/p>"}},"text_Hb6zni":{"type":"text","settings":{"ques":"How will I know when my order is processed?","ans":"<p>As soon as we receive your order, we will send you a confirmation email. This email will contain your order summary and order number. If you do not receive this email or if the email does not match your order, please write to us on <a href=\"mailto:customerservices@ubbspouches.ae\" title=\"mailto:customerservices@ubbspouches.ae\">customerservices@ubbspouches.ae<\/a><\/p>"}},"text_9BBzLr":{"type":"text","settings":{"ques":"What are the delivery charges?","ans":"<p>To find out more about our delivery charges, please visit our <a href=\"\/policies\/shipping-policy\" target=\"_blank\" title=\"Shipping Policy\">shipping policy <\/a>page.<\/p>"}},"text_aypCQx":{"type":"text","settings":{"ques":"What delivery options does Übbs offer?","ans":"<p>Depending on your location, we offer 1-Hour Delivery, Same Day Delivery & Next Day Delivery.<\/p>"}},"text_iRiYqL":{"type":"text","settings":{"ques":"How do I know when my order has been shipped?","ans":"<p>You will receive an email from us to let you know when your order has been shipped. For orders placed before 12am, we will despatch your order the same day. For orders placed after this time, we will despatch on the next available day.<\/p>"}},"text_6FhbTe":{"type":"text","settings":{"ques":"What days can you deliver on?","ans":"<p>We deliver 7 days a week, Monday – Sunday.<\/p>"}},"text_NBQFT9":{"type":"text","settings":{"ques":"What happens if my order is wrong?","ans":"<p>We’re sorry that you’ve received the incorrect order. We’ll fix that right away. Write to us on <a href=\"mailto:customerservices@ubbspouches.ae\" title=\"mailto:customerservices@ubbspouches.ae\">customerservices@ubbspouches.ae<\/a> or get in touch via the <a href=\"https:\/\/ubbspouches.ae\/pages\/contact\" target=\"_blank\" title=\"https:\/\/ubbspouches.ae\/pages\/contact\">Contact Us<\/a> and we’ll get back to you as soon as possible.<\/p>"}},"text_rUWVRq":{"type":"text","settings":{"ques":"What happens if my order is missing\/hasn't arrived?","ans":"<p>If your Übbs Nicotine Pouches haven’t arrived please contact us via our <a href=\"https:\/\/ubbspouches.ae\/pages\/contact\" target=\"_blank\">Contact Us<\/a> or write to us on <a href=\"mailto:customerservices@ubbspouches.ae\" title=\"mailto:customerservices@ubbspouches.ae\">customerservices@ubbspouches.ae<\/a> and we will resolve the issue as soon as possible.<\/p>"}},"text_rjKtPJ":{"type":"text","settings":{"ques":"Do you offer international shipping?","ans":"<p>Unfortunately, we do not currently deliver outside of the UAE.<\/p>"}},"text_bVaVYe":{"type":"text","settings":{"ques":"How can I return my order?","ans":"<p>To return your order, you can visit your nearest MyVapery store in UAE, or call the MyVapery Helpline Number (800 69 800), or e-mail us at <a href=\"mailto:customerservices@ubbspouches.ae\" title=\"mailto:customerservices@ubbspouches.ae\">customerservices@ubbspouches.ae<\/a> for assistance.<\/p>"}},"text_k4Dzap":{"type":"text","settings":{"ques":"Can I change or cancel an order?","ans":"<p>In our efforts to provide the most efficient service to our customers, once an order has been placed and processed, we won’t be able to alter, change, or cancel the order.<\/p>"}}},"block_order":["text_6qifC9","text_Hb6zni","text_9BBzLr","text_aypCQx","text_iRiYqL","text_6FhbTe","text_NBQFT9","text_rUWVRq","text_rjKtPJ","text_bVaVYe","text_k4Dzap"],"settings":{}},"faq_tab_accordion_1":{"type":"faq_tab_accordion_1","blocks":{"text_JmmyWb":{"type":"text","settings":{"ques":"What are nicotine pouches?","ans":"<p>Nicotine pouches are 100% tobacco, smoke and vape-free flavourful pouches of nicotine. They sit between your lip and gums to give you a fresh nicotine experience for up to 30 minutes.<\/p>"}},"text_AL6xzx":{"type":"text","settings":{"ques":"How many nicotine pouches should I use a day?","ans":"<p>There is no magic number, the amount varies from person to person depending on your average nicotine consumption levels and nicotine pouch strength.<\/p>"}},"text_xPNVfJ":{"type":"text","settings":{"ques":"How do nicotine pouches work?","ans":"<p>Nicotine pouches are extremely easy to use. Follow our 3 step guide below:<br\/><br\/>Step 1 – POP<br\/>Pop the soft, white nicotine pouch under your lip and position it to the side for a more comfortable fit.<br\/><br\/>Step 2 – TINGLE<br\/>You will feel a tingling sensation on your gums and a release of flavour, this is normal and means the pouch is working. We recommend leaving the pouch in for up to 30 minutes.<br\/><br\/>Step 3 - DISCARD<br\/>When you’re done, discard of it in the general waste or store in the top of the can.<br\/><br\/>Übbs Tobacco Free-Nicotine Pouches are designed to be absorbed through the gums and should not be swallowed. If you swallow a pouch and feel unwell, seek medical advice with the can or label at hand.<\/p>"}},"text_jGqGbK":{"type":"text","settings":{"ques":"How long should I keep nicotine pouches in for?","ans":"<p>We recommend you keep a nicotine pouch in for up to 30 minutes.<\/p>"}},"text_8H4fyi":{"type":"text","settings":{"ques":"What are the alternatives to smoking cigarettes?","ans":"<p>Nicotine pouches are the perfect smoke-free and tobacco-free alternative to smoking.<\/p>"}},"text_77FRLU":{"type":"text","settings":{"ques":"What is Übbs?","ans":"<p>Übbs Nicotine Pouches are a reduced-risk nicotine & tobacco alternative, in the form of a pouch. They sit discreetly between your lip and gums and you can use them whenever, wherever.<\/p>"}},"text_FRJAtz":{"type":"text","settings":{"ques":"How many Übbs nicotine pouches are in a can?","ans":"<p>There are 20 pouches in a can.<\/p>"}},"text_jUk9Gj":{"type":"text","settings":{"ques":"Can I chew nicotine pouches?","ans":"<p>No, do not chew Übbs nicotine pouches. They are designed to sit in between your lip and gums.<\/p>"}},"text_w7iHQD":{"type":"text","settings":{"ques":"What flavours and nicotine strengths is Übbs available in?","ans":"<p>Übbs comes in 10 different flavours and 4 nicotine strengths - 4mg, 6mg, 11mg & 14mg. The flavours you can choose from are - Peppermint, Spearmint, Menthol, Watermelon, Berry, Cola Ice, Salted Caramel, Peach Passion, Zest Ice & Spicy Cherry.<\/p>"}},"text_Wq8ep4":{"type":"text","settings":{"ques":"What do Übbs nicotine pouches contain?","ans":"<p>Übbs contains water, plant-based materials, flavourings, sweeteners, and nicotine. Übbs does not contain smoke, tobacco or vapour.<\/p>"}},"text_iATJww":{"type":"text","settings":{"ques":"Is Übbs the same as snus?","ans":"<p>No, Übbs Nicotine Pouches are not the same as snus. While they’re used in a similar way to snus, nicotine pouches are 100% tobacco-free unlike snus which contains tobacco.<\/p>"}},"text_YFQJxn":{"type":"text","settings":{"ques":"Can I reuse nicotine pouches?","ans":"<p>No, we recommend using a new pouch every time.<\/p>"}},"text_rj7JWN":{"type":"text","settings":{"ques":"Who can use Übbs?","ans":"<p>Übbs contains nicotine and are to be used by existing smokers, vapers and nicotine consumers who are aged 18 or over.<br\/><br\/>Übbs is not to be used if you are under the age of 18, not an existing tobacco and nicotine consumer, allergic to nicotine and any other ingredients, pregnant\/breast-feeding or are suffering from an unstable heart condition, severe hypertension or diabetes.<\/p>"}},"text_y7Ayjb":{"type":"text","settings":{"ques":"What happens if I swallow a nicotine pouch?","ans":"<p>Übbs is designed to be absorbed through the gums and should not be swallowed. If you swallow a pouch and feel unwell, we suggest you seek medical advice immediately.<\/p>"}},"text_eph3JR":{"type":"text","settings":{"ques":"Are Übbs containers recyclable?","ans":"<p>Übbs cans are made from polypropylene (PP), which can be recycled. However, we advise you to check with your local authorities whether they accept polypropylene in your household recycling. Please dispose of any used nicotine pouches in the general waste before recycling.<\/p>"}}},"block_order":["text_JmmyWb","text_AL6xzx","text_xPNVfJ","text_jGqGbK","text_8H4fyi","text_77FRLU","text_FRJAtz","text_jUk9Gj","text_w7iHQD","text_Wq8ep4","text_iATJww","text_YFQJxn","text_rj7JWN","text_y7Ayjb","text_eph3JR"],"settings":{"heading":""}},"product_carousel":{"type":"product_carousel","settings":{"title":"Starts Earning Today","heading_size":"h1","description":"","show_description":false,"description_style":"body","collection":"shop","products_to_show":5,"columns_desktop":3,"full_width":false,"show_view_all":true,"view_all_style":"solid","enable_desktop_slider":true,"color_scheme":"background-1","image_ratio":"adapt","show_secondary_image":false,"show_vendor":false,"show_rating":false,"enable_quick_add":false,"columns_mobile":"1","swipe_on_mobile":true,"padding_top":36,"padding_bottom":36}}},"content_for_index":[],"blocks":{"1232542678405107163":{"type":"shopify:\/\/apps\/instafeed\/blocks\/head-block\/c447db20-095d-4a10-9725-b5977662c9d5","disabled":false,"settings":{}},"319724205969189013":{"type":"shopify:\/\/apps\/hulk-form-builder\/blocks\/app-embed\/b6b8dd14-356b-4725-a4ed-77232212b3c3","disabled":false,"settings":{}},"14060646107696862457":{"type":"shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8","disabled":false,"settings":{}},"10534424223343191814":{"type":"shopify:\/\/apps\/custlo-customer-account-pro\/blocks\/app-embed\/f81081fd-cd04-43ee-897a-18ef0e5d9b04","disabled":false,"settings":{}},"4015264832934714879":{"type":"shopify:\/\/apps\/trustoo-email-popups\/blocks\/app\/a5670cf8-5705-4b01-ad9e-447033feae26","disabled":false,"settings":{}},"16548475241908962911":{"type":"shopify:\/\/apps\/oxi-social-login\/blocks\/social-login-embed\/24ad60bc-8f09-42fa-807e-e5eda0fdae17","disabled":false,"settings":{"enabled_on_page":"all"}},"6174324309569838175":{"type":"shopify:\/\/apps\/smile-io\/blocks\/smile-shopify-app\/2fae4e25-1841-4ea2-bc02-bd548478c4f6","disabled":false,"settings":{"cart_page_selector":"#main-cart-footer .cart__blocks","cart_drawer_selector":"cart-drawer .drawer__footer"}}},"color_schemes":{"scheme-1":{"settings":{"background":"#ffffff","background_gradient":"","text":"#000000","button":"#000000","button_label":"#ffffff","secondary_button_label":"#121212","shadow":"#000000"}},"scheme-2":{"settings":{"background":"#5eccc8","background_gradient":"","text":"#000000","button":"#000000","button_label":"#5eccc8","secondary_button_label":"#000000","shadow":"#000000"}},"scheme-3":{"settings":{"background":"#000000","background_gradient":"","text":"#ffffff","button":"#ffffff","button_label":"#000000","secondary_button_label":"#ffffff","shadow":"#000000"}},"scheme-4":{"settings":{"background":"#000000","background_gradient":"","text":"#ffffff","button":"#ffffff","button_label":"#000000","secondary_button_label":"#ffffff","shadow":"#000000"}},"scheme-5":{"settings":{"background":"#334fb4","background_gradient":"","text":"#ffffff","button":"#ffffff","button_label":"#334fb4","secondary_button_label":"#ffffff","shadow":"#000000"}}}},"presets":{"Dawn":{"logo_width":90,"color_schemes":{"scheme-1":{"settings":{"background":"#FFFFFF","background_gradient":"","text":"#121212","button":"#121212","button_label":"#FFFFFF","secondary_button_label":"#121212","shadow":"#121212"}},"scheme-2":{"settings":{"background":"#F3F3F3","background_gradient":"","text":"#121212","button":"#121212","button_label":"#F3F3F3","secondary_button_label":"#121212","shadow":"#121212"}},"scheme-3":{"settings":{"background":"#242833","background_gradient":"","text":"#FFFFFF","button":"#FFFFFF","button_label":"#000000","secondary_button_label":"#FFFFFF","shadow":"#121212"}},"scheme-4":{"settings":{"background":"#121212","background_gradient":"","text":"#FFFFFF","button":"#FFFFFF","button_label":"#121212","secondary_button_label":"#FFFFFF","shadow":"#121212"}},"scheme-5":{"settings":{"background":"#334FB4","background_gradient":"","text":"#FFFFFF","button":"#FFFFFF","button_label":"#334FB4","secondary_button_label":"#FFFFFF","shadow":"#121212"}}},"type_header_font":"assistant_n4","heading_scale":100,"type_body_font":"assistant_n4","body_scale":100,"page_width":1200,"spacing_sections":0,"spacing_grid_horizontal":8,"spacing_grid_vertical":8,"animations_reveal_on_scroll":true,"animations_hover_elements":"none","buttons_border_thickness":1,"buttons_border_opacity":100,"buttons_radius":0,"buttons_shadow_opacity":0,"buttons_shadow_horizontal_offset":0,"buttons_shadow_vertical_offset":4,"buttons_shadow_blur":5,"variant_pills_border_thickness":1,"variant_pills_border_opacity":55,"variant_pills_radius":40,"variant_pills_shadow_opacity":0,"variant_pills_shadow_horizontal_offset":0,"variant_pills_shadow_vertical_offset":4,"variant_pills_shadow_blur":5,"inputs_border_thickness":1,"inputs_border_opacity":55,"inputs_radius":0,"inputs_shadow_opacity":0,"inputs_shadow_horizontal_offset":0,"inputs_shadow_vertical_offset":4,"inputs_shadow_blur":5,"card_style":"standard","card_image_padding":0,"card_text_alignment":"left","card_color_scheme":"scheme-2","card_border_thickness":0,"card_border_opacity":10,"card_corner_radius":0,"card_shadow_opacity":0,"card_shadow_horizontal_offset":0,"card_shadow_vertical_offset":4,"card_shadow_blur":5,"collection_card_style":"standard","collection_card_image_padding":0,"collection_card_text_alignment":"left","collection_card_color_scheme":"scheme-2","collection_card_border_thickness":0,"collection_card_border_opacity":10,"collection_card_corner_radius":0,"collection_card_shadow_opacity":0,"collection_card_shadow_horizontal_offset":0,"collection_card_shadow_vertical_offset":4,"collection_card_shadow_blur":5,"blog_card_style":"standard","blog_card_image_padding":0,"blog_card_text_alignment":"left","blog_card_color_scheme":"scheme-2","blog_card_border_thickness":0,"blog_card_border_opacity":10,"blog_card_corner_radius":0,"blog_card_shadow_opacity":0,"blog_card_shadow_horizontal_offset":0,"blog_card_shadow_vertical_offset":4,"blog_card_shadow_blur":5,"text_boxes_border_thickness":0,"text_boxes_border_opacity":10,"text_boxes_radius":0,"text_boxes_shadow_opacity":0,"text_boxes_shadow_horizontal_offset":0,"text_boxes_shadow_vertical_offset":4,"text_boxes_shadow_blur":5,"media_border_thickness":1,"media_border_opacity":5,"media_radius":0,"media_shadow_opacity":0,"media_shadow_horizontal_offset":0,"media_shadow_vertical_offset":4,"media_shadow_blur":5,"popup_border_thickness":1,"popup_border_opacity":10,"popup_corner_radius":0,"popup_shadow_opacity":5,"popup_shadow_horizontal_offset":0,"popup_shadow_vertical_offset":4,"popup_shadow_blur":5,"drawer_border_thickness":1,"drawer_border_opacity":10,"drawer_shadow_opacity":0,"drawer_shadow_horizontal_offset":0,"drawer_shadow_vertical_offset":4,"drawer_shadow_blur":5,"badge_position":"bottom left","badge_corner_radius":40,"sale_badge_color_scheme":"scheme-4","sold_out_badge_color_scheme":"scheme-3","brand_headline":"","brand_description":"<p><\/p>","brand_image_width":100,"social_twitter_link":"","social_facebook_link":"","social_pinterest_link":"","social_instagram_link":"","social_tiktok_link":"","social_tumblr_link":"","social_snapchat_link":"","social_youtube_link":"","social_vimeo_link":"","predictive_search_enabled":true,"predictive_search_show_vendor":false,"predictive_search_show_price":false,"currency_code_enabled":true,"cart_type":"notification","show_vendor":false,"show_cart_note":false,"cart_drawer_collection":"","cart_color_scheme":"scheme-1","sections":{"main-password-header":{"type":"main-password-header","settings":{"color_scheme":"scheme-1"}},"main-password-footer":{"type":"main-password-footer","settings":{"color_scheme":"scheme-1"}}}}}}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "logo": "shopify://shop_images/Ubbs_Logo.svg",
+    "logo_width": 150,
+    "favicon": "shopify://shop_images/favicon_39b2c5e1-70c2-48f8-8c2b-cbcaeff8b2be.png",
+    "type_header_font": "assistant_n4",
+    "heading_scale": 100,
+    "type_body_font": "assistant_n4",
+    "body_scale": 100,
+    "page_width": 1400,
+    "spacing_sections": 0,
+    "spacing_grid_horizontal": 8,
+    "spacing_grid_vertical": 8,
+    "animations_reveal_on_scroll": true,
+    "animations_hover_elements": "none",
+    "buttons_border_thickness": 1,
+    "buttons_border_opacity": 100,
+    "buttons_radius": 40,
+    "buttons_shadow_opacity": 0,
+    "buttons_shadow_horizontal_offset": 0,
+    "buttons_shadow_vertical_offset": 4,
+    "buttons_shadow_blur": 5,
+    "variant_pills_border_thickness": 1,
+    "variant_pills_border_opacity": 55,
+    "variant_pills_radius": 40,
+    "variant_pills_shadow_opacity": 0,
+    "variant_pills_shadow_horizontal_offset": 0,
+    "variant_pills_shadow_vertical_offset": 4,
+    "variant_pills_shadow_blur": 5,
+    "inputs_border_thickness": 1,
+    "inputs_border_opacity": 55,
+    "inputs_radius": 0,
+    "inputs_shadow_opacity": 0,
+    "inputs_shadow_horizontal_offset": 0,
+    "inputs_shadow_vertical_offset": 4,
+    "inputs_shadow_blur": 5,
+    "card_style": "standard",
+    "card_image_padding": 0,
+    "card_text_alignment": "left",
+    "card_color_scheme": "scheme-1",
+    "card_border_thickness": 0,
+    "card_border_opacity": 10,
+    "card_corner_radius": 0,
+    "card_shadow_opacity": 0,
+    "card_shadow_horizontal_offset": 0,
+    "card_shadow_vertical_offset": 4,
+    "card_shadow_blur": 5,
+    "collection_card_style": "standard",
+    "collection_card_image_padding": 0,
+    "collection_card_text_alignment": "left",
+    "collection_card_color_scheme": "scheme-1",
+    "collection_card_border_thickness": 0,
+    "collection_card_border_opacity": 10,
+    "collection_card_corner_radius": 0,
+    "collection_card_shadow_opacity": 0,
+    "collection_card_shadow_horizontal_offset": 0,
+    "collection_card_shadow_vertical_offset": 4,
+    "collection_card_shadow_blur": 5,
+    "blog_card_style": "card",
+    "blog_card_image_padding": 0,
+    "blog_card_text_alignment": "left",
+    "blog_card_color_scheme": "scheme-1",
+    "blog_card_border_thickness": 0,
+    "blog_card_border_opacity": 10,
+    "blog_card_corner_radius": 0,
+    "blog_card_shadow_opacity": 0,
+    "blog_card_shadow_horizontal_offset": 0,
+    "blog_card_shadow_vertical_offset": 4,
+    "blog_card_shadow_blur": 5,
+    "text_boxes_border_thickness": 0,
+    "text_boxes_border_opacity": 10,
+    "text_boxes_radius": 0,
+    "text_boxes_shadow_opacity": 0,
+    "text_boxes_shadow_horizontal_offset": 0,
+    "text_boxes_shadow_vertical_offset": 4,
+    "text_boxes_shadow_blur": 5,
+    "media_border_thickness": 1,
+    "media_border_opacity": 5,
+    "media_radius": 0,
+    "media_shadow_opacity": 0,
+    "media_shadow_horizontal_offset": 0,
+    "media_shadow_vertical_offset": 4,
+    "media_shadow_blur": 5,
+    "popup_border_thickness": 1,
+    "popup_border_opacity": 10,
+    "popup_corner_radius": 0,
+    "popup_shadow_opacity": 5,
+    "popup_shadow_horizontal_offset": 0,
+    "popup_shadow_vertical_offset": 4,
+    "popup_shadow_blur": 5,
+    "drawer_border_thickness": 1,
+    "drawer_border_opacity": 10,
+    "drawer_shadow_opacity": 0,
+    "drawer_shadow_horizontal_offset": 0,
+    "drawer_shadow_vertical_offset": 4,
+    "drawer_shadow_blur": 5,
+    "badge_position": "top right",
+    "badge_corner_radius": 40,
+    "sale_badge_color_scheme": "scheme-4",
+    "sold_out_badge_color_scheme": "scheme-3",
+    "brand_headline": "",
+    "brand_description": "<p></p>",
+    "brand_image_width": 100,
+    "social_facebook_link": "https://www.facebook.com/people/Ubbs-MiddleEast/61557124140436/",
+    "social_instagram_link": "https://www.instagram.com/ubbsmiddleeast/",
+    "social_youtube_link": "",
+    "social_tiktok_link": "",
+    "social_twitter_link": "",
+    "social_snapchat_link": "",
+    "social_pinterest_link": "",
+    "social_tumblr_link": "",
+    "social_vimeo_link": "",
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "currency_code_enabled": true,
+    "cart_type": "drawer",
+    "show_vendor": false,
+    "show_cart_note": false,
+    "cart_drawer_collection": "",
+    "cart_color_scheme": "scheme-1",
+    "logo_svg_html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 118.65 28.53\" style=\"width:150px\"><g id=\"Layer_2\" data-name=\"Layer 2\"><g id=\"Isolation_Mode\" data-name=\"Isolation Mode\"><path d=\"M20.18,16.48c0,2.55-.92,5.15-2.18,6.19a8.37,8.37,0,0,1-5.23,1.7,8.38,8.38,0,0,1-5.25-1.76C6.26,21.56,5.34,19,5.34,16.48V5.25H0V16.48a11.64,11.64,0,0,0,4.12,9.05,13.69,13.69,0,0,0,8.62,3h.09a13.42,13.42,0,0,0,8.56-2.92,11.68,11.68,0,0,0,4.13-9.11V5.25H20.18Z\"></path><path d=\"M46.83,5.52h0a16.57,16.57,0,0,0-5.57-.07c-3.41.77-5.43,1.88-6.88,3.87V0h-5.5V28.2l.05.27v0H34l.28,0h.11V24.61c2.19,2.69,6.09,3.9,9.18,3.9,7.69,0,13.83-5,14-11.4C57.66,11.6,53.16,6.72,46.83,5.52Zm-3,18.83h-.17c-4.72-.09-8.63-2.83-9.29-6.46V15.54c.71-4,5.23-6.11,9.33-6.11h.19a9.47,9.47,0,0,1,2.67.38A7.55,7.55,0,0,1,52.2,17C52.11,21.1,48.37,24.35,43.83,24.35Z\"></path><path d=\"M78.89,5.52h0a16.57,16.57,0,0,0-5.57-.07c-3.42.77-5.44,1.88-6.89,3.87V0h-5.5V28.2l.06.27v0H66l.28,0h.1V24.61c2.2,2.69,6.1,3.9,9.19,3.9,7.69,0,13.83-5,14-11.4C89.72,11.6,85.22,6.72,78.89,5.52Zm-3,18.83h-.18c-4.71-.09-8.62-2.83-9.29-6.46V15.54c.71-4,5.22-6.11,9.33-6.11h.18a9.36,9.36,0,0,1,2.67.38A7.55,7.55,0,0,1,84.26,17C84.16,21.1,80.43,24.35,75.89,24.35Z\"></path><path d=\"M105.65,14.86c-2.12,0-7.6-.49-7.6-2.74,0-2.75,5.58-2.76,7.41-2.76h0c3.65,0,6.48,1.18,7.4,3.09l.07.16h5.48l-.08-.35a8.21,8.21,0,0,0-4.12-5.15,18,18,0,0,0-8.77-1.9,22.65,22.65,0,0,0-8.09,1.14c-2.32.91-4.66,3.17-4.66,6.16,0,4.18,4.33,6.36,12.84,6.49l.74.05c2.1.13,7,.44,7,2.52,0,1.77-2.65,2.71-7.86,2.8-3.73,0-6.5-1.17-7.22-3.06l-.07-.18H92.76l0,.33a7.4,7.4,0,0,0,3.54,5.36c2.11,1.22,4.75,1.71,9.11,1.71s7.29-.48,9.49-1.59a6.73,6.73,0,0,0,3.7-5.78C118.65,15.06,108.87,14.91,105.65,14.86Z\"></path><rect x=\"7.76\" y=\"0.57\" width=\"3.16\" height=\"3.16\"></rect><rect x=\"14.6\" y=\"0.57\" width=\"3.16\" height=\"3.16\"></rect></g></g></svg>",
+    "sections": {
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
+      },
+      "reward_banner_section": {
+        "type": "reward_banner_section",
+        "settings": {
+          "title": "Welcome to <br class=\"hidden-xs\">Übbs Rewards",
+          "subtitle": "Become a member to earn points<br class=\"hidden-xs\"> and unlock exclusive rewards every<br class=\"hidden-xs\">time you shop.",
+          "banner_img": "shopify://shop_images/How-it-works_img.png",
+          "big_circle": "shopify://shop_images/Ellipse_1_f4b9fad7-d4a0-485b-a689-e230ad03773b.png",
+          "btn-text1": "Join Now",
+          "button-link1": "https://ubbspouches.ae/pages/way-to-earn/#smile-home",
+          "btn-text2": "Sign In",
+          "button-link2": "https://ubbspouches.ae/account/login"
+        }
+      },
+      "reward_discreet_section": {
+        "type": "reward_discreet_section",
+        "blocks": {
+          "text_tAnA4K": {
+            "type": "text",
+            "settings": {
+              "number-heading": "01",
+              "heading": "SIGN UP",
+              "descreption": "Create an account and receive 10 points."
+            }
+          },
+          "text_KxCxBA": {
+            "type": "text",
+            "settings": {
+              "number-heading": "02",
+              "heading": "EARN POINTS",
+              "descreption": "Earn points every time you shop."
+            }
+          },
+          "text_4DqMQw": {
+            "type": "text",
+            "settings": {
+              "number-heading": "03",
+              "heading": "REDEEM POINTS",
+              "descreption": "Redeem points for exclusive discounts."
+            }
+          }
+        },
+        "block_order": [
+          "text_tAnA4K",
+          "text_KxCxBA",
+          "text_4DqMQw"
+        ],
+        "settings": {
+          "custom_class": "",
+          "title": "HOW IT WORKS",
+          "subtitle": ""
+        }
+      },
+      "icons": {
+        "type": "icons",
+        "blocks": {
+          "earn_item_DhkQeQ": {
+            "type": "earn_item",
+            "settings": {
+              "icon": "shopify://shop_images/sign_up.svg",
+              "title": "",
+              "points": "Sign up<br><b>150 POINTS</b>",
+              "description": "Receive 150 points for registering your account."
+            }
+          },
+          "earn_item_J3btY8": {
+            "type": "earn_item",
+            "settings": {
+              "icon": "shopify://shop_images/order.svg",
+              "title": "",
+              "points": "Place an order <br><b>1 POINT FOR EVERY 1 AED SPENT</b>",
+              "description": "Spend to earn, receive 1 point for every 1  AED spent."
+            }
+          },
+          "earn_item_PJD3Gy": {
+            "type": "earn_item",
+            "settings": {
+              "icon": "shopify://shop_images/bday_revised.svg",
+              "title": "",
+              "points": "Celebrate a birthday<br><b>250 POINTS</b>",
+              "description": "Happy birthday! Receive 250 points on your birthday."
+            }
+          },
+          "earn_item_7iBmfm": {
+            "type": "earn_item",
+            "settings": {
+              "icon": "shopify://shop_images/follow.svg",
+              "title": "",
+              "points": "Follow us on Instagram<br><b>150 POINTS</b>",
+              "description": "Receive 150 points for following\nus on Instagram."
+            }
+          },
+          "earn_item_FwNrzG": {
+            "type": "earn_item",
+            "settings": {
+              "icon": "shopify://shop_images/like.svg",
+              "title": "",
+              "points": "Like on Facebook<br><b>150 POINTS</b>",
+              "description": "Receive 150 points for liking our\nFacebook page."
+            }
+          },
+          "earn_item_W3fgwE": {
+            "type": "earn_item",
+            "settings": {
+              "icon": "shopify://shop_images/share.svg",
+              "title": "",
+              "points": "Share on Facebook<br><b>150 POINTS</b>",
+              "description": "Receive 150 points for sharing our Facebook page."
+            }
+          }
+        },
+        "block_order": [
+          "earn_item_DhkQeQ",
+          "earn_item_J3btY8",
+          "earn_item_PJD3Gy",
+          "earn_item_7iBmfm",
+          "earn_item_FwNrzG",
+          "earn_item_W3fgwE"
+        ],
+        "settings": {
+          "heading": "Ways to Earn"
+        }
+      },
+      "rewards-multicolumn": {
+        "type": "rewards-multicolumn",
+        "blocks": {
+          "column_V7xX9a": {
+            "type": "column",
+            "settings": {
+              "image": "shopify://shop_images/fi_9729465.png",
+              "title": "1250 AED",
+              "text": "<p>Earn <strong>750 points</strong></p>",
+              "link_label": "",
+              "link": ""
+            }
+          },
+          "column_AHPdnm": {
+            "type": "column",
+            "settings": {
+              "image": "shopify://shop_images/fi_9729465.png",
+              "title": "2500 AED",
+              "text": "<p>Earn <strong>1500 points</strong></p>",
+              "link_label": "",
+              "link": ""
+            }
+          },
+          "column_GTnG6P": {
+            "type": "column",
+            "settings": {
+              "image": "shopify://shop_images/fi_9729465.png",
+              "title": "5000 AED",
+              "text": "<p>Earn <strong>3000 points</strong></p>",
+              "link_label": "",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "column_V7xX9a",
+          "column_AHPdnm",
+          "column_GTnG6P"
+        ],
+        "settings": {
+          "custom_class": "",
+          "title": "Bonus Points",
+          "description": "<p>Earn more points as you spend on your übbs account over time!</p>",
+          "heading_size": "h1",
+          "image_width": "full",
+          "image_ratio": "adapt",
+          "columns_desktop": 3,
+          "column_alignment": "left",
+          "background_style": "primary",
+          "button_label": "",
+          "button_link": "",
+          "caption": "<p>Bonus points collection resets after each cycle (5000 AED)<br/>To view how much you've spent and when your next bonus point is <a href=\"/account?a=cd_loyalty-rewards\" title=\"/account?a=cd_loyalty-rewards\">click here</a>.</p>",
+          "color_scheme": "background-1",
+          "columns_mobile": "1",
+          "swipe_on_mobile": false,
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "why_ubbs_section": {
+        "type": "why_ubbs_section",
+        "settings": {
+          "custom_class": "",
+          "desktop_border_img": "shopify://shop_images/Ubbs-desktop-box.png",
+          "mob_border_img": "shopify://shop_images/Ubbs-rewards-mobile.png",
+          "title": "How to redeem your points",
+          "subtitle": "<p class=\"text_reg font_text text_40 fadeInUp\" data-live-text-setting=\"section.why_ubbs_section.info\" data-scroll=\"in\">Redeeming your points is easy, simply click the rewards button in the bottle left of your screen and head to ways to redeem. Once you reach 100 points you can unlock your discount.</p>Points currency<br>40 points = 1 AED",
+          "info": "",
+          "btn_url": "",
+          "btn_label": "",
+          "html_form": ""
+        }
+      },
+      "reward_nicotine_section": {
+        "type": "reward_nicotine_section",
+        "settings": {
+          "title": "Refer a friend",
+          "subtitle": "<p>Become an übbs ambassador and unlock even bigger rewards! Give your friends 30% off their first order over 15 AED. Earn 50 points for every successful referral — use points to save even more and stay rewarded!</p>  <p>How it works:</p><ul>     <li> Share your referral link with your friends.</li>        <li> Your friend will get 30% off once they enter their email through the on-screen prompt.</li>     <li> When your friend places their first order, you’ll automatically earn 50 points to use towards future rewards!</li> </ul>",
+          "btntitle": "",
+          "btnlink": "",
+          "big_image": "shopify://shop_images/refer_bg_1.png",
+          "small_image": "shopify://shop_images/Refer-a-friend-Mobile_1.jpg"
+        }
+      },
+      "reward_product_carousel": {
+        "type": "reward_product_carousel",
+        "settings": {
+          "title": "Start earning today",
+          "heading_size": "h1",
+          "description": "",
+          "show_description": false,
+          "description_style": "body",
+          "collection": "shop",
+          "products_to_show": 12,
+          "columns_desktop": 3,
+          "full_width": false,
+          "show_view_all": true,
+          "view_all_style": "solid",
+          "enable_desktop_slider": false,
+          "color_scheme": "background-1",
+          "image_ratio": "adapt",
+          "show_secondary_image": false,
+          "show_vendor": false,
+          "show_rating": false,
+          "enable_quick_add": true,
+          "columns_mobile": "1",
+          "swipe_on_mobile": false,
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "blocks": {
+          "paragraph_x6ywVK": {
+            "type": "paragraph",
+            "settings": {
+              "text": "<p>FOR THE LATEST NEWS AND UPDATES</p>"
+            }
+          },
+          "heading_4pEbQe": {
+            "type": "heading",
+            "settings": {
+              "heading": "JOIN OUR NEWSLETTER",
+              "heading_size": "h1"
+            }
+          },
+          "email_form_CHrdBM": {
+            "type": "email_form",
+            "settings": {}
+          },
+          "info_TRxhkp": {
+            "type": "info",
+            "settings": {
+              "btn_label": "Privacy Policy",
+              "btn_url": "shopify://policies/privacy-policy"
+            }
+          }
+        },
+        "block_order": [
+          "paragraph_x6ywVK",
+          "heading_4pEbQe",
+          "email_form_CHrdBM",
+          "info_TRxhkp"
+        ],
+        "settings": {
+          "color_scheme": "",
+          "full_width": true,
+          "padding_top": 40,
+          "padding_bottom": 52
+        }
+      },
+      "about_banner-section": {
+        "type": "about_banner-section",
+        "settings": {
+          "title": "The origin,<br class=\"hidden-xs\"> the inspiration<br class=\"hidden-xs\"> and more!",
+          "subtitle": "Learn all about where übbs came from.",
+          "banner_img": "shopify://shop_images/About_Us_Img1.png",
+          "big_circle": "shopify://shop_images/Ellipse_1_d5dbfffb-63c2-4897-a29e-63758762c301.png"
+        }
+      },
+      "about_ubbs_section": {
+        "type": "about_ubbs_section",
+        "settings": {
+          "desktop_border_img": "shopify://shop_images/Rectangle_2.png",
+          "mob_border_img": "shopify://shop_images/About-Mobile-Img.png",
+          "title": "AH, SO YOU'RE HERE <br class=\"hidden-xs\"> TO KNOW MORE ABOUT ÜBBS",
+          "subtitle": "Let us tell you the tale of indulgence."
+        }
+      },
+      "about_psa_section": {
+        "type": "about_psa_section",
+        "settings": {
+          "hand_image": "shopify://shop_images/Img_1_-_tinified.png",
+          "calmtext1": "Calm your impulses",
+          "calmtext2": "Sharpen your senses",
+          "title": "IMAGINE THE FINEST<br class=\"hidden-xs\"> TOBACCO-FREE<br class=\"hidden-xs\"> NICOTINE EXPERIENCE",
+          "subtitle": "<p>Here’s a discreet yet impactful experience, crafted with pure ingredients and designed for your convenience—no smoke, no hassle. Just clean, satisfying moments you can enjoy anytime, anywhere. This was our vision when creating the finest tobacco-free alternatives.</p><p>Introducing übbs, where every pouch delivers a mindful and elevated nicotine experience.</p>"
+        }
+      },
+      "about_vision_section": {
+        "type": "about_vision_section",
+        "settings": {
+          "desktop_border_img": "shopify://shop_images/Img_2.png",
+          "title": "WITH THIS VISION,<br class=\"hidden-xs\"> WE EMBARKED ON<br class=\"hidden-xs\"> A JOURNEY",
+          "subtitle": "To create übbs—a nicotine pouch brand that does everything to pharmaceutical-grade standards. With experience on our side, we took the next step: bringing our innovation to customers around the globe. And so, übbs was born."
+        }
+      },
+      "about_scandinavians_section": {
+        "type": "about_scandinavians_section",
+        "settings": {
+          "desktop_border_img": "shopify://shop_images/Group_shots_image.png",
+          "tree_img": "shopify://shop_images/tree.png",
+          "mountain_img": "shopify://shop_images/mountain.png",
+          "title": "Inspired by<br class=\"hidden-xs\"> Scandinavian Innovation",
+          "subtitle": "<p>When challenges arose, we didn’t just find a way to enjoy tobacco-free nicotine—we elevated the experience with carefully curated flavours and game-changing materials. By combining innovative thinking and world-class manufacturing, we created a pouch that delivers an unparalleled nicotine experience for adult smokers and vapers.</p><h2>Explore übbs and discover the ultimate tobacco-free pouches.</h2>"
+        }
+      },
+      "hiw-banner-section": {
+        "type": "hiw-banner-section",
+        "settings": {
+          "title": "EXPERIENCING ÜBBS<br>IN 3 EASY STEPS",
+          "subtitle": "Pop | Tingle | Discard",
+          "banner_img": "shopify://shop_images/How-it-works_img.png",
+          "big_circle": "shopify://shop_images/Ellipse_1_f4b9fad7-d4a0-485b-a689-e230ad03773b.png",
+          "btn-text1": "",
+          "button-link1": "",
+          "btn-text2": "",
+          "button-link2": ""
+        }
+      },
+      "pages-discreet_section": {
+        "type": "pages-discreet_section",
+        "blocks": {
+          "text_UxHcYA": {
+            "type": "text",
+            "settings": {
+              "block_image": "shopify://shop_images/01_02_Once_07c51ad9-fe16-450e-8872-0eb96ffc23d4.gif",
+              "number-heading": "",
+              "heading": "POP",
+              "descreption": "Place the soft, white nicotine pouch under your upper lip and position it to the side for a comfortable fit."
+            }
+          },
+          "text_Un9fLN": {
+            "type": "text",
+            "settings": {
+              "block_image": "shopify://shop_images/02_01_ONCE_1c8be29d-08c0-4327-ab01-4452c6ebff48.gif",
+              "number-heading": "",
+              "heading": "TINGLE",
+              "descreption": "Enjoy a fresh nicotine experience that lasts for up to 30 minutes. Use it discreetly anytime, anywhere."
+            }
+          },
+          "text_tjB87V": {
+            "type": "text",
+            "settings": {
+              "block_image": "shopify://shop_images/03_01_ONCE_46740ba7-f848-47dc-aa48-14f71f53c3a7.gif",
+              "number-heading": "",
+              "heading": "DISCARD",
+              "descreption": "When done, dispose of the pouch in the general waste or store it in the top of the can. Recycle the can separately once all the pouches are used."
+            }
+          }
+        },
+        "block_order": [
+          "text_UxHcYA",
+          "text_Un9fLN",
+          "text_tjB87V"
+        ],
+        "settings": {
+          "title": "How to Use <br class=\"hidden-xs\">Nicotine Pouches?"
+        }
+      },
+      "pages-nicotine_section": {
+        "type": "pages-nicotine_section",
+        "settings": {
+          "title": "NICOTINE THAT’S DONE RIGHT",
+          "subtitle": "<p>Designed in Sweden and manufactured to global pharmaceutical standards, our tobacco-free nicotine pouches offer a new nicotine experience. Crafted with precision, each pouch is a refreshing burst of flavours without the harmful effects of tobacco.</p>",
+          "btntitle": "Shop Now",
+          "btnlink": "shopify://collections/shop",
+          "big_image": "shopify://shop_images/Nicotine_Thats_Done_Right.jpg",
+          "small_image": "shopify://shop_images/nicotine_banner_img.jpg"
+        }
+      },
+      "pages-psa_section": {
+        "type": "pages-psa_section",
+        "settings": {
+          "title": "100% indulgence.<br> 0% tobacco.",
+          "subtitle": "What are nicotine pouches?<br>übbs tobacco-free nicotine pouches are made only with pure, premium ingredients—nicotine, plant-based materials, flavourings, and sweeteners. They offer a clean, flavourful nicotine experience without the harmful side effects of tobacco. Each pouch delivers a consistent and satisfying feeling, allowing you to truly enjoy a tobacco-free alternative.",
+          "banner_img": "shopify://shop_images/how-it-works_-_Open_can_image.png"
+        }
+      },
+      "nicotine-banner": {
+        "type": "nicotine-banner",
+        "settings": {
+          "title": "NICOTINE THAT’S DONE RIGHT",
+          "subtitle": "<p>Designed in Sweden and manufactured to global pharmaceutical standards, our tobacco-free nicotine pouches offer a new nicotine experience. Crafted with precision, each pouch is a refreshing burst of flavours without the harmful effects of tobacco.</p>",
+          "btntitle": "Shop Now",
+          "btnlink": "shopify://collections/shop",
+          "big_image": "shopify://shop_images/refer_bg_1.png",
+          "small_image": "shopify://shop_images/Refer-a-friend-Mobile_1.jpg"
+        }
+      },
+      "ourf_banner-section": {
+        "type": "ourf_banner-section",
+        "settings": {
+          "title": "Geek out on where<br class=\"hidden-xs\"> Übbs is produced",
+          "subtitle": "Know all about our manufacturing<br class=\"hidden-xs\"> facility and more!",
+          "banner_img": "shopify://shop_images/Our_Facilities_img.png",
+          "big_circle": "shopify://shop_images/Ellipse_1_2e315378-c3bf-404c-a9c2-79a28b872cc3.png"
+        }
+      },
+      "ourf_psa_section": {
+        "type": "ourf_psa_section",
+        "settings": {
+          "title": "Launched<br class=\"hidden-xs\"> in 2022",
+          "subtitle": "übbs tobacco-free nicotine pouch is a thoughtfully crafted product catering to adult smokers and vapers across the world. We produce nicotine pouches that adhere to global pharmaceutical standards and we come with market experience, dedicated R&D teams and state-of-the-art, fully automated manufacturing facilities to deliver premium smokeless nicotine products globally."
+        }
+      },
+      "ourf_vision_section": {
+        "type": "ourf_vision_section",
+        "settings": {
+          "title": "Advanced<br class=\"hidden-xs\"> manufacturing<br class=\"hidden-xs\"> facility",
+          "subtitle": "To provide a smokeless, tobacco-free alternative to smokers and vapers in the UK, übbs has established an advanced manufacturing facility, commissioned under strict pharmaceutical guidelines to meet Good Manufacturing Practices (GMP), to produce nicotine pouches.",
+          "banner_img": "shopify://shop_images/Img-tinified.png"
+        }
+      },
+      "ourf_psa_section1": {
+        "type": "ourf_psa_section1",
+        "settings": {
+          "title": "A sophisticated<br class=\"hidden-xs\"> packaging<br class=\"hidden-xs\"> machinery",
+          "subtitle": "We can retain approximately 45% moisture content while producing nicotine pouches at high volumes with our custom packaging machinery. The smart-tech equipment automatically removes waste sachets during roll changeovers and comes with industry-leading auto-cleaning features. The facility also features inbuilt stability chambers to test the products’ shelf life in various environments and temperatures.",
+          "subtext": "With übbs tobacco-free nicotine pouches, we aim to deliver an unparalleled sensory experience for adult smokers and vapers.",
+          "banner_img": "shopify://shop_images/Our_Facilities_-_image.png"
+        }
+      },
+      "oursp_banner-section": {
+        "type": "oursp_banner-section",
+        "settings": {
+          "title": "We put the ‘pro’<br class=\"hidden-xs\"> in processes",
+          "subtitle": "Everything we do to deliver high-quality<br class=\"hidden-xs\"> nicotine pouches.",
+          "banner_img": "shopify://shop_images/Our_Responsibility_img.png",
+          "big_circle": "shopify://shop_images/Ellipse_1_d5dbfffb-63c2-4897-a29e-63758762c301.png"
+        }
+      },
+      "oursp-responsibility_section": {
+        "type": "oursp-responsibility_section",
+        "blocks": {
+          "psa_section_AQJFXf": {
+            "type": "psa_section",
+            "settings": {
+              "psa_title": "Gold<br class=\"hidden-xs\"> standard factory operations",
+              "psa_subtitle": "Our entire factory operations are executed under pharmaceutical Good Manufacturing Practices (GMP) and have been authenticated by the central and state drugs control department. We have a talented group of skilled individuals who ensure every task performed at the manufacturing facilities meets the standards set by the organisation.",
+              "psa_banner_img": "shopify://shop_images/GOLD-STANDARD-FACTORY-OPERATIONS_LOOP.gif"
+            }
+          },
+          "vision_section_fGMCtz": {
+            "type": "vision_section",
+            "settings": {
+              "vision_title": "Strict<br class=\"hidden-xs\"> manufacturing<br class=\"hidden-xs\"> processes",
+              "vision_subtitle": "The manufacturing process is monitored and approved by a dedicated, certified manufacturing chemist, who ensures our products are of the highest quality. This quality inspection is performed at every single stage of the process from blending, to curing, pouch making and finally container packing.",
+              "vision_banner_img": "shopify://shop_images/STRICT-MANUFACTURING-PROCESSES_LOOP.gif"
+            }
+          },
+          "psa_section_w3QwiU": {
+            "type": "psa_section",
+            "settings": {
+              "psa_title": "Stringent<br class=\"hidden-xs\"> tests",
+              "psa_subtitle": "We don’t just test our products for quality purposes, but also to make sure every pouch we produce is safe for our customers and meets all regulations. We have a fully equipped in-house laboratory ensuring all necessary tests are conducted to meet and exceed regulatory standards.",
+              "psa_banner_img": "shopify://shop_images/STRINGENT-TESTS_LOOP_2750765e-b48a-4f37-851b-a9e4ebc526d4.gif"
+            }
+          },
+          "vision_section_wQqLCP": {
+            "type": "vision_section",
+            "settings": {
+              "vision_title": "Highest<br class=\"hidden-xs\"> quality materials",
+              "vision_subtitle": "All the raw materials we use are procured from global suppliers who have years of experience and expertise in the food and pharmaceutical sectors. The raw materials are validated through qualitative wet, instrumental and microbial analysis. These analyses are performed by qualified quality control chemists who are certified by the drugs control department.",
+              "vision_banner_img": "shopify://shop_images/HIGHEST-QUALITY-MATERIALS_LOOP_39219e3d-b42b-4b90-8258-958108900fc2.gif"
+            }
+          },
+          "psa_section_kqWcRz": {
+            "type": "psa_section",
+            "settings": {
+              "psa_title": "Our commitment<br class=\"hidden-xs\"> to the planet",
+              "psa_subtitle": "Wherever and whenever possible, we strive to do our bit for the planet. The non-woven fabric used to produce our tobacco-free nicotine pouches is procured from industry leaders in the UK and Europe. The packaging material used to produce the übbs can is made from Polypropylene (PP), which is safe and recyclable. Moreover, all the materials we use to facilitate shipping and transport are paper-based and completely recyclable.",
+              "psa_banner_img": "shopify://shop_images/OUR-COMMITMENT-TO-THE-PLANET_LOOP_ed7ca81e-82b0-4701-88b3-049bfe5930cf.gif"
+            }
+          }
+        },
+        "block_order": [
+          "psa_section_AQJFXf",
+          "vision_section_fGMCtz",
+          "psa_section_w3QwiU",
+          "vision_section_wQqLCP",
+          "psa_section_kqWcRz"
+        ],
+        "settings": {
+          "Htitle": ""
+        }
+      },
+      "pages-banner-section": {
+        "type": "pages-banner-section",
+        "settings": {
+          "title": "Übbs tingling<br class=\"hidden-xs\"> your mind?",
+          "subtitle": "You’ve come to the right place!",
+          "banner_img": "shopify://shop_images/FAQ-Img.png",
+          "big_circle": "shopify://shop_images/Ellipse_1_2e315378-c3bf-404c-a9c2-79a28b872cc3.png"
+        }
+      },
+      "faq_tab_accordion": {
+        "type": "faq_tab_accordion",
+        "blocks": {
+          "text_6qifC9": {
+            "type": "text",
+            "settings": {
+              "ques": "How can I contact you?",
+              "ans": "<p>You can get in touch via our <a href=\"https://ubbspouches.ae/pages/contact\" target=\"_blank\" title=\"https://ubbspouches.ae/pages/contact\">Contact Us</a> or email us at <a href=\"mailto:customerservices@ubbspouches.ae\" title=\"mailto:customerservices@ubbspouches.ae\">customerservices@ubbspouches.ae</a></p>"
+            }
+          },
+          "text_Hb6zni": {
+            "type": "text",
+            "settings": {
+              "ques": "How will I know when my order is processed?",
+              "ans": "<p>As soon as we receive your order, we will send you a confirmation email. This email will contain your order summary and order number. If you do not receive this email or if the email does not match your order, please write to us on <a href=\"mailto:customerservices@ubbspouches.ae\" title=\"mailto:customerservices@ubbspouches.ae\">customerservices@ubbspouches.ae</a></p>"
+            }
+          },
+          "text_9BBzLr": {
+            "type": "text",
+            "settings": {
+              "ques": "What are the delivery charges?",
+              "ans": "<p>To find out more about our delivery charges, please visit our <a href=\"/policies/shipping-policy\" target=\"_blank\" title=\"Shipping Policy\">shipping policy </a>page.</p>"
+            }
+          },
+          "text_aypCQx": {
+            "type": "text",
+            "settings": {
+              "ques": "What delivery options does Übbs offer?",
+              "ans": "<p>Depending on your location, we offer 1-Hour Delivery, Same Day Delivery & Next Day Delivery.</p>"
+            }
+          },
+          "text_iRiYqL": {
+            "type": "text",
+            "settings": {
+              "ques": "How do I know when my order has been shipped?",
+              "ans": "<p>You will receive an email from us to let you know when your order has been shipped. For orders placed before 12am, we will despatch your order the same day. For orders placed after this time, we will despatch on the next available day.</p>"
+            }
+          },
+          "text_6FhbTe": {
+            "type": "text",
+            "settings": {
+              "ques": "What days can you deliver on?",
+              "ans": "<p>We deliver 7 days a week, Monday – Sunday.</p>"
+            }
+          },
+          "text_NBQFT9": {
+            "type": "text",
+            "settings": {
+              "ques": "What happens if my order is wrong?",
+              "ans": "<p>We’re sorry that you’ve received the incorrect order. We’ll fix that right away. Write to us on <a href=\"mailto:customerservices@ubbspouches.ae\" title=\"mailto:customerservices@ubbspouches.ae\">customerservices@ubbspouches.ae</a> or get in touch via the <a href=\"https://ubbspouches.ae/pages/contact\" target=\"_blank\" title=\"https://ubbspouches.ae/pages/contact\">Contact Us</a> and we’ll get back to you as soon as possible.</p>"
+            }
+          },
+          "text_rUWVRq": {
+            "type": "text",
+            "settings": {
+              "ques": "What happens if my order is missing/hasn't arrived?",
+              "ans": "<p>If your Übbs Nicotine Pouches haven’t arrived please contact us via our <a href=\"https://ubbspouches.ae/pages/contact\" target=\"_blank\">Contact Us</a> or write to us on <a href=\"mailto:customerservices@ubbspouches.ae\" title=\"mailto:customerservices@ubbspouches.ae\">customerservices@ubbspouches.ae</a> and we will resolve the issue as soon as possible.</p>"
+            }
+          },
+          "text_rjKtPJ": {
+            "type": "text",
+            "settings": {
+              "ques": "Do you offer international shipping?",
+              "ans": "<p>Unfortunately, we do not currently deliver outside of the UAE.</p>"
+            }
+          },
+          "text_bVaVYe": {
+            "type": "text",
+            "settings": {
+              "ques": "How can I return my order?",
+              "ans": "<p>To return your order, you can visit your nearest MyVapery store in UAE, or call the MyVapery Helpline Number (800 69 800), or e-mail us at <a href=\"mailto:customerservices@ubbspouches.ae\" title=\"mailto:customerservices@ubbspouches.ae\">customerservices@ubbspouches.ae</a> for assistance.</p>"
+            }
+          },
+          "text_k4Dzap": {
+            "type": "text",
+            "settings": {
+              "ques": "Can I change or cancel an order?",
+              "ans": "<p>In our efforts to provide the most efficient service to our customers, once an order has been placed and processed, we won’t be able to alter, change, or cancel the order.</p>"
+            }
+          }
+        },
+        "block_order": [
+          "text_6qifC9",
+          "text_Hb6zni",
+          "text_9BBzLr",
+          "text_aypCQx",
+          "text_iRiYqL",
+          "text_6FhbTe",
+          "text_NBQFT9",
+          "text_rUWVRq",
+          "text_rjKtPJ",
+          "text_bVaVYe",
+          "text_k4Dzap"
+        ],
+        "settings": {}
+      },
+      "faq_tab_accordion_1": {
+        "type": "faq_tab_accordion_1",
+        "blocks": {
+          "text_JmmyWb": {
+            "type": "text",
+            "settings": {
+              "ques": "What are nicotine pouches?",
+              "ans": "<p>Nicotine pouches are 100% tobacco, smoke and vape-free flavourful pouches of nicotine. They sit between your lip and gums to give you a fresh nicotine experience for up to 30 minutes.</p>"
+            }
+          },
+          "text_AL6xzx": {
+            "type": "text",
+            "settings": {
+              "ques": "How many nicotine pouches should I use a day?",
+              "ans": "<p>There is no magic number, the amount varies from person to person depending on your average nicotine consumption levels and nicotine pouch strength.</p>"
+            }
+          },
+          "text_xPNVfJ": {
+            "type": "text",
+            "settings": {
+              "ques": "How do nicotine pouches work?",
+              "ans": "<p>Nicotine pouches are extremely easy to use. Follow our 3 step guide below:<br/><br/>Step 1 – POP<br/>Pop the soft, white nicotine pouch under your lip and position it to the side for a more comfortable fit.<br/><br/>Step 2 – TINGLE<br/>You will feel a tingling sensation on your gums and a release of flavour, this is normal and means the pouch is working. We recommend leaving the pouch in for up to 30 minutes.<br/><br/>Step 3 - DISCARD<br/>When you’re done, discard of it in the general waste or store in the top of the can.<br/><br/>Übbs Tobacco Free-Nicotine Pouches are designed to be absorbed through the gums and should not be swallowed. If you swallow a pouch and feel unwell, seek medical advice with the can or label at hand.</p>"
+            }
+          },
+          "text_jGqGbK": {
+            "type": "text",
+            "settings": {
+              "ques": "How long should I keep nicotine pouches in for?",
+              "ans": "<p>We recommend you keep a nicotine pouch in for up to 30 minutes.</p>"
+            }
+          },
+          "text_8H4fyi": {
+            "type": "text",
+            "settings": {
+              "ques": "What are the alternatives to smoking cigarettes?",
+              "ans": "<p>Nicotine pouches are the perfect smoke-free and tobacco-free alternative to smoking.</p>"
+            }
+          },
+          "text_77FRLU": {
+            "type": "text",
+            "settings": {
+              "ques": "What is Übbs?",
+              "ans": "<p>Übbs Nicotine Pouches are a reduced-risk nicotine & tobacco alternative, in the form of a pouch. They sit discreetly between your lip and gums and you can use them whenever, wherever.</p>"
+            }
+          },
+          "text_FRJAtz": {
+            "type": "text",
+            "settings": {
+              "ques": "How many Übbs nicotine pouches are in a can?",
+              "ans": "<p>There are 20 pouches in a can.</p>"
+            }
+          },
+          "text_jUk9Gj": {
+            "type": "text",
+            "settings": {
+              "ques": "Can I chew nicotine pouches?",
+              "ans": "<p>No, do not chew Übbs nicotine pouches. They are designed to sit in between your lip and gums.</p>"
+            }
+          },
+          "text_w7iHQD": {
+            "type": "text",
+            "settings": {
+              "ques": "What flavours and nicotine strengths is Übbs available in?",
+              "ans": "<p>Übbs comes in 10 different flavours and 4 nicotine strengths - 4mg, 6mg, 11mg & 14mg. The flavours you can choose from are - Peppermint, Spearmint, Menthol, Watermelon, Berry, Cola Ice, Salted Caramel, Peach Passion, Zest Ice & Spicy Cherry.</p>"
+            }
+          },
+          "text_Wq8ep4": {
+            "type": "text",
+            "settings": {
+              "ques": "What do Übbs nicotine pouches contain?",
+              "ans": "<p>Übbs contains water, plant-based materials, flavourings, sweeteners, and nicotine. Übbs does not contain smoke, tobacco or vapour.</p>"
+            }
+          },
+          "text_iATJww": {
+            "type": "text",
+            "settings": {
+              "ques": "Is Übbs the same as snus?",
+              "ans": "<p>No, Übbs Nicotine Pouches are not the same as snus. While they’re used in a similar way to snus, nicotine pouches are 100% tobacco-free unlike snus which contains tobacco.</p>"
+            }
+          },
+          "text_YFQJxn": {
+            "type": "text",
+            "settings": {
+              "ques": "Can I reuse nicotine pouches?",
+              "ans": "<p>No, we recommend using a new pouch every time.</p>"
+            }
+          },
+          "text_rj7JWN": {
+            "type": "text",
+            "settings": {
+              "ques": "Who can use Übbs?",
+              "ans": "<p>Übbs contains nicotine and are to be used by existing smokers, vapers and nicotine consumers who are aged 18 or over.<br/><br/>Übbs is not to be used if you are under the age of 18, not an existing tobacco and nicotine consumer, allergic to nicotine and any other ingredients, pregnant/breast-feeding or are suffering from an unstable heart condition, severe hypertension or diabetes.</p>"
+            }
+          },
+          "text_y7Ayjb": {
+            "type": "text",
+            "settings": {
+              "ques": "What happens if I swallow a nicotine pouch?",
+              "ans": "<p>Übbs is designed to be absorbed through the gums and should not be swallowed. If you swallow a pouch and feel unwell, we suggest you seek medical advice immediately.</p>"
+            }
+          },
+          "text_eph3JR": {
+            "type": "text",
+            "settings": {
+              "ques": "Are Übbs containers recyclable?",
+              "ans": "<p>Übbs cans are made from polypropylene (PP), which can be recycled. However, we advise you to check with your local authorities whether they accept polypropylene in your household recycling. Please dispose of any used nicotine pouches in the general waste before recycling.</p>"
+            }
+          }
+        },
+        "block_order": [
+          "text_JmmyWb",
+          "text_AL6xzx",
+          "text_xPNVfJ",
+          "text_jGqGbK",
+          "text_8H4fyi",
+          "text_77FRLU",
+          "text_FRJAtz",
+          "text_jUk9Gj",
+          "text_w7iHQD",
+          "text_Wq8ep4",
+          "text_iATJww",
+          "text_YFQJxn",
+          "text_rj7JWN",
+          "text_y7Ayjb",
+          "text_eph3JR"
+        ],
+        "settings": {
+          "heading": ""
+        }
+      },
+      "product_carousel": {
+        "type": "product_carousel",
+        "settings": {
+          "title": "Starts Earning Today",
+          "heading_size": "h1",
+          "description": "",
+          "show_description": false,
+          "description_style": "body",
+          "collection": "shop",
+          "products_to_show": 5,
+          "columns_desktop": 3,
+          "full_width": false,
+          "show_view_all": true,
+          "view_all_style": "solid",
+          "enable_desktop_slider": true,
+          "color_scheme": "background-1",
+          "image_ratio": "adapt",
+          "show_secondary_image": false,
+          "show_vendor": false,
+          "show_rating": false,
+          "enable_quick_add": false,
+          "columns_mobile": "1",
+          "swipe_on_mobile": true,
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "1232542678405107163": {
+        "type": "shopify://apps/instafeed/blocks/head-block/c447db20-095d-4a10-9725-b5977662c9d5",
+        "disabled": false,
+        "settings": {}
+      },
+      "319724205969189013": {
+        "type": "shopify://apps/hulk-form-builder/blocks/app-embed/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+        "disabled": false,
+        "settings": {}
+      },
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "10534424223343191814": {
+        "type": "shopify://apps/custlo-customer-account-pro/blocks/app-embed/f81081fd-cd04-43ee-897a-18ef0e5d9b04",
+        "disabled": false,
+        "settings": {}
+      },
+      "4015264832934714879": {
+        "type": "shopify://apps/trustoo-email-popups/blocks/app/a5670cf8-5705-4b01-ad9e-447033feae26",
+        "disabled": false,
+        "settings": {}
+      },
+      "16548475241908962911": {
+        "type": "shopify://apps/oxi-social-login/blocks/social-login-embed/24ad60bc-8f09-42fa-807e-e5eda0fdae17",
+        "disabled": false,
+        "settings": {
+          "enabled_on_page": "all"
+        }
+      },
+      "6174324309569838175": {
+        "type": "shopify://apps/smile-io/blocks/smile-shopify-app/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+        "disabled": true,
+        "settings": {}
+      }
+    },
+    "color_schemes": {
+      "scheme-1": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#000000",
+          "button": "#000000",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#000000"
+        }
+      },
+      "scheme-2": {
+        "settings": {
+          "background": "#5eccc8",
+          "background_gradient": "",
+          "text": "#000000",
+          "button": "#000000",
+          "button_label": "#5eccc8",
+          "secondary_button_label": "#000000",
+          "shadow": "#000000"
+        }
+      },
+      "scheme-3": {
+        "settings": {
+          "background": "#000000",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#000000",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#000000"
+        }
+      },
+      "scheme-4": {
+        "settings": {
+          "background": "#000000",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#000000",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#000000"
+        }
+      },
+      "scheme-5": {
+        "settings": {
+          "background": "#334fb4",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#334fb4",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#000000"
+        }
+      }
+    }
+  },
+  "presets": {
+    "Dawn": {
+      "logo_width": 90,
+      "color_schemes": {
+        "scheme-1": {
+          "settings": {
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-2": {
+          "settings": {
+            "background": "#F3F3F3",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#F3F3F3",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-3": {
+          "settings": {
+            "background": "#242833",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#000000",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-4": {
+          "settings": {
+            "background": "#121212",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#121212",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-5": {
+          "settings": {
+            "background": "#334FB4",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#334FB4",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        }
+      },
+      "type_header_font": "assistant_n4",
+      "heading_scale": 100,
+      "type_body_font": "assistant_n4",
+      "body_scale": 100,
+      "page_width": 1200,
+      "spacing_sections": 0,
+      "spacing_grid_horizontal": 8,
+      "spacing_grid_vertical": 8,
+      "animations_reveal_on_scroll": true,
+      "animations_hover_elements": "none",
+      "buttons_border_thickness": 1,
+      "buttons_border_opacity": 100,
+      "buttons_radius": 0,
+      "buttons_shadow_opacity": 0,
+      "buttons_shadow_horizontal_offset": 0,
+      "buttons_shadow_vertical_offset": 4,
+      "buttons_shadow_blur": 5,
+      "variant_pills_border_thickness": 1,
+      "variant_pills_border_opacity": 55,
+      "variant_pills_radius": 40,
+      "variant_pills_shadow_opacity": 0,
+      "variant_pills_shadow_horizontal_offset": 0,
+      "variant_pills_shadow_vertical_offset": 4,
+      "variant_pills_shadow_blur": 5,
+      "inputs_border_thickness": 1,
+      "inputs_border_opacity": 55,
+      "inputs_radius": 0,
+      "inputs_shadow_opacity": 0,
+      "inputs_shadow_horizontal_offset": 0,
+      "inputs_shadow_vertical_offset": 4,
+      "inputs_shadow_blur": 5,
+      "card_style": "standard",
+      "card_image_padding": 0,
+      "card_text_alignment": "left",
+      "card_color_scheme": "scheme-2",
+      "card_border_thickness": 0,
+      "card_border_opacity": 10,
+      "card_corner_radius": 0,
+      "card_shadow_opacity": 0,
+      "card_shadow_horizontal_offset": 0,
+      "card_shadow_vertical_offset": 4,
+      "card_shadow_blur": 5,
+      "collection_card_style": "standard",
+      "collection_card_image_padding": 0,
+      "collection_card_text_alignment": "left",
+      "collection_card_color_scheme": "scheme-2",
+      "collection_card_border_thickness": 0,
+      "collection_card_border_opacity": 10,
+      "collection_card_corner_radius": 0,
+      "collection_card_shadow_opacity": 0,
+      "collection_card_shadow_horizontal_offset": 0,
+      "collection_card_shadow_vertical_offset": 4,
+      "collection_card_shadow_blur": 5,
+      "blog_card_style": "standard",
+      "blog_card_image_padding": 0,
+      "blog_card_text_alignment": "left",
+      "blog_card_color_scheme": "scheme-2",
+      "blog_card_border_thickness": 0,
+      "blog_card_border_opacity": 10,
+      "blog_card_corner_radius": 0,
+      "blog_card_shadow_opacity": 0,
+      "blog_card_shadow_horizontal_offset": 0,
+      "blog_card_shadow_vertical_offset": 4,
+      "blog_card_shadow_blur": 5,
+      "text_boxes_border_thickness": 0,
+      "text_boxes_border_opacity": 10,
+      "text_boxes_radius": 0,
+      "text_boxes_shadow_opacity": 0,
+      "text_boxes_shadow_horizontal_offset": 0,
+      "text_boxes_shadow_vertical_offset": 4,
+      "text_boxes_shadow_blur": 5,
+      "media_border_thickness": 1,
+      "media_border_opacity": 5,
+      "media_radius": 0,
+      "media_shadow_opacity": 0,
+      "media_shadow_horizontal_offset": 0,
+      "media_shadow_vertical_offset": 4,
+      "media_shadow_blur": 5,
+      "popup_border_thickness": 1,
+      "popup_border_opacity": 10,
+      "popup_corner_radius": 0,
+      "popup_shadow_opacity": 5,
+      "popup_shadow_horizontal_offset": 0,
+      "popup_shadow_vertical_offset": 4,
+      "popup_shadow_blur": 5,
+      "drawer_border_thickness": 1,
+      "drawer_border_opacity": 10,
+      "drawer_shadow_opacity": 0,
+      "drawer_shadow_horizontal_offset": 0,
+      "drawer_shadow_vertical_offset": 4,
+      "drawer_shadow_blur": 5,
+      "badge_position": "bottom left",
+      "badge_corner_radius": 40,
+      "sale_badge_color_scheme": "scheme-4",
+      "sold_out_badge_color_scheme": "scheme-3",
+      "brand_headline": "",
+      "brand_description": "<p></p>",
+      "brand_image_width": 100,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tiktok_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "predictive_search_enabled": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": false,
+      "currency_code_enabled": true,
+      "cart_type": "notification",
+      "show_vendor": false,
+      "show_cart_note": false,
+      "cart_drawer_collection": "",
+      "cart_color_scheme": "scheme-1",
+      "sections": {
+        "main-password-header": {
+          "type": "main-password-header",
+          "settings": {
+            "color_scheme": "scheme-1"
+          }
+        },
+        "main-password-footer": {
+          "type": "main-password-footer",
+          "settings": {
+            "color_scheme": "scheme-1"
+          }
+        }
+      }
+    }
+  }
+}
