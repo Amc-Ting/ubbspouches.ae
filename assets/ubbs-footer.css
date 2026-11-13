@@ -21,7 +21,9 @@
     max-width: 1400px;
     margin: 0 auto;
   }
-
+  .ubbs-footer__inner {
+    padding:0 5rem;
+  }
   .ubbs-footer__main {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr 0.8fr 0.9fr 0.9fr;
