@@ -1427,3 +1427,65 @@
     display: none;
   }
 }
+/* ==================================================
+   iPad / Tablet Footer Layout
+   Brand full width, navigation on next row
+   ================================================== */
+
+@media screen and (min-width: 750px) and (max-width: 1024px) {
+
+  .ubbs-footer__main {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 0;
+    align-items: start;
+  }
+
+  /* Make wrapper contents participate in the main grid */
+  .ubbs-footer__left,
+  .ubbs-footer__right,
+  .ubbs-footer__top {
+    display: contents !important;
+  }
+
+  /* First row: Brand takes full width */
+  .ubbs-footer__brand {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+    width: 100%;
+    margin-bottom: 28px;
+  }
+
+  /* Second row: Four navigation columns */
+  .ubbs-footer__nav {
+    grid-column: auto !important;
+    grid-row: 2 !important;
+    min-width: 0;
+  }
+
+  /* Social icons below navigation */
+  .ubbs-footer__social {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    margin-top: 24px;
+  }
+
+  /* Age verification */
+  .ubbs-footer__age-row {
+    grid-column: 1 / -1 !important;
+    grid-row: 4 !important;
+  }
+
+  /* Payments */
+  .ubbs-footer__payments {
+    grid-column: 1 / -1 !important;
+    grid-row: 5 !important;
+  }
+
+  /* Legal information */
+  .ubbs-footer__legal {
+    grid-column: 1 / -1 !important;
+    grid-row: 6 !important;
+  }
+}
