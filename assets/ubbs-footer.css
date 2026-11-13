@@ -21,8 +21,10 @@
     max-width: 1400px;
     margin: 0 auto;
   }
-  .ubbs-footer__inner {
-    padding:0 5rem;
+  @media screen and (min-width:1040px) {
+    .ubbs-footer__inner {
+      padding:0 5rem;
+    }
   }
   .ubbs-footer__main {
     display: grid;
