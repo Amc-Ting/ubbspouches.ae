@@ -47,7 +47,7 @@
 
   .ubbs-footer__logo {
     display: block;
-    width: 100px;
+    width: 150px;
     max-width: 100%;
     margin: 0 0 14px;
   }
@@ -58,7 +58,7 @@
 
   .ubbs-footer__logo img {
     display: block;
-    width: 100px;
+    width: 150px;
     max-width: 100%;
     height: auto;
   }
@@ -551,12 +551,12 @@
     }
 
     .ubbs-footer__logo {
-      width: 150px;
+      width: 100px;
       margin: 0 0 12px;
     }
 
     .ubbs-footer__logo img {
-      width: 150px;
+      width: 100px;
     }
 
     .ubbs-footer__desc {
