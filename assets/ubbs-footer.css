@@ -133,14 +133,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 13px;
-    height: 13px;
+    width: 23px;
+    height: 23px;
   }
 
   .ubbs-footer__social .list-social__link svg {
     display: block;
-    width: 13px;
-    height: 13px;
+    width: 23px;
+    height: 23px;
   }
 
   /* Navigation columns */
