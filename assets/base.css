@@ -2358,7 +2358,7 @@ input[type='checkbox'] {
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
 }
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 750px){
   .header{
     grid-template-columns: 0fr 2fr 1fr;
   }
