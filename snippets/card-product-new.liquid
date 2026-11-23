@@ -17,43 +17,46 @@
 {% endcomment %}
 
 <style>
-    .trustpilot-rating-link {
+  .trustpilot-rating-link {
     display: block;
     cursor: pointer;
     text-decoration: none;
   }
   .trustpilot-rating-link .trustpilot-widget {
     pointer-events: none;
+    margin-bottom: 6px;
   }
 </style>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    function isIE() {
-      const ua = window.navigator.userAgent;
-      const msie = ua.indexOf('MSIE ');
-      const trident = ua.indexOf('Trident/');
+{% comment %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function isIE() {
+        const ua = window.navigator.userAgent;
+        const msie = ua.indexOf('MSIE ');
+        const trident = ua.indexOf('Trident/');
 
-      return msie > 0 || trident > 0;
-    }
+        return msie > 0 || trident > 0;
+      }
 
-    if (!isIE()) return;
-    const hiddenInput = document.querySelector('#{{ product_form_id }} input[name="id"]');
-    const noScriptInputWrapper = document.createElement('div');
-    const variantSwitcher =
-      document.querySelector('variant-radios[data-section="{{ section.id }}"]') ||
-      document.querySelector('variant-selects[data-section="{{ section.id }}"]');
-    noScriptInputWrapper.innerHTML = document.querySelector(
-      '.product-form__noscript-wrapper-{{ section.id }}'
-    ).textContent;
-    variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
+      if (!isIE()) return;
+      const hiddenInput = document.querySelector('#{{ product_form_id }} input[name="id"]');
+      const noScriptInputWrapper = document.createElement('div');
+      const variantSwitcher =
+        document.querySelector('variant-radios[data-section="{{ section.id }}"]') ||
+        document.querySelector('variant-selects[data-section="{{ section.id }}"]');
+      noScriptInputWrapper.innerHTML = document.querySelector(
+        '.product-form__noscript-wrapper-{{ section.id }}'
+      ).textContent;
+      variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
 
-    document.querySelector('#Variants-{{ section.id }}').addEventListener('change', function (event) {
-      console.log('clicked');
-      hiddenInput.value = event.currentTarget.value;
+      document.querySelector('#Variants-{{ section.id }}').addEventListener('change', function (event) {
+        console.log('clicked');
+        hiddenInput.value = event.currentTarget.value;
+      });
     });
-  });
-</script>
+  </script>
+{% endcomment %}
 <style>
   {% comment %} .related-products .grid__item {
     display: flex !important;
@@ -65,11 +68,16 @@
   } {% endcomment %}
   .card-wrapper .card__badge  {
     position: absolute !important;
-    top: 10px !important;
-    left: 10px !important;
+    top: 0px !important;
+    left: 0px !important;
     z-index: 1 !important;
   }
-  .related-products h3.card__heading.h5 {
+  @media(max-width:767px){
+    .card-wrapper .card__badge{
+      top: 0px !important;
+    }
+  }
+  .related-products .h3.card__heading.h5 {
       color: #000;
       font-size: 16px;
       font-family: KronaRegular !important;
@@ -81,6 +89,17 @@
   }
   .related-products .review_price_sec {
       {% comment %} padding-top: 30px !important; {% endcomment %}
+  }
+  body.main_index .lipscore-rating-small svg.lipscore-rating-star,
+  .lipscore-rating-small svg.lipscore-rating-star {
+    width: 10px !important;
+    height: 10px !important;
+  }
+  .lipscore-rating-small{
+    min-height: 15px;
+    max-height: 20px;
+    line-height: 0;
+    padding-bottom:5px;
   }
 </style>
 
@@ -96,6 +115,12 @@
     if ratio == 0 or ratio == null
       assign ratio = 1
     endif
+    assign selected_variant = card_product.selected_or_first_available_variant
+    assign pack_1_discount = 0
+    assign pack_3_discount = 0
+    assign pack_6_discount = 0
+    assign pack_12_discount = 0
+    assign pack_24_discount = 0
   -%}
   <div class="card-wrapper underline-links-hover {{card_product.tags | join: " " }}">
     {% if card_product.tags contains 'New' or card_product.tags contains 'new' %}
@@ -116,25 +141,38 @@
         >
       </div>
     {% endif %}
-    {% if card_product.tags contains 'new_design' %}
-      <div class="card__badge top new_design_badge">
-        <p
-          style="
-            display:block;padding-right:48px;text-align: left;
-            line-height:inherit;  background-color:{{ card_product.metafields.custom.product_color }} !important; border-color:{{ card_product.metafields.custom.product_color }} !important;
-          "
-          class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
-        >
-          New Design
-          <span
-            style="display:block;font-size:6px;padding: 0px 4px;line-height:inherit;text-align:left; "
+    <div class="card__badge sold_out_badge {{ settings.badge_position }}">
+      {%- if card_product.available == false -%}
+        <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">
+          {{- 'products.product.sold_out' | t -}}
+        </span>
+        {% comment %}
+          {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+          <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}" {{ 'products.product.on_sale' | t }}>STOPTOBER Sale</span>
+        {% endcomment %}
+      {%- endif -%}
+    </div>
+    {% comment %}
+      {% if card_product.tags contains 'new_design' %}
+        <div class="card__badge top new_design_badge">
+          <p
+            style="
+              display:block;padding: 0.5rem 4rem 0.5rem 1rem;text-align: left;
+              line-height:inherit;  background-color:{{ card_product.metafields.custom.product_color }} !important; border-color:{{ card_product.metafields.custom.product_color }} !important;
+            "
             class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
           >
-            Same Great Flavour</span
-          >
-        </p>
-      </div>
-    {% endif %}
+            New Design
+            <span
+              style="display:block;font-size:6px;padding: 0px 4px;line-height:inherit;text-align:left;width: max-content;"
+              class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+            >
+              Same Great Flavour</span
+            >
+          </p>
+        </div>
+      {% endif %}
+    {% endcomment %}
     <div
       class="
         card
@@ -148,7 +186,7 @@
     >
       <div
         class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
-        style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+        style="--ratio-percent: {{ 1 | divided_by: ratio | times: 85 }}%;"
       >
         {%- if card_product.featured_media -%}
           <div
@@ -160,7 +198,9 @@
           >
             <div class="media media--transparent media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
-              <div class="prod_img_sec" xxx>
+              <div class="prod_img_sec">
+                <!-- {{card_product.variants[0].available }} -->
+                <!-- {{card_product.has_only_default_variant }} -->
                 <img
                   srcset="
                     {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -180,8 +220,16 @@
                   {% endunless %}
                   width="{{ card_product.featured_media.width }}"
                   height="{{ card_product.featured_media.height }}"
+
+                  {% unless card_product.variants[0].available %}
+                    {% if card_product.has_only_default_variant %}
+                      style="display:none"
+                    {% endif %}
+                  {% endunless %}
                 >
 
+                {% comment %}{% endcomment %}
+                <!-- {{card_product.variants[1].available }} -->
                 <img
                   srcset="
                     {%- if card_product.media[1].width >= 165 -%}{{ card_product.media[1] | image_url: width: 165 }} 165w,{%- endif -%}
@@ -199,36 +247,47 @@
                   loading="lazy"
                   width="{{ card_product.media[1].width }}"
                   height="{{ card_product.media[1].height }}"
+                  {% unless card_product.variants[1].available %}
+                    style="display:none"
+                  {% endunless %}
                 >
-                <img
-                  srcset="
-                    {%- if card_product.media[2].width >= 165 -%}{{ card_product.media[2] | image_url: width: 165 }} 165w,{%- endif -%}
-                    {%- if card_product.media[2].width >= 360 -%}{{ card_product.media[2] | image_url: width: 360 }} 360w,{%- endif -%}
-                    {%- if card_product.media[2].width >= 533 -%}{{ card_product.media[2] | image_url: width: 533 }} 533w,{%- endif -%}
-                    {%- if card_product.media[2].width >= 720 -%}{{ card_product.media[2] | image_url: width: 720 }} 720w,{%- endif -%}
-                    {%- if card_product.media[2].width >= 940 -%}{{ card_product.media[2] | image_url: width: 940 }} 940w,{%- endif -%}
-                    {%- if card_product.media[2].width >= 1066 -%}{{ card_product.media[2] | image_url: width: 1066 }} 1066w,{%- endif -%}
-                    {{ card_product.media[2] | image_url }} {{ card_product.media[2].width }}w
-                  "
-                  src="{{ card_product.media[2] | image_url: width: 533 }}"
-                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-                  alt="{{ card_product.media[2].alt | escape }}"
-                  class="motion-reduce media-3"
-                  loading="lazy"
-                  width="{{ card_product.media[2].width }}"
-                  height="{{ card_product.media[2].height }}"
-                >
+                {% if card_product.media[2] %}
+                  <!-- {{card_product.variants[2].available }} -->
+                  <img
+                    srcset="
+                      {%- if card_product.media[2].width >= 165 -%}{{ card_product.media[2] | image_url: width: 165 }} 165w,{%- endif -%}
+                      {%- if card_product.media[2].width >= 360 -%}{{ card_product.media[2] | image_url: width: 360 }} 360w,{%- endif -%}
+                      {%- if card_product.media[2].width >= 533 -%}{{ card_product.media[2] | image_url: width: 533 }} 533w,{%- endif -%}
+                      {%- if card_product.media[2].width >= 720 -%}{{ card_product.media[2] | image_url: width: 720 }} 720w,{%- endif -%}
+                      {%- if card_product.media[2].width >= 940 -%}{{ card_product.media[2] | image_url: width: 940 }} 940w,{%- endif -%}
+                      {%- if card_product.media[2].width >= 1066 -%}{{ card_product.media[2] | image_url: width: 1066 }} 1066w,{%- endif -%}
+                      {{ card_product.media[2] | image_url }} {{ card_product.media[2].width }}w
+                    "
+                    src="{{ card_product.media[2] | image_url: width: 533 }}"
+                    sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                    alt="{{ card_product.media[2].alt | escape }}"
+                    class="motion-reduce media-3"
+                    loading="lazy"
+                    width="{{ card_product.media[2].width }}"
+                    height="{{ card_product.media[2].height }}"
+                    {% unless card_product.variants[2].available %}
+                      style="display:none"
+                    {% endunless %}
+                  >
+                {% endif %}
 
                 {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
 
+                {% comment %}{% endcomment %}
                 {% unless card_product.tags contains 'Bundle' %}
                   <div class="hover_img_sec">
                     {% assign selected_variant_img = card_product.selected_or_first_available_variant %}
+
                     <img
-                      src="{{ selected_variant_img.featured_image | image_url: width: 533 }}"
+                      data-src="{{ selected_variant_img.featured_image | image_url: width: 533 }}"
                       sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
                       alt="{{ selected_variant_img.featured_image.alt | escape }}"
-                      class="motion-reduce hover_img"
+                      class="motion-reduce hover_img loading-lazy"
                       loading="lazy"
                       width="{{ selected_variant_img.featured_image.width }}"
                       height="{{ selected_variant_img.featured_image.height }}"
@@ -240,29 +299,23 @@
           </div>
         {%- endif -%}
         <div class="card__content">
-          <div class="card__information">
-            <h3
-              class="card__heading"
-              {% if card_product.featured_media == null and settings.card_style == 'standard' %}
-                id="title-{{ section_id }}-{{ card_product.id }}"
-              {% endif %}
-            >
-              <a href="{{ card_product.url }}" class="full-unstyled-link">
-                {{ card_product.title | escape }}
-              </a>
-            </h3>
-          </div>
-          <div class="card__badge sold_out_badge {{ settings.badge_position }}">
-            {%- if card_product.available == false -%}
-              <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">
-                {{- 'products.product.sold_out' | t -}}
-              </span>
-              {% comment %}
-                {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
-                <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}" {{ 'products.product.on_sale' | t }}>STOPTOBER Sale</span>
-              {% endcomment %}
-            {%- endif -%}
-          </div>
+          {% comment %}
+            <div class="card__information">
+
+                <h3
+                  class="card__heading"
+                  {% if card_product.featured_media == null and settings.card_style == 'standard' %}
+                    id="title-{{ section_id }}-{{ card_product.id }}"
+                  {% endif %}
+                >
+                  <a href="{{ card_product.url }}" class="full-unstyled-link">
+                    {{ card_product.title | escape }}
+                  </a>
+                </h3>
+
+            </div>
+          {% endcomment %}
+
           <!-- new badge {{ card_product.tags | join: ', ' }} -->
 
           <!-- new badge -->
@@ -281,6 +334,28 @@
         </div>
       </div>
       <div class="card__content">
+        {% render 'judgeme_widgets',
+          widget_type: 'judgeme_preview_badge',
+          jm_style: '',
+          concierge_install: false,
+          product: card_product
+        %}
+        <h3
+          class="card__heading {% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
+          {% if card_product.featured_media or settings.card_style == 'card' %}
+            id="title-{{ section_id }}-{{ card_product.id }}"
+          {% endif %}
+        >
+          <a
+            href="{% if card_product.tags contains 'coming_soon' or card_product.tags contains 'main_wholesale_product'  %}#{% else %}{{ card_product.url }}{% endif %}"
+            class="full-unstyled-link"
+          >
+            <span>{{ card_product.title | escape | remove: 'Übbs' | remove: 'Nicotine Pouches' }}</span>
+            {% comment %}
+              {{ card_product.metafields.custom.card_product_title.value }}
+            {% endcomment %}
+          </a>
+        </h3>
         <div class="card__information">
           {% comment %}
             {% unless card_product.tags contains 'Bundle' %}
@@ -303,15 +378,22 @@
             {% endunless %}
           {% endcomment %}
           {% comment %}
+            {% render 'judgeme_widgets',
+              widget_type: 'judgeme_preview_badge',
+              jm_style: '',
+              concierge_install: false,
+              product: card_product
+            %}
           {% endcomment %}
-
-          <!-- TrustBox widget - Product Mini MultiSource -->
           {% comment %}
-            <div class="trustpilot-widget" data-locale="en-GB" data-template-id="577258fb31f02306e4e3aaf9" data-businessunit-id="635414ed2d0f99d637c4b0f1" data-style-height="24px" data-style-width="100%" data-token="80cd7430-131e-4f7b-97cc-aae7234dd24e" data-sku="{{ card_product.selected_or_first_available_variant.sku }}" data-no-reviews="hide" data-scroll-to-list="true" data-style-alignment="left">
-              <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
-            </div>
+            <!-- TrustBox widget - Product Mini MultiSource -->
+
+              <div class="trustpilot-widget" data-locale="en-GB" data-template-id="577258fb31f02306e4e3aaf9" data-businessunit-id="635414ed2d0f99d637c4b0f1" data-style-height="24px" data-style-width="100%" data-token="80cd7430-131e-4f7b-97cc-aae7234dd24e" data-sku="{{ card_product.selected_or_first_available_variant.sku }}" data-no-reviews="hide" data-scroll-to-list="true" data-style-alignment="left">
+                <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+
+            <!-- End TrustBox widget -->
           {% endcomment %}
-          <!-- End TrustBox widget -->
 
           {% for variant in card_product.variants %}
             {% if variant.sku != blank %}
@@ -340,30 +422,9 @@
                 <a href="https://uk.trustpilot.com/review/ubbspouches.com" target="_blank" rel="noopener">Trustpilot</a>
               </div>
             </div>
-            <!-- End TrustBox widget -->
+            <!-- End TrustBox widget ss -->
           {% endcomment %}
-          {% render 'judgeme_widgets',
-            widget_type: 'judgeme_preview_badge',
-            jm_style: '',
-            concierge_install: false,
-            product: card_product
-          %}
-          <h3
-            class="card__heading {% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
-            {% if card_product.featured_media or settings.card_style == 'card' %}
-              id="title-{{ section_id }}-{{ card_product.id }}"
-            {% endif %}
-          >
-            <a
-              href="{% if card_product.tags contains 'coming_soon' or card_product.tags contains 'main_wholesale_product'  %}#{% else %}{{ card_product.url }}{% endif %}"
-              class="full-unstyled-link"
-            >
-              <span>{{ card_product.title | escape | remove: 'übbs' | remove: 'Nicotine Pouches' }}</span>
-              {% comment %}
-                {{ card_product.metafields.custom.card_product_title.value }}
-              {% endcomment %}
-            </a>
-          </h3>
+
           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
@@ -420,13 +481,18 @@
               {% else %}
                 {% render 'price', product: card_product, price_class: '' %}
               {% endif %}
-              {% unless card_product.tags contains 'Bundle' or card_product.tags contains 'main_wholesale_product' %}
-                {% comment %}
+              {% comment %}
+                {% unless card_product.tags contains 'Bundle' or card_product.tags contains 'main_wholesale_product' %}
                   <div class="multibuy_title_text">
-                    From <b>£2.00</b> with <!--<a href="javascript:void(0)" class="Click-here underlined-link">Multibuy</a>.-->
+                    <span class="small-hide">
+                      From <b>£2.35</b> with <a href="javascript:void(0)" class="Click-here underlined-link">Multibuy</a>.
+                    </span>
+                    <span class="large-up-hide medium-hide">
+                      <a href="javascript:void(0)" class="Click-here underlined-link">From <b>£2.35</b></a>
+                    </span>
                   </div>
-                {% endcomment %}
-              {% endunless %}
+                {% endunless %}
+              {% endcomment %}
             </div>
 
             {% unless card_product.tags contains 'coming_soon' %}
@@ -474,7 +540,7 @@
                     {% endcomment %}
                     <fieldset class="coll-fieldset variant_selection js product-form__input radio_btn {% if card_product.tags contains 'Bundle' %}bundle_product{% endif %}">
                       {%- for value in option.values -%}
-                        <div style="position: relative;">
+                        <div style="position: relative;flex: 1 1 auto;">
                           {% assign variant = card_product.variants | where: 'option1', value | first %}
                           <input
                             type="radio"
@@ -491,46 +557,53 @@
                             {% endif %}
                           >
                           <label for="{{ variant.id }}-{{ option.position }}-{{ forloop.index0 }}">
-                            <p class="font_text">{{ value }}</p>
+                            <span>
+                              {{- value | split: ':' | last | remove: 'mg' -}}
+                              mg</span
+                            >
                             {% comment %}
-                              <div>
-                                {% if value == 'Regular: 6mg' %}
-                                  <span class="dot"></span>
-                                  <span class="dot"></span>
-                                  <span class="circle"></span>
-                                  <span class="circle"></span>
-                                {% elsif value == 'Strong: 11mg' %}
-                                  <span class="dot"></span>
-                                  <span class="dot"></span>
-                                  <span class="dot"></span>
-                                  <span class="dot"></span>
-                                {% elsif value == 'Mild: 4mg' %}
-                                  <span class="dot"></span>
-                                  <span class="circle"></span>
-                                  <span class="circle"></span>
-                                  <span class="circle"></span>
-                                {% elsif value == 'Intense: 20mg' %}
-                                  <span class="dot"></span>
-                                  <span class="dot"></span>
-                                  <span class="dot"></span>
-                                  <span class="dot"></span>
-                                  <span class="dot"></span>
-                                  <span class="dot"></span>
-                                {% else %}
-                                  <span class="dot"></span>
-                                  <span class="dot"></span>
-                                  <span class="dot"></span>
-                                  <span class="dot"></span>
-                                  <span class="dot"></span>
-                                {% endif %}
-                              </div>
+                              <p class="font_text"></p>
+                               <div>
+                                 {% if value == 'Regular: 6mg' %}
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                                   <span class="circle"></span>
+                                   <span class="circle"></span>
+                                 {% elsif value == 'Strong: 11mg' %}
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                                 {% elsif value == 'Mild: 4mg' %}
+                                   <span class="dot"></span>
+                                   <span class="circle"></span>
+                                   <span class="circle"></span>
+                                   <span class="circle"></span>
+                                 {% elsif value == 'Intense: 20mg' %}
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                                 {% else %}
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                                 {% endif %}
+                               </div>
                             {% endcomment %}
                           </label>
                         </div>
                       {%- endfor -%}
                     </fieldset>
                   {%- endfor -%}
-                  <script type="application/json">
+                  <script
+                    type="application/json"
+                    class="card-product-variants-json"
+                  >
                     {{ card_product.variants | json }}
                   </script>
                 </variant-radios>
@@ -570,14 +643,16 @@
               </div>
 
               <div class="cart_btn_sec">
-                <div
-                  class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
-                  {{ block.shopify_attributes }}
-                >
-                  <label class="form__label hidden" for="Quantity-{{ section.id }}">
-                    {{ 'products.product.quantity.label' | t }}
-                  </label>
-                </div>
+                {% comment %}
+                  <div
+                    class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
+                    {{ block.shopify_attributes }}
+                  >
+                    <label class="form__label hidden" for="Quantity-{{ section.id }}">
+                      {{ 'products.product.quantity.label' | t }}
+                    </label>
+                  </div>
+                {% endcomment %}
                 {%- render 'buy-buttons',
                   block: block,
                   product: card_product,
@@ -727,6 +802,213 @@
         </div>
       </div>
     </div>
+    <!--
+      ========================================
+           QUANTITY POPUP
+      =========================================
+    -->
+
+    <div
+      class="card-quantity-popup"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-label="Select quantity"
+    >
+      <div class="card-quantity-popup-overlay"></div>
+
+      <div class="card-quantity-popup-inner">
+        <!-- CLOSE -->
+
+        <button
+          type="button"
+          class="card-quantity-close"
+          aria-label="Close quantity selector"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+
+        <!--
+          ====================================
+               PRODUCT HEADER
+          =====================================
+        -->
+
+        <div class="card-quantity-popup-header">
+          <div class="card-quantity-popup-product">
+            {% if selected_variant.featured_image %}
+              <img
+                class="card-quantity-popup-image"
+                src="{{ selected_variant.featured_image | image_url: width: 120 }}"
+                alt="{{ card_product.title | escape }}"
+                width="70"
+                height="70"
+                loading="lazy"
+              >
+
+            {% elsif card_product.featured_media %}
+              <img
+                class="card-quantity-popup-image"
+                src="{{ card_product.featured_media | image_url: width: 120 }}"
+                alt="{{ card_product.title | escape }}"
+                width="70"
+                height="70"
+                loading="lazy"
+              >
+            {% endif %}
+
+            <div class="card-quantity-popup-product-info">
+              <h4 class="card-quantity-product-title">
+                {{ card_product.title | escape | remove: 'Übbs' | remove: 'Nicotine Pouches' }}
+              </h4>
+
+              <p class="card-quantity-variant">
+                {{ selected_variant.title }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!--
+          ====================================
+               QUANTITY OPTIONS
+          =====================================
+        -->
+
+        <div class="card-quantity-options">
+          <!-- 1 PACK -->
+
+          <button
+            type="button"
+            class="card-quantity-option is-selected"
+            data-quantity="1"
+            data-discount="{{ pack_1_discount }}"
+          >
+            <span class="quantity-option-radio"></span>
+
+            <span class="quantity-option-name"> 1-Pack </span>
+            {% comment %} <span class="quantity-option-discount" style="opacity: 0;"></span> {% endcomment %}
+            <strong class="quantity-option-price"></strong>
+
+            <span class="quantity-option-per-can"></span>
+          </button>
+
+          <!-- 3 PACK -->
+
+          <button
+            type="button"
+            class="card-quantity-option"
+            data-quantity="3"
+            data-discount="{{ pack_3_discount }}"
+          >
+            <span class="quantity-option-radio"></span>
+
+            <span class="quantity-option-name"> 3-Pack </span>
+            {% comment %} <span class="quantity-option-discount">Save 10%</span> {% endcomment %}
+            <strong class="quantity-option-price"></strong>
+
+            <span class="quantity-option-per-can"></span>
+          </button>
+
+          <!-- 6 PACK -->
+
+          <button
+            type="button"
+            class="card-quantity-option"
+            data-quantity="6"
+            data-discount="{{ pack_6_discount }}"
+          >
+            <span class="quantity-option-radio"></span>
+
+            <span class="quantity-option-name"> 6-Pack </span>
+            {% comment %} <span class="quantity-option-discount">Save 20%</span> {% endcomment %}
+            <strong class="quantity-option-price"></strong>
+
+            <span class="quantity-option-per-can"></span>
+          </button>
+
+          <!-- 12 PACK -->
+
+          <button
+            type="button"
+            class="card-quantity-option"
+            data-quantity="12"
+            data-discount="{{ pack_12_discount }}"
+          >
+            <span class="quantity-option-radio"></span>
+
+            <span class="quantity-option-name"> 12-Pack </span>
+            {% comment %} <span class="quantity-option-discount">Save 30%</span> {% endcomment %}
+
+            <strong class="quantity-option-price"></strong>
+
+            <span class="quantity-option-per-can"></span>
+          </button>
+
+          <!-- 24 PACK -->
+
+          <button
+            type="button"
+            class="card-quantity-option"
+            data-quantity="24"
+            data-discount="{{ pack_24_discount }}"
+          >
+            <span class="quantity-option-radio"></span>
+
+            <span class="quantity-option-name"> 24-Pack </span>
+            {% comment %} <span class="quantity-option-discount">Save 33%</span> {% endcomment %}
+
+            <strong class="quantity-option-price"></strong>
+
+            <span class="quantity-option-per-can"></span>
+          </button>
+        </div>
+
+        <!--
+          ====================================
+               CUSTOM QUANTITY
+          =====================================
+        -->
+
+        <div class="card-custom-quantity">
+          <span> Select Custom Quantity </span>
+
+          <div class="card-custom-quantity-controls">
+            <button
+              type="button"
+              class="card-custom-quantity-minus"
+              aria-label="Decrease quantity"
+            >
+              −
+            </button>
+
+            <span class="card-custom-quantity-value"> 1 </span>
+
+            <button
+              type="button"
+              class="card-custom-quantity-plus"
+              aria-label="Increase quantity"
+            >
+              +
+            </button>
+          </div>
+        </div>
+
+        <!--
+          ====================================
+               POPUP ADD TO BASKET
+          =====================================
+        -->
+
+        <button
+          type="button"
+          class="card-popup-add-button"
+        >
+          Add to basket
+          <span class="card-popup-total-price hidden"></span>
+        </button>
+      </div>
+    </div>
   </div>
 {%- else -%}
   <div class="card-wrapper underline-links-hover">
@@ -777,290 +1059,523 @@
 
 {% if card_product.tags contains 'New' or card_product.tags contains 'new' or card_product.tags contains 'new_design' %}
   <style>
-      .new_badge, .new_design_badge{
+    .new_badge,
+    .new_design_badge {
       font-family: 'KronaRegular';
       text-transform: uppercase;
       border-radius: 0;
       clip-path: polygon(0 0, 100% 0, 90% 50%, 80% 100%, 0 100%);
-        position: absolute;
+      position: absolute;
       top: 22px;
       z-index: 3;
       left: 0;
-
     }
-    #product_sec .new_badge, #product_sec .new_design_badge{
-      clip-path:unset;
+    #product_sec .new_badge,
+    #product_sec .new_design_badge {
+      clip-path: unset;
     }
-    .new_design_badge span{
+    .new_design_badge span {
       padding-right: 40px;
-          text-transform: capitalize;
+      text-transform: capitalize;
     }
-    @media(max-width:767px){
-      #product_sec .new_badge, #product_sec .new_design_badge{
-        width:50%;
+    @media (max-width: 767px) {
+      #product_sec .new_badge,
+      #product_sec .new_design_badge {
+        width: 50%;
       }
     }
   </style>
 {% endif %}
 {% if card_product.tags contains 'New' or card_product.tags contains 'new' %}
   <style>
-    .spicy_badge{
-    font-family: 'KronaRegular';
-        text-transform: uppercase;
-        border-radius: 0;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 18% 100%);
-          position: absolute;
-        top: 22px;
-        z-index: 1;
-        right: 0;
+    .spicy_badge {
+      font-family: 'KronaRegular';
+      text-transform: uppercase;
+      border-radius: 0;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 18% 100%);
+      position: absolute;
+      top: 22px;
+      z-index: 1;
+      right: 0;
     }
-        .spicy_badge span{
-          padding-left: 25px;
-        }
+    .spicy_badge span {
+      padding-left: 25px;
+    }
   </style>
 {% endif %}
-
 <style>
-  .product-form__input input[type=radio]+label {
-    {% comment %} border: 2px solid #a3a3a3; {% endcomment %}
-    border-radius: 12px;
+  .product-form__input input[type='radio'] + label {
+    border: 1px solid #a3a3a3;
+    border-radius: 20px;
     color: #000;
   }
-    .quantity{
-     align-items:center;
-     width:50%;
-   }
-     .quantity__input {
-       font-family: BlinkerBold;
-       font-size: 24px;
-       padding:0;
-   }
+  .quantity {
+    align-items: center;
+    width: 50%;
+  }
+  .quantity__input {
+    font-family: BlinkerBold;
+    font-size: 24px;
+    padding: 0;
+  }
 
-   .cart_btn_sec .quantity__button{
-     width: calc(6.5rem / var(--font-body-scale));
-   }
-    .card__information .dot {
-       height: 10px;
-       width: 10px;
-       background-color: #fff;
-       border-radius: 50%;
-       display: inline-block;
-       border: 1px solid #fff;
-   }
-    .card__information .circle {
-       height: 10px;
-       width: 10px;
-       border: 1px solid #fff;
-       border-radius: 50%;
-       display: inline-block;
-   }
-     .quantity:after {
-       border: none;
-       box-shadow: none;
-   }
-   .jdgm-widget *{
-     font-size:18px;
-     white-space: wrap;
-   }
-   .card-wrapper .card__media{
-     cursor:pointer;
-     z-index:1 !important;
-   }
+  .cart_btn_sec .quantity__button {
+    width: calc(6.5rem / var(--font-body-scale));
+  }
+  @media screen and (min-width: 991px) and (max-width: 1024px) {
+    .cart_btn_sec .quantity__button {
+      width: calc(4.5rem / var(--font-body-scale));
+      padding: 0 5px;
+    }
+  }
+  .card__information .dot {
+    height: 10px;
+    width: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid #fff;
+  }
+  .card__information .circle {
+    height: 10px;
+    width: 10px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: inline-block;
+  }
 
-   .add-read-more.show-less-content .second-section, .add-read-more.show-less-content .read-less {display: none;}
-   .card-information{position:relative;}
-   .add-read-more{position: absolute;background-color: #fff;z-index: 5;}
-   .review_price_sec{padding-top:50px;padding-bottom: 0;}
-   .add-read-more.show-more-content .read-more {display: none;}
-   .add-read-more .read-more, .add-read-more .read-less {cursor: pointer;display:inline;text-decoration: underline;}
-   .add-read-more{max-width: 100%; width: 100%; margin: 0 auto;padding:5px 0;font-size:16px;line-height:1 !important;}
-   {% comment %} .card__information .quantity_variant_sec .product-form__input.radio_btn{flex-direction: column;display: none;position: absolute; z-index: 2; background-color: #fff; width: 100%; margin: 0;top: 15px; padding: 2rem 0 0; border-radius: 0 0 20px 20px;overflow: hidden;}
-   .card__information .quantity_variant_sec .product-form__input.radio_btn div:hover{background-color: white;color: black;}
-   .card__information .quantity_variant_sec .product-form__input.radio_btn div:hover p{background-color: white;color: black;}
-   .card__information .quantity_variant_sec .product-form__input.radio_btn div:hover .dot{background-color: black;border-color:black;}
-   .card__information .quantity_variant_sec .product-form__input.radio_btn div:hover .circle{border-color:black;}
-   .card__information .radio_btn.product-form__input input[type=radio]+label{display: flex; align-items: center; gap: 0.5rem;justify-content: space-between; border: none !important;}
-   .card__information selected{cursor: pointer;font-size: 1.4rem; background:#efefef; color: #fff; width: 100%; display: flex; align-items: center;justify-content: space-between; gap: 1.5rem; padding: 1rem 4rem 1rem 2rem; line-height: 1; text-align: center; position: relative;z-index:3; border-radius: 20px;max-width: 100%; min-width: unset;}
-   .card-wrapper.Bundle selected{background: var(--color_spearmint);}
-   .card__information selected::after{content:"\276E";position: absolute; right: 20px; transform: rotate(-90deg);}
-   .card__information selected.active::after{content:"\276E";position: absolute; right: 20px; transform: rotate(90deg);}
-   .card__information .radio_btn.product-form__input input[type=radio]+label p{color:#fff;}
-   .card__information .radio_btn.product-form__input input[type=radio]+label{display: flex; align-items: center; gap: 0.5rem;justify-content: space-between; border: none !important;}{% endcomment %}
-   .card__information .quantity_variant_sec variant-radios{position:relative; display:block;}
-   .multibuy_title_text{
-     font-size:17px;
-     color: #000;
-   }
+  .quantity:after {
+    border: none;
+    box-shadow: none;
+  }
+  .jdgm-widget * {
+    font-size: 18px;
+  }
+  .card-wrapper .card__media {
+    cursor: pointer;
+    z-index: 1 !important;
+  }
 
-   .card-wrapper.Bundle .quantity_variant_sec .product-form__input.radio_btn input[type=radio]:checked+label{
-      background: var(--color_spearmint) !important;
-      border-color:var(--color_spearmint) !important;
+  .add-read-more.show-less-content .second-section,
+  .add-read-more.show-less-content .read-less {
+    display: none;
+  }
+  .card-information {
+    position: relative;
+  }
+  .add-read-more {
+    position: absolute;
+    background-color: #fff;
+    z-index: 5;
+  }
+  .review_price_sec {
+    padding-top: 50px;
+    padding-bottom: 0;
+  }
+  .add-read-more.show-more-content .read-more {
+    display: none;
+  }
+  .add-read-more .read-more,
+  .add-read-more .read-less {
+    cursor: pointer;
+    display: inline;
+    text-decoration: underline;
+  }
+  .add-read-more {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 0 5px 0;
+    font-size: 16px;
+    line-height: 1 !important;
+  }
 
-     }
+  .multibuy_title_text {
+    font-size: 16px;
+    color: #000;
+  }
 
-   .card__information .quantity_variant_sec variant-radios.zest-ice selected,
-   .card__information .quantity_variant_sec variant-radios.zest-ice .product-form__input.radio_btn input[type=radio]:checked+label,
-   .card__information .quantity_variant_sec variant-radios.zest-ice-roll-of-5 selected,
-   .card__information .quantity_variant_sec variant-radios.zest-ice-roll-of-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_zest_ice);
-     border-color:var(--color_zest_ice);
-   }
+  .card-wrapper.Bundle .quantity_variant_sec .product-form__input.radio_btn input[type='radio']:checked + label {
+    background: var(--color_spearmint) !important;
+  }
 
+  .card__information .quantity_variant_sec variant-radios.zest-ice selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.zest-ice
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.zest-ice-roll-of-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.zest-ice-roll-of-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_zest_ice);
+  }
 
-    .card__information .quantity_variant_sec variant-radios.spicy-cherry selected,
-   .card__information .quantity_variant_sec variant-radios.spicy-cherry .product-form__input.radio_btn input[type=radio]:checked+label,
-    .card__information .quantity_variant_sec variant-radios.spicy-cherry-roll-of-5 selected,
-   .card__information .quantity_variant_sec variant-radios.spicy-cherry-roll-of-5 .product-form__input.radio_btn input[type=radio]:checked+label
-    .card__information .quantity_variant_sec variant-radios.ubbs--nicotine-pouches-copy selected,
-   .card__information .quantity_variant_sec variant-radios.ubbs--nicotine-pouches-copy .product-form__input.radio_btn input[type=radio]:checked+label
-    .card__information .quantity_variant_sec variant-radios.ubbs-cherry-nicotine-pouches-copy selected,
-   .card__information .quantity_variant_sec variant-radios.ubbs-cherry-nicotine-pouches-copy .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_spicy_cherry);
-     border-color:var(--color_spicy_cherry);
-   }
+  .card__information .quantity_variant_sec variant-radios.spicy-cherry selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.spicy-cherry
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.spicy-cherry-roll-of-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.spicy-cherry-roll-of-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label
+    .card__information
+    .quantity_variant_sec
+    variant-radios.ubbs--nicotine-pouches-copy
+    selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.ubbs--nicotine-pouches-copy
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label
+    .card__information
+    .quantity_variant_sec
+    variant-radios.ubbs-cherry-nicotine-pouches-copy
+    selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.ubbs-cherry-nicotine-pouches-copy
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_spicy_cherry);
+  }
 
-     .card__information .quantity_variant_sec variant-radios.cherry selected,
-   .card__information .quantity_variant_sec variant-radios.cherry .product-form__input.radio_btn input[type=radio]:checked+label,
-    .card__information .quantity_variant_sec variant-radios.cherry-roll-of-5 selected,
-   .card__information .quantity_variant_sec variant-radios.cherry-roll-of-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_cherry);
-     border-color:var(--color_cherry);
-   }
+  .card__information .quantity_variant_sec variant-radios.cherry selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.cherry
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.cherry-roll-of-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.cherry-roll-of-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_cherry);
+  }
 
-      .card__information .quantity_variant_sec variant-radios.coffee selected,
-   .card__information .quantity_variant_sec variant-radios.coffee .product-form__input.radio_btn input[type=radio]:checked+label,
-    .card__information .quantity_variant_sec variant-radios.coffee-roll-of-5 selected,
-   .card__information .quantity_variant_sec variant-radios.coffee-roll-of-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_coffee);
-     border-color:var(--color_coffee);
-   }
-      .card__information .quantity_variant_sec variant-radios.ubbs-coffee-roll-of-5-cans selected,
-   .card__information .quantity_variant_sec variant-radios.ubbs-coffee-roll-of-5-cans .product-form__input.radio_btn input[type=radio]:checked+label,
-    .card__information .quantity_variant_sec variant-radios.coffee-roll-of-5 selected,
-   .card__information .quantity_variant_sec variant-radios.coffee-roll-of-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_coffee);
-     border-color:var(--color_coffee);
-   }
+  .card__information .quantity_variant_sec variant-radios.coffee selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.coffee
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.coffee-roll-of-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.coffee-roll-of-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_coffee);
+  }
+  .card__information .quantity_variant_sec variant-radios.ubbs-coffee-roll-of-5-cans selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.ubbs-coffee-roll-of-5-cans
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.coffee-roll-of-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.coffee-roll-of-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_coffee);
+  }
 
-   .card__information .quantity_variant_sec variant-radios.peach-passion selected,
-   .card__information .quantity_variant_sec variant-radios.peach-passion .product-form__input.radio_btn input[type=radio]:checked+label,
-   .card__information .quantity_variant_sec variant-radios.peach-passion-roll-5 selected,
-   .card__information .quantity_variant_sec variant-radios.peach-passion-roll-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_peach_passion);
-     border-color:var(--color_peach_passion);
-   }
-   .card__information .quantity_variant_sec variant-radios.watermelon selected,
-   .card__information .quantity_variant_sec variant-radios.watermelon .product-form__input.radio_btn input[type=radio]:checked+label,
-   .card__information .quantity_variant_sec variant-radios.watermelon-roll-5 selected,
-   .card__information .quantity_variant_sec variant-radios.watermelon-roll-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_watermelon);
-     border-color:var(--color_watermelon);
-   }
-   .card__information .quantity_variant_sec variant-radios.berry selected,
-   .card__information .quantity_variant_sec variant-radios.berry .product-form__input.radio_btn input[type=radio]:checked+label,
-   .card__information .quantity_variant_sec variant-radios.berry-roll-5 selected,
-   .card__information .quantity_variant_sec variant-radios.berry-roll-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_berry);
-     border-color:var(--color_berry);
-   }
-   .card__information .quantity_variant_sec variant-radios.spearmint selected,
-   .card__information .quantity_variant_sec variant-radios.spearmint .product-form__input.radio_btn input[type=radio]:checked+label,
-    .card__information .quantity_variant_sec variant-radios.spearmint-roll-5 selected,
-   .card__information .quantity_variant_sec variant-radios.spearmint-roll-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_spearmint);
-     border-color:var(--color_spearmint);
-   }
-   .card__information .quantity_variant_sec variant-radios.ubbs-peppermint-nicotine-pouches-copy selected,
-   .card__information .quantity_variant_sec variant-radios.ubbs-peppermint-nicotine-pouches-copy .product-form__input.radio_btn input[type=radio]:checked+label,
-   .card__information .quantity_variant_sec variant-radios.peppermint selected,
-   .card__information .quantity_variant_sec variant-radios.peppermint .product-form__input.radio_btn input[type=radio]:checked+label,
-   .card__information .quantity_variant_sec variant-radios.peppermint-roll-5 selected,
-   .card__information .quantity_variant_sec variant-radios.peppermint-roll-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_peppermint);
-     border-color:var(--color_peppermint);
-   }
-   .card__information .quantity_variant_sec variant-radios.menthol selected,
-   .card__information .quantity_variant_sec variant-radios.menthol .product-form__input.radio_btn input[type=radio]:checked+label,
-   .card__information .quantity_variant_sec variant-radios.menthol-roll-5 selected,
-   .card__information .quantity_variant_sec variant-radios.menthol-roll-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_menthol);
-     border-color:var(--color_menthol);
-   }
-   .card__information .quantity_variant_sec variant-radios.cola-ice selected,
-   .card__information .quantity_variant_sec variant-radios.cola-ice .product-form__input.radio_btn input[type=radio]:checked+label,
-   .card__information .quantity_variant_sec variant-radios.cola-ice-roll-5 selected,
-   .card__information .quantity_variant_sec variant-radios.cola-ice-roll-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_cola);
-     border-color:var(--color_cola);
-   }
-   .card__information .quantity_variant_sec variant-radios.salted-caramel selected,
-   .card__information .quantity_variant_sec variant-radios.salted-caramel .product-form__input.radio_btn input[type=radio]:checked+label,
-   .card__information .quantity_variant_sec variant-radios.salted-caramel-roll-5 selected,
-   .card__information .quantity_variant_sec variant-radios.salted-caramel-roll-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_salted_caramel);
-     border-color:var(--color_salted_caramel);
-   }
+  .card__information .quantity_variant_sec variant-radios.peach-passion selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.peach-passion
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.peach-passion-roll-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.peach-passion-roll-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_peach_passion);
+  }
+  .card__information .quantity_variant_sec variant-radios.watermelon selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.watermelon
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.watermelon-roll-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.watermelon-roll-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_watermelon);
+  }
+  .card__information .quantity_variant_sec variant-radios.berry selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.berry
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.berry-roll-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.berry-roll-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_berry);
+  }
+  .card__information .quantity_variant_sec variant-radios.spearmint selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.spearmint
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.spearmint-roll-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.spearmint-roll-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_spearmint);
+  }
+  .card__information .quantity_variant_sec variant-radios.ubbs-peppermint-nicotine-pouches-copy selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.ubbs-peppermint-nicotine-pouches-copy
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.peppermint selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.peppermint
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.peppermint-roll-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.peppermint-roll-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_peppermint);
+  }
+  .card__information .quantity_variant_sec variant-radios.menthol selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.menthol
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.menthol-roll-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.menthol-roll-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_menthol);
+  }
+  .card__information .quantity_variant_sec variant-radios.cola-ice selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.cola-ice
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.cola-ice-roll-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.cola-ice-roll-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_cola);
+  }
+  .card__information .quantity_variant_sec variant-radios.salted-caramel selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.salted-caramel
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.salted-caramel-roll-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.salted-caramel-roll-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_salted_caramel);
+  }
 
-   .card__information .quantity_variant_sec variant-radios.mango selected,
-   .card__information .quantity_variant_sec variant-radios.mango .product-form__input.radio_btn input[type=radio]:checked+label,
-   .card__information .quantity_variant_sec variant-radios.mango-roll-5 selected,
-   .card__information .quantity_variant_sec variant-radios.mango-roll-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_mango);
-     border-color:var(--color_mango);
-   }
+  .card__information .quantity_variant_sec variant-radios.mango selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.mango
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.mango-roll-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.mango-roll-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_mango);
+  }
+  .card__information .quantity_variant_sec variant-radios.ubbs-cucumber-nicotine-pouches selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.ubbs-cucumber-nicotine-pouches
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.ubbs-cucumber-nicotine-pouches-roll-of-5-cans selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.ubbs-cucumber-nicotine-pouches-roll-of-5-cans
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: #c5da90;
+  }
 
-   .card__information .quantity_variant_sec variant-radios.ice-mint selected,
-   .card__information .quantity_variant_sec variant-radios.ice-mint .product-form__input.radio_btn input[type=radio]:checked+label,
-   .card__information .quantity_variant_sec variant-radios.ice-mint-roll-5 selected,
-   .card__information .quantity_variant_sec variant-radios.ice-mint-roll-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_ice-mint);
-     border-color:var(--color_ice-mint);
-   }
-   .card__information .quantity_variant_sec variant-radios.frost-mint selected,
-   .card__information .quantity_variant_sec variant-radios.frost-mint .product-form__input.radio_btn input[type=radio]:checked+label,
-   .card__information .quantity_variant_sec variant-radios.frost-mint-roll-5 selected,
-   .card__information .quantity_variant_sec variant-radios.frost-mint-roll-5 .product-form__input.radio_btn input[type=radio]:checked+label{
-     background-color: var(--color_frost_mint);
-     border-color:var(--color_frost_mint);
-   }
+  .card__information .quantity_variant_sec variant-radios.ice-cold selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.ice-cold
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.ice-cold-roll-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.ice-cold-roll-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_ice_cold);
+  }
+  .card__information .quantity_variant_sec variant-radios.ice-mint selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.ice-mint
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.ice-mint-roll-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.ice-mint-roll-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_ice-mint);
+    border-color: var(--color_ice-mint);
+  }
+  .card__information .quantity_variant_sec variant-radios.frost-mint selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.frost-mint
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label,
+  .card__information .quantity_variant_sec variant-radios.frost-mint-roll-5 selected,
+  .card__information
+    .quantity_variant_sec
+    variant-radios.frost-mint-roll-5
+    .product-form__input.radio_btn
+    input[type='radio']:checked
+    + label {
+    background-color: var(--color_frost_mint);
+    border-color: var(--color_frost_mint);
+  }
+  @media (max-width: 1300px) {
+    .add-read-more {
+      font-size: 14px;
+    }
+  }
+  @media (max-width: 989px) {
+    .index .card__information .variant_selection {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
 
-   @media(max-width:1300px){
-   .add-read-more{font-size:14px;}
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .cart_btn_sec .quantity__button {
+      width: calc(4.5rem / var(--font-body-scale));
+    }
+    .cart_btn_sec form {
+      gap: 1rem;
+    }
 
-   }
-   @media(max-width:989px){
-  .index   .card__information .variant_selection{max-width: 100%; width: 100%}
-   }
+    .product_carousel .card-wrapper,
+    .product-recommendations .card-wrapper {
+      padding: 0px;
+    }
+  }
 
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .cart_btn_sec form {
+      gap: 1rem;
+    }
+  }
 
-   @media (min-width: 768px) and (max-width: 1023px) {
-       .cart_btn_sec .quantity__button{
-         width: calc(4.5rem / var(--font-body-scale));
-       }
-       .cart_btn_sec form{
-         gap:1rem;
-       }
-
-       .product_carousel .card-wrapper, .product-recommendations .card-wrapper{
-         padding:10px;
-       }
-   }
-
-   @media (min-width: 1024px) and (max-width: 1279px) {
-     .cart_btn_sec form{
-         gap:1rem;
-       }
-   }
-
-   @media(max-width:767px){
-
-     .multibuy_title_text{
-       font-size:16px;
-     }
-     .cart_btn_sec .quantity__button{
-     width: calc(4.5rem / var(--font-body-scale));
-   }
-   }
+  @media (max-width: 767px) {
+    .multibuy_title_text {
+      font-size: 14px;
+    }
+    .cart_btn_sec .quantity__button {
+      width: calc(3rem / var(--font-body-scale));
+      padding: 0 0px;
+    }
+  }
+  @media (max-width: 500px) {
+    .add-read-more {
+      display: none;
+    }
+    .review_price_sec {
+      padding-top: 0px;
+      flex-direction: row;
+      align-items: center;
+    }
+    .card__content {
+      display: block;
+    }
+  }
 </style>
 
 {% if card_product.tags == 'watermelon' %}
@@ -1069,9 +1584,9 @@
       border-color: var(--color_watermelon);
     }
 
-    .card-wrapper .product-form__input input[type=radio]:checked+label{
+    {% comment %} .card-wrapper .product-form__input input[type=radio]:checked+label{
       border: unset;
-    }
+    } {% endcomment %}
 
     .card-wrapper .product-form__input input[type=radio]:checked+label .dot{
       background-color: var(--color_watermelon);
@@ -1094,9 +1609,9 @@
         background-color: var(--color_berry);
     }
 
-      .card-wrapper .product-form__input input[type=radio]:checked+label{
+      {% comment %} .card-wrapper .product-form__input input[type=radio]:checked+label{
         border: unset;
-      }
+      } {% endcomment %}
 
       .card-wrapper .product-form__input input[type=radio]:checked+label .dot{
         background-color: var(--color_berry);
@@ -1120,9 +1635,9 @@
         {% comment %} background-color: var(--color_spearmint); {% endcomment %}
     }
 
-      .card-wrapper .product-form__input input[type=radio]:checked+label{
+      {% comment %} .card-wrapper .product-form__input input[type=radio]:checked+label{
         border: unset;
-      }
+      } {% endcomment %}
 
       .card-wrapper .product-form__input input[type=radio]:checked+label .dot{
         {% comment %} background-color: var(--color_spearmint); {% endcomment %}
@@ -1146,9 +1661,9 @@
         background-color: var(--color_peppermint);
     }
 
-      .card-wrapper .product-form__input input[type=radio]:checked+label{
-        border: 1px solid var(--color_peppermint)!important;
-      }
+      {% comment %} .card-wrapper .product-form__input input[type=radio]:checked+label{
+        border: 2px solid var(--color_peppermint)!important;
+      } {% endcomment %}
 
       .card-wrapper .product-form__input input[type=radio]:checked+label .dot{
         background-color: var(--color_peppermint);
@@ -1172,9 +1687,9 @@
         background-color: var(--color_menthol);
     }
 
-      .card-wrapper .product-form__input input[type=radio]:checked+label{
-        border: 1px solid var(--color_menthol)!important;
-      }
+      {% comment %} .card-wrapper .product-form__input input[type=radio]:checked+label{
+        border: 2px solid var(--color_menthol)!important;
+      } {% endcomment %}
 
       .card-wrapper .product-form__input input[type=radio]:checked+label .dot{
         background-color: var(--color_menthol);
@@ -1199,9 +1714,9 @@
         background-color: var(--color_cola);
     }
 
-      .card-wrapper .product-form__input input[type=radio]:checked+label{
-        border: 1px solid var(--color_cola)!important;
-      }
+      {% comment %} .card-wrapper .product-form__input input[type=radio]:checked+label{
+        border: 2px solid var(--color_cola)!important;
+      } {% endcomment %}
 
       .card-wrapper .product-form__input input[type=radio]:checked+label .dot{
         background-color: var(--color_cola);
@@ -1226,9 +1741,9 @@
         background-color: var(--color_salted_caramel);
     }
 
-      .card-wrapper .product-form__input input[type=radio]:checked+label{
-        border: 1px solid var(--color_salted_caramel)!important;
-      }
+      {% comment %} .card-wrapper .product-form__input input[type=radio]:checked+label{
+        border: 2px solid var(--color_salted_caramel)!important;
+      } {% endcomment %}
 
       .card-wrapper .product-form__input input[type=radio]:checked+label .dot{
         background-color: var(--color_salted_caramel);
@@ -1253,9 +1768,9 @@
         {% comment %} background-color: var(--color_spearmint); {% endcomment %}
     }
 
-      .card-wrapper .product-form__input input[type=radio]:checked+label{
+      {% comment %} .card-wrapper .product-form__input input[type=radio]:checked+label{
         border: unset;
-      }
+      } {% endcomment %}
 
       .card-wrapper .product-form__input input[type=radio]:checked+label .dot{
         {% comment %} background-color: var(--color_spearmint); {% endcomment %}
@@ -1271,31 +1786,40 @@
 {% endif %}
 <style>
   .card__media {
-      width: 100% !important;
+    width: 100% !important;
   }
   .product-recommendations .gradient {
-      background: none;
+    background: none;
   }
 </style>
-{% comment %}
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const radioButtons = document.querySelectorAll('.card-wrapper .product-form__input input[type="radio"]');
 
-      radioButtons.forEach((radio) => {
-        radio.addEventListener('click', function () {
-          const fieldset = this.closest('.product-form__input.radio_btn');
-        });
+<script>
+  {% comment %} document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.card-main-atc').forEach(function (container) {
+      const popup = container.querySelector('.card-quantity-popup');
+      const cardWrapper = container.closest('.card-wrapper');
+
+      if (popup && cardWrapper) {
+        cardWrapper.appendChild(popup);
+      }
+    });
+  }); {% endcomment %}
+  document.addEventListener('DOMContentLoaded', function () {
+    const radioButtons = document.querySelectorAll('.card-wrapper .product-form__input input[type="radio"]');
+
+    radioButtons.forEach((radio) => {
+      radio.addEventListener('click', function () {
+        const fieldset = this.closest('.product-form__input.radio_btn');
       });
     });
+  });
 
-    document.querySelectorAll('.quantity__input').forEach(function (input) {
-      input.addEventListener('input', function () {
-        this.value = this.value.slice(0, 5);
-      });
+  document.querySelectorAll('.quantity__input').forEach(function (input) {
+    input.addEventListener('input', function () {
+      this.value = this.value.slice(0, 5);
     });
-  </script>
-{% endcomment %}
+  });
+</script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.card-wrapper').forEach((card) => {
@@ -1311,6 +1835,12 @@
           const variantId = this.dataset.variant;
           console.log('variantId', variantId);
           const selectedValue = this.value;
+          // Update quantity popup variant title
+          const quantityVariant = card.querySelector('.card-quantity-variant');
+
+          if (quantityVariant) {
+            quantityVariant.textContent = selectedValue;
+          }
           console.log('selectedValue', selectedValue);
           // const handle = this.name.split("-").pop(); // last part is handle
           // console.log("handle", handle);
@@ -1357,9 +1887,8 @@
   });
 </script>
 <script>
-{% comment %}
   document.addEventListener("DOMContentLoaded", function () {
-     document.querySelectorAll(".card_product_variant").forEach(function (variantBox) {
+    {% comment %} document.querySelectorAll(".card_product_variant").forEach(function (variantBox) {
 
       const cardWrapper = variantBox.closest(".card-wrapper, .grid__item, .product-card");
       if (!cardWrapper) return;
@@ -1397,7 +1926,7 @@
           })
           .catch(err => console.error("Variant Image Error: ", err));
       });
-    });
+    }); {% endcomment %}
     let cardBox = document.querySelectorAll(".card-wrapper");
     if (cardBox.length) {
       cardBox.forEach(function (cardInner) {
@@ -1422,11 +1951,11 @@
           }
 
           // Update main image
-          mainImage.src = newImg;
-          mainImage.srcset = newImg;
+          {% comment %} mainImage.src = newImg;
+          mainImage.srcset = newImg; {% endcomment %}
         });
 
       });
     }
-  }); {% endcomment %}
+  });
 </script>

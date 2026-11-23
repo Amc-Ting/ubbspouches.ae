@@ -40,9 +40,9 @@
   .collections-internal-links{display: flex;gap:1rem;flex-direction:row;padding: 0;margin: 0;}
   .collections-internal-link-item a{text-decoration: none;font-size: 1.4rem; letter-spacing: 1px; display: inline-block; background: #000; color: #fff; padding: 1rem 2rem; line-height: 1; border-radius: 20px;}
 
-  #ProductGridContainer .card__badge.sold_out_badge{
-        top: -25px !important;
-  }
+  /* #ProductGridContainer .card__badge.sold_out_badge{
+        top: -20px !important;
+  } */
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
@@ -77,94 +77,98 @@
 
 {% if collection.template_suffix == 'bundle' %}
   <style>
-    .card-wrapper.offer-wrapper{background-color: #F5565E; }
-    .quantity_variant_sec .product-form__input.radio_btn{
-          background: var(--color_spearmint) !important;
-
+    .card-wrapper.offer-wrapper {
+      background-color: #f5565e;
     }
-    .card-wrapper.Bundle selected.active{
-          border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    .quantity_variant_sec .product-form__input.radio_btn {
+      background: var(--color_spearmint) !important;
     }
-    .bundle_product.product-form__input input[type=radio]:checked+label{
-      border:none !important;
+    .card-wrapper.Bundle selected.active {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
-    .bundle_product.product-form__input input[type=radio]:checked+label .dot{
-      background-color:#fff !important;
+    .bundle_product.product-form__input input[type='radio']:checked + label {
+      border: none !important;
     }
-    .quantity_variant_sec .product-form__input.radio_btn div:hover input[type=radio]:checked+label .dot{
-      background-color:#000 !important;
+    .bundle_product.product-form__input input[type='radio']:checked + label .dot {
+      background-color: #fff !important;
+    }
+    .quantity_variant_sec .product-form__input.radio_btn div:hover input[type='radio']:checked + label .dot {
+      background-color: #000 !important;
     }
   </style>
 {% endif %}
 
 <style>
-      body.collection #product-grid, body .collection-bundle #product-grid{
-              column-gap: 30px;
-      row-gap: 30px;
+  body.collection #product-grid,
+  body .collection-bundle #product-grid {
+    column-gap: 30px;
+    row-gap: 30px;
   }
-     #product-grid .card__information{
-       position:relative;
-     }
-      #product-grid .jdgm-widget.jdgm-widget{
-        position: absolute;
-        top: -30px;
-      }
-      .main_product_grid_sec{
-        background:#FAFAFA;
-      }
-      .collection .card-wrapper{
-        background: #fff;
-      border-radius: 20px;
-        padding:20px;
-      }
-      #ProductGridContainer{
-            padding-bottom: 70px;
-      }
-
-      @media(min-width:992px){
-        .collection .product_grid_section .grid--3-col-desktop .grid__item,
-        .collection-bundle .product_grid_section .grid--3-col-desktop .grid__item{
-                max-width: calc(32% - var(--grid-desktop-horizontal-spacing)* 2 / 3) !important;
-      }
-      }
-        @media (min-width: 1024px) and (max-width: 1279px) {
-        .collection .product_grid_section .grid--3-col-desktop .grid__item,
-          .collection-bundle .product_grid_section .grid--3-col-desktop .grid__item{
-                max-width: calc(50% - var(--grid-desktop-horizontal-spacing)* 2 / 3) !important;
-      }
+  #product-grid .card__information {
+    position: relative;
+  }
+  #product-grid .jdgm-widget.jdgm-widget {
+    position: absolute;
+    top: -20px;
+  }
+  .main_product_grid_sec {
+    background: #fafafa;
+  }
+  .collection .card-wrapper {
+    background: #fff;
+    border: 1px solid #f1f1f1;
+    border-radius: 10px;
+    padding: 5px;
+    overflow: hidden;
+  }
+  #ProductGridContainer {
+    padding-bottom: 70px;
   }
 
-      .collection-bundle .review_price_sec{
-        padding-top:42px;
-        padding-bottom: 0;
-      }
-      .main_collection .faq_section .questions_answer{
-      padding:0;
-      padding-top: 40px;
-      padding-bottom: 50px;
+  @media (min-width: 992px) {
+    .collection .product_grid_section .grid--3-col-desktop .grid__item,
+    .collection-bundle .product_grid_section .grid--3-col-desktop .grid__item {
+      max-width: calc(32% - var(--grid-desktop-horizontal-spacing) * 2 / 3) !important;
     }
-      .main_product_grid_sec.wholesale-products-collection .grid__item.multibuy_card{
-        display:none;
-      }
+  }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .collection .product_grid_section .grid--3-col-desktop .grid__item,
+    .collection-bundle .product_grid_section .grid--3-col-desktop .grid__item {
+      max-width: calc(50% - var(--grid-desktop-horizontal-spacing) * 2 / 3) !important;
+    }
+  }
 
-      .main_collection-wholesale_collection .wholesale_product .card__heading a:after{
-        bottom: 600px !important;
-      pointer-events: none !important;
-      }
+  .collection-bundle .review_price_sec {
+    padding-top: 42px;
+    padding-bottom: 0;
+  }
+  .main_collection .faq_section .questions_answer {
+    padding: 0;
+    padding-top: 40px;
+    padding-bottom: 50px;
+  }
+  .main_product_grid_sec.wholesale-products-collection .grid__item.multibuy_card {
+    display: none;
+  }
 
-      @media(max-width:767px){
-        #product-grid .jdgm-widget.jdgm-widget{
-            top: -26px;
-        }
-        .main_collection-wholesale_collection .wholesale_product .card__content,
-        .main_collection-wholesale_collection .wholesale_product .card__information{
-          padding:0;
-        }
-         .main_collection-wholesale_collection #product-grid .jdgm-widget.jdgm-widget {
-          top: -25px;
-      }
-      }
+  .main_collection-wholesale_collection .wholesale_product .card__heading a:after {
+    bottom: 600px !important;
+    pointer-events: none !important;
+  }
+
+  @media (max-width: 767px) {
+    #product-grid .jdgm-widget.jdgm-widget {
+      top: -15px;
+    }
+    .main_collection-wholesale_collection .wholesale_product .card__content,
+    .main_collection-wholesale_collection .wholesale_product .card__information {
+      padding: 0;
+    }
+    .main_collection-wholesale_collection #product-grid .jdgm-widget.jdgm-widget {
+      top: -15px;
+    }
+  }
 </style>
 
 <div class="section-{{ section.id }}-padding main_product_grid_sec {{ collection.handle }}">

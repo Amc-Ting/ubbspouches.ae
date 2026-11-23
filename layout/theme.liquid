@@ -42,7 +42,7 @@
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-
+    <script src="{{ 'card-quantity-selector.js' | asset_url }}" defer="defer"></script>
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
@@ -555,31 +555,31 @@
 
     {% if customer and customer.tags contains 'Approved' %}
       <style>
-          #smile-ui-lite-container,
-        #ecomsend-widget{
-          display:none;
+        #smile-ui-lite-container,
+        #ecomsend-widget {
+          display: none;
         }
+        .cart__footer-fixed {
+          position: fixed;
+          z-index: 1;
+          top: 68px;
+          padding-top: 20px !important;
+          padding-bottom: 20px;
+          width: 100%;
+          background-color: #f1f1f1;
+          box-shadow: 10px 0 20px 5px #00000026;
+          border-radius: 0 0 20px 20px;
+        }
+        .page-wholesale .tt-breadcrumb {
+          display: none;
+        }
+        @media (max-width: 767px) {
           .cart__footer-fixed {
-            position: fixed;
-            z-index: 1;
-            top: 68px;
-            padding-top: 20px !important;
-            padding-bottom: 20px;
-            width: 100%;
-            background-color: #f1f1f1;
-            box-shadow: 10px 0 20px 5px #00000026;
-            border-radius: 0 0 20px 20px;
+            top: 59px;
+          }
         }
-          .page-wholesale .tt-breadcrumb{
-            display:none;
-          }
-          @media(max-width:767px){
-            .cart__footer-fixed{
-              top:59px;
-            }
-          }
 
-         /* .cart__items div#trustpilot-widget-trustbox-0-wrapper{
+        /* .cart__items div#trustpilot-widget-trustbox-0-wrapper{
             display:none;
           } */
       </style>
@@ -714,24 +714,24 @@
       </script>
     {% endif %}
     <style>
-      .tt-breadcrumb{
-        display:none;
+      .tt-breadcrumb {
+        display: none;
       }
-        .cdp_main_always {
-          margin: 0 !important;
-        }
-        .main_current_total {
-          margin-top: 8rem !important;
+      .cdp_main_always {
+        margin: 0 !important;
       }
-        #progressContainer {
-          width: 93%;
+      .main_current_total {
+        margin-top: 8rem !important;
       }
-        .main_content_wholesale #cd_loyalty-rewards{
-          display:none;
-        }
+      #progressContainer {
+        width: 93%;
+      }
+      .main_content_wholesale #cd_loyalty-rewards {
+        display: none;
+      }
       @media (max-width: 768px) {
-        #smile-ui-lite-launcher-frame-container{
-          bottom:15px !important;
+        #smile-ui-lite-launcher-frame-container {
+          bottom: 15px !important;
         }
       }
     </style>
@@ -760,7 +760,7 @@
       {% unless customer and customer.tags contains 'Approved' %}
         <style>
           .product-form.collateral_product,
-          .cart_btn_sec .card_cart_btn{
+          .cart_btn_sec .card_cart_btn {
             display: none !important;
           }
         </style>
@@ -1355,5 +1355,28 @@
       </script>
     {% endcomment %}
     {% render 'Geolocation-Country' %}
+    <script>
+      const images = document.querySelectorAll('.loading-lazy[data-src]');
+      let imagesLoaded = false;
+
+      function loadImagesOnScroll() {
+        if (imagesLoaded) return; // run only once
+
+        images.forEach((img) => {
+          const src = img.getAttribute('data-src');
+          if (src) {
+            img.setAttribute('src', src);
+            img.removeAttribute('data-src');
+          }
+        });
+
+        imagesLoaded = true;
+
+        // Remove scroll event after loading (performance)
+        window.removeEventListener('scroll', loadImagesOnScroll);
+      }
+
+      window.addEventListener('scroll', loadImagesOnScroll);
+    </script>
   </body>
 </html>

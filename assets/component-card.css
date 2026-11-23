@@ -144,8 +144,13 @@ span.line-divider {
   padding: 1rem;
   width: 100%;
   flex-grow: 1;
+  position:relative;
 }
-
+@media screen and (max-width: 768px) {
+  .card__content{
+    align-items: end;
+  }
+}
 .card__content--auto-margins {
   grid-template-rows: minmax(0, auto) max-content minmax(0, auto);
 }
@@ -299,7 +304,7 @@ span.line-divider {
 
 .card__badge.right {
   justify-self: flex-end;
-  right:0;
+  right:0px;
 }
 
 .card:not(.card--horizontal) > .card__content > .card__badge {
