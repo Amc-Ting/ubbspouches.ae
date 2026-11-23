@@ -1410,6 +1410,19 @@
               </share-button>
               <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
             {%- when 'variant_picker' -%}
+              {%- if block.settings.show_flavour_switcher -%}
+                {%- liquid
+                  assign flavour_collection = block.settings.flavour_collection
+                  if flavour_collection == blank
+                    assign flavour_collection = collections['flavours']
+                  endif
+                -%}
+                {% render 'flavour-switcher',
+                  collection: flavour_collection,
+                  current_product: product,
+                  id: block.id
+                %}
+              {%- endif -%}
               {%- unless product.has_only_default_variant -%}
                 {%- if block.settings.picker_type == 'button' -%}
                   <variant-radios
@@ -2304,6 +2317,22 @@
           ],
           "default": "button",
           "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+        },
+        {
+          "type": "header",
+          "content": "Flavour switcher"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_flavour_switcher",
+          "default": true,
+          "label": "Show flavour switcher"
+        },
+        {
+          "type": "collection",
+          "id": "flavour_collection",
+          "label": "Flavour collection",
+          "info": "Collection containing every flavour product. Falls back to the collection with handle 'flavours'. Only shown on products inside this collection. Filter by tagging products 'flavour:Fruit', 'flavour:Mint' etc. Tag 'New' shows the NEW badge. Optional metafields: custom.flavour_name (text), custom.flavour_swatch (image)."
         }
       ]
     },

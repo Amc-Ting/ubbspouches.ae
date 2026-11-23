@@ -1,0 +1,389 @@
+{% comment %}
+  Flavour switcher – each flavour is a separate product; swatches link to that product's page.
+
+  Accepts:
+  - collection: {Object} collection holding every flavour product (required)
+  - current_product: {Object} the product being viewed
+  - id: {String} unique id (section/block id)
+
+  Data used per flavour product:
+  - Image:     product.metafields.custom.flavour_swatch (file) → product.featured_image (packshot)
+  - Name:      product.metafields.custom.flavour_name → product title with "übbs" removed
+  - Category:  tag "flavour:<Category>" (e.g. flavour:Fruit, flavour:Mint). Untagged → "Other"
+  - New badge: tag "New"
+  - Sold out:  product unavailable (still a link, so shoppers can join a back-in-stock alert)
+
+  The switcher only renders when the current product belongs to the collection,
+  so bundles / collaterals / display units do not show it.
+
+  Usage:
+  {% render 'flavour-switcher', collection: block.settings.flavour_collection, current_product: product, id: block.id %}
+{% endcomment %}
+
+{%- liquid
+  assign in_collection = false
+  if collection != blank and collection.products_count > 1
+    for p in collection.products limit: 50
+      if p.id == current_product.id
+        assign in_collection = true
+        break
+      endif
+    endfor
+  endif
+-%}
+
+{%- if in_collection -%}
+  {%- liquid
+    assign category_list = ''
+    assign has_other = false
+    for p in collection.products limit: 50
+      assign p_category = ''
+      for tag in p.tags
+        assign tag_down = tag | downcase
+        if tag_down contains 'flavour:'
+          assign p_category = tag | split: ':' | last | strip
+          break
+        endif
+      endfor
+      if p_category == blank
+        assign has_other = true
+      else
+        assign cat_key = '|' | append: p_category | append: '|'
+        unless category_list contains cat_key
+          assign category_list = category_list | append: cat_key
+        endunless
+      endif
+    endfor
+
+    assign current_name = current_product.metafields.custom.flavour_name.value | default: current_product.title
+    assign current_name = current_name | remove: 'übbs' | remove: 'ÜBBS' | remove: 'Übbs' | remove: 'UBBS' | remove: 'Ubbs' | strip
+  -%}
+
+  <div class="flavour-switcher" id="FlavourSwitcher-{{ id }}" data-flavour-switcher>
+    <div class="flavour-switcher__header">
+      <p class="flavour-switcher__label form__label">
+        Flavour: <span class="flavour-switcher__current-name">{{ current_name }}</span>
+      </p>
+
+      {%- if category_list != blank -%}
+        <div class="flavour-switcher__filters" role="group" aria-label="Filter flavours">
+          <button type="button" class="flavour-switcher__filter" data-filter="all" aria-pressed="true">All</button>
+          {%- assign cats = category_list | remove_first: '|' | split: '||' -%}
+          {%- for cat in cats -%}
+            {%- assign cat_clean = cat | remove: '|' -%}
+            <button
+              type="button"
+              class="flavour-switcher__filter"
+              data-filter="{{ cat_clean | handleize }}"
+              aria-pressed="false"
+            >
+              {{ cat_clean | escape }}
+            </button>
+          {%- endfor -%}
+          {%- if has_other -%}
+            <button type="button" class="flavour-switcher__filter" data-filter="other" aria-pressed="false">Other</button>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <ul class="flavour-switcher__list" role="list">
+      {%- for p in collection.products limit: 50 -%}
+        {%- liquid
+          assign p_category = 'other'
+          for tag in p.tags
+            assign tag_down = tag | downcase
+            if tag_down contains 'flavour:'
+              assign p_category = tag | split: ':' | last | strip | handleize
+              break
+            endif
+          endfor
+
+          assign p_name = p.metafields.custom.flavour_name.value | default: p.title
+          assign p_name = p_name | remove: 'übbs' | remove: 'ÜBBS' | remove: 'Übbs' | remove: 'UBBS' | remove: 'Ubbs' | strip
+
+          assign p_image = p.metafields.custom.flavour_swatch.value | default: p.featured_image
+
+          assign strengths = ''
+          for v in p.variants
+            if v.available
+              assign strengths = strengths | append: v.title | append: '||'
+            endif
+          endfor
+          assign strengths = strengths | split: '||' | uniq | join: ', '
+
+          assign is_current = false
+          if p.id == current_product.id
+            assign is_current = true
+          endif
+
+          assign is_new = false
+          if p.tags contains 'New' or p.tags contains 'new'
+            assign is_new = true
+          endif
+        -%}
+        <li
+          class="flavour-switcher__item{% if is_current %} is-current{% endif %}{% unless p.available %} is-sold-out{% endunless %}"
+          data-category="{{ p_category }}"
+        >
+          {%- if is_current -%}
+            <span class="flavour-switcher__swatch" aria-current="true">
+          {%- else -%}
+            <a
+              class="flavour-switcher__swatch"
+              href="{{ p.url }}"
+              aria-describedby="FlavourTip-{{ id }}-{{ p.id }}"
+            >
+          {%- endif -%}
+              {%- if is_new -%}
+                <span class="flavour-switcher__new">New</span>
+              {%- endif -%}
+              <span
+                class="flavour-switcher__circle"
+                {% if p.metafields.custom.product_color != blank %}
+                  style="--flavour-color: {{ p.metafields.custom.product_color }};"
+                {% endif %}
+              >
+                {%- if p_image != blank -%}
+                  {{
+                    p_image
+                    | image_url: width: 160
+                    | image_tag: loading: 'lazy', alt: '', width: 80, height: 80, class: 'flavour-switcher__img'
+                  }}
+                {%- endif -%}
+              </span>
+              <span class="flavour-switcher__name">{{ p_name | escape }}</span>
+              {%- unless is_current -%}
+                <span class="flavour-switcher__tooltip" role="tooltip" id="FlavourTip-{{ id }}-{{ p.id }}">
+                  <strong>{{ p_name | escape }}</strong>
+                  {%- if p.available -%}
+                    {%- if strengths != blank and p.has_only_default_variant == false %}
+                      <span>{{ strengths | escape }}</span>
+                    {%- endif -%}
+                  {%- else %}
+                    <span>Sold out – join the back in stock alert</span>
+                  {%- endif -%}
+                </span>
+              {%- endunless -%}
+          {%- if is_current -%}
+            </span>
+          {%- else -%}
+            </a>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+  <style>
+    .flavour-switcher {
+      --flavour-accent: #7d5bbf;
+      --flavour-accent-soft: #efe9fa;
+      margin: 0 0 2.4rem;
+    }
+    .flavour-switcher__header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+      margin-bottom: 1.6rem;
+    }
+    .flavour-switcher__label {
+      margin: 0;
+      font-weight: 700;
+    }
+    .flavour-switcher__current-name {
+      font-weight: 400;
+    }
+    .flavour-switcher__filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .flavour-switcher__filter {
+      min-width: 6.4rem;
+      padding: 0.6rem 1.8rem;
+      border: 1px solid #c9c9c9;
+      border-radius: 99px;
+      background: #fff;
+      color: #121212;
+      font: inherit;
+      font-size: 1.3rem;
+      line-height: 1.4;
+      cursor: pointer;
+      transition: border-color 0.15s, background-color 0.15s;
+    }
+    .flavour-switcher__filter:hover {
+      border-color: var(--flavour-accent);
+    }
+    .flavour-switcher__filter[aria-pressed='true'] {
+      border: 2px solid var(--flavour-accent);
+      background: var(--flavour-accent-soft);
+      font-weight: 700;
+      padding: 0.5rem 1.7rem;
+    }
+    .flavour-switcher__list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(7.2rem, 1fr));
+      gap: 1.6rem 0.8rem;
+      margin: 0;
+      padding: 1.2rem 0 0;
+      list-style: none;
+    }
+    .flavour-switcher__item[hidden] {
+      display: none;
+    }
+    .flavour-switcher__swatch {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      color: inherit;
+      text-decoration: none;
+      text-align: center;
+    }
+    .flavour-switcher__circle {
+      display: block;
+      width: 5.6rem;
+      height: 5.6rem;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--flavour-color, #eee);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .flavour-switcher__img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .flavour-switcher__name {
+      font-size: 1.2rem;
+      line-height: 1.25;
+      word-break: break-word;
+    }
+
+    /* Current */
+    .flavour-switcher__item.is-current .flavour-switcher__circle {
+      box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--flavour-accent);
+    }
+    .flavour-switcher__item.is-current .flavour-switcher__name {
+      font-weight: 700;
+    }
+
+    /* Hover / focus */
+    a.flavour-switcher__swatch:hover .flavour-switcher__circle,
+    a.flavour-switcher__swatch:focus-visible .flavour-switcher__circle {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    a.flavour-switcher__swatch:focus-visible {
+      outline: none;
+    }
+    a.flavour-switcher__swatch:focus-visible .flavour-switcher__circle {
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--flavour-accent);
+    }
+
+    /* Sold out */
+    .flavour-switcher__item.is-sold-out .flavour-switcher__circle {
+      opacity: 0.4;
+    }
+    .flavour-switcher__item.is-sold-out .flavour-switcher__name {
+      color: #8a8a8a;
+    }
+
+    /* New */
+    .flavour-switcher__new {
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      z-index: 1;
+      transform: translateX(-50%);
+      padding: 0.2rem 0.8rem;
+      border-radius: 99px;
+      background: #e5525f;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Tooltip */
+    .flavour-switcher__tooltip {
+      position: absolute;
+      bottom: calc(100% + 0.6rem);
+      left: 50%;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      width: max-content;
+      max-width: 18rem;
+      padding: 0.6rem 1rem;
+      border-radius: 0.6rem;
+      background: #121212;
+      color: #fff;
+      font-size: 1.2rem;
+      line-height: 1.35;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translate(-50%, 4px);
+      transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
+    }
+    a.flavour-switcher__swatch:hover .flavour-switcher__tooltip,
+    a.flavour-switcher__swatch:focus-visible .flavour-switcher__tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+    }
+    @media (hover: none) {
+      .flavour-switcher__tooltip {
+        display: none;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .flavour-switcher__circle,
+      .flavour-switcher__tooltip {
+        transition: none;
+      }
+    }
+    @media screen and (max-width: 749px) {
+      .flavour-switcher__list {
+        grid-template-columns: repeat(auto-fill, minmax(6.4rem, 1fr));
+      }
+      .flavour-switcher__circle {
+        width: 5rem;
+        height: 5rem;
+      }
+    }
+  </style>
+
+  <script>
+    (function () {
+      var root = document.getElementById('FlavourSwitcher-{{ id }}');
+      if (!root || root.dataset.ready) return;
+      root.dataset.ready = 'true';
+      var buttons = root.querySelectorAll('.flavour-switcher__filter');
+      var items = root.querySelectorAll('.flavour-switcher__item');
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var filter = btn.dataset.filter;
+          buttons.forEach(function (b) {
+            b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+          });
+          items.forEach(function (item) {
+            item.hidden = filter !== 'all' && item.dataset.category !== filter;
+          });
+        });
+      });
+    })();
+  </script>
+{%- endif -%}
