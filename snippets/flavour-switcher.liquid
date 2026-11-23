@@ -88,8 +88,16 @@
     </div>
 
     <ul class="flavour-switcher__list" role="list">
+      {%- comment -%} Pass 1 renders the current flavour only, pass 2 the rest – so the current one is always first. {%- endcomment -%}
+      {%- for pass in (1..2) -%}
       {%- for p in collection.products limit: 50 -%}
         {%- liquid
+          if pass == 1 and p.id != current_product.id
+            continue
+          elsif pass == 2 and p.id == current_product.id
+            continue
+          endif
+
           assign p_category = 'other'
           for tag in p.tags
             assign tag_down = tag | downcase
@@ -171,6 +179,7 @@
             </a>
           {%- endif -%}
         </li>
+      {%- endfor -%}
       {%- endfor -%}
     </ul>
   </div>
