@@ -95,7 +95,13 @@
 
 @media(max-width:767px){
   .product .main-gallery-img .slider-buttons{
-    
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px;
   }
   .title_price_sec{
     flex-direction:column;
