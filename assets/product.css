@@ -1,9 +1,7 @@
 #MainContent{
   /*margin-top:50px;*/
 }
-.product__info-wrapper{
-  margin-top:20px;
-}
+
 
 .product .main-gallery-img{
   position:relative;
@@ -24,11 +22,13 @@
   }
 
 @media(min-width:989px){
-  
-.product__media-gallery{
-  /* display:flex !important; */
-  flex-direction:row-reverse;
-}
+  .product__info-wrapper{
+    margin-top:20px;
+  }
+  .product__media-gallery{
+    /* display:flex !important; */
+    flex-direction:row-reverse;
+  }
 
 /* .product .main-gallery-img{
   width:80%;
