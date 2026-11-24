@@ -57,7 +57,9 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "button"
+            "picker_type": "button",
+            "show_flavour_switcher": true,
+            "flavour_collection": ""
           }
         },
         "collapsible_tab_nDy4LB": {
@@ -195,7 +197,7 @@
         "enable_sticky_info": true,
         "gallery_layout": "stacked",
         "media_size": "medium",
-        "mobile_thumbnails": "show",
+        "mobile_thumbnails": "hide",
         "hide_variants": false,
         "enable_video_looping": true,
         "padding_top": 40,
