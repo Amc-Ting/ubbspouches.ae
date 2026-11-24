@@ -112,7 +112,7 @@
             assign p_name = p.metafields.custom.flavour_name.value | default: p.title
             assign p_name = p_name | remove: 'übbs' | remove: 'ÜBBS' | remove: 'Übbs' | remove: 'UBBS' | remove: 'Ubbs' | strip
 
-            assign p_image = p.metafields.custom.flavour_swatch.value | default: p.featured_image
+            assign p_image = p.metafields.custom.flavour_swatch.value | default: p.images[1]
 
             assign strengths = ''
             for v in p.variants
