@@ -262,7 +262,7 @@ section#discreet_section .container {
 }
 .price__container span.price-item.price-item--regular {
   font-size: 26px;
-  line-height: 20px;
+  line-height: 30px;
 }
 .price__container span.price-item.price-item--regular s.original_price_sec {
   font-size: 14px;
