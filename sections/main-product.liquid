@@ -416,7 +416,99 @@
     }
     }
   {%- endstyle -%}
-  <style></style>
+  <style>
+    .main_product .new_badge,
+    .main_product .new_design_badge {
+      top: -36px !important;
+      left: 50px !important;
+      position: unset !important;
+    }
+    @media (max-width: 1024px) {
+      button.read-more-btn {
+        top: 74%;
+        right: 36%;
+      }
+    }
+    @media (max-width: 768px) {
+      button.read-more-btn {
+        top: 78%;
+        right: 44%;
+        font-size: 14px;
+      }
+      .truncated {
+        font-size: 16px;
+      }
+    }
+    @media (max-width: 767px) {
+      .main_product .new_badge,
+      .main_product .new_design_badge {
+        left: 0;
+      }
+      .flavour-grid {
+        grid-template-columns: 1fr;
+      }
+      .flavour-card img {
+        width: 50px;
+      }
+    }
+    .product__info-wrapper.grid__item {
+      position: relative;
+    }
+    @media (max-width: 480px) {
+      button.read-more-btn {
+        top: 65%;
+        right: 26%;
+      }
+      .d_f {
+        align-items: center;
+      }
+      .product__info-container .product-form__input .form__label {
+        margin-bottom: 10px !important;
+      }
+    }
+    @media (max-width: 375px) {
+      button.read-more-btn {
+        top: 75%;
+        right: 5%;
+      }
+      button.read-more-btn {
+        margin-top: 30px !important;
+      }
+    }
+    @media (min-width: 1024px) and (max-width: 1279px) {
+      .product__info-wrapper.grid__item {
+        padding: 0;
+      }
+      .d_f {
+        align-items: center;
+      }
+      .price__container span.price-item.price-item--regular {
+        font-size: 28px;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .product__info-wrapper.grid__item {
+        padding: 0;
+      }
+      .d_f {
+        display: flex;
+        gap: 0;
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 8px;
+      }
+      .price-review_section {
+        display: flex;
+        justify-content: space-between;
+      }
+      .price_review_sec {
+        width: 90%;
+      }
+      .price__container span.price-item.price-item--regular {
+        font-size: 28px;
+      }
+    }
+  </style>
 
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
