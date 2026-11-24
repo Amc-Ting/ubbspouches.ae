@@ -94,6 +94,7 @@
 }
 
 @media(max-width:767px){
+  .product .main-gallery-img
   .title_price_sec{
     flex-direction:column;
   }
