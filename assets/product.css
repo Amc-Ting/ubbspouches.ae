@@ -94,7 +94,9 @@
 }
 
 @media(max-width:767px){
-  .product .main-gallery-img
+  .product .main-gallery-img .slider-buttons{
+    
+  }
   .title_price_sec{
     flex-direction:column;
   }
