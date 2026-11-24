@@ -158,7 +158,7 @@
                 {{
                   p_image
                   | image_url: width: 160
-                  | image_tag: loading: 'lazy', alt: '', width: 80, height: 80, class: 'flavour-switcher__img'
+                  | image_tag: loading: 'lazy', alt: p_name, width: 80, height: 80, class: 'flavour-switcher__img'
                 }}
               {%- endif -%}
             </span>
@@ -241,7 +241,7 @@
       grid-template-columns: repeat(auto-fill, minmax(7.2rem, 1fr));
       gap: 1.6rem 0.8rem;
       margin: 0;
-      padding:0;
+      padding: 0;
       list-style: none;
     }
     .flavour-switcher__item[hidden] {

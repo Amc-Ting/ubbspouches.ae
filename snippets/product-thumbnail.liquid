@@ -53,6 +53,23 @@
   class="product-media-container media-type-{{ media.media_type }} media-fit-{{ media_fit }} global-media-settings gradient{% if constrain_to_viewport %} constrain-height{% endif %}"
   style="--ratio: {{ media.aspect_ratio | default: 1.0 }}; --preview-ratio: {{ media.preview_image.aspect_ratio | default: 1.0 }};"
 >
+  {%- if media.media_type == 'video' -%}
+    {%- comment -%} Native video: muted, looping, plays only while in view {%- endcomment -%}
+    <inview-video class="product__media media media--transparent" data-media-id="{{ media.id }}">
+      {{
+        media
+        | video_tag:
+          image_size: '1946x',
+          autoplay: false,
+          loop: true,
+          muted: true,
+          controls: false,
+          playsinline: true,
+          preload: 'metadata'
+      }}
+    </inview-video>
+    <script src="{{ 'inview-video.js' | asset_url }}" defer="defer"></script>
+  {%- else -%}
   <modal-opener
     class="product__modal-opener product__modal-opener--{{ media.media_type }}"
     data-modal="#ProductModal-{{ modal_id }}"
@@ -99,8 +116,9 @@
       </span>
     </button>
   </modal-opener>
+  {%- endif -%}
 
-  {%- if media.media_type != 'image' -%}
+  {%- if media.media_type != 'image' and media.media_type != 'video' -%}
     {%- if media.media_type == 'model' -%}
       <product-model class="deferred-media media media--transparent" data-media-id="{{ media.id }}">
     {%- else -%}
