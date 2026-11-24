@@ -81,7 +81,9 @@
             </button>
           {%- endfor -%}
           {%- if has_other -%}
-            <button type="button" class="flavour-switcher__filter" data-filter="other" aria-pressed="false">Other</button>
+            <button type="button" class="flavour-switcher__filter" data-filter="other" aria-pressed="false">
+              Other
+            </button>
           {%- endif -%}
         </div>
       {%- endif -%}
@@ -90,96 +92,96 @@
     <ul class="flavour-switcher__list" role="list">
       {%- comment -%} Pass 1 renders the current flavour only, pass 2 the rest – so the current one is always first. {%- endcomment -%}
       {%- for pass in (1..2) -%}
-      {%- for p in collection.products limit: 50 -%}
-        {%- liquid
-          if pass == 1 and p.id != current_product.id
-            continue
-          elsif pass == 2 and p.id == current_product.id
-            continue
-          endif
-
-          assign p_category = 'other'
-          for tag in p.tags
-            assign tag_down = tag | downcase
-            if tag_down contains 'flavour:'
-              assign p_category = tag | split: ':' | last | strip | handleize
-              break
+        {%- for p in collection.products limit: 50 -%}
+          {%- liquid
+            if pass == 1 and p.id != current_product.id
+              continue
+            elsif pass == 2 and p.id == current_product.id
+              continue
             endif
-          endfor
 
-          assign p_name = p.metafields.custom.flavour_name.value | default: p.title
-          assign p_name = p_name | remove: 'übbs' | remove: 'ÜBBS' | remove: 'Übbs' | remove: 'UBBS' | remove: 'Ubbs' | strip
+            assign p_category = 'other'
+            for tag in p.tags
+              assign tag_down = tag | downcase
+              if tag_down contains 'flavour:'
+                assign p_category = tag | split: ':' | last | strip | handleize
+                break
+              endif
+            endfor
 
-          assign p_image = p.metafields.custom.flavour_swatch.value | default: p.featured_image
+            assign p_name = p.metafields.custom.flavour_name.value | default: p.title
+            assign p_name = p_name | remove: 'übbs' | remove: 'ÜBBS' | remove: 'Übbs' | remove: 'UBBS' | remove: 'Ubbs' | strip
 
-          assign strengths = ''
-          for v in p.variants
-            if v.available
-              assign strengths = strengths | append: v.title | append: '||'
+            assign p_image = p.metafields.custom.flavour_swatch.value | default: p.featured_image
+
+            assign strengths = ''
+            for v in p.variants
+              if v.available
+                assign strengths = strengths | append: v.title | append: '||'
+              endif
+            endfor
+            assign strengths = strengths | split: '||' | uniq | join: ', '
+
+            assign is_current = false
+            if p.id == current_product.id
+              assign is_current = true
             endif
-          endfor
-          assign strengths = strengths | split: '||' | uniq | join: ', '
 
-          assign is_current = false
-          if p.id == current_product.id
-            assign is_current = true
-          endif
-
-          assign is_new = false
-          if p.tags contains 'New' or p.tags contains 'new'
-            assign is_new = true
-          endif
-        -%}
-        <li
-          class="flavour-switcher__item{% if is_current %} is-current{% endif %}{% unless p.available %} is-sold-out{% endunless %}"
-          data-category="{{ p_category }}"
-        >
-          {%- if is_current -%}
-            <span class="flavour-switcher__swatch" aria-current="true">
-          {%- else -%}
-            <a
-              class="flavour-switcher__swatch"
-              href="{{ p.url }}"
-              aria-describedby="FlavourTip-{{ id }}-{{ p.id }}"
-            >
-          {%- endif -%}
-              {%- if is_new -%}
-                <span class="flavour-switcher__new">New</span>
-              {%- endif -%}
-              <span
-                class="flavour-switcher__circle"
-                {% if p.metafields.custom.product_color != blank %}
-                  style="--flavour-color: {{ p.metafields.custom.product_color }};"
-                {% endif %}
+            assign is_new = false
+            if p.tags contains 'New' or p.tags contains 'new'
+              assign is_new = true
+            endif
+          -%}
+          <li
+            class="flavour-switcher__item{% if is_current %} is-current{% endif %}{% unless p.available %} is-sold-out{% endunless %}"
+            data-category="{{ p_category }}"
+          >
+            {%- if is_current -%}
+              <span class="flavour-switcher__swatch" aria-current="true">
+            {%- else -%}
+              <a
+                class="flavour-switcher__swatch"
+                href="{{ p.url }}"
+                aria-describedby="FlavourTip-{{ id }}-{{ p.id }}"
               >
-                {%- if p_image != blank -%}
-                  {{
-                    p_image
-                    | image_url: width: 160
-                    | image_tag: loading: 'lazy', alt: '', width: 80, height: 80, class: 'flavour-switcher__img'
-                  }}
+            {%- endif -%}
+            {%- if is_new -%}
+              <span class="flavour-switcher__new">New</span>
+            {%- endif -%}
+            <span
+              class="flavour-switcher__circle"
+              {% if p.metafields.custom.product_color != blank %}
+                style="--flavour-color: {{ p.metafields.custom.product_color }};"
+              {% endif %}
+            >
+              {%- if p_image != blank -%}
+                {{
+                  p_image
+                  | image_url: width: 160
+                  | image_tag: loading: 'lazy', alt: '', width: 80, height: 80, class: 'flavour-switcher__img'
+                }}
+              {%- endif -%}
+            </span>
+            <span class="flavour-switcher__name">{{ p_name | escape | remove: 'Nicotine Pouches' }}</span>
+            {%- unless is_current -%}
+              <span class="flavour-switcher__tooltip" role="tooltip" id="FlavourTip-{{ id }}-{{ p.id }}">
+                <strong>{{ p_name | escape }}</strong>
+                {%- if p.available -%}
+                  {%- if strengths != blank and p.has_only_default_variant == false %}
+                    <span>{{ strengths | escape }}</span>
+                  {%- endif -%}
+                {%- else %}
+                  <span>Sold out – join the back in stock alert</span>
                 {%- endif -%}
               </span>
-              <span class="flavour-switcher__name">{{ p_name | escape }}</span>
-              {%- unless is_current -%}
-                <span class="flavour-switcher__tooltip" role="tooltip" id="FlavourTip-{{ id }}-{{ p.id }}">
-                  <strong>{{ p_name | escape }}</strong>
-                  {%- if p.available -%}
-                    {%- if strengths != blank and p.has_only_default_variant == false %}
-                      <span>{{ strengths | escape }}</span>
-                    {%- endif -%}
-                  {%- else %}
-                    <span>Sold out – join the back in stock alert</span>
-                  {%- endif -%}
-                </span>
-              {%- endunless -%}
-          {%- if is_current -%}
-            </span>
-          {%- else -%}
-            </a>
-          {%- endif -%}
-        </li>
-      {%- endfor -%}
+            {%- endunless -%}
+            {%- if is_current -%}
+              </span>
+            {%- else -%}
+              </a>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
       {%- endfor -%}
     </ul>
   </div>
