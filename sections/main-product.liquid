@@ -1123,7 +1123,9 @@
 
                 <div class="product__description rte font_text font_black" id="main_description">
                   <div class="main_desc {% if product.tags contains 'collateral_product' %}collateral_desc{% endif %}">
-                    <div class="desc_split_text">{% if product.tags contains 'ice_mint' %} 15 {% else %}20 {% endif %} nicotine pouches per can</div>
+                    <div class="desc_split_text">
+                      {% if product.tags contains 'ice_mint' %} 15 {% else %}20 {% endif %} nicotine pouches per can
+                    </div>
 
                     <div class="desc_part_1">
                       {{ parts[0] }}
@@ -1410,6 +1412,15 @@
               </share-button>
               <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
             {%- when 'variant_picker' -%}
+              {%- if block.settings.show_flavour_switcher -%}
+                {%- liquid
+                  assign flavour_collection = block.settings.flavour_collection
+                  if flavour_collection == blank
+                    assign flavour_collection = collections.flavours
+                  endif
+                -%}
+                {% render 'flavour-switcher', collection: flavour_collection, current_product: product, id: block.id %}
+              {%- endif -%}
               {%- unless product.has_only_default_variant -%}
                 {%- if block.settings.picker_type == 'button' -%}
                   <variant-radios
