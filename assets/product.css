@@ -101,7 +101,7 @@
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
     border-radius: 20px;
-    padding: 10px;
+    padding: 5px 10px;
     z-index:4;
   }
   .product .main-gallery-img .slider-buttons.no-js-hidden button{
