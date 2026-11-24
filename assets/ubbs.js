@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 
 
@@ -46,72 +47,6 @@ $(document).ready(function() {
   //   });
 
 
-  /* ------------------------------------------------------------------
-     Stacked gallery: show only the images of the selected variant.
-     Thumbnail layout is driven by the thumbnail click code below.
-     In "stacked" on desktop the thumbnail list is display:none and every
-     slide is always visible, so that click changes nothing. This does the
-     same job directly on the big slides (matched by data-img, which is the
-     media alt text, exactly like data-variant on the thumbnails).
-  ------------------------------------------------------------------- */
-  function syncStackedGallery(value, scrollToGallery) {
-    var gallery = document.querySelector('media-gallery');
-    if (!gallery || !value) return;
-    if (gallery.getAttribute('data-desktop-layout') !== 'stacked') return;
-
-    // Under 750px the gallery is a slider and the thumbnail click already
-    // drives it, so only take over when there are no thumbnails there.
-    var isDesktop = window.matchMedia('(min-width: 750px)').matches;
-    var hasThumbs = !!gallery.querySelector('[id^="GalleryThumbnails"]');
-    if (!isDesktop && hasThumbs) return;
-
-    var $list = $(gallery).find('.product__media-list').first();
-    var $slides = $list.children('.product__media-item');
-    if (!$slides.length) return;
-
-    // remember the original order the first time through
-    $slides.each(function (i) {
-      if (this.getAttribute('data-order') === null) this.setAttribute('data-order', i);
-    });
-    var byOrder = function (a, b) {
-      return a.getAttribute('data-order') - b.getAttribute('data-order');
-    };
-
-    var all = $slides.get().sort(byOrder);
-    var matching = all.filter(function (s) { return s.getAttribute('data-img') === value; });
-
-    // no image is tagged for this value: show everything in original order
-    if (!matching.length) {
-      all.forEach(function (s) { s.style.display = ''; $list[0].appendChild(s); });
-      return;
-    }
-
-    // matching images first (so :first-child is the large hero), others hidden
-    var others = all.filter(function (s) { return matching.indexOf(s) === -1; });
-    matching.concat(others).forEach(function (s) { $list[0].appendChild(s); });
-    matching.forEach(function (s) { s.style.display = ''; });
-    others.forEach(function (s) { s.style.display = 'none'; });
-
-    // keep Dawn's own state (is-active, video pause, slider counters) in sync
-    try {
-      if (typeof gallery.setActiveMedia === 'function') {
-        gallery.setActiveMedia(matching[0].getAttribute('data-media-id'), false);
-      }
-      var viewer = gallery.querySelector('[id^="GalleryViewer"]');
-      if (viewer && typeof viewer.resetPages === 'function') viewer.resetPages();
-    } catch (e) { /* never let gallery bookkeeping break variant switching */ }
-
-    // bring the gallery back into view if the customer scrolled past it
-    if (scrollToGallery) {
-      var top = gallery.getBoundingClientRect().top;
-      if (top < 0) {
-        var header = document.querySelector('sticky-header, .section-header');
-        var offset = header ? header.offsetHeight : 0;
-        window.scrollTo({ top: top + window.pageYOffset - offset - 10, behavior: 'smooth' });
-      }
-    }
-  }
-
   var selectedValue = $("#product_sec input[name='Nicotine Strength']:checked").val();
 
 var selectedImage = $(".thumbnail-slider .thumbnail-list__item:first").attr('data-variant');
@@ -127,9 +62,6 @@ if (selectedValue === selectedImage) {
     // IMPORTANT: trigger click on thumbnail button
     image_1.first().find('button.thumbnail').trigger('click');
 }
-
-// Stacked layout: filter the big images for the preselected variant (no-op otherwise)
-syncStackedGallery(selectedValue, false);
 
 $("#product_sec input[name='Nicotine Strength']").on('change', function () {
 
@@ -153,9 +85,6 @@ $("#product_sec input[name='Nicotine Strength']").on('change', function () {
 
     // VERY IMPORTANT: trigger click so Dawn updates main image
     firstThumb.trigger("click");
-
-    // Stacked layout: filter/scroll the big images (no-op for thumbnail layouts)
-    syncStackedGallery(variant_id, true);
 });
 
 
@@ -170,7 +99,7 @@ $("#product_sec input[name='Nicotine Strength']").on('change', function () {
         var Basketbtn = $(this).parents(".card-information").find(".cart_btn_sec .cart_btn span")
         var MediaImg1 = $(this).parents(".card--media").find(".card__media .prod_img_sec .media-1");
         var MediaImg2 = $(this).parents(".card--media").find(".card__media .prod_img_sec .media-2");
-      var MediaImg3 = $(this).parents(".card--media").find(".card__media .prod_img_sec .media-3");
+        var MediaImg3 = $(this).parents(".card--media").find(".card__media .prod_img_sec .media-3");
 
         if ($(getInputRadioParent).find("input[type='radio']:checked").attr('data-available') == 'true') {
             Basketbtn.text("Add To Basket");
@@ -179,27 +108,36 @@ $("#product_sec input[name='Nicotine Strength']").on('change', function () {
         }
 
 
-        if ($(getInputRadioParent).find("input[type='radio']:checked").attr('value') == 'Regular: 6mg') {
+        if ($(getInputRadioParent).find("input[type='radio']:checked").attr('value') == '20mg') {
+            MediaImg1.show();
+            MediaImg2.hide();
+            MediaImg3.hide();
+        } else if ($(getInputRadioParent).find("input[type='radio']:checked").attr('value') == '14mg') {
+          if($(getInputRadioParent).find("input[type='radio']:checked").attr('name').includes("menthol")){
             MediaImg2.hide();
             MediaImg1.show();
-           MediaImg3.hide();
-        } else if ($(getInputRadioParent).find("input[type='radio']:checked").attr('value') == 'Strong: 11mg') {
+            MediaImg3.hide();
+          }else{
+            MediaImg1.hide();
             MediaImg2.show();
+            MediaImg3.hide();
+          }  
+        } else if ($(getInputRadioParent).find("input[type='radio']:checked").attr('value') == '11mg'){
+          if($(getInputRadioParent).find("input[type='radio']:checked").attr('name').includes("menthol")){
             MediaImg1.hide();
-          MediaImg3.hide();
-        } else if ($(getInputRadioParent).find("input[type='radio']:checked").attr('value') == 'Max: 14mg'){
-          MediaImg3.show();
+            MediaImg2.show();
+            MediaImg3.hide();
+          }else{
             MediaImg1.hide();
-          MediaImg2.hide();
+            MediaImg2.hide();
+            MediaImg3.show();
+          }
+        } else if ($(getInputRadioParent).find("input[type='radio']:checked").attr('value') == '6mg'){
+            MediaImg1.hide();
+            MediaImg2.hide();
+            MediaImg3.show();
         }
-        else if ($(getInputRadioParent).find("input[type='radio']:checked").attr('value') == 'Intense: 20mg'){
-          MediaImg3.show();
-            MediaImg1.hide();
-          MediaImg2.hide();
-        }
-        console.log($(getInputRadioParent).find("input[type='radio']:checked").attr('value'));
-        
-
+        //console.log($(getInputRadioParent).find("input[type='radio']:checked").attr('name'));
     });
 
       //dropdown on  click of account icon starts here //
@@ -569,28 +507,12 @@ $('.responsive1').slick({
   });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  var setSlickRoles = function () {
-    var tracks = document.querySelectorAll('.slick-track');
-    for (var i = 0; i < tracks.length; i++) {
-      tracks[i].setAttribute('role', 'list');
-      var slides = tracks[i].children;
-      for (var j = 0; j < slides.length; j++) {
-        if (slides[j].classList.contains('slick-slide')) {
-          slides[j].setAttribute('role', 'listitem');
-        }
-      }
-    }
-  };
-  setSlickRoles();
-  window.addEventListener('load', function () {
-    setTimeout(setSlickRoles, 500);
-    setTimeout(setSlickRoles, 2000);
-  });
-});
-
 
 
 
   
 });
+
+
+
+
