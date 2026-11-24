@@ -104,8 +104,10 @@
     padding: 10px;
     z-index:4;
   }
-  
-  .caption{
+  .product .main-gallery-img .slider-buttons.no-js-hidden button{
+    display:none;
+  }
+  .product .main-gallery-img .caption{
     font-size: 1.6rem;
   }
   .title_price_sec{
