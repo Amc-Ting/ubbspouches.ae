@@ -1123,7 +1123,9 @@
 
                 <div class="product__description rte font_text font_black" id="main_description">
                   <div class="main_desc {% if product.tags contains 'collateral_product' %}collateral_desc{% endif %}">
-                    <div class="desc_split_text">{% if product.tags contains 'ice_mint' %} 15 {% else %}20 {% endif %} nicotine pouches per can</div>
+                    <div class="desc_split_text">
+                      {% if product.tags contains 'ice_mint' %} 15 {% else %}20 {% endif %} nicotine pouches per can
+                    </div>
 
                     <div class="desc_part_1">
                       {{ parts[0] }}
@@ -2744,7 +2746,7 @@
       }
 
       .product__info-wrapper .product-form__input input[type=radio]:checked+label{
-        border: 1px solid {{product.metafields.custom.product_color}}!important;
+        border: 2px solid {{product.metafields.custom.product_color}}!important;
       }
 
       .product__info-wrapper .product-form__input input[type=radio]:checked+label .dot{
