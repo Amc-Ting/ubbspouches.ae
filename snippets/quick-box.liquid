@@ -111,28 +111,28 @@
 
                     <div class="qb-price">
                       <span class="PDP-price">
-                        <span class="qb-discounted-price">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="icon icon-plus"
-                            width="10"
-                            height="10"
-                            viewBox="0 0 10 10"
-                          >
-                            <g id="Group_1365" data-name="Group 1365" transform="translate(-502.5 -129.5)">
-                              <line id="Line_182" data-name="Line 182" y2="10" transform="translate(507.5 129.5)" fill="none" stroke="#000" stroke-width="2.5"></line>
-                              <line id="Line_183" data-name="Line 183" x2="10" transform="translate(502.5 134.5)" fill="none" stroke="#000" stroke-width="2.5"></line>
-                            </g>
-                          </svg>
-                        </span>
                         {% comment %}
-                          <span class="qb-old-price">
-                            <s>{{ originalTotal | times: 100 | money }}</s>
-                          </span>
                           <span class="qb-discounted-price">
-                            {{ discountedTotal | times: 100 | money }}
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="icon icon-plus"
+                              width="10"
+                              height="10"
+                              viewBox="0 0 10 10"
+                            >
+                              <g id="Group_1365" data-name="Group 1365" transform="translate(-502.5 -129.5)">
+                                <line id="Line_182" data-name="Line 182" y2="10" transform="translate(507.5 129.5)" fill="none" stroke="#000" stroke-width="2.5"></line>
+                                <line id="Line_183" data-name="Line 183" x2="10" transform="translate(502.5 134.5)" fill="none" stroke="#000" stroke-width="2.5"></line>
+                              </g>
+                            </svg>
                           </span>
                         {% endcomment %}
+                        <span class="qb-old-price">
+                          <s>{{ originalTotal | times: 100 | money }}</s>
+                        </span>
+                        <span class="qb-discounted-price">
+                          {{ discountedTotal | times: 100 | money }}
+                        </span>
                       </span>
 
                       <span class="qb-unit" {{ perCan | times: 100 | money }}> Add to Cart </span>
