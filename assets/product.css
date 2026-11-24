@@ -103,6 +103,9 @@
     border-radius: 20px;
     padding: 10px;
   }
+  .caption{
+    font-size: 1.6rem;
+  }
   .title_price_sec{
     flex-direction:column;
   }
