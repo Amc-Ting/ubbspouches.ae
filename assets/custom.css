@@ -4393,6 +4393,7 @@ body.main_cart #shopify-section-header-wholesale header.header--middle-left {
   font-size: 14px !important;
   color: #000;
   padding-left: 5px;
+  white-space: nowrap;s
 }
 .instafeed-new-layout-container .instafeed-new-arrow {
   z-index: 5 !important;
