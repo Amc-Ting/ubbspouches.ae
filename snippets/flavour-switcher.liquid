@@ -62,7 +62,7 @@
   <div class="flavour-switcher" id="FlavourSwitcher-{{ id }}" data-flavour-switcher>
     <div class="flavour-switcher__header">
       <p class="flavour-switcher__label form__label">
-        Flavour: <span class="flavour-switcher__current-name">{{ current_name }}</span>
+        Flavour: <span class="flavour-switcher__current-name">{{ current_name | remove: 'Nicotine Pouches' }}</span>
       </p>
 
       {%- if category_list != blank -%}
