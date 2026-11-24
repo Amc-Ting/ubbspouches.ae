@@ -2315,6 +2315,22 @@
           ],
           "default": "button",
           "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+        },
+        {
+          "type": "header",
+          "content": "Flavour switcher"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_flavour_switcher",
+          "default": true,
+          "label": "Show flavour switcher"
+        },
+        {
+          "type": "collection",
+          "id": "flavour_collection",
+          "label": "Flavour collection",
+          "info": "Collection containing every flavour product. Falls back to the collection with handle 'flavours'. Only shown on products inside this collection. The current flavour is always shown first; the rest follow the collection's sort order – set it to 'Best selling' in admin. Filter by tagging products 'flavour:Fruit', 'flavour:Mint' etc. Tag 'New' shows the NEW badge. Optional metafields: custom.flavour_name (text), custom.flavour_swatch (image)."
         }
       ]
     },
