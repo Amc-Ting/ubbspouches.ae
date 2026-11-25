@@ -226,7 +226,7 @@
 
     {%- comment -%} Swatch row {%- endcomment -%}
     <ul class="flavour-switcher__list" role="list">
-      {%- for i in order_list -%}
+      {%- for i in order_list limit: 6 -%}
         {%- liquid
           assign idx = i | plus: 0
           assign p = collection.products[idx]
