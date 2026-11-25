@@ -1,204 +1,448 @@
 {% comment %}
   Flavour switcher – each flavour is a separate product; swatches link to that product's page.
 
+  Layout:
+  - "Flavour: <name>" label + "All <n>" link that opens the "Choose flavour" sheet.
+  - Swatch row: desktop wraps in rows of seven, mobile is one row with sideways scroll.
+  - Sheet: bottom sheet on mobile, centred dialog on desktop. Filter chips (All / groups),
+    group headings in swatch order, rows with name, strengths, sold out / new labels.
+
   Accepts:
-  - collection: {Object} collection holding every flavour product (required)
+  - collection: {Object} collection holding every flavour product, sorted "Best selling" in admin (required)
   - current_product: {Object} the product being viewed
   - id: {String} unique id (section/block id)
+  - group_order: {String} fallback group order per group, e.g.
+      "Fruit: Mint, Other | Mint: Fruit, Other | Other: Fruit, Mint"
+  - exclude_tag: {String} tag that removes a product from the switcher (default "switcher:hide")
 
   Data used per flavour product:
-  - Image:     product.metafields.custom.flavour_swatch (file) → product.featured_image (packshot)
+  - Image:     product.metafields.custom.flavour_swatch (file) → product.images[1]
   - Name:      product.metafields.custom.flavour_name → product title with "übbs" removed
-  - Category:  tag "flavour:<Category>" (e.g. flavour:Fruit, flavour:Mint). Untagged → "Other"
-  - New badge: tag "New"
+  - Group:     product.metafields.custom.flavour_group (Fruit, Mint, Other)
+               → tag "flavour:<Group>" → "Other"
+  - Strengths: values of the option named "Strength" (or "Nicotine…"), else the first option;
+               the "6mg" part is shown when present
+  - New:       tag "new" (badge + placed first in its group block)
   - Sold out:  product unavailable (still a link, so shoppers can join a back-in-stock alert)
+  - Excluded:  tag matching exclude_tag (wholesale roll of 5, free samples, bundles, duplicate listings)
 
-  The switcher only renders when the current product belongs to the collection,
-  so bundles / collaterals / display units do not show it.
+  Swatch order:
+  1. Current flavour (always first, ringed, not a link – even when sold out).
+  2. The rest of its own group, then the other groups in the fallback order for the current group.
+     Groups not named in the fallback order follow, in order of their best seller.
+  3. Inside each group block: NEW (in stock) → in stock → NEW (sold out) → sold out,
+     each by sales rank (= collection order). Nothing ever leaves its group block.
+
+  The switcher only renders when the current product belongs to the collection and is not
+  excluded, so bundles / collaterals / display units do not show it.
 
   Usage:
   {% render 'flavour-switcher', collection: block.settings.flavour_collection, current_product: product, id: block.id %}
 {% endcomment %}
 
 {%- liquid
+  assign exclude_tag = exclude_tag | default: 'switcher:hide' | downcase | strip
+  assign group_order_setting = group_order | default: 'Fruit: Mint, Other | Mint: Fruit, Other | Other: Fruit, Mint'
+
   assign in_collection = false
+  assign current_group = ''
+  assign flavour_count = 0
+  assign p_groups = ''
+  assign p_tiers = ''
+  assign p_strengths = ''
+  assign group_labels = ''
+
   if collection != blank and collection.products_count > 1
     for p in collection.products limit: 50
-      if p.id == current_product.id
-        assign in_collection = true
-        break
+      assign p_excluded = false
+      assign p_new = false
+      assign p_group = p.metafields.custom.flavour_group.value | strip
+      assign tag_group = ''
+
+      for tag in p.tags
+        assign tag_down = tag | downcase | strip
+        if tag_down == exclude_tag
+          assign p_excluded = true
+        elsif tag_down == 'new'
+          assign p_new = true
+        elsif tag_group == blank and tag_down contains 'flavour:'
+          assign tag_group = tag | split: ':' | last | strip
+        endif
+      endfor
+
+      if p_group == blank
+        assign p_group = tag_group | default: 'Other'
       endif
+      assign g_key = p_group | handleize
+
+      if p_excluded
+        assign g_key = '~'
+        assign tier = '9'
+      elsif p.id == current_product.id
+        assign in_collection = true
+        assign current_group = g_key
+        assign tier = '0'
+      elsif p.available and p_new
+        assign tier = '1'
+      elsif p.available
+        assign tier = '2'
+      elsif p_new
+        assign tier = '3'
+      else
+        assign tier = '4'
+      endif
+
+      assign strengths = ''
+      unless p_excluded or p.has_only_default_variant
+        assign flavour_count = flavour_count | plus: 1
+        assign s_pos = 0
+        for opt in p.options_with_values
+          assign opt_name = opt.name | downcase
+          if opt_name contains 'strength' or opt_name contains 'nicotine'
+            assign s_pos = forloop.index0
+            break
+          endif
+        endfor
+        assign s_list = '|'
+        for v in p.variants
+          assign s_val = v.options[s_pos] | strip
+          assign s_mg = ''
+          assign s_words = s_val | split: ' '
+          for w in s_words
+            assign w_down = w | downcase
+            if w_down contains 'mg'
+              assign s_mg = w
+            endif
+          endfor
+          assign s_val = s_mg | default: s_val
+          assign s_key = '|' | append: s_val | append: '|'
+          unless s_list contains s_key
+            assign s_list = s_list | append: s_val | append: '|'
+          endunless
+        endfor
+        assign strengths = s_list | remove_first: '|' | split: '|' | join: ' | '
+      else
+        unless p_excluded
+          assign flavour_count = flavour_count | plus: 1
+        endunless
+      endunless
+
+      unless p_excluded
+        assign label_key = '|' | append: g_key | append: '='
+        unless group_labels contains label_key
+          assign group_labels = group_labels | append: label_key | append: p_group | append: '|'
+        endunless
+      endunless
+
+      assign p_groups = p_groups | append: g_key | append: ','
+      assign p_tiers = p_tiers | append: tier | append: ','
+      assign p_strengths = p_strengths | append: strengths | append: '^^'
     endfor
   endif
 -%}
 
 {%- if in_collection -%}
   {%- liquid
-    assign category_list = ''
-    assign has_other = false
-    for p in collection.products limit: 50
-      assign p_category = ''
-      for tag in p.tags
-        assign tag_down = tag | downcase
-        if tag_down contains 'flavour:'
-          assign p_category = tag | split: ':' | last | strip
-          break
-        endif
-      endfor
-      if p_category == blank
-        assign has_other = true
-      else
-        assign cat_key = '|' | append: p_category | append: '|'
-        unless category_list contains cat_key
-          assign category_list = category_list | append: cat_key
+    assign p_groups = p_groups | split: ','
+    assign p_tiers = p_tiers | split: ','
+    assign p_strengths = p_strengths | split: '^^'
+
+    # Group order: current group, then its fallback list from the setting,
+    # then any remaining groups in order of their best seller.
+    assign ordered = '|' | append: current_group | append: '|'
+
+    assign fallback_list = ''
+    assign rules = group_order_setting | split: '|'
+    for rule in rules
+      assign rule_parts = rule | split: ':'
+      assign rule_key = rule_parts.first | handleize
+      if rule_key == current_group and rule_parts.size > 1
+        assign fallback_list = rule_parts.last
+        break
+      endif
+    endfor
+
+    assign fallback_items = fallback_list | split: ','
+    for item in fallback_items
+      assign k = item | handleize
+      assign label_key = '|' | append: k | append: '='
+      assign order_key = '|' | append: k | append: '|'
+      if k != blank and group_labels contains label_key
+        unless ordered contains order_key
+          assign ordered = ordered | append: k | append: '|'
         endunless
       endif
     endfor
 
+    assign label_entries = group_labels | split: '|'
+    for entry in label_entries
+      if entry == blank
+        continue
+      endif
+      assign k = entry | split: '=' | first
+      assign order_key = '|' | append: k | append: '|'
+      unless ordered contains order_key
+        assign ordered = ordered | append: k | append: '|'
+      endunless
+    endfor
+
+    assign group_keys = ordered | remove_first: '|' | split: '|'
+
+    # Final swatch order as a list of collection indexes:
+    # groups in page order → tier (0 current, 1 new, 2 in stock, 3 new sold out, 4 sold out) → best selling.
+    assign order_list = ''
+    for g_key in group_keys
+      for tier_num in (0..4)
+        assign tier = tier_num | append: ''
+        for p in collection.products limit: 50
+          assign idx = forloop.index0
+          if p_groups[idx] == g_key and p_tiers[idx] == tier
+            assign order_list = order_list | append: idx | append: ','
+          endif
+        endfor
+      endfor
+    endfor
+    assign order_list = order_list | split: ','
+
     assign current_name = current_product.metafields.custom.flavour_name.value | default: current_product.title
-    assign current_name = current_name | remove: 'übbs' | remove: 'ÜBBS' | remove: 'Übbs' | remove: 'UBBS' | remove: 'Ubbs' | strip
+    assign current_name = current_name | remove: 'übbs' | remove: 'ÜBBS' | remove: 'Übbs' | remove: 'UBBS' | remove: 'Ubbs' | remove: 'Nicotine Pouches' | strip
   -%}
 
   <div class="flavour-switcher" id="FlavourSwitcher-{{ id }}" data-flavour-switcher>
     <div class="flavour-switcher__header">
       <p class="flavour-switcher__label form__label">
-        Flavour: <span class="flavour-switcher__current-name">{{ current_name | remove: 'Nicotine Pouches' }}</span>
+        Flavour: <span class="flavour-switcher__current-name">{{ current_name | escape }}</span>
       </p>
-
-      {%- if category_list != blank -%}
-        <div class="flavour-switcher__filters" role="group" aria-label="Filter flavours">
-          <button type="button" class="flavour-switcher__filter" data-filter="all" aria-pressed="true">All</button>
-          {%- assign cats = category_list | remove_first: '|' | split: '||' -%}
-          {%- for cat in cats -%}
-            {%- assign cat_clean = cat | remove: '|' -%}
-            <button
-              type="button"
-              class="flavour-switcher__filter"
-              data-filter="{{ cat_clean | handleize }}"
-              aria-pressed="false"
-            >
-              {{ cat_clean | escape }}
-            </button>
-          {%- endfor -%}
-          {%- if has_other -%}
-            <button type="button" class="flavour-switcher__filter" data-filter="other" aria-pressed="false">
-              Other
-            </button>
-          {%- endif -%}
-        </div>
-      {%- endif -%}
+      <button
+        type="button"
+        class="flavour-switcher__all"
+        aria-haspopup="dialog"
+        aria-controls="FlavourSheet-{{ id }}"
+        data-flavour-open
+      >
+        All {{ flavour_count }}
+      </button>
     </div>
 
+    {%- comment -%} Swatch row {%- endcomment -%}
     <ul class="flavour-switcher__list" role="list">
-      {%- comment -%} Pass 1 renders the current flavour only, pass 2 the rest – so the current one is always first. {%- endcomment -%}
-      {%- for pass in (1..2) -%}
-        {%- for p in collection.products limit: 50 -%}
-          {%- liquid
-            if pass == 1 and p.id != current_product.id
-              continue
-            elsif pass == 2 and p.id == current_product.id
-              continue
-            endif
+      {%- for i in order_list -%}
+        {%- liquid
+          assign idx = i | plus: 0
+          assign p = collection.products[idx]
+          assign g_key = p_groups[idx]
+          assign tier = p_tiers[idx]
+          assign strengths = p_strengths[idx]
 
-            assign p_category = 'other'
-            for tag in p.tags
-              assign tag_down = tag | downcase
-              if tag_down contains 'flavour:'
-                assign p_category = tag | split: ':' | last | strip | handleize
-                break
-              endif
-            endfor
+          assign p_name = p.metafields.custom.flavour_name.value | default: p.title
+          assign p_name = p_name | remove: 'übbs' | remove: 'ÜBBS' | remove: 'Übbs' | remove: 'UBBS' | remove: 'Ubbs' | remove: 'Nicotine Pouches' | strip
+          assign p_image = p.metafields.custom.flavour_swatch.value | default: p.images[1] | default: p.featured_image
 
-            assign p_name = p.metafields.custom.flavour_name.value | default: p.title
-            assign p_name = p_name | remove: 'übbs' | remove: 'ÜBBS' | remove: 'Übbs' | remove: 'UBBS' | remove: 'Ubbs' | strip
-
-            assign p_image = p.metafields.custom.flavour_swatch.value | default: p.images[1]
-
-            assign strengths = ''
-            for v in p.variants
-              if v.available
-                assign strengths = strengths | append: v.title | append: '||'
-              endif
-            endfor
-            assign strengths = strengths | split: '||' | uniq | join: ', '
-
-            assign is_current = false
-            if p.id == current_product.id
-              assign is_current = true
-            endif
-
-            assign is_new = false
-            if p.tags contains 'New' or p.tags contains 'new'
-              assign is_new = true
-            endif
-          -%}
-          <li
-            class="flavour-switcher__item{% if is_current %} is-current{% endif %}{% unless p.available %} is-sold-out{% endunless %}"
-            data-category="{{ p_category }}"
-          >
-            {%- if is_current -%}
-              <span class="flavour-switcher__swatch" aria-current="true">
-            {%- else -%}
-              <a
-                class="flavour-switcher__swatch"
-                href="{{ p.url }}"
-                aria-describedby="FlavourTip-{{ id }}-{{ p.id }}"
-              >
-            {%- endif -%}
-            {%- if is_new -%}
-              <span class="flavour-switcher__new">New</span>
-            {%- endif -%}
-            <span
-              class="flavour-switcher__circle"
-              {% if p.metafields.custom.product_color != blank %}
-                style="--flavour-color: {{ p.metafields.custom.product_color }};"
-              {% endif %}
+          assign is_current = false
+          if tier == '0'
+            assign is_current = true
+          endif
+          assign is_new = false
+          if tier == '1' or tier == '3'
+            assign is_new = true
+          endif
+        -%}
+        <li
+          class="flavour-switcher__item{% if is_current %} is-current{% endif %}{% unless p.available %} is-sold-out{% endunless %}"
+          data-category="{{ g_key }}"
+        >
+          {%- if is_current -%}
+            <span class="flavour-switcher__swatch" aria-current="true">
+          {%- else -%}
+            <a
+              class="flavour-switcher__swatch"
+              href="{{ p.url }}"
+              aria-describedby="FlavourTip-{{ id }}-{{ p.id }}"
             >
-              {%- if p_image != blank -%}
-                {{
-                  p_image
-                  | image_url: width: 160
-                  | image_tag: loading: 'lazy', alt: p_name, width: 80, height: 80, class: 'flavour-switcher__img'
-                }}
-              {%- endif -%}
-            </span>
-            <span class="flavour-switcher__name">{{ p_name | escape | remove: 'Nicotine Pouches' }}</span>
-            {%- unless is_current -%}
-              <span class="flavour-switcher__tooltip" role="tooltip" id="FlavourTip-{{ id }}-{{ p.id }}">
-                <strong>{{ p_name | escape }}</strong>
-                {%- if p.available -%}
-                  {%- if strengths != blank and p.has_only_default_variant == false %}
-                    <span>{{ strengths | escape }}</span>
-                  {%- endif -%}
-                {%- else %}
-                  <span>Sold out – join the back in stock alert</span>
-                {%- endif -%}
-              </span>
-            {%- endunless -%}
-            {%- if is_current -%}
-              </span>
-            {%- else -%}
-              </a>
+          {%- endif -%}
+          {%- if is_new -%}
+            <span class="flavour-switcher__new">New</span>
+          {%- endif -%}
+          <span
+            class="flavour-switcher__circle"
+            {% if p.metafields.custom.product_color != blank %}
+              style="--flavour-color: {{ p.metafields.custom.product_color }};"
+            {% endif %}
+          >
+            {%- if p_image != blank -%}
+              {{
+                p_image
+                | image_url: width: 120
+                | image_tag: loading: 'lazy', alt: '', width: 60, height: 60, class: 'flavour-switcher__img'
+              }}
             {%- endif -%}
-          </li>
-        {%- endfor -%}
+          </span>
+          <span class="visually-hidden">
+            {{- p_name | escape -}}
+            {%- unless p.available %} – sold out{% endunless -%}
+          </span>
+          {%- unless is_current -%}
+            <span class="flavour-switcher__tooltip" role="tooltip" id="FlavourTip-{{ id }}-{{ p.id }}">
+              <strong>{{ p_name | escape }}</strong>
+              {%- if strengths != blank %}
+                <span>{{ strengths | escape }}</span>
+              {%- endif -%}
+              {%- unless p.available %}
+                <span>Sold out – join the back in stock alert</span>
+              {%- endunless -%}
+            </span>
+          {%- endunless -%}
+          {%- if is_current -%}
+            </span>
+          {%- else -%}
+            </a>
+          {%- endif -%}
+        </li>
       {%- endfor -%}
     </ul>
+
+    {%- comment -%} "Choose flavour" sheet {%- endcomment -%}
+    <dialog
+      class="flavour-sheet"
+      id="FlavourSheet-{{ id }}"
+      aria-labelledby="FlavourSheetTitle-{{ id }}"
+      data-flavour-sheet
+    >
+      <div class="flavour-sheet__panel">
+        <span class="flavour-sheet__handle" aria-hidden="true"></span>
+        <div class="flavour-sheet__top">
+          <h2 class="flavour-sheet__title" id="FlavourSheetTitle-{{ id }}">Choose flavour</h2>
+          <button type="button" class="flavour-sheet__close" aria-label="Close" data-flavour-close>
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+
+        {%- if group_keys.size > 1 -%}
+          <div class="flavour-sheet__filters" role="group" aria-label="Filter flavours">
+            <button type="button" class="flavour-sheet__filter" data-filter="all" aria-pressed="true">All</button>
+            {%- for g_key in group_keys -%}
+              {%- assign label_key = '|' | append: g_key | append: '=' -%}
+              {%- assign g_label = group_labels | split: label_key | last | split: '|' | first -%}
+              <button type="button" class="flavour-sheet__filter" data-filter="{{ g_key }}" aria-pressed="false">
+                {{- g_label | escape -}}
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        <div class="flavour-sheet__body">
+          {%- for g_key in group_keys -%}
+            {%- assign label_key = '|' | append: g_key | append: '=' -%}
+            {%- assign g_label = group_labels | split: label_key | last | split: '|' | first -%}
+            <section class="flavour-sheet__group" data-category="{{ g_key }}">
+              <h3 class="flavour-sheet__group-title">{{ g_label | escape }}</h3>
+              <ul class="flavour-sheet__list" role="list">
+                {%- for i in order_list -%}
+                  {%- liquid
+                    assign idx = i | plus: 0
+                    if p_groups[idx] != g_key
+                      continue
+                    endif
+                    assign p = collection.products[idx]
+                    assign tier = p_tiers[idx]
+                    assign strengths = p_strengths[idx]
+
+                    assign p_name = p.metafields.custom.flavour_name.value | default: p.title
+                    assign p_name = p_name | remove: 'übbs' | remove: 'ÜBBS' | remove: 'Übbs' | remove: 'UBBS' | remove: 'Ubbs' | remove: 'Nicotine Pouches' | strip
+                    assign p_image = p.metafields.custom.flavour_swatch.value | default: p.images[1] | default: p.featured_image
+
+                    assign is_current = false
+                    if tier == '0'
+                      assign is_current = true
+                    endif
+                    assign is_new = false
+                    if tier == '1' or tier == '3'
+                      assign is_new = true
+                    endif
+                  -%}
+                  <li class="flavour-sheet__item{% if is_current %} is-current{% endif %}{% unless p.available %} is-sold-out{% endunless %}">
+                    {%- if is_current -%}
+                      <span class="flavour-sheet__row" aria-current="true">
+                    {%- else -%}
+                      <a class="flavour-sheet__row" href="{{ p.url }}">
+                    {%- endif -%}
+                    <span
+                      class="flavour-sheet__circle"
+                      {% if p.metafields.custom.product_color != blank %}
+                        style="--flavour-color: {{ p.metafields.custom.product_color }};"
+                      {% endif %}
+                    >
+                      {%- if p_image != blank -%}
+                        {{
+                          p_image
+                          | image_url: width: 96
+                          | image_tag: loading: 'lazy', alt: '', width: 48, height: 48, class: 'flavour-switcher__img'
+                        }}
+                      {%- endif -%}
+                    </span>
+                    <span class="flavour-sheet__text">
+                      <span class="flavour-sheet__name">
+                        {{- p_name | escape -}}
+                        {%- if is_new %}
+                          <span class="flavour-sheet__new">New</span>
+                        {%- endif -%}
+                      </span>
+                      {%- if strengths != blank -%}
+                        <span class="flavour-sheet__strengths">{{ strengths | escape }}</span>
+                      {%- endif -%}
+                    </span>
+                    {%- unless p.available -%}
+                      <span class="flavour-sheet__status">Sold out</span>
+                    {%- endunless -%}
+                    {%- if is_current -%}
+                      <svg
+                        class="flavour-sheet__check"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M3 10.5l4.5 4.5L17 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      <span class="visually-hidden">(selected)</span>
+                    {%- endif -%}
+                    {%- if is_current -%}
+                      </span>
+                    {%- else -%}
+                      </a>
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </section>
+          {%- endfor -%}
+        </div>
+      </div>
+    </dialog>
   </div>
 
   <style>
-    .flavour-switcher {
+    .flavour-switcher,
+    .flavour-sheet {
       --flavour-accent: #7d5bbf;
       --flavour-accent-soft: #efe9fa;
-      margin: 0 0 2.4rem;
+      --flavour-ink: #121212;
+      --flavour-muted: #6b6b6b;
+      --flavour-sold-out: #e5525f;
+      --flavour-size: 5.5rem;
+    }
+    .flavour-switcher {
+      margin: 0 0 2rem;
     }
     .flavour-switcher__header {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+      align-items: baseline;
       justify-content: space-between;
       gap: 1.2rem;
-      margin: 1.6rem 0;
+      margin: 1.6rem 0 1.2rem;
     }
     .flavour-switcher__label {
       margin: 0;
@@ -209,58 +453,47 @@
     .flavour-switcher__current-name {
       font-weight: 400;
     }
-    .flavour-switcher__filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-    .flavour-switcher__filter {
-      min-width: 6.4rem;
-      padding: 0.6rem 1.8rem;
-      border: 1px solid #c9c9c9;
-      border-radius: 99px;
-      background: #fff;
-      color: #121212;
+    .flavour-switcher__all {
+      padding: 0;
+      border: 0;
+      background: none;
+      color: var(--flavour-accent);
       font: inherit;
       font-size: 1.4rem;
-      line-height: 1.4;
-      cursor: pointer;
-      transition: border-color 0.15s, background-color 0.15s;
-    }
-    .flavour-switcher__filter:hover {
-      border-color: var(--flavour-accent);
-    }
-    .flavour-switcher__filter[aria-pressed='true'] {
-      border: 2px solid var(--flavour-accent);
-      background: var(--flavour-accent-soft);
       font-weight: 700;
-      padding: 0.5rem 1.7rem;
+      text-decoration: underline;
+      text-underline-offset: 0.3rem;
+      cursor: pointer;
+      white-space: nowrap;
     }
+    .flavour-switcher__all:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    /* Swatch row – desktop: rows of seven */
     .flavour-switcher__list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(7.2rem, 1fr));
-      gap: 1.6rem 0.8rem;
+      grid-template-columns: repeat(7, var(--flavour-size));
+      justify-content: space-between;
+      gap: 1.2rem 0.8rem;
       margin: 0;
-      padding: 0;
+      padding: 0.6rem 0.6rem 0.4rem;
       list-style: none;
     }
-    .flavour-switcher__item[hidden] {
-      display: none;
+    .flavour-switcher__item {
+      display: flex;
+      justify-content: center;
     }
     .flavour-switcher__swatch {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.6rem;
+      display: block;
       color: inherit;
       text-decoration: none;
-      text-align: center;
     }
     .flavour-switcher__circle {
       display: block;
-      width: 5.6rem;
-      height: 5.6rem;
+      width: var(--flavour-size);
+      height: var(--flavour-size);
       border-radius: 50%;
       overflow: hidden;
       background: var(--flavour-color, #eee);
@@ -274,24 +507,15 @@
       object-fit: cover;
       scale: 1.3;
     }
-    .flavour-switcher__name {
-      font-size: 1.2rem;
-      line-height: 1.25;
-      word-break: break-word;
-    }
 
     /* Current */
     .flavour-switcher__item.is-current .flavour-switcher__circle {
       box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--flavour-color);
     }
-    .flavour-switcher__item.is-current .flavour-switcher__name {
-      font-weight: 700;
-    }
 
     /* Hover / focus */
-    a.flavour-switcher__swatch:hover .flavour-switcher__circle,
-    a.flavour-switcher__swatch:focus-visible .flavour-switcher__circle {
-      transform: translateY(-3px);
+    a.flavour-switcher__swatch:hover .flavour-switcher__circle {
+      transform: translateY(-2px);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
     a.flavour-switcher__swatch:focus-visible {
@@ -305,22 +529,19 @@
     .flavour-switcher__item.is-sold-out .flavour-switcher__circle {
       opacity: 0.4;
     }
-    .flavour-switcher__item.is-sold-out .flavour-switcher__name {
-      color: #8a8a8a;
-    }
 
     /* New */
     .flavour-switcher__new {
       position: absolute;
-      top: -1rem;
+      top: -0.8rem;
       left: 50%;
       z-index: 1;
       transform: translateX(-50%);
-      padding: 0.2rem 0.8rem;
+      padding: 0.1rem 0.5rem;
       border-radius: 99px;
-      background: #e5525f;
+      background: var(--flavour-sold-out);
       color: #fff;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       font-weight: 700;
       line-height: 1.3;
       letter-spacing: 0.04em;
@@ -328,10 +549,10 @@
       white-space: nowrap;
     }
 
-    /* Tooltip */
+    /* Tooltip (desktop hover only) */
     .flavour-switcher__tooltip {
       position: absolute;
-      bottom: calc(100% + 0.6rem);
+      bottom: calc(100% + 0.8rem);
       left: 50%;
       z-index: 3;
       display: flex;
@@ -341,7 +562,7 @@
       max-width: 18rem;
       padding: 0.6rem 1rem;
       border-radius: 0.6rem;
-      background: #121212;
+      background: var(--flavour-ink);
       color: #fff;
       font-size: 1.2rem;
       line-height: 1.35;
@@ -363,19 +584,270 @@
         display: none;
       }
     }
+
+    /* Mobile: one row, sideways scroll */
+    @media screen and (max-width: 749px) {
+      .flavour-switcher {
+        --flavour-size: 4.4rem;
+      }
+      .flavour-switcher__list {
+        display: flex;
+        gap: 1.2rem;
+        margin: 0 -1.5rem;
+        padding: 0.8rem 1.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .flavour-switcher__list::-webkit-scrollbar {
+        display: none;
+      }
+      .flavour-switcher__item {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+      }
+      .flavour-switcher__tooltip {
+        display: none;
+      }
+    }
+
+    /* ---------- Sheet ---------- */
+    .flavour-sheet {
+      width: min(52rem, calc(100% - 3.2rem));
+      max-width: none;
+      max-height: min(80vh, 72rem);
+      margin: auto;
+      padding: 0;
+      border: 0;
+      border-radius: 1.6rem;
+      background: #fff;
+      color: var(--flavour-ink);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+    .flavour-sheet::backdrop {
+      background: rgba(18, 18, 18, 0.45);
+    }
+    .flavour-sheet[open] {
+      display: flex;
+    }
+    .flavour-sheet__panel {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-height: inherit;
+    }
+    .flavour-sheet__handle {
+      display: none;
+    }
+    .flavour-sheet__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+      padding: 2.4rem 2.4rem 1.2rem;
+    }
+    .flavour-sheet__title {
+      margin: 0;
+      font-family: BlinkerBold, BlinkerRegular, sans-serif;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+    .flavour-sheet__close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.6rem;
+      height: 3.6rem;
+      margin-right: -0.8rem;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: none;
+      color: var(--flavour-ink);
+      cursor: pointer;
+    }
+    .flavour-sheet__close:hover {
+      background: #f2f2f2;
+    }
+    .flavour-sheet__filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      padding: 0 2.4rem 1.6rem;
+    }
+    .flavour-sheet__filter {
+      min-width: 6.4rem;
+      padding: 0.6rem 1.6rem;
+      border: 1px solid #c9c9c9;
+      border-radius: 99px;
+      background: #fff;
+      color: var(--flavour-ink);
+      font: inherit;
+      font-size: 1.4rem;
+      line-height: 1.4;
+      cursor: pointer;
+      transition: border-color 0.15s, background-color 0.15s;
+    }
+    .flavour-sheet__filter:hover {
+      border-color: var(--flavour-accent);
+    }
+    .flavour-sheet__filter[aria-pressed='true'] {
+      padding: 0.5rem 1.5rem;
+      border: 2px solid var(--flavour-accent);
+      background: var(--flavour-accent-soft);
+      font-weight: 700;
+    }
+    .flavour-sheet__body {
+      flex: 1 1 auto;
+      padding: 0 1.2rem 2.4rem;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+    .flavour-sheet__group[hidden] {
+      display: none;
+    }
+    .flavour-sheet__group + .flavour-sheet__group {
+      margin-top: 1.6rem;
+    }
+    .flavour-sheet__group-title {
+      margin: 0 1.2rem 0.6rem;
+      color: var(--flavour-muted);
+      font-family: inherit;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .flavour-sheet__list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .flavour-sheet__row {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 0.8rem 1.2rem;
+      border: 2px solid transparent;
+      border-radius: 1rem;
+      color: inherit;
+      text-decoration: none;
+    }
+    a.flavour-sheet__row:hover {
+      background: #f6f6f6;
+    }
+    a.flavour-sheet__row:focus-visible {
+      outline: 2px solid var(--flavour-accent);
+      outline-offset: -2px;
+    }
+    .flavour-sheet__item.is-current .flavour-sheet__row {
+      border-color: var(--flavour-accent);
+      background: var(--flavour-accent-soft);
+    }
+    .flavour-sheet__circle {
+      flex: 0 0 auto;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--flavour-color, #eee);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+    }
+    .flavour-sheet__item.is-sold-out .flavour-sheet__circle {
+      opacity: 0.4;
+    }
+    .flavour-sheet__text {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .flavour-sheet__name {
+      font-family: BlinkerBold, BlinkerRegular, sans-serif;
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+    .flavour-sheet__new {
+      display: inline-block;
+      margin-left: 0.4rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 99px;
+      background: var(--flavour-sold-out);
+      color: #fff;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+    .flavour-sheet__strengths {
+      color: var(--flavour-muted);
+      font-size: 1.3rem;
+      line-height: 1.3;
+    }
+    .flavour-sheet__status {
+      flex: 0 0 auto;
+      color: var(--flavour-sold-out);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .flavour-sheet__check {
+      flex: 0 0 auto;
+      color: var(--flavour-accent);
+    }
+
+    /* Mobile: bottom sheet */
+    @media screen and (max-width: 749px) {
+      .flavour-sheet {
+        width: 100%;
+        max-height: 85vh;
+        margin: auto 0 0;
+        border-radius: 2rem 2rem 0 0;
+      }
+      .flavour-sheet[open] {
+        animation: flavour-sheet-up 0.25s ease-out;
+      }
+      .flavour-sheet__handle {
+        display: block;
+        width: 4.4rem;
+        height: 0.5rem;
+        margin: 1rem auto 0;
+        border-radius: 99px;
+        background: #d6d6d6;
+      }
+      .flavour-sheet__top {
+        padding: 1.6rem 2rem 1.2rem;
+      }
+      .flavour-sheet__filters {
+        flex-wrap: nowrap;
+        padding: 0 2rem 1.2rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .flavour-sheet__filter {
+        flex: 0 0 auto;
+      }
+      .flavour-sheet__body {
+        padding: 0 0.8rem 2.4rem;
+      }
+    }
+    @keyframes flavour-sheet-up {
+      from {
+        transform: translateY(100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .flavour-switcher__circle,
       .flavour-switcher__tooltip {
         transition: none;
       }
-    }
-    @media screen and (max-width: 749px) {
-      .flavour-switcher__list {
-        grid-template-columns: repeat(auto-fill, minmax(6.4rem, 1fr));
-      }
-      .flavour-switcher__circle {
-        width: 5rem;
-        height: 5rem;
+      .flavour-sheet[open] {
+        animation: none;
       }
     }
   </style>
@@ -385,16 +857,57 @@
       var root = document.getElementById('FlavourSwitcher-{{ id }}');
       if (!root || root.dataset.ready) return;
       root.dataset.ready = 'true';
-      var buttons = root.querySelectorAll('.flavour-switcher__filter');
-      var items = root.querySelectorAll('.flavour-switcher__item');
-      buttons.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var filter = btn.dataset.filter;
-          buttons.forEach(function (b) {
-            b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+
+      var sheet = root.querySelector('[data-flavour-sheet]');
+      var openBtn = root.querySelector('[data-flavour-open]');
+      var closeBtn = root.querySelector('[data-flavour-close]');
+      if (!sheet || !openBtn) return;
+
+      // Move the dialog to <body> so theme containers (overflow / transform) can't clip it.
+      // Drop any copy left behind by a previous render (theme editor / section reload).
+      document.querySelectorAll('body > #' + sheet.id).forEach(function (old) {
+        if (old !== sheet) old.remove();
+      });
+      document.body.appendChild(sheet);
+
+      function openSheet() {
+        if (typeof sheet.showModal === 'function') {
+          sheet.showModal();
+        } else {
+          sheet.setAttribute('open', '');
+        }
+        document.documentElement.style.overflow = 'hidden';
+      }
+      function closeSheet() {
+        if (typeof sheet.close === 'function') {
+          sheet.close();
+        } else {
+          sheet.removeAttribute('open');
+        }
+      }
+
+      openBtn.addEventListener('click', openSheet);
+      if (closeBtn) closeBtn.addEventListener('click', closeSheet);
+      sheet.addEventListener('close', function () {
+        document.documentElement.style.overflow = '';
+        openBtn.focus();
+      });
+      // Click on the backdrop closes the sheet.
+      sheet.addEventListener('click', function (e) {
+        if (e.target === sheet) closeSheet();
+      });
+
+      // Filter chips
+      var chips = sheet.querySelectorAll('.flavour-sheet__filter');
+      var groups = sheet.querySelectorAll('.flavour-sheet__group');
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          var filter = chip.dataset.filter;
+          chips.forEach(function (c) {
+            c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
           });
-          items.forEach(function (item) {
-            item.hidden = filter !== 'all' && item.dataset.category !== filter;
+          groups.forEach(function (g) {
+            g.hidden = filter !== 'all' && g.dataset.category !== filter;
           });
         });
       });

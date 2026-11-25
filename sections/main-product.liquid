@@ -1392,7 +1392,12 @@
                     assign flavour_collection = collections.flavours
                   endif
                 -%}
-                {% render 'flavour-switcher', collection: flavour_collection, current_product: product, id: block.id %}
+                {% render 'flavour-switcher',
+                  collection: flavour_collection,
+                  current_product: product,
+                  id: block.id,
+                  group_order: block.settings.flavour_group_order
+                %}
               {%- endif -%}
               {%- unless product.has_only_default_variant -%}
                 {%- if block.settings.picker_type == 'button' -%}
@@ -2303,7 +2308,14 @@
           "type": "collection",
           "id": "flavour_collection",
           "label": "Flavour collection",
-          "info": "Collection containing every flavour product. Falls back to the collection with handle 'flavours'. Only shown on products inside this collection. The current flavour is always shown first; the rest follow the collection's sort order – set it to 'Best selling' in admin. Filter by tagging products 'flavour:Fruit', 'flavour:Mint' etc. Tag 'New' shows the NEW badge. Optional metafields: custom.flavour_name (text), custom.flavour_swatch (image)."
+          "info": "Collection containing every flavour product. Falls back to the collection with handle 'flavours'. Set its sort order to 'Best selling' in admin – that is the sales rank. Group: metafield custom.flavour_group (Fruit, Mint, Other) or tag 'flavour:Fruit'. Tag 'new' puts a flavour first in its group. Tag 'switcher:hide' removes a product (bundles, samples, Roll of 5, duplicates)."
+        },
+        {
+          "type": "text",
+          "id": "flavour_group_order",
+          "label": "Flavour group fallback order",
+          "default": "Fruit: Mint, Other | Mint: Fruit, Other | Other: Fruit, Mint",
+          "info": "For each group: which groups follow it after its own flavours. Format 'Group: Next, Last' separated by |."
         }
       ]
     },
