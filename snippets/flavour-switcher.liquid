@@ -596,9 +596,10 @@
         display: flex;
         gap: 1.2rem;
         {% comment %} margin: 0 -1.5rem; {% endcomment %}
-        padding: 0.8rem 1.5rem;
-        overflow-x: auto;
-        {% comment %} scroll-snap-type: x proximity;
+        padding: 0.8rem 1rem;
+        overflow-x: hidden
+        {% comment %} overflow-x: auto;
+        scroll-snap-type: x proximity;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch; {% endcomment %}
       }
