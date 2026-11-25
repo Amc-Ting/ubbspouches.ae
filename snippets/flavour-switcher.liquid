@@ -595,12 +595,12 @@
       .flavour-switcher__list {
         display: flex;
         gap: 1.2rem;
-        margin: 0 -1.5rem;
+        {% comment %} margin: 0 -1.5rem; {% endcomment %}
         padding: 0.8rem 1.5rem;
         overflow-x: auto;
-        scroll-snap-type: x proximity;
+        {% comment %} scroll-snap-type: x proximity;
         scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch; {% endcomment %}
       }
       .flavour-switcher__list::-webkit-scrollbar {
         display: none;
