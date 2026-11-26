@@ -841,8 +841,9 @@ p {
     line-height: 140%;
     text-transform: capitalize;
 }
-.cmn_btn{
-  
+.index-1 .cmn_btn{
+      background: #FFF;
+    color: #000;
 }
 /* Fill layer for hover effect */
 .cmn_btn::before {
