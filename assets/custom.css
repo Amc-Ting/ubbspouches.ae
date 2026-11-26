@@ -844,6 +844,7 @@ p {
 .index-1 .cmn_btn{
       background: #FFF;
     color: #000;
+    border: 1px solid black;
 }
 /* Fill layer for hover effect */
 .cmn_btn::before {
@@ -864,6 +865,7 @@ p {
 } */
 .index-1 .cmn_btn:before{
   background: #000;  
+  
 }
 .cmn_btn:hover {
     color: black;
