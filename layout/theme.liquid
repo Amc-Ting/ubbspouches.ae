@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
+    {%- if request.page_type == 'collection' and collection.handle == 'flavours' -%}
+      <meta name="robots" content="noindex, follow">
+      <meta http-equiv="refresh" content="0; url={{ routes.root_url }}collections/shop">
+      <script>window.location.replace('{{ routes.root_url }}collections/shop');</script>
+    {%- endif -%}
     <link rel="canonical" href="{{ canonical_url }}">
     {% render 'hreflang-tags' %}
     {%- if settings.favicon != blank -%}
