@@ -866,7 +866,10 @@ p {
 .cmn_btn:hover {
     color: black;
 }
-
+.index-1 .cmn_btn{
+      background: #FFF;
+    color: #000;
+}
 
 .visible-xs {
   display: block; }
