@@ -60,7 +60,6 @@
       "blocks": {
         "slide_Rp97CH": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "use_video": false,
             "image": "shopify://shop_images/Cola_Ice_14_MG_-_1920_x_525.jpg",
@@ -72,10 +71,10 @@
             "heading": "",
             "text": "",
             "button_label": "Shop Cola Ice",
-            "button_link": "",
+            "button_link": "shopify://products/cola-ice",
             "text_color": "#ffffff",
             "text_align": "left",
-            "content_position": "center-center"
+            "content_position": "bottom-left"
           }
         },
         "slide_EaJGHH": {
@@ -118,6 +117,7 @@
         },
         "slide_tNcxtc": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "use_video": false,
             "image": "shopify://shop_images/Tablet_-_1920_x_525.jpg",
