@@ -25,7 +25,6 @@
       "blocks": {
         "slide_HnterX": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "use_video": false,
             "image": "shopify://shop_images/Collection_Banner_1-_1920_x_400.jpg",
@@ -83,6 +82,7 @@
         },
         "slide_zHypqB": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "use_video": false,
             "image": "shopify://shop_images/Banner_3_-_1920_x_400.jpg",
