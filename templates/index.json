@@ -229,6 +229,17 @@
     "prmo_card_new_CxrK4H": {
       "type": "prmo-card-new",
       "blocks": {
+        "column_LQwUHK": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Small_Homepage_Promo_Banner_-_345_x_346.jpg",
+            "heading": "COLA ICE 14MG",
+            "text": "Classic cola. Ice cold finish.",
+            "button_label": "Shop Cola Ice",
+            "button_link": ""
+          }
+        },
         "column_NMnhHH": {
           "type": "column",
           "settings": {
@@ -293,6 +304,7 @@
         }
       },
       "block_order": [
+        "column_LQwUHK",
         "column_NMnhHH",
         "column_VHtV3H",
         "column_WpTKUY",
