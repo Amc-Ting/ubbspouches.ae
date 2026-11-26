@@ -231,13 +231,12 @@
       "blocks": {
         "column_LQwUHK": {
           "type": "column",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Small_Homepage_Promo_Banner_-_345_x_346.jpg",
             "heading": "COLA ICE 14MG",
             "text": "Classic cola. Ice cold finish.",
             "button_label": "Shop Cola Ice",
-            "button_link": ""
+            "button_link": "shopify://products/cola-ice"
           }
         },
         "column_NMnhHH": {
@@ -272,6 +271,7 @@
         },
         "column_NBrXJC": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/345_x_345.webp",
             "heading": "JOIN ÜBBS REWARDS",
