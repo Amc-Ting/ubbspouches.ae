@@ -862,7 +862,9 @@ p {
 /* .cmn_btn:hover::before {
     left: 0;
 } */
-
+.index-1 .cmn_btn:before{
+  background: #000;  
+}
 .cmn_btn:hover {
     color: black;
 }
