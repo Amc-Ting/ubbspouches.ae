@@ -1,181 +1,181 @@
 <style>
-        .custom-announcement-bar{
-        padding: 0;
-        overflow: hidden;
-        background: #000;
-        letter-spacing: 0;
-        }
+      .custom-announcement-bar{
+      padding: 0;
+      overflow: hidden;
+      background: #000;
+      letter-spacing: 0;
+      }
 
-    {% comment %} .bullet-truspilot-wrap svg{
-      min-width: 44px;
-    } {% endcomment %}
-    .bullet-truspilot-wrap {
-        display: flex;
-        align-items: center;
-        gap: 45px;
-    }
-    .jm-cluster[data-v-04f37a24]>*{
-      flex-wrap:nowrap;
-      border: none !important;
-    }
-    .jm-cluster[data-v-04f37a24]{
-      flex-wrap:nowrap !important;
-    }
-    .jdgm-trust-badge__ratings[data-v-04f37a24]{
-      flex-direction: row;
-    }
-        .custom-announcement-bar .non-slider .text-wrapper:first-child .icon-box {
-            display: none;
-        }
-        .custom-announcement-bar .page-width{
-        max-width: 100%;
-        padding: 0 20px;
-        }
-        .custom-announcement-bar .inner-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 50px;
-        animation: slider 35s linear infinite;
-        }
-        .custom-announcement-bar .rotate-box {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 50px;
-        }
-        .custom-announcement-bar .main-container {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 50px;
-        }
-        .custom-announcement-bar .text-wrapper {
-        width: max-content;
-        }
-      .custom-announcement-bar .inner-text {
-          color: #FFEFF0;
-          text-align: center;
-          font-size: 16px;
-          font-style: normal;
-          {% comment %} font-weight: 600; {% endcomment %}
-          line-height: 70%;
-          text-transform: uppercase;
-          font-family: 'BlinkerRegular';
+  {% comment %} .bullet-truspilot-wrap svg{
+    min-width: 44px;
+  } {% endcomment %}
+  .bullet-truspilot-wrap {
+      display: flex;
+      align-items: center;
+      gap: 45px;
+  }
+  .jm-cluster[data-v-04f37a24]>*{
+    flex-wrap:nowrap;
+    border: none !important;
+  }
+  .jm-cluster[data-v-04f37a24]{
+    flex-wrap:nowrap !important;
+  }
+  .jdgm-trust-badge__ratings[data-v-04f37a24]{
+    flex-direction: row;
+  }
+      .custom-announcement-bar .non-slider .text-wrapper:first-child .icon-box {
+          display: none;
       }
-      .icon-box {
-          display: flex;
+      .custom-announcement-bar .page-width{
+      max-width: 100%;
+      padding: 0 20px;
       }
-        .custom-announcement-bar .text-wrapper {
+      .custom-announcement-bar .inner-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      animation: slider 35s linear infinite;
+      }
+      .custom-announcement-bar .rotate-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      }
+      .custom-announcement-bar .main-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 50px;
+      }
+      .custom-announcement-bar .text-wrapper {
+      width: max-content;
+      }
+    .custom-announcement-bar .inner-text {
+        color: #FFEFF0;
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        {% comment %} font-weight: 600; {% endcomment %}
+        line-height: 70%;
+        text-transform: uppercase;
+        font-family: 'BlinkerRegular';
+    }
+    .icon-box {
         display: flex;
-        align-items: center;
-        gap: 50px;
-        }
-        .custom-announcement-bar .icon-box i{
-        color: {
-        {
-        section.settings.icon-color
-        }
-        }
-        ;
-        }
-        .custom-announcement-bar .icon-box i:before {
-        font-size: 1.6rem;
-        }
-        .custom-announcement-bar .icon-box img {
-        display: flex;
-        height: 29px;
-        width: 29px;
-        object-fit: contain;
-        }
-        .custom-announcement-bar .main-container.non-slider {
-        justify-content: center;
-        }
-        {% comment %} {% endcomment %} @keyframes slider {
-        0% {
-        transform: translateX(0);
-        }
-        100% {
-        transform: translateX(-50%);
-        }
-        }
-        @media(min-width: 990px) {
+    }
+      .custom-announcement-bar .text-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      }
+      .custom-announcement-bar .icon-box i{
+      color: {
+      {
+      section.settings.icon-color
+      }
+      }
+      ;
+      }
+      .custom-announcement-bar .icon-box i:before {
+      font-size: 1.6rem;
+      }
+      .custom-announcement-bar .icon-box img {
+      display: flex;
+      height: 29px;
+      width: 29px;
+      object-fit: contain;
+      }
+      .custom-announcement-bar .main-container.non-slider {
+      justify-content: center;
+      }
+      {% comment %} {% endcomment %} @keyframes slider {
+      0% {
+      transform: translateX(0);
+      }
+      100% {
+      transform: translateX(-50%);
+      }
+      }
+      @media(min-width:1200px) {
 
         .custom-announcement-bar.mobile {
           display: none;
         }
       }
-        @media(max-width: 989px) {
+      @media(max-width: 989px) {
       .trustpilot-widget {
         width: 100%;
       }
-  .custom-announcement-bar.mobile .trustpilot-widget{
-    width: 280px;
-  }
-        .custom-announcement-bar.desktop {
-          display: none;
-        }
-        .bullet-truspilot-wrap {
-          gap: unset;
-        }
+      .custom-announcement-bar.mobile .trustpilot-widget{
+        width: 280px;
       }
-        @media(max-width: 550px){
-        .custom-announcement-bar .inner-text {
-        font-size: 16px;
-        }
-        .custom-announcement-bar .icon-box i:before {
-        font-size: 1.5rem;
-        }
-        .custom-announcement-bar .inner-container {
-        gap: 0.5rem;
-        animation: slider 45s linear infinite;
-        }
-        .custom-announcement-bar .icon-box img {
-        height: 22px;
-        width: 22px;
-        }
-        .custom-announcement-bar .main-container {
-        gap: 5rem;
-        }
-        .custom-announcement-bar .rotate-box {
-        gap: 1rem;
-        }
-        .custom-announcement-bar .main-container.non-slider .rotate-box {
-        flex-direction: column;
-        gap: 7px;
-        }
-        .custom-announcement-bar .text-wrapper {
-        gap: 6px;
-        }
-        }
+      .custom-announcement-bar.desktop {
+        display: none;
+      }
+      .bullet-truspilot-wrap {
+        gap: unset;
+      }
+    }
+      @media(max-width: 550px){
+      .custom-announcement-bar .inner-text {
+      font-size: 16px;
+      }
+      .custom-announcement-bar .icon-box i:before {
+      font-size: 1.5rem;
+      }
+      .custom-announcement-bar .inner-container {
+      gap: 0.5rem;
+      animation: slider 45s linear infinite;
+      }
+      .custom-announcement-bar .icon-box img {
+      height: 22px;
+      width: 22px;
+      }
+      .custom-announcement-bar .main-container {
+      gap: 5rem;
+      }
+      .custom-announcement-bar .rotate-box {
+      gap: 1rem;
+      }
+      .custom-announcement-bar .main-container.non-slider .rotate-box {
+      flex-direction: column;
+      gap: 7px;
+      }
+      .custom-announcement-bar .text-wrapper {
+      gap: 6px;
+      }
+      }
 
-      .bullet-truspilot-wrap .trustpilot-widget{
-        margin-top: 4px;
-      }
+    .bullet-truspilot-wrap .trustpilot-widget{
+      margin-top: 4px;
+    }
+    .custom_announcement_sec{
+      position: fixed;
+      top: 71px;
+      z-index: 6 !important;
+      width: 100%;
+    }
+    @media (min-width: 1024px) and (max-width: 1279px) {
       .custom_announcement_sec{
-        position: fixed;
-        top: 71px;
-        z-index: 6 !important;
-        width: 100%;
+        top:65px;
       }
-      @media (min-width: 1024px) and (max-width: 1279px) {
-        .custom_announcement_sec{
-          top:65px;
-        }
-      }
+    }
 
-      @media (min-width: 768px) and (max-width: 1023px) {
-        .custom_announcement_sec{
-          top:50px;
-        }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .custom_announcement_sec{
+        top:50px;
       }
+    }
 
-      @media(max-width:767px){
-        .custom_announcement_sec{
-          top:64px;
-          position: unset;
-        }
+    @media(max-width:767px){
+      .custom_announcement_sec{
+        top:64px;
+        position: unset;
       }
+    }
 </style>
 <section class="custom-announcement-bar desktop" style="background-color: {{ section.settings.bar-color }}">
   <div class="page-width">
