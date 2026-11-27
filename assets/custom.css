@@ -1022,7 +1022,7 @@ details[open]:hover>.header__menu-item .icon-plus{
 }
 @media(max-width:1200px ){
 .list-menu--inline{
-  column-gap:12px;
+  column-gap:7px;
 }
 .list-menu__item span {
     /* font-size: 14px; */
