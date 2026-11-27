@@ -4752,7 +4752,7 @@ margin-bottom: 0 !important;
     justify-content:center; /*flex-start;*/
     align-items: flex-end;
 }
-@media(max-width: 989px){
+@media(max-width: 1200px){
   .jdgm-widget{
     display: flex !important;
     justify-content:flex-start;
